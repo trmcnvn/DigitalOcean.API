@@ -2,7 +2,7 @@
 
 Implementation of the DigitalOcean API for .NET.
 
-This package can be found on NuGet.
+![NuGet](http://i.imgur.com/M4DTYI4.png)
 
 ## Usage
 
