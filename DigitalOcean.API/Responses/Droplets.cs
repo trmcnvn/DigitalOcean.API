@@ -9,7 +9,7 @@ namespace DigitalOcean.API.Responses {
         public int region_id { get; set; }
         public bool backups_active { get; set; }
         public IList<object> backups { get; set; }
-        public IList<object> snapshots { get; set; } 
+        public IList<object> snapshots { get; set; }
         public string ip_address { get; set; }
         public string private_ip_address { get; set; }
         public bool locked { get; set; }

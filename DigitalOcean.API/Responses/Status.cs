@@ -1,6 +1,5 @@
 ﻿namespace DigitalOcean.API.Responses {
-    public class Event {
+    public class Status {
         public string status { get; set; }
-        public int event_id { get; set; }
     }
 }

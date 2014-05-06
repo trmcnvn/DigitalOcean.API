@@ -48,10 +48,22 @@
     <Compile Include="Exceptions\ApiException.cs" />
     <Compile Include="Helpers\RestSharpExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\DomainsClient.cs" />
     <Compile Include="Requests\DropletsClient.cs" />
+    <Compile Include="Requests\EventsClient.cs" />
+    <Compile Include="Requests\ImagesClient.cs" />
+    <Compile Include="Requests\RegionsClient.cs" />
     <Compile Include="Requests\Request.cs" />
+    <Compile Include="Requests\SizesClient.cs" />
+    <Compile Include="Requests\SshKeysClient.cs" />
+    <Compile Include="Responses\Domains.cs" />
     <Compile Include="Responses\Droplets.cs" />
-    <Compile Include="Responses\Event.cs" />
+    <Compile Include="Responses\Events.cs" />
+    <Compile Include="Responses\Images.cs" />
+    <Compile Include="Responses\Regions.cs" />
+    <Compile Include="Responses\Sizes.cs" />
+    <Compile Include="Responses\SshKeys.cs" />
+    <Compile Include="Responses\Status.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

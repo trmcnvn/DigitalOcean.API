@@ -7,30 +7,26 @@ using RestSharp.Extensions;
 
 namespace DigitalOcean.API.Helpers {
     public static class RestSharpExtensions {
-        public static Task<IRestResponse<T>> ExecuteTask<T>(this IRestClient client, IRestRequest request)
+        public static async Task<IRestResponse<T>> ExecuteTask<T>(this IRestClient client, IRestRequest request)
             where T : new() {
-            var ret = client.ExecuteTaskAsync<T>(request);
+            var ret = await client.ExecuteTaskAsync<T>(request);
             return ret.ThrowIfException();
         }
 
-        private static Task<T> ThrowIfException<T>(this Task<T> task) where T : IRestResponse {
-            return task.ContinueWith(x => {
-                var res = x.Result;
+        private static IRestResponse<T> ThrowIfException<T>(this IRestResponse<T> response) where T : new() {
+            if (response.ErrorException != null) {
+                throw new ApplicationException("Error retrieving response", response.ErrorException);
+            }
 
-                if (res.ErrorException != null) {
-                    throw new ApplicationException("Unknown retrieving response", res.ErrorException);
-                }
+            if (response.ResponseStatus != ResponseStatus.Completed) {
+                throw response.ResponseStatus.ToWebException();
+            }
 
-                if (res.ResponseStatus != ResponseStatus.Completed) {
-                    throw res.ResponseStatus.ToWebException();
-                }
+            if (response.StatusCode != HttpStatusCode.OK) {
+                throw new ApiException(response.StatusCode);
+            }
 
-                if (res.StatusCode != HttpStatusCode.OK) {
-                    throw new ApiException(res.StatusCode);
-                }
-
-                return res;
-            });
+            return response;
         }
     }
 }
