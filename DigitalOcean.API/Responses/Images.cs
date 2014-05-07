@@ -11,7 +11,7 @@ namespace DigitalOcean.API.Responses {
 
     public class Images {
         public string status { get; set; }
-        public IList<ImageInfo> images { get; set; }
+        public List<ImageInfo> images { get; set; }
     }
 
     public class Image {

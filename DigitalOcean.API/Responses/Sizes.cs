@@ -9,6 +9,6 @@ namespace DigitalOcean.API.Responses {
 
     public class Sizes {
         public string status { get; set; }
-        public IList<SizeInfo> sizes { get; set; }
+        public List<SizeInfo> sizes { get; set; }
     }
 }

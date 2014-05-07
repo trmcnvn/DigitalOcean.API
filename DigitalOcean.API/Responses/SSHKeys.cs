@@ -9,7 +9,7 @@ namespace DigitalOcean.API.Responses {
 
     public class SshKeys {
         public string status { get; set; }
-        public IList<SshInfo> ssh_keys { get; set; }
+        public List<SshInfo> ssh_keys { get; set; }
     }
 
     public class SshKey {

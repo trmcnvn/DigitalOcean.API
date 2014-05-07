@@ -9,6 +9,6 @@ namespace DigitalOcean.API.Responses {
 
     public class Regions {
         public string status { get; set; }
-        public IList<RegionInfo> regions { get; set; }
+        public List<RegionInfo> regions { get; set; }
     }
 }

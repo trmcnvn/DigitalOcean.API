@@ -12,7 +12,7 @@ namespace DigitalOcean.API.Responses {
 
     public class Domains {
         public string status { get; set; }
-        public IList<DomainInfo> domains { get; set; }
+        public List<DomainInfo> domains { get; set; }
     }
 
     public class Domain {
@@ -43,7 +43,7 @@ namespace DigitalOcean.API.Responses {
 
     public class DomainRecords {
         public string status { get; set; }
-        public IList<DomainRecordInfo> records { get; set; }
+        public List<DomainRecordInfo> records { get; set; }
     }
 
     public class DomainRecord {
