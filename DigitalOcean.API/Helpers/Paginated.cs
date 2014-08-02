@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using DigitalOcean.API.Clients;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 using RestSharp.Deserializers;
 
-namespace DigitalOcean.API.Extensions {
+namespace DigitalOcean.API.Helpers {
     public class Paginated {
-        private readonly Connection _connection;
+        private readonly IConnection _connection;
 
-        public Paginated(Connection connection) {
+        public Paginated(IConnection connection) {
             _connection = connection;
         }
 

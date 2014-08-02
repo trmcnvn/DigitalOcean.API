@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Extensions;
+using DigitalOcean.API.Helpers;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
 namespace DigitalOcean.API.Clients {
     public class ActionsClient : Paginated, IActionsClient {
-        private readonly Connection _connection;
+        private readonly IConnection _connection;
 
-        public ActionsClient(Connection connection) : base(connection) {
+        public ActionsClient(IConnection connection) : base(connection) {
             _connection = connection;
         }
 

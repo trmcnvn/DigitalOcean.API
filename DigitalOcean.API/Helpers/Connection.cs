@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using RestSharp;
 
-namespace DigitalOcean.API.Clients {
-    public class Connection {
+namespace DigitalOcean.API.Helpers {
+    public class Connection : IConnection {
         public IRestClient Client { get; private set; }
+        public IRateLimit Rates { get; private set; }
 
         public Connection(IRestClient client) {
             Client = client;
@@ -13,27 +14,30 @@ namespace DigitalOcean.API.Clients {
 
         public async Task<T> GetRequest<T>(string endpoint, IList<Parameter> parameters, string expectedRoot = null)
             where T : new() {
-            var request = new RestRequest(endpoint);
-            if (parameters != null) {
-                foreach (var parameter in parameters) {
-                    request.AddParameter(parameter);
-                }
-            }
+            var request = BuildRequest(endpoint, parameters);
             request.RootElement = expectedRoot;
 
             return await Client.ExecuteTask<T>(request).ConfigureAwait(false);
         }
 
         public async Task<IRestResponse> GetRequestRaw(string endpoint, IList<Parameter> parameters) {
-            var request = new RestRequest(endpoint);
+            var request = BuildRequest(endpoint, parameters);
+            return await Client.ExecuteTaskRaw(request).ConfigureAwait(false);
+        }
 
-            if (parameters != null) {
-                foreach (var parameter in parameters) {
-                    request.AddParameter(parameter);
-                }
+        private IRestRequest BuildRequest(string endpoint, IEnumerable<Parameter> parameters) {
+            var request = new RestRequest(endpoint) {
+                OnBeforeDeserialization = r => { Rates = new RateLimit(r.Headers); }
+            };
+
+            if (parameters == null) {
+                return request;
+            }
+            foreach (var parameter in parameters) {
+                request.AddParameter(parameter);
             }
 
-            return await Client.ExecuteTaskAsync(request).ConfigureAwait(false);
+            return request;
         }
     }
 }

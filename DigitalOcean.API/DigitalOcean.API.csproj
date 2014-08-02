@@ -52,6 +52,8 @@
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
+    <Compile Include="Helpers\IConnection.cs" />
+    <Compile Include="Helpers\IRateLimit.cs" />
     <Compile Include="Helpers\Paginated.cs" />
     <Compile Include="Helpers\RateLimit.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />

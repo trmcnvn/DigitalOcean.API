@@ -61,6 +61,7 @@
     <Compile Include="Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ActionsTest.cs" />
+    <Compile Include="RateLimitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
