@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\ActionsClient.cs" />
-    <Compile Include="Clients\Connection.cs" />
+    <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="Helpers\RateLimit.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />
     <Compile Include="Models\Responses\Action.cs" />
+    <Compile Include="Models\Responses\Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

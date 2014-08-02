@@ -1,5 +1,4 @@
 ﻿using System;
-using RestSharp.Deserializers;
 
 namespace DigitalOcean.API.Models.Responses {
     /// <summary>
@@ -36,7 +35,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// A unique identifier for the resource that the action is associated with.
         /// </summary>
-        public int ResourceId { get; set; }
+        public int? ResourceId { get; set; }
 
         /// <summary>
         /// The type of resource that the action is associated with.

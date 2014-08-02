@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using DigitalOcean.API.Extensions;
+using DigitalOcean.API.Models.Responses;
 using RestSharp;
-using Action = DigitalOcean.API.Models.Responses.Action;
 
 namespace DigitalOcean.API.Clients {
-    public class ActionsClient : Connection, IActionsClient {
-        public ActionsClient(IRestClient client) : base(client) {}
+    public class ActionsClient : Paginated, IActionsClient {
+        private readonly Connection _connection;
+
+        public ActionsClient(Connection connection) : base(connection) {
+            _connection = connection;
+        }
 
         #region IActionsClient Members
 
@@ -14,14 +18,17 @@ namespace DigitalOcean.API.Clients {
         /// Retrieve all actions that have been executed on the current account.
         /// </summary>
         public Task<IReadOnlyList<Action>> GetAll() {
-            throw new NotImplementedException();
+            return GetPaginated<Action>("actions", null, "actions");
         }
 
         /// <summary>
         /// Retrieve an existing Action
         /// </summary>
         public Task<Action> Get(int actionId) {
-            throw new NotImplementedException();
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "id", Value = actionId, Type = ParameterType.UrlSegment }
+            };
+            return _connection.GetRequest<Action>("actions/{id}", parameters, "action");
         }
 
         #endregion

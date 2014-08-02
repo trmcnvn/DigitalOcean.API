@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Net;
 using System.Threading.Tasks;
 using DigitalOcean.API.Exceptions;
 using RestSharp;
+using RestSharp.Deserializers;
 using RestSharp.Extensions;
 
 namespace DigitalOcean.API.Extensions {
     public static class RestSharpExtensions {
-        public static async Task<IRestResponse<T>> ExecuteTask<T>(this IRestClient client, IRestRequest request)
+        public static async Task<T> ExecuteTask<T>(this IRestClient client, IRestRequest request)
             where T : new() {
-            var ret = await client.ExecuteTaskAsync<T>(request).ConfigureAwait(false);
-            return ret.ThrowIfException();
+            var ret = await client.ExecuteTaskAsync(request).ConfigureAwait(false);
+            return ret.ThrowIfException<T>();
         }
 
-        private static IRestResponse<T> ThrowIfException<T>(this IRestResponse<T> response) where T : new() {
+        private static T ThrowIfException<T>(this IRestResponse response) where T : new() {
             if (response.ErrorException != null) {
                 throw new ApplicationException("There was an an exception thrown during the request.",
                     response.ErrorException);
@@ -23,11 +23,15 @@ namespace DigitalOcean.API.Extensions {
                 throw response.ResponseStatus.ToWebException();
             }
 
-            if (response.StatusCode >= HttpStatusCode.OK && response.StatusCode <= HttpStatusCode.PartialContent) {
+            if ((int)response.StatusCode >= 400) {
                 throw new ApiException(response.StatusCode);
             }
 
-            return response;
+            var deserialize = new JsonDeserializer {
+                RootElement = response.Request.RootElement,
+                DateFormat = response.Request.DateFormat
+            };
+            return deserialize.Deserialize<T>(response);
         }
     }
 }
