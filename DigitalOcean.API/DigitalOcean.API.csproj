@@ -61,7 +61,9 @@
     <Compile Include="Clients\IDropletActionsClient.cs" />
     <Compile Include="Clients\IDropletsClient.cs" />
     <Compile Include="Clients\IImageActionsClient.cs" />
+    <Compile Include="Clients\IImagesClient.cs" />
     <Compile Include="Clients\ImageActionsClient.cs" />
+    <Compile Include="Clients\ImagesClient.cs" />
     <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Models\Requests\Domain.cs" />
     <Compile Include="Models\Requests\DomainRecord.cs" />
     <Compile Include="Models\Requests\Droplet.cs" />
+    <Compile Include="Models\Requests\Image.cs" />
     <Compile Include="Models\Responses\Action.cs" />
     <Compile Include="Models\Responses\Domain.cs" />
     <Compile Include="Models\Responses\DomainRecord.cs" />

@@ -9,6 +9,7 @@ namespace DigitalOcean.API {
         IDropletActionsClient DropletActions { get; }
         IDropletsClient Droplets { get; }
         IImageActionsClient ImageActions { get; }
+        IImagesClient Images { get; }
 
         IRateLimit Rates { get; }
     }
