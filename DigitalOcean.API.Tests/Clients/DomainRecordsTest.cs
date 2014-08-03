@@ -74,34 +74,5 @@ namespace DigitalOcean.API.Tests.Clients {
             factory.Received().ExecuteRequest<DomainRecord>(
                 "domains/{name}/records/{id}", parameters, data, "domain_record", Method.PUT);
         }
-
-        [Fact]
-        public async Task CorrectResponseForGet() {
-            var allIds = await Factory.GetClient().DomainRecords.GetAll("vevix.net");
-            Assert.NotEmpty(allIds);
-            Assert.IsType<DomainRecord>(allIds[0]);
-            Assert.Equal("@", allIds[0].Name);
-
-            var result = await Factory.GetClient().DomainRecords.Get("vevix.net", allIds[0].Id);
-            Assert.Equal(allIds[0].Id, result.Id);
-        }
-
-        [Fact]
-        public async Task CorrectResponseForCreateUpdateDelete() {
-            var body = new Models.Requests.DomainRecord {
-                Type = "CNAME",
-                Name = "testing",
-                Data = "testing.example.com."
-            };
-            var create = await Factory.GetClient().DomainRecords.Create("vevix.net", body);
-            Assert.Equal("testing", create.Name);
-            Assert.Equal("CNAME", create.Type);
-
-            body.Name = "updated_testing";
-            var update = await Factory.GetClient().DomainRecords.Update("vevix.net", create.Id, body);
-            Assert.Equal("updated_testing", update.Name);
-
-            await Factory.GetClient().DomainRecords.Delete("vevix.net", update.Id);
-        }
     }
 }

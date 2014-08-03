@@ -50,28 +50,5 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "vevix.net");
             factory.Received().ExecuteRaw("domains/{name}", parameters, Method.DELETE);
         }
-
-        [Fact]
-        public async Task CorrectResponseForGet() {
-            var allIds = await Factory.GetClient().Domains.GetAll();
-            Assert.NotEmpty(allIds);
-            Assert.IsType<Domain>(allIds[0]);
-            Assert.Equal("vevix.net", allIds[0].Name);
-
-            var result = await Factory.GetClient().Domains.Get("vevix.net");
-            Assert.Equal(allIds[0].Name, result.Name);
-        }
-
-        [Fact]
-        public async Task CorrectResponseForCreateDelete() {
-            var body = new Models.Requests.Domain {
-                Name = "testing.vevix.net",
-                IpAddress = "10.10.10.10"
-            };
-            var create = await Factory.GetClient().Domains.Create(body);
-            Assert.Equal("testing.vevix.net", create.Name);
-
-            await Factory.GetClient().Domains.Delete("testing.vevix.net");
-        }
     }
 }

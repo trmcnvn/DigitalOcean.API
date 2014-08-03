@@ -10,6 +10,7 @@ namespace DigitalOcean.API {
         public IActionsClient Actions { get; private set; }
         public IDomainRecordsClient DomainRecords { get; private set; }
         public IDomainsClient Domains { get; private set; }
+        public IDropletActionsClient DropletActions { get; private set; }
 
         public IRateLimit Rates {
             get { return _connection.Rates; }
@@ -26,6 +27,7 @@ namespace DigitalOcean.API {
             Actions = new ActionsClient(_connection);
             DomainRecords = new DomainRecordsClient(_connection);
             Domains = new DomainsClient(_connection);
+            DropletActions = new DropletActionsClient(_connection);
         }
     }
 }

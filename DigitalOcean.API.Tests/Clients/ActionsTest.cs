@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -27,17 +26,6 @@ namespace DigitalOcean.API.Tests.Clients {
 
             actionClient.GetAll();
             factory.Received().GetPaginated<Action>("actions", null, "actions");
-        }
-
-        [Fact]
-        public async Task CorrectResponse() {
-            var allIds = await Factory.GetClient().Actions.GetAll();
-            Assert.NotEmpty(allIds);
-            Assert.IsType<Action>(allIds[0]);
-            Assert.Equal("completed", allIds[0].Status);
-
-            var result = await Factory.GetClient().Actions.Get(allIds[0].Id);
-            Assert.Equal(allIds[0].Id, result.Id);
         }
     }
 }
