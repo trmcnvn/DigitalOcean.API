@@ -42,9 +42,7 @@ var droplet = await client.Droplets.Create(newDroplet);
 
 ## Documentation
 
-See the [wiki](https://github.com/vevix/DigitalOcean.API/wiki) for details on all methods.
-
-Also check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-depth details.
+Check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-depth details.
 
 ## License
 
