@@ -11,6 +11,8 @@ namespace DigitalOcean.API {
         IImageActionsClient ImageActions { get; }
         IImagesClient Images { get; }
         IKeysClient Keys { get; }
+        IRegionsClient Regions { get; }
+        ISizesClient Sizes { get; }
 
         IRateLimit Rates { get; }
     }

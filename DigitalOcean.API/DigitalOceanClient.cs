@@ -23,6 +23,8 @@ namespace DigitalOcean.API {
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
             Keys = new KeysClient(_connection);
+            Regions = new RegionsClient(_connection);
+            Sizes = new SizesClient(_connection);
         }
 
         #region IDigitalOceanClient Members
@@ -39,6 +41,8 @@ namespace DigitalOcean.API {
         public IImageActionsClient ImageActions { get; private set; }
         public IImagesClient Images { get; private set; }
         public IKeysClient Keys { get; private set; }
+        public IRegionsClient Regions { get; private set; }
+        public ISizesClient Sizes { get; private set; }
 
         #endregion
     }

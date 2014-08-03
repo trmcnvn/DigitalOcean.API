@@ -65,7 +65,11 @@
     <Compile Include="Clients\IKeysClient.cs" />
     <Compile Include="Clients\ImageActionsClient.cs" />
     <Compile Include="Clients\ImagesClient.cs" />
+    <Compile Include="Clients\IRegionsClient.cs" />
+    <Compile Include="Clients\ISizesClient.cs" />
     <Compile Include="Clients\KeysClient.cs" />
+    <Compile Include="Clients\RegionsClient.cs" />
+    <Compile Include="Clients\SizesClient.cs" />
     <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
