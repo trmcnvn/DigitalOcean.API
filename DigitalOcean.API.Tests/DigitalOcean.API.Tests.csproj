@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.7.2.0\lib\NET45\NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
@@ -60,9 +63,9 @@
   <ItemGroup>
     <Compile Include="Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ActionsTest.cs" />
-    <Compile Include="RateLimitTest.cs" />
-    <Compile Include="DomainRecordsTest.cs" />
+    <Compile Include="Clients\ActionsTest.cs" />
+    <Compile Include="Helpers\RateLimitTest.cs" />
+    <Compile Include="Clients\DomainRecordsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -73,6 +76,7 @@
       <Name>DigitalOcean.API</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

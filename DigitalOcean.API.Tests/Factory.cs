@@ -1,7 +1,9 @@
-﻿namespace DigitalOcean.API.Tests {
-    public class Factory {
+﻿using System;
+
+namespace DigitalOcean.API.Tests {
+    public static class Factory {
         public static DigitalOceanClient GetClient() {
-            return new DigitalOceanClient("__TOKEN__");
+            return new DigitalOceanClient(Environment.GetEnvironmentVariable("DIGITALOCEAN_API_KEY"));
         }
     }
 }

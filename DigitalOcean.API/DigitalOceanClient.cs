@@ -8,7 +8,7 @@ namespace DigitalOcean.API {
         private readonly IConnection _connection;
 
         public IActionsClient Actions { get; private set; }
-        public IDomainRecords DomainRecords { get; private set; }
+        public IDomainRecordsClient DomainRecords { get; private set; }
 
         public IRateLimit Rates {
             get { return _connection.Rates; }
@@ -23,7 +23,7 @@ namespace DigitalOcean.API {
             _connection = new Connection(client);
 
             Actions = new ActionsClient(_connection);
-            DomainRecords = new DomainRecords(_connection);
+            DomainRecords = new DomainRecordsClient(_connection);
         }
     }
 }

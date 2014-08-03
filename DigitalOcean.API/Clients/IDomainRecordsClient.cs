@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
 namespace DigitalOcean.API.Clients {
-    public interface IDomainRecords {
+    public interface IDomainRecordsClient {
         /// <summary>
         /// Retrieve all records configured for a domain
         /// </summary>

@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
 
-namespace DigitalOcean.API.Tests {
+namespace DigitalOcean.API.Tests.Helpers {
     public class RateLimitTest {
         [Fact]
-        public async Task ParsesRates() {
+        public async Task CorrectResponse() {
             var client = Factory.GetClient();
             await client.Actions.GetAll();
 

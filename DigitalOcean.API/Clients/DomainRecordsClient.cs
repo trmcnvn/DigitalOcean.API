@@ -5,10 +5,10 @@ using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
 namespace DigitalOcean.API.Clients {
-    public class DomainRecords : Paginated, IDomainRecords {
+    public class DomainRecordsClient : Paginated, IDomainRecordsClient {
         private readonly IConnection _connection;
 
-        public DomainRecords(IConnection connection) : base(connection) {
+        public DomainRecordsClient(IConnection connection) : base(connection) {
             _connection = connection;
         }
 

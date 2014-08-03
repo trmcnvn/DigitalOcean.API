@@ -52,8 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\ActionsClient.cs" />
-    <Compile Include="Clients\DomainRecords.cs" />
-    <Compile Include="Clients\IDomainRecords.cs" />
+    <Compile Include="Clients\DomainRecordsClient.cs" />
+    <Compile Include="Clients\IDomainRecordsClient.cs" />
     <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
