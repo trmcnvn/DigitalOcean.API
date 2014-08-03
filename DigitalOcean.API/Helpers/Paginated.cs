@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Helpers {
         public async Task<IReadOnlyList<T>> GetPaginated<T>(string endpoint, IList<Parameter> parameters,
             string expectedRoot = null)
             where T : new() {
-            var first = await _connection.GetRequestRaw(endpoint, parameters).ConfigureAwait(false);
+            var first = await _connection.ExecuteRaw(endpoint, parameters).ConfigureAwait(false);
             return await ParseData<T>(first, expectedRoot).ConfigureAwait(false);
         }
 
@@ -35,9 +35,9 @@ namespace DigitalOcean.API.Helpers {
 
             // loop until we are finished
             var allItems = new List<T>(data);
-            while (!String.IsNullOrWhiteSpace(page.Pages.Next)) {
+            while (page != null && page.Pages != null && !String.IsNullOrWhiteSpace(page.Pages.Next)) {
                 var endpoint = page.Pages.Next.Replace(DigitalOceanClient.DigitalOceanApiUrl, "");
-                var iter = await _connection.GetRequestRaw(endpoint, null).ConfigureAwait(false);
+                var iter = await _connection.ExecuteRaw(endpoint, null).ConfigureAwait(false);
 
                 deserialize.RootElement = expectedRoot;
                 allItems.AddRange(deserialize.Deserialize<List<T>>(iter));

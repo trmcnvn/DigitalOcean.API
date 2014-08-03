@@ -8,6 +8,9 @@ namespace DigitalOcean.API.Helpers {
         IRateLimit Rates { get; }
 
         Task<T> GetRequest<T>(string endpoint, IList<Parameter> parameters, string expectedRoot = null) where T : new();
-        Task<IRestResponse> GetRequestRaw(string endpoint, IList<Parameter> parameters);
+        Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters, Method method = Method.GET);
+
+        Task<T> PostRequest<T>(string endpoint, IList<Parameter> parameters, object data, string expectedRoot = null,
+            Method method = Method.POST) where T : new();
     }
 }

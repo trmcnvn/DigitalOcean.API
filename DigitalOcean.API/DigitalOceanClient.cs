@@ -8,6 +8,7 @@ namespace DigitalOcean.API {
         private readonly IConnection _connection;
 
         public IActionsClient Actions { get; private set; }
+        public IDomainRecords DomainRecords { get; private set; }
 
         public IRateLimit Rates {
             get { return _connection.Rates; }
@@ -20,7 +21,9 @@ namespace DigitalOcean.API {
             client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
 
             _connection = new Connection(client);
+
             Actions = new ActionsClient(_connection);
+            DomainRecords = new DomainRecords(_connection);
         }
     }
 }

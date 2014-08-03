@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
@@ -48,16 +52,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\ActionsClient.cs" />
+    <Compile Include="Clients\DomainRecords.cs" />
+    <Compile Include="Clients\IDomainRecords.cs" />
     <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
     <Compile Include="Helpers\IConnection.cs" />
     <Compile Include="Helpers\IRateLimit.cs" />
+    <Compile Include="Helpers\JsonNetSerializer.cs" />
     <Compile Include="Helpers\Paginated.cs" />
     <Compile Include="Helpers\RateLimit.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />
+    <Compile Include="Models\Requests\DomainRecord.cs" />
     <Compile Include="Models\Responses\Action.cs" />
+    <Compile Include="Models\Responses\DomainRecord.cs" />
     <Compile Include="Models\Responses\Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
