@@ -1,17 +1,24 @@
 ## DigitalOcean API
+[![Build status](https://ci.appveyor.com/api/projects/status/1pg7navn073edwdd)](https://ci.appveyor.com/project/vevix/digitalocean-api)
 
-Implementation of the DigitalOcean API for .NET.
+Implementation of the DigitalOcean API (v2) for .NET.
 
-![NuGet](http://i.imgur.com/M4DTYI4.png)
+[![NuGet](http://i.imgur.com/M4DTYI4.png)](https://www.nuget.org/packages/DigitalOcean.API)
 
 ## Usage
 
 ```csharp
-var client = new DigitalOceanClient("client_id", "api_key");
+var client = new DigitalOceanClient("api_token");
 
-var droplets = await client.Droplets.GetDroplets();
-var event = await client.Events.GetEvent(9001);
+var droplets = await client.Droplets.GetAll();
+// => IReadOnlyList<Droplet>
 ```
+
+## Documentation
+
+See the [wiki](https://github.com/vevix/DigitalOcean.API/wiki) for details on all methods.
+
+Also check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-depth details.
 
 ## License
 
