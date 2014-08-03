@@ -7,7 +7,7 @@ using RestSharp;
 using Xunit;
 
 namespace DigitalOcean.API.Tests.Clients {
-    public class ActionsTest {
+    public class ActionsClientTest {
         [Fact]
         public void CorrectRequestForGet() {
             var factory = Substitute.For<IConnection>();

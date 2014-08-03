@@ -55,9 +55,11 @@
     <Compile Include="Clients\DomainRecordsClient.cs" />
     <Compile Include="Clients\DomainsClient.cs" />
     <Compile Include="Clients\DropletActionsClient.cs" />
+    <Compile Include="Clients\DropletsClient.cs" />
     <Compile Include="Clients\IDomainRecordsClient.cs" />
     <Compile Include="Clients\IDomainsClient.cs" />
     <Compile Include="Clients\IDropletActionsClient.cs" />
+    <Compile Include="Clients\IDropletsClient.cs" />
     <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
@@ -70,10 +72,17 @@
     <Compile Include="Models\Requests\Action.cs" />
     <Compile Include="Models\Requests\Domain.cs" />
     <Compile Include="Models\Requests\DomainRecord.cs" />
+    <Compile Include="Models\Requests\Droplet.cs" />
     <Compile Include="Models\Responses\Action.cs" />
     <Compile Include="Models\Responses\Domain.cs" />
     <Compile Include="Models\Responses\DomainRecord.cs" />
+    <Compile Include="Models\Responses\Droplet.cs" />
+    <Compile Include="Models\Responses\Image.cs" />
+    <Compile Include="Models\Responses\Kernel.cs" />
+    <Compile Include="Models\Responses\Network.cs" />
     <Compile Include="Models\Responses\Pagination.cs" />
+    <Compile Include="Models\Responses\Region.cs" />
+    <Compile Include="Models\Responses\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

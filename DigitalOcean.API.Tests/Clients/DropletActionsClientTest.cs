@@ -8,7 +8,7 @@ using Xunit;
 using Action = DigitalOcean.API.Models.Requests.Action;
 
 namespace DigitalOcean.API.Tests.Clients {
-    public class DropletActionsTest {
+    public class DropletActionsClientTest {
         [Fact]
         public void CorrectRequestForAction() {
             var factory = Substitute.For<IConnection>();
