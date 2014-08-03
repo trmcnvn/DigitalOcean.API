@@ -3,19 +3,9 @@ using DigitalOcean.API.Http;
 using RestSharp;
 
 namespace DigitalOcean.API {
-    public class DigitalOceanClient {
+    public class DigitalOceanClient : IDigitalOceanClient {
         public static readonly string DigitalOceanApiUrl = "https://api.digitalocean.com/v2/";
         private readonly IConnection _connection;
-
-        public IActionsClient Actions { get; private set; }
-        public IDomainRecordsClient DomainRecords { get; private set; }
-        public IDomainsClient Domains { get; private set; }
-        public IDropletActionsClient DropletActions { get; private set; }
-        public IDropletsClient Droplets { get; private set; }
-
-        public IRateLimit Rates {
-            get { return _connection.Rates; }
-        }
 
         public DigitalOceanClient(string token) {
             var client = new RestClient(DigitalOceanApiUrl) {
@@ -30,6 +20,22 @@ namespace DigitalOcean.API {
             Domains = new DomainsClient(_connection);
             DropletActions = new DropletActionsClient(_connection);
             Droplets = new DropletsClient(_connection);
+            ImageActions = new ImageActionsClient(_connection);
         }
+
+        #region IDigitalOceanClient Members
+
+        public IRateLimit Rates {
+            get { return _connection.Rates; }
+        }
+
+        public IActionsClient Actions { get; private set; }
+        public IDomainRecordsClient DomainRecords { get; private set; }
+        public IDomainsClient Domains { get; private set; }
+        public IDropletActionsClient DropletActions { get; private set; }
+        public IDropletsClient Droplets { get; private set; }
+        public IImageActionsClient ImageActions { get; private set; }
+
+        #endregion
     }
 }

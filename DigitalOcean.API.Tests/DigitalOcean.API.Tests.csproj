@@ -64,6 +64,7 @@
     <Compile Include="Clients\DomainsClientTest.cs" />
     <Compile Include="Clients\DropletActionsClientTest.cs" />
     <Compile Include="Clients\DropletsClientTest.cs" />
+    <Compile Include="Clients\ImageActionsClientTest.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clients\ActionsClientTest.cs" />

@@ -60,6 +60,8 @@
     <Compile Include="Clients\IDomainsClient.cs" />
     <Compile Include="Clients\IDropletActionsClient.cs" />
     <Compile Include="Clients\IDropletsClient.cs" />
+    <Compile Include="Clients\IImageActionsClient.cs" />
+    <Compile Include="Clients\ImageActionsClient.cs" />
     <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Helpers\JsonNetSerializer.cs" />
     <Compile Include="Http\RateLimit.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />
+    <Compile Include="IDigitalOceanClient.cs" />
     <Compile Include="Models\Requests\Action.cs" />
     <Compile Include="Models\Requests\Domain.cs" />
     <Compile Include="Models\Requests\DomainRecord.cs" />

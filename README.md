@@ -5,13 +5,39 @@ Implementation of the DigitalOcean API (v2) for .NET.
 
 [![NuGet](http://i.imgur.com/M4DTYI4.png)](https://www.nuget.org/packages/DigitalOcean.API)
 
-## Usage
+## Usage Examples
 
 ```csharp
 var client = new DigitalOceanClient("api_token");
+```
 
+You can generate your API token from your [DigitalOcean Control Panel](https://cloud.digitalocean.com/settings/tokens/new)
+
+```csharp
+// Retrieving all Droplets
 var droplets = await client.Droplets.GetAll();
 // => IReadOnlyList<Droplet>
+```
+
+```csharp
+// Retrieving all Domain Records
+var records = await client.DomainRecords.GetAll();
+// => IReadOnlyList<DomainRecord>
+```
+
+```csharp
+// Rebooting a Droplet
+var action = await client.DropletActions.Reboot(9001);
+// => Action
+```
+
+```csharp
+// Creating a new Droplet
+var newDroplet = new Droplet {
+  // ...
+};
+var droplet = await client.Droplets.Create(newDroplet);
+// => Droplet
 ```
 
 ## Documentation

@@ -48,5 +48,11 @@ namespace DigitalOcean.API.Models.Requests {
         /// </remarks>
         [JsonProperty("kernel")]
         public int KernelId { get; set; }
+
+        /// <summary>
+        /// The region slug that represents the region target.
+        /// </summary>
+        [JsonProperty("region")]
+        public string RegionSlug { get; set; }
     }
 }
