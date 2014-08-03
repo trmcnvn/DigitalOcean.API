@@ -1,17 +1,48 @@
 ## DigitalOcean API
+[![Build status](https://ci.appveyor.com/api/projects/status/1pg7navn073edwdd)](https://ci.appveyor.com/project/vevix/digitalocean-api)
 
-Implementation of the DigitalOcean API for .NET.
+Implementation of the DigitalOcean API (v2) for .NET.
 
-![NuGet](http://i.imgur.com/M4DTYI4.png)
+[![NuGet](http://i.imgur.com/M4DTYI4.png)](https://www.nuget.org/packages/DigitalOcean.API)
 
-## Usage
+## Usage Examples
 
 ```csharp
-var client = new DigitalOceanClient("client_id", "api_key");
-
-var droplets = await client.Droplets.GetDroplets();
-var event = await client.Events.GetEvent(9001);
+var client = new DigitalOceanClient("api_token");
 ```
+
+You can generate your API token from your [DigitalOcean Control Panel](https://cloud.digitalocean.com/settings/tokens/new)
+
+```csharp
+// Retrieving all Droplets
+var droplets = await client.Droplets.GetAll();
+// => IReadOnlyList<Droplet>
+```
+
+```csharp
+// Retrieving all Domain Records
+var records = await client.DomainRecords.GetAll();
+// => IReadOnlyList<DomainRecord>
+```
+
+```csharp
+// Rebooting a Droplet
+var action = await client.DropletActions.Reboot(9001);
+// => Action
+```
+
+```csharp
+// Creating a new Droplet
+var newDroplet = new Droplet {
+  // ...
+};
+var droplet = await client.Droplets.Create(newDroplet);
+// => Droplet
+```
+
+## Documentation
+
+Check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-depth details.
 
 ## License
 

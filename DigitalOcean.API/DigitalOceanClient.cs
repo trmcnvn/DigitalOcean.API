@@ -1,30 +1,49 @@
-﻿using DigitalOcean.API.Requests;
+﻿using DigitalOcean.API.Clients;
+using DigitalOcean.API.Http;
 using RestSharp;
 
 namespace DigitalOcean.API {
-    public class DigitalOceanClient {
-        public IDropletsClient Droplets { get; private set; }
-        public IRegionsClient Regions { get; private set; }
-        public IImagesClient Images { get; private set; }
-        public ISshKeysClient SshKeys { get; private set; }
-        public ISizesClient Sizes { get; private set; }
-        public IDomainsClient Domains { get; private set; }
-        public IEventsClient Events { get; private set; }
+    public class DigitalOceanClient : IDigitalOceanClient {
+        public static readonly string DigitalOceanApiUrl = "https://api.digitalocean.com/v2/";
+        private readonly IConnection _connection;
 
-        public DigitalOceanClient(string clientId, string apiKey) {
-            IRestClient restClient = new RestClient("https://api.digitalocean.com") {
+        public DigitalOceanClient(string token) {
+            var client = new RestClient(DigitalOceanApiUrl) {
                 UserAgent = "digitalocean-api-dotnet"
             };
-            restClient.AddDefaultParameter("client_id", clientId);
-            restClient.AddDefaultParameter("api_key", apiKey);
+            client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
 
-            Droplets = new DropletsClient(restClient);
-            Regions = new RegionsClient(restClient);
-            Images = new ImagesClient(restClient);
-            SshKeys = new SshKeysClient(restClient);
-            Sizes = new SizesClient(restClient);
-            Domains = new DomainsClient(restClient);
-            Events = new EventsClient(restClient);
+            _connection = new Connection(client);
+
+            Actions = new ActionsClient(_connection);
+            DomainRecords = new DomainRecordsClient(_connection);
+            Domains = new DomainsClient(_connection);
+            DropletActions = new DropletActionsClient(_connection);
+            Droplets = new DropletsClient(_connection);
+            ImageActions = new ImageActionsClient(_connection);
+            Images = new ImagesClient(_connection);
+            Keys = new KeysClient(_connection);
+            Regions = new RegionsClient(_connection);
+            Sizes = new SizesClient(_connection);
         }
+
+        #region IDigitalOceanClient Members
+
+        public IRateLimit Rates {
+            get { return _connection.Rates; }
+        }
+
+        public IActionsClient Actions { get; private set; }
+        public IDomainRecordsClient DomainRecords { get; private set; }
+        public IDomainsClient Domains { get; private set; }
+        public IDropletActionsClient DropletActions { get; private set; }
+        public IDropletsClient Droplets { get; private set; }
+        public IImageActionsClient ImageActions { get; private set; }
+        public IImagesClient Images { get; private set; }
+        public IKeysClient Keys { get; private set; }
+        public IRegionsClient Regions { get; private set; }
+        public ISizesClient Sizes { get; private set; }
+
+        #endregion
     }
 }
