@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Clients;
-using DigitalOcean.API.Helpers;
+using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using NSubstitute;
 using RestSharp;
@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Tests.Clients {
             actionClient.Get(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().GetRequest<Action>("actions/{id}", parameters, "action");
+            factory.Received().ExecuteRequest<Action>("actions/{id}", parameters, null, "action");
         }
 
         [Fact]
@@ -26,7 +26,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var actionClient = new ActionsClient(factory);
 
             actionClient.GetAll();
-            factory.Received().ExecuteRaw("actions", null);
+            factory.Received().GetPaginated<Action>("actions", null, "actions");
         }
 
         [Fact]

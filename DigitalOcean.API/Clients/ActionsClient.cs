@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Helpers;
+using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
 namespace DigitalOcean.API.Clients {
-    public class ActionsClient : Paginated, IActionsClient {
+    public class ActionsClient : IActionsClient {
         private readonly IConnection _connection;
 
-        public ActionsClient(IConnection connection) : base(connection) {
+        public ActionsClient(IConnection connection) {
             _connection = connection;
         }
 
@@ -18,7 +18,7 @@ namespace DigitalOcean.API.Clients {
         /// Retrieve all actions that have been executed on the current account.
         /// </summary>
         public Task<IReadOnlyList<Action>> GetAll() {
-            return GetPaginated<Action>("actions", null, "actions");
+            return _connection.GetPaginated<Action>("actions", null, "actions");
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = actionId, Type = ParameterType.UrlSegment }
             };
-            return _connection.GetRequest<Action>("actions/{id}", parameters, "action");
+            return _connection.ExecuteRequest<Action>("actions/{id}", parameters, null, "action");
         }
 
         #endregion

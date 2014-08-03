@@ -2,8 +2,16 @@
 using System.Linq;
 using RestSharp;
 
-namespace DigitalOcean.API.Helpers {
+namespace DigitalOcean.API.Http {
     public class RateLimit : IRateLimit {
+        public RateLimit(IList<Parameter> headers) {
+            Limit = GetHeaderValue(headers, "RateLimit-Limit");
+            Remaining = GetHeaderValue(headers, "RateLimit-Remaining");
+            Reset = GetHeaderValue(headers, "RateLimit-Reset");
+        }
+
+        #region IRateLimit Members
+
         /// <summary>
         /// The number of requests that can be made per hour.
         /// </summary>
@@ -19,11 +27,7 @@ namespace DigitalOcean.API.Helpers {
         /// </summary>
         public int Reset { get; private set; }
 
-        public RateLimit(IList<Parameter> headers) {
-            Limit = GetHeaderValue(headers, "RateLimit-Limit");
-            Remaining = GetHeaderValue(headers, "RateLimit-Remaining");
-            Reset = GetHeaderValue(headers, "RateLimit-Reset");
-        }
+        #endregion
 
         private static int GetHeaderValue(IEnumerable<Parameter> headers, string name) {
             var header = headers.FirstOrDefault(x => x.Name == name);

@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Helpers;
+using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
 namespace DigitalOcean.API.Clients {
-    public class DomainRecordsClient : Paginated, IDomainRecordsClient {
+    public class DomainRecordsClient : IDomainRecordsClient {
         private readonly IConnection _connection;
 
-        public DomainRecordsClient(IConnection connection) : base(connection) {
+        public DomainRecordsClient(IConnection connection) {
             _connection = connection;
         }
 
-        #region IDomainRecords Members
+        #region IDomainRecordsClient Members
 
         /// <summary>
         /// Retrieve all records configured for a domain
@@ -22,7 +22,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment }
             };
-            return GetPaginated<DomainRecord>("domains/{name}/records", parameters, "domain_records");
+            return _connection.GetPaginated<DomainRecord>("domains/{name}/records", parameters, "domain_records");
         }
 
         /// <summary>
@@ -32,7 +32,8 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment }
             };
-            return _connection.PostRequest<DomainRecord>("domains/{name}/records", parameters, record, "domain_record");
+            return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records", parameters, record,
+                "domain_record", Method.POST);
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment },
                 new Parameter { Name = "id", Value = recordId, Type = ParameterType.UrlSegment }
             };
-            return _connection.GetRequest<DomainRecord>("domains/{name}/records/{id}", parameters, "domain_record");
+            return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, null, "domain_record");
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment },
                 new Parameter { Name = "id", Value = recordId, Type = ParameterType.UrlSegment }
             };
-            return _connection.PostRequest<DomainRecord>("domains/{name}/records/{id}", parameters, newRecord,
+            return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, newRecord,
                 "domain_record", Method.PUT);
         }
 

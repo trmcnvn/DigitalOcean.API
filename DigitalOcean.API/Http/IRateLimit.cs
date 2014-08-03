@@ -1,4 +1,4 @@
-﻿namespace DigitalOcean.API.Helpers {
+﻿namespace DigitalOcean.API.Http {
     public interface IRateLimit {
         /// <summary>
         /// The number of requests that can be made per hour.

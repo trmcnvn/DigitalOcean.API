@@ -53,19 +53,22 @@
   <ItemGroup>
     <Compile Include="Clients\ActionsClient.cs" />
     <Compile Include="Clients\DomainRecordsClient.cs" />
+    <Compile Include="Clients\DomainsClient.cs" />
     <Compile Include="Clients\IDomainRecordsClient.cs" />
-    <Compile Include="Helpers\Connection.cs" />
+    <Compile Include="Clients\IDomainsClient.cs" />
+    <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
-    <Compile Include="Helpers\IConnection.cs" />
-    <Compile Include="Helpers\IRateLimit.cs" />
+    <Compile Include="Http\IConnection.cs" />
+    <Compile Include="Http\IRateLimit.cs" />
     <Compile Include="Helpers\JsonNetSerializer.cs" />
-    <Compile Include="Helpers\Paginated.cs" />
-    <Compile Include="Helpers\RateLimit.cs" />
+    <Compile Include="Http\RateLimit.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />
+    <Compile Include="Models\Requests\Domain.cs" />
     <Compile Include="Models\Requests\DomainRecord.cs" />
     <Compile Include="Models\Responses\Action.cs" />
+    <Compile Include="Models\Responses\Domain.cs" />
     <Compile Include="Models\Responses\DomainRecord.cs" />
     <Compile Include="Models\Responses\Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
