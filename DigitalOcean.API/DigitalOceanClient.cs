@@ -22,6 +22,7 @@ namespace DigitalOcean.API {
             Droplets = new DropletsClient(_connection);
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
+            Keys = new KeysClient(_connection);
         }
 
         #region IDigitalOceanClient Members
@@ -37,6 +38,7 @@ namespace DigitalOcean.API {
         public IDropletsClient Droplets { get; private set; }
         public IImageActionsClient ImageActions { get; private set; }
         public IImagesClient Images { get; private set; }
+        public IKeysClient Keys { get; private set; }
 
         #endregion
     }
