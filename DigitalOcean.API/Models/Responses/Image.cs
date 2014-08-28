@@ -41,5 +41,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// A time value given in ISO8601 combined date and time format that represents when the image was created.
         /// </summary>
         public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// An array of action IDs of any actions that have been taken on this Image.
+        /// </summary>
+        public List<int> ActionIds { get; set; } 
     }
 }
