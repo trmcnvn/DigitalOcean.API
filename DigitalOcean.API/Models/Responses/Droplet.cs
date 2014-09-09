@@ -83,11 +83,6 @@ namespace DigitalOcean.API.Models.Responses {
         public List<int> SnapshotIds { get; set; }
 
         /// <summary>
-        /// An array of action IDs of any actions that have been taken on this Droplet.
-        /// </summary>
-        public List<int> ActionIds { get; set; }
-
-        /// <summary>
         /// An array of features enabled on this Droplet.
         /// </summary>
         public List<string> Features { get; set; }
