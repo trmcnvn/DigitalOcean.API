@@ -53,7 +53,7 @@ namespace DigitalOcean.API.Http {
             };
             var page = deserialize.Deserialize<Pagination>(first);
 
-            // get intial data
+            // get initial data
             deserialize.RootElement = expectedRoot;
             var data = deserialize.Deserialize<List<T>>(first);
 
