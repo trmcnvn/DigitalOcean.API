@@ -9,11 +9,24 @@ using DigitalOcean.API.Models.Responses;
 using NSubstitute;
 using RestSharp;
 using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DigitalOcean.API.Tests.Clients
 {
+    [TestClass]
     public class KeysClientTest
     {
+        [TestMethod]
+        public void TestKeysGetAll()
+        {
+            var client = Factory.GetClient();
+
+            var task = client.Keys.GetAll();
+            task.Wait(5 * 60 * 1000);
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNotNull(task.Result);
+        }
+
         [Fact]
         public void CorrectRequestForGetAll() {
             var factory = Substitute.For<IConnection>();
