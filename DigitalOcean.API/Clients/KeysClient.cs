@@ -18,14 +18,14 @@ namespace DigitalOcean.API.Clients {
         /// Retrieve all keys in your account
         /// </summary>
         public Task<IReadOnlyList<Key>> GetAll() {
-            return _connection.GetPaginated<Key>("keys", null, "ssh_keys");
+            return _connection.GetPaginated<Key>("account/keys", null, "ssh_keys");
         }
 
         /// <summary>
         /// Create a new key entry
         /// </summary>
         public Task<Key> Create(Models.Requests.Key key) {
-            return _connection.ExecuteRequest<Key>("keys", null, key, "ssh_key", Method.POST);
+            return _connection.ExecuteRequest<Key>("account/keys", null, key, "ssh_key", Method.POST);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRequest<Key>("keys/{id}", parameters, null, "ssh_key");
+            return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRequest<Key>("keys/{id}", parameters, key, "ssh_key", Method.PUT);
+            return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, key, "ssh_key", Method.PUT);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("keys/{id}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("account/keys/{id}", parameters, Method.DELETE);
         }
 
         #endregion

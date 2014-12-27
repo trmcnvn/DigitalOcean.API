@@ -10,10 +10,8 @@ using NSubstitute;
 using RestSharp;
 using Xunit;
 
-namespace DigitalOcean.API.Tests.Clients
-{
-    public class KeysClientTest
-    {
+namespace DigitalOcean.API.Tests.Clients {
+    public class KeysClientTest {
         [Fact]
         public void CorrectRequestForGetAll() {
             var factory = Substitute.For<IConnection>();
@@ -21,7 +19,7 @@ namespace DigitalOcean.API.Tests.Clients
 
             client.GetAll();
 
-            factory.Received().GetPaginated<Key>("keys", null, "ssh_keys");
+            factory.Received().GetPaginated<Key>("account/keys", null, "ssh_keys");
         }
 
         [Fact]
@@ -32,7 +30,7 @@ namespace DigitalOcean.API.Tests.Clients
             var body = new Models.Requests.Key { Name = "example" };
             client.Create(body);
 
-            factory.Received().ExecuteRequest<Key>("keys", null, body, "ssh_key", Method.POST);
+            factory.Received().ExecuteRequest<Key>("account/keys", null, body, "ssh_key", Method.POST);
         }
 
         [Fact]
@@ -43,7 +41,7 @@ namespace DigitalOcean.API.Tests.Clients
             client.Get(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRequest<Key>("keys/{id}", parameters, null, "ssh_key");
+            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
 
         [Fact]
@@ -54,7 +52,7 @@ namespace DigitalOcean.API.Tests.Clients
             client.Get("fingerprint");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "fingerprint");
-            factory.Received().ExecuteRequest<Key>("keys/{id}", parameters, null, "ssh_key");
+            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
 
         [Fact]
@@ -66,7 +64,7 @@ namespace DigitalOcean.API.Tests.Clients
             client.Update(9001, body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRequest<Key>("keys/{id}", parameters, body, "ssh_key", Method.PUT);
+            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
         }
 
         [Fact]
@@ -78,7 +76,7 @@ namespace DigitalOcean.API.Tests.Clients
             client.Update("fingerprint", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "fingerprint");
-            factory.Received().ExecuteRequest<Key>("keys/{id}", parameters, body, "ssh_key", Method.PUT);
+            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
         }
 
         [Fact]
@@ -89,7 +87,7 @@ namespace DigitalOcean.API.Tests.Clients
             client.Delete(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRaw("keys/{id}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("account/keys/{id}", parameters, Method.DELETE);
         }
 
         [Fact]
@@ -100,7 +98,7 @@ namespace DigitalOcean.API.Tests.Clients
             client.Delete("fingerprint");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "fingerprint");
-            factory.Received().ExecuteRaw("keys/{id}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("account/keys/{id}", parameters, Method.DELETE);
         }
     }
 }
