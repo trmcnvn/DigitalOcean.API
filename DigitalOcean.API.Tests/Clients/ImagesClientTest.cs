@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DigitalOcean.API.Models.Requests;
 using NSubstitute;
 using RestSharp;
 using Xunit;
+using Image = DigitalOcean.API.Models.Responses.Image;
 
 namespace DigitalOcean.API.Tests.Clients {
     public class ImagesClientTest {
@@ -14,8 +15,13 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new ImagesClient(factory);
 
             client.GetAll();
-
             factory.Received().GetPaginated<Image>("images", null, "images");
+
+            client.GetAll(ImageType.Application);
+            factory.Received().GetPaginated<Image>("images?type=application", null, "images");
+
+            client.GetAll(ImageType.Distribution);
+            factory.Received().GetPaginated<Image>("images?type=distribution", null, "images");
         }
 
         [Fact]

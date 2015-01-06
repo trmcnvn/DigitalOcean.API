@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Models.Responses;
+using DigitalOcean.API.Models.Requests;
+using Image = DigitalOcean.API.Models.Responses.Image;
 
 namespace DigitalOcean.API.Clients {
     public interface IImagesClient {
         /// <summary>
         /// Retrieve all images available ony your account.
         /// </summary>
-        Task<IReadOnlyList<Image>> GetAll();
+        Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All);
 
         /// <summary>
         /// Retrieve information about a public or private image on your account.

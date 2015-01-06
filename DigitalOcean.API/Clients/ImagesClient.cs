@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DigitalOcean.API.Models.Requests;
 using RestSharp;
+using Image = DigitalOcean.API.Models.Responses.Image;
 
 namespace DigitalOcean.API.Clients {
     public class ImagesClient : IImagesClient {
@@ -18,8 +19,12 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all images available ony your account.
         /// </summary>
-        public Task<IReadOnlyList<Image>> GetAll() {
-            return _connection.GetPaginated<Image>("images", null, "images");
+        public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All) {
+            var endpoint = "images";
+            if (type != ImageType.All) {
+                endpoint += "?type=" + type.ToString().ToLower();
+            }
+            return _connection.GetPaginated<Image>(endpoint, null, "images");
         }
 
         /// <summary>

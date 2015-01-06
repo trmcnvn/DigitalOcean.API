@@ -44,9 +44,9 @@ namespace DigitalOcean.API.Models.Responses {
         public Kernel Kernel { get; set; }
 
         /// <summary>
-        /// The size of the Droplet instance.
+        /// Contains the slug of the size of the Droplet instance.
         /// </summary>
-        public Size Size { get; set; }
+        public string SizeSlug { get; set; }
 
         /// <summary>
         /// A boolean value indicating whether the Droplet has been locked, preventing actions by users.

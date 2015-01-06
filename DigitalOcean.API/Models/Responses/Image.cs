@@ -41,5 +41,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// A time value given in ISO8601 combined date and time format that represents when the image was created.
         /// </summary>
         public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Contains the value of the minimum size droplet required for that image.
+        /// </summary>
+        public int MinDiskSize { get; set; }
     }
 }
