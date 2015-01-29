@@ -17,12 +17,25 @@ namespace DigitalOcean.API.Clients {
         #region IImagesClient Members
 
         /// <summary>
-        /// Retrieve all images available ony your account.
+        /// Retrieve all images available on your account.
         /// </summary>
         public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All) {
             var endpoint = "images";
-            if (type != ImageType.All) {
-                endpoint += "?type=" + type.ToString().ToLower();
+            switch (type)
+            {
+                case ImageType.All:
+                    break;
+                case ImageType.Application:
+                    endpoint += "?type=" + type.ToString().ToLower();
+                    break;
+                case ImageType.Distribution:
+                    endpoint += "?type=" + type.ToString().ToLower();
+                    break;
+                case ImageType.Private:
+                    endpoint += "?private=true";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("type");
             }
             return _connection.GetPaginated<Image>(endpoint, null, "images");
         }
