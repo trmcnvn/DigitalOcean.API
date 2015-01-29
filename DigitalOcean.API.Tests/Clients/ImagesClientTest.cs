@@ -22,6 +22,9 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAll(ImageType.Distribution);
             factory.Received().GetPaginated<Image>("images?type=distribution", null, "images");
+
+            client.GetAll(ImageType.Private);
+            factory.Received().GetPaginated<Image>("images?private=true", null, "images");
         }
 
         [Fact]

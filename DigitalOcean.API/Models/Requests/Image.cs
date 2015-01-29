@@ -4,7 +4,8 @@ namespace DigitalOcean.API.Models.Requests {
     public enum ImageType {
         All,
         Application,
-        Distribution
+        Distribution,
+        Private
     }
 
     public class Image {
