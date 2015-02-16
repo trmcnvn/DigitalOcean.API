@@ -215,3 +215,5 @@ pip-log.txt
 .mr.developer.cfg
 *.nupkg
 *.nuspec
+*.userprefs
+*.csprojbak
