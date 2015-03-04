@@ -43,8 +43,13 @@ namespace DigitalOcean.API.Models.Responses {
         public string ResourceType { get; set; }
 
         /// <summary>
+        /// Embedded region object
+        /// </summary>
+        public Region Region { get; set; }
+
+        /// <summary>
         /// A slug representing the region where the action occurred.
         /// </summary>
-        public string Region { get; set; }
+        public string RegionSlug { get; set; }
     }
 }
