@@ -25,8 +25,28 @@ namespace DigitalOcean.API.Models.Responses {
         public float PriceHourly { get; set; }
 
         /// <summary>
+        /// The amount of RAM allocated to Droplets created of this size. The value is represented in megabytes
+        /// </summary>
+        public int Memory { get; set; }
+
+        /// <summary>
+        /// The number of virtual CPUs allocated to Droplets of this size.
+        /// </summary>
+        public int Vcpus { get; set; }
+
+        /// <summary>
+        /// The amount of disk space set aside for Droplets of this size. The value is represented in gigabytes.
+        /// </summary>
+        public int Disk { get; set; }
+
+        /// <summary>
         /// An array that contains the region slugs where this size is available for Droplet creates.
         /// </summary>
         public List<string> Regions { get; set; }
+
+        /// <summary>
+        /// This is a boolean value that represents whether new Droplets can be created with this size.
+        /// </summary>
+        public bool Available { get; set; }
     }
 }
