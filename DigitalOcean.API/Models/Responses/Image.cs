@@ -15,6 +15,11 @@ namespace DigitalOcean.API.Models.Responses {
         public string Name { get; set; }
 
         /// <summary>
+        /// The kind of image, describing the duration of how long the image is stored. This is one of "snapshot", "temporary" or "backup".
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
         /// This attribute describes the base distribution used for this image.
         /// </summary>
         public string Distribution { get; set; }
