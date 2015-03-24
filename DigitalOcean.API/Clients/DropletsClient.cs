@@ -88,6 +88,13 @@ namespace DigitalOcean.API.Clients {
             return _connection.ExecuteRaw("droplets/{id}", parameters, Method.DELETE);
         }
 
+        /// <summary>
+        /// Retrieve a list of droplets that are scheduled to be upgraded
+        /// </summary>
+        public Task<IReadOnlyList<DropletUpgrade>> GetUpgrades() {
+            return _connection.GetPaginated<DropletUpgrade>("droplet_upgrades", null);
+        }
+
         #endregion
     }
 }

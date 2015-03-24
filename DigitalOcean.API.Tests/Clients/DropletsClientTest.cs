@@ -94,5 +94,15 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
             factory.Received().ExecuteRaw("droplets/{id}", parameters, Method.DELETE);
         }
+
+        [Fact]
+        public void CorrectRequestForGetUpgrades() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletsClient(factory);
+
+            client.GetUpgrades();
+
+            factory.Received().GetPaginated<DropletUpgrade>("droplet_upgrades", null);
+        }
     }
 }
