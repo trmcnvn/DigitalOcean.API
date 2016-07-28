@@ -64,9 +64,11 @@
     <Compile Include="Clients\ImagesClient.cs" />
     <Compile Include="Clients\IRegionsClient.cs" />
     <Compile Include="Clients\ISizesClient.cs" />
+    <Compile Include="Clients\ITagsClient.cs" />
     <Compile Include="Clients\KeysClient.cs" />
     <Compile Include="Clients\RegionsClient.cs" />
     <Compile Include="Clients\SizesClient.cs" />
+    <Compile Include="Clients\TagsClient.cs" />
     <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Models\Requests\Droplet.cs" />
     <Compile Include="Models\Requests\Image.cs" />
     <Compile Include="Models\Requests\Key.cs" />
+    <Compile Include="Models\Requests\Tag.cs" />
+    <Compile Include="Models\Requests\TagResource.cs" />
     <Compile Include="Models\Responses\Action.cs" />
     <Compile Include="Models\Responses\Domain.cs" />
     <Compile Include="Models\Responses\DomainRecord.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Models\Responses\Pagination.cs" />
     <Compile Include="Models\Responses\Region.cs" />
     <Compile Include="Models\Responses\Size.cs" />
+    <Compile Include="Models\Responses\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Responses\DropletUpgrade.cs" />
   </ItemGroup>
