@@ -57,7 +57,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRaw("images/{id}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
         }
 
         [Fact]

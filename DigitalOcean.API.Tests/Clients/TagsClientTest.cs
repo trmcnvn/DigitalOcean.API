@@ -51,7 +51,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("notarealtag");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("tags/{name}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("tags/{name}", parameters, null, Method.DELETE);
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Tag("notarealtag", resources);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRequest<Tag>("tags/{name}/resources", parameters, Arg.Is<Models.Requests.TagResource>(data => data.Resources[1].Id == "9002"), null, Method.POST);
+            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, Arg.Is<Models.Requests.TagResource>(data => data.Resources[1].Id == "9002"), Method.POST);
         }
 
         [Fact]
@@ -97,7 +97,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Untag("notarealtag", resources);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRequest<Tag>("tags/{name}/resources", parameters, Arg.Is<Models.Requests.TagResource>(data => data.Resources[1].Id == "9002"), null, Method.DELETE);
+            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, Arg.Is<Models.Requests.TagResource>(data => data.Resources[1].Id == "9002"), Method.DELETE);
         }
     }
 }
