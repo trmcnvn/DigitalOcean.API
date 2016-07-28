@@ -22,6 +22,17 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
+        /// Retrieve all Droplets in your account.
+        /// </summary>
+        public Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+            };
+
+            return _connection.GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+        }
+
+        /// <summary>
         /// Retrieve all kernels available to a Droplet.
         /// </summary>
         public Task<IReadOnlyList<Kernel>> GetKernels(int dropletId) {
