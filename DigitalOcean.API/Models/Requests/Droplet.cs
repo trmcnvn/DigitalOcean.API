@@ -56,11 +56,5 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("private_networking")]
         public bool PrivateNetworking { get; set; }
-
-        /// <summary>
-        /// An array of Tags the Droplet has been tagged with.
-        /// </summary>
-        [JsonProperty("tags")]
-        public List<string> Tags { get; set; }
     }
 }

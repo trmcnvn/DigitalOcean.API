@@ -7,7 +7,7 @@ namespace DigitalOcean.API.Http {
         IRestClient Client { get; }
         IRateLimit Rates { get; }
 
-        Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters, Method method = Method.GET);
+        Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters, object data = null, Method method = Method.GET);
 
         Task<T> ExecuteRequest<T>(string endpoint, IList<Parameter> parameters,
             object data = null, string expectedRoot = null, Method method = Method.GET) where T : new();

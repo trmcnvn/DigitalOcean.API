@@ -74,7 +74,7 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
             };
 
-            return _connection.ExecuteRequest<Tag>("tags/{name}/resources", parameters, data, null, Method.POST);
+            return _connection.ExecuteRaw("tags/{name}/resources", parameters, data, Method.POST);
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
             };
 
-            return _connection.ExecuteRequest<Tag>("tags/{name}/resources", parameters, data, null, Method.DELETE);
+            return _connection.ExecuteRaw("tags/{name}/resources", parameters, data, Method.DELETE);
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("tags/{name}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("tags/{name}", parameters, null, Method.DELETE);
         }
 
         #endregion

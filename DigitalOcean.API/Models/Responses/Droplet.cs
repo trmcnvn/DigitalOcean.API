@@ -86,5 +86,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// An array of features enabled on this Droplet.
         /// </summary>
         public List<string> Features { get; set; }
+
+        /// <summary>
+        /// An array of Tags the Droplet has been tagged with.
+        /// </summary>
+        public List<string> Tags { get; set; }
     }
 }

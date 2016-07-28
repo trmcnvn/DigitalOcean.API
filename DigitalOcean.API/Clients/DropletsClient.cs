@@ -85,7 +85,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("droplets/{id}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
         }
 
         /// <summary>

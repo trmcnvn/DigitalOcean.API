@@ -55,7 +55,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("account/keys/{id}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
         }
 
         #endregion
