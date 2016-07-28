@@ -89,6 +89,17 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
+        /// Delete existing droplets by tag
+        /// </summary>
+        public Task DeleteByTag(string tagName)
+        {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+            };
+            return _connection.ExecuteRaw("droplets?tag_name={name}", parameters, null, Method.DELETE);
+        }
+
+        /// <summary>
         /// Retrieve a list of droplets that are scheduled to be upgraded
         /// </summary>
         public Task<IReadOnlyList<DropletUpgrade>> GetUpgrades() {

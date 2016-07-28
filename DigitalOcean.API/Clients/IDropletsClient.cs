@@ -45,6 +45,11 @@ namespace DigitalOcean.API.Clients {
         Task Delete(int dropletId);
 
         /// <summary>
+        /// Delete existing droplets by tag
+        /// </summary>
+        Task DeleteByTag(string tagName);
+
+        /// <summary>
         /// Retrieve a list of droplets that are scheduled to be upgraded
         /// </summary>
         Task<IReadOnlyList<DropletUpgrade>> GetUpgrades();
