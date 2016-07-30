@@ -19,8 +19,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForGetAllByTag()
-        {
+        public void CorrectRequestForGetAllByTag() {
             var factory = Substitute.For<IConnection>();
             var client = new DropletsClient(factory);
 
@@ -108,8 +107,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForDeleteByTag()
-        {
+        public void CorrectRequestForDeleteByTag() {
             var factory = Substitute.For<IConnection>();
             var client = new DropletsClient(factory);
 

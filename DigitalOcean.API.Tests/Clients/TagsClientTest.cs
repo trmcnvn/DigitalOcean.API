@@ -9,8 +9,7 @@ using Xunit;
 namespace DigitalOcean.API.Tests.Clients {
     public class TagsClientTest {
         [Fact]
-        public void CorrectRequestForGet()
-        {
+        public void CorrectRequestForGet() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
@@ -21,8 +20,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForGetAll()
-        {
+        public void CorrectRequestForGetAll() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
@@ -32,8 +30,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForCreate()
-        {
+        public void CorrectRequestForCreate() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
@@ -43,8 +40,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForDelete()
-        {
+        public void CorrectRequestForDelete() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
@@ -55,8 +51,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForUpdate()
-        {
+        public void CorrectRequestForUpdate() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
@@ -67,8 +62,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForTag()
-        {
+        public void CorrectRequestForTag() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
@@ -84,8 +78,7 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForUntag()
-        {
+        public void CorrectRequestForUntag() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 

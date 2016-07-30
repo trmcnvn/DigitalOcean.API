@@ -102,8 +102,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete existing droplets by tag
         /// </summary>
-        public Task DeleteByTag(string tagName)
-        {
+        public Task DeleteByTag(string tagName) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
             };

@@ -24,8 +24,7 @@ namespace DigitalOcean.API.Http {
             var request = BuildRequest(endpoint, parameters);
             request.Method = method;
 
-            if (data != null && method != Method.GET)
-            {
+            if (data != null && method != Method.GET) {
                 request.RequestFormat = DataFormat.Json;
                 request.JsonSerializer = new JsonNetSerializer();
                 request.AddBody(data);

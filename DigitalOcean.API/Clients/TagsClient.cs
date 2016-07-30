@@ -35,8 +35,9 @@ namespace DigitalOcean.API.Clients {
         /// Create a new Tag
         /// </summary>
         public Task<Tag> Create(string tagName) {
-            Models.Requests.Tag data = new Models.Requests.Tag();
-            data.Name = tagName;
+            var data = new Models.Requests.Tag {
+                Name = tagName
+            };
 
             return _connection.ExecuteRequest<Tag>("tags", null, data, "tag", Method.POST);
         }
@@ -45,8 +46,9 @@ namespace DigitalOcean.API.Clients {
         /// Update the name of a Tag
         /// </summary>
         public Task<Tag> Update(string tagName, string newTagName) {
-            Models.Requests.Tag data = new Models.Requests.Tag();
-            data.Name = newTagName;
+            var data = new Models.Requests.Tag {
+                Name = newTagName
+            };
 
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
@@ -59,12 +61,12 @@ namespace DigitalOcean.API.Clients {
         /// Tag existing resources of given resource id / type combination
         /// </summary>
         public Task Tag(string tagName, List<KeyValuePair<string, string>> resources) {
-            Models.Requests.TagResource data = new Models.Requests.TagResource();
-            data.Resources = new List<Models.Requests.TagResource.Resource>();
-
+            var data = new Models.Requests.TagResource {
+                Resources = new List<Models.Requests.TagResource.Resource>()
+            };
+           
             foreach (KeyValuePair<string, string> resource in resources) {
-                data.Resources.Add(new Models.Requests.TagResource.Resource
-                {
+                data.Resources.Add(new Models.Requests.TagResource.Resource {
                     Id = resource.Key,
                     Type = resource.Value
                 });
@@ -81,12 +83,12 @@ namespace DigitalOcean.API.Clients {
         /// Untag existing resources of given resource id / type combination
         /// </summary>
         public Task Untag(string tagName, List<KeyValuePair<string, string>> resources) {
-            Models.Requests.TagResource data = new Models.Requests.TagResource();
-            data.Resources = new List<Models.Requests.TagResource.Resource>();
+            var data = new Models.Requests.TagResource {
+                Resources = new List<Models.Requests.TagResource.Resource>()
+            };
 
             foreach (KeyValuePair<string, string> resource in resources) {
-                data.Resources.Add(new Models.Requests.TagResource.Resource
-                {
+                data.Resources.Add(new Models.Requests.TagResource.Resource {
                     Id = resource.Key,
                     Type = resource.Value
                 });
