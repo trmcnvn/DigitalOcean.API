@@ -48,7 +48,7 @@ Check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-de
 
 ## License
 
-Copyright (c) 2014 Thomas McNiven (vevix)
+Copyright (c) 2016 Thomas McNiven (vevix)
 
 MIT License
 
