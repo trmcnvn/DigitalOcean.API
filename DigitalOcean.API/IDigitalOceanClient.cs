@@ -15,5 +15,6 @@ namespace DigitalOcean.API {
         ISizesClient Sizes { get; }
 
         IRateLimit Rates { get; }
+        ITagsClient Tags { get; }
     }
 }

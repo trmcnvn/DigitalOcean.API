@@ -19,6 +19,17 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
+        public void CorrectRequestForGetAllByTag() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletsClient(factory);
+
+            client.GetAllByTag("notarealtag");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
+            factory.Received().GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+        }
+
+        [Fact]
         public void CorrectRequestForGetKernels() {
             var factory = Substitute.For<IConnection>();
             var client = new DropletsClient(factory);
@@ -92,7 +103,18 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRaw("droplets/{id}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
+        }
+
+        [Fact]
+        public void CorrectRequestForDeleteByTag() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletsClient(factory);
+
+            client.DeleteByTag("notarealtag");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
+            factory.Received().ExecuteRaw("droplets?tag_name={name}", parameters, null, Method.DELETE);
         }
 
         [Fact]

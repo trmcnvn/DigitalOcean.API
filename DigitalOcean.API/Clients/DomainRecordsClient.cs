@@ -55,7 +55,7 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment },
                 new Parameter { Name = "id", Value = recordId, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("domains/{name}/records/{id}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("domains/{name}/records/{id}", parameters, null, Method.DELETE);
         }
 
         /// <summary>

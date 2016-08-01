@@ -46,7 +46,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("domains/{name}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("domains/{name}", parameters, null, Method.DELETE);
         }
 
         #endregion

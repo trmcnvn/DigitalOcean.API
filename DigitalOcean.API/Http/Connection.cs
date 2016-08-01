@@ -20,9 +20,16 @@ namespace DigitalOcean.API.Http {
         public IRateLimit Rates { get; private set; }
 
         public async Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters,
-            Method method = Method.GET) {
+            object data = null, Method method = Method.GET) {
             var request = BuildRequest(endpoint, parameters);
             request.Method = method;
+
+            if (data != null && method != Method.GET) {
+                request.RequestFormat = DataFormat.Json;
+                request.JsonSerializer = new JsonNetSerializer();
+                request.AddBody(data);
+            }
+
             return await Client.ExecuteTaskRaw(request).ConfigureAwait(false);
         }
 

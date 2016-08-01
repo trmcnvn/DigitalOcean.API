@@ -9,10 +9,8 @@ using DigitalOcean.API.Models.Responses;
 using NSubstitute;
 using Xunit;
 
-namespace DigitalOcean.API.Tests.Clients
-{
-    public class SizesClientTest
-    {
+namespace DigitalOcean.API.Tests.Clients {
+    public class SizesClientTest {
         [Fact]
         public void CorrectRequestForGetAll() {
             var factory = Substitute.For<IConnection>();

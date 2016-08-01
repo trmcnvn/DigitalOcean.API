@@ -87,7 +87,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRaw("account/keys/{id}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
         }
 
         [Fact]
@@ -98,7 +98,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("fingerprint");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "fingerprint");
-            factory.Received().ExecuteRaw("account/keys/{id}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
         }
     }
 }

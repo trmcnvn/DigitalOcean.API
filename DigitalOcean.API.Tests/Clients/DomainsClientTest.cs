@@ -47,7 +47,7 @@ namespace DigitalOcean.API.Tests.Clients {
             domainClient.Delete("vevix.net");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "vevix.net");
-            factory.Received().ExecuteRaw("domains/{name}", parameters, Method.DELETE);
+            factory.Received().ExecuteRaw("domains/{name}", parameters, null, Method.DELETE);
         }
     }
 }

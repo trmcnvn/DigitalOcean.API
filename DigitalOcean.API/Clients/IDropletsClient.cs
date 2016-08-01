@@ -10,6 +10,11 @@ namespace DigitalOcean.API.Clients {
         Task<IReadOnlyList<Droplet>> GetAll();
 
         /// <summary>
+        /// Retrieve all Droplets in your account.
+        /// </summary>
+        Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName);
+
+        /// <summary>
         /// Retrieve all kernels available to a Droplet.
         /// </summary>
         Task<IReadOnlyList<Kernel>> GetKernels(int dropletId);
@@ -43,6 +48,11 @@ namespace DigitalOcean.API.Clients {
         /// Delete an existing Droplet
         /// </summary>
         Task Delete(int dropletId);
+
+        /// <summary>
+        /// Delete existing droplets by tag
+        /// </summary>
+        Task DeleteByTag(string tagName);
 
         /// <summary>
         /// Retrieve a list of droplets that are scheduled to be upgraded

@@ -22,6 +22,17 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
+        /// Retrieve all Droplets in your account.
+        /// </summary>
+        public Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+            };
+
+            return _connection.GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+        }
+
+        /// <summary>
         /// Retrieve all kernels available to a Droplet.
         /// </summary>
         public Task<IReadOnlyList<Kernel>> GetKernels(int dropletId) {
@@ -85,7 +96,17 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("droplets/{id}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
+        }
+
+        /// <summary>
+        /// Delete existing droplets by tag
+        /// </summary>
+        public Task DeleteByTag(string tagName) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+            };
+            return _connection.ExecuteRaw("droplets?tag_name={name}", parameters, null, Method.DELETE);
         }
 
         /// <summary>

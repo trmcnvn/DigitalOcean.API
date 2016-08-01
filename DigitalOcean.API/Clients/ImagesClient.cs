@@ -60,7 +60,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRaw("images/{id}", parameters, Method.DELETE);
+            return _connection.ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
         }
 
         /// <summary>
