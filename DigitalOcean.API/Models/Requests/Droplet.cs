@@ -56,5 +56,11 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("private_networking")]
         public bool PrivateNetworking { get; set; }
+        
+        /// <summary>
+        /// A string containing a YAML formatted Cloud-Init script
+        /// </summary>
+        [JsonProperty("user_data")]
+        public string UserData { get; set; }
     }
 }
