@@ -9,19 +9,19 @@ namespace DigitalOcean.API.Extensions {
     public static class RestSharpExtensions {
         public static async Task<T> ExecuteTask<T>(this IRestClient client, IRestRequest request)
             where T : new() {
-            var ret = await client.ExecuteTaskAsync(request).ConfigureAwait(false);
+            var ret = await GetResponseContentAsync(client, request);
             return ret.ThrowIfException().Deserialize<T>();
         }
 
         public static async Task<IRestResponse> ExecuteTaskRaw(this IRestClient client, IRestRequest request) {
-            var ret = await client.ExecuteTaskAsync(request).ConfigureAwait(false);
+            var ret = await GetResponseContentAsync(client, request);
             request.OnBeforeDeserialization(ret);
             return ret.ThrowIfException();
         }
 
         private static IRestResponse ThrowIfException(this IRestResponse response) {
             if (response.ErrorException != null) {
-                throw new ApplicationException("There was an an exception thrown during the request.",
+                throw new Exception("There was an an exception thrown during the request.",
                     response.ErrorException);
             }
 
@@ -36,7 +36,16 @@ namespace DigitalOcean.API.Extensions {
             return response;
         }
 
-        public static T Deserialize<T>(this IRestResponse response) {
+            private static Task<IRestResponse> GetResponseContentAsync(IRestClient theClient, IRestRequest theRequest)
+            {
+                var tcs = new TaskCompletionSource<IRestResponse>();
+                theClient.ExecuteAsync(theRequest, response => {
+                    tcs.SetResult(response);
+                });
+                return tcs.Task;
+            }
+
+            public static T Deserialize<T>(this IRestResponse response) {
             response.Request.OnBeforeDeserialization(response);
             var deserialize = new JsonDeserializer {
                 RootElement = response.Request.RootElement,
