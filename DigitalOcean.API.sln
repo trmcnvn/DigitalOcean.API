@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.25920.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalOcean.API", "DigitalOcean.API\DigitalOcean.API.csproj", "{D47040D1-8B8E-4181-BE29-E767CE098DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalOcean.API.Tests", "DigitalOcean.API.Tests\DigitalOcean.API.Tests.csproj", "{642D6E4E-24C9-4D57-9459-636344E9BAA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalOcean.API.Tests", "DigitalOcean.API.Tests\DigitalOcean.API.Tests.csproj", "{2AB266F6-A06B-4F22-AFE9-9545DB05227E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D47040D1-8B8E-4181-BE29-E767CE098DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D47040D1-8B8E-4181-BE29-E767CE098DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D47040D1-8B8E-4181-BE29-E767CE098DF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{642D6E4E-24C9-4D57-9459-636344E9BAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{642D6E4E-24C9-4D57-9459-636344E9BAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{642D6E4E-24C9-4D57-9459-636344E9BAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{642D6E4E-24C9-4D57-9459-636344E9BAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB266F6-A06B-4F22-AFE9-9545DB05227E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB266F6-A06B-4F22-AFE9-9545DB05227E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB266F6-A06B-4F22-AFE9-9545DB05227E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB266F6-A06B-4F22-AFE9-9545DB05227E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
