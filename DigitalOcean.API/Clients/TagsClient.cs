@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -40,21 +40,6 @@ namespace DigitalOcean.API.Clients {
             };
 
             return _connection.ExecuteRequest<Tag>("tags", null, data, "tag", Method.POST);
-        }
-
-        /// <summary>
-        /// Update the name of a Tag
-        /// </summary>
-        public Task<Tag> Update(string tagName, string newTagName) {
-            var data = new Models.Requests.Tag {
-                Name = newTagName
-            };
-
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
-            };
-
-            return _connection.ExecuteRequest<Tag>("tags/{name}", parameters, data, "tag", Method.PUT);
         }
 
         /// <summary>
