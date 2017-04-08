@@ -20,11 +20,6 @@ namespace DigitalOcean.API.Clients {
         Task<Tag> Create(string tagName);
 
         /// <summary>
-        /// Update the name of a Tag
-        /// </summary>
-        Task<Tag> Update(string tagName, string newTagName);
-
-        /// <summary>
         /// Tag existing resources of given resource id / type combination
         /// </summary>
         Task Tag(string tagName, List<KeyValuePair<string, string>> resources);
