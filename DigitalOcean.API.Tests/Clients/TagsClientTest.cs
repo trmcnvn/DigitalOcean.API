@@ -51,17 +51,6 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForUpdate() {
-            var factory = Substitute.For<IConnection>();
-            var client = new TagsClient(factory);
-
-            client.Update("notarealtag", "notarealtag2");
-
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRequest<Tag>("tags/{name}", parameters, Arg.Is<Models.Requests.Tag>(data => data.Name == "notarealtag2"), "tag", Method.PUT);
-        }
-
-        [Fact]
         public void CorrectRequestForTag() {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
