@@ -62,5 +62,12 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("user_data")]
         public string UserData { get; set; }
+
+        /// <summary>
+        /// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        /// creation.
+        /// </summary>
+        [JsonProperty("tags")]
+        public List<object> Tags { get; set; }
     }
 }
