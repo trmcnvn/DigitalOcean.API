@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class Image {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class Image
+    {
         /// <summary>
         /// A unique number that can be used to identify and reference a specific image.
         /// </summary>
@@ -51,5 +53,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// Contains the value of the minimum size droplet required for that image.
         /// </summary>
         public int MinDiskSize { get; set; }
+
+        /// <summary>
+        /// The size of the image in gigabytes
+        /// </summary>
+        public int SizeGigabytes { get; set; }
     }
 }
