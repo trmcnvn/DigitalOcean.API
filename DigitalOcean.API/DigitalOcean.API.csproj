@@ -1,26 +1,21 @@
-﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.0</Version>
+    <Description>.NET wrapper of the DigitalOcean API</Description>
+    <Copyright>2018</Copyright>
+    <PackageLicenseUrl>https://github.com/vevix/DigitalOcean.API/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/vevix/DigitalOcean.API</PackageProjectUrl>
+    <PackageIconUrl>http://i.imgur.com/llqIpX6.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/vevix/DigitalOcean.API</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>DigitalOcean API</PackageTags>
+    <PackageReleaseNotes>- Now targeting .NET Standard 2.0
+- Added support for `SizeGigabytes` to the `Image` client (@ppumkin)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" />
-    <EmbeddedResource Include="**\*.resx" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="RestSharp" Version="106.2.1" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NETStandard.Library">
-      <Version>1.6</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.NET.Sdk">
-      <Version>1.0.0-alpha-20161104-2</Version>
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>9.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="RestSharp.NetCore">
-      <Version>105.2.3</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
