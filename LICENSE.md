@@ -1,4 +1,4 @@
-Copyright (c) 2014 Thomas McNiven (vevix)
+Copyright (c) 2018 Thomas McNiven (vevix)
 
 MIT License
 
