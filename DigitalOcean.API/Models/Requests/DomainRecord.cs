@@ -33,6 +33,12 @@ namespace DigitalOcean.API.Models.Requests {
         public int? Port { get; set; }
 
         /// <summary>
+        /// Time to live for the record, in seconds. If not set, the default value is 1800.
+        /// </summary>
+        [JsonProperty("ttl")]
+        public int? TTL { get; set; }
+
+        /// <summary>
         /// The weight of records with the same priority (for SRV records only. null otherwise).
         /// </summary>
         [JsonProperty("weight")]

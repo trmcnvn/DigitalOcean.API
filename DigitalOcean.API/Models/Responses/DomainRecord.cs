@@ -31,6 +31,11 @@
         public int? Port { get; set; }
 
         /// <summary>
+        /// Time to live for the record, in seconds. If not set, the default value is 1800.
+        /// </summary>
+        public int? TTL { get; set; }
+
+        /// <summary>
         /// The weight of records with the same priority (for SRV records only. null otherwise).
         /// </summary>
         public int? Weight { get; set; }
