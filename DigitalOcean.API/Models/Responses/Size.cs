@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// This attribute describes the monthly cost of this Droplet size if the Droplet is kept for an entire month. The value is
         /// measured in US dollars.
         /// </summary>
-        public float PriceMontly { get; set; }
+        public float PriceMonthly { get; set; }
 
         /// <summary>
         /// This describes the price of the Droplet size as measured hourly. The value is measured in US dollars.
