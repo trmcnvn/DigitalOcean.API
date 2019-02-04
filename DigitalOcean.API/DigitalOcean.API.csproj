@@ -2,17 +2,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0</Version>
+    <Version>2.0.3</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
-    <Copyright>2018</Copyright>
-    <PackageLicenseUrl>https://github.com/vevix/DigitalOcean.API/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/vevix/DigitalOcean.API</PackageProjectUrl>
+    <Copyright>2019</Copyright>
+    <PackageLicenseUrl>https://github.com/trmcnvn/DigitalOcean.API/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/trmcnvn/DigitalOcean.API</PackageProjectUrl>
     <PackageIconUrl>http://i.imgur.com/llqIpX6.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/vevix/DigitalOcean.API</RepositoryUrl>
+    <RepositoryUrl>https://github.com/trmcnvn/DigitalOcean.API</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>DigitalOcean API</PackageTags>
-    <PackageReleaseNotes>- Now targeting .NET Standard 2.0
-- Added support for `SizeGigabytes` to the `Image` client (@ppumkin)</PackageReleaseNotes>
+    <PackageReleaseNotes>- Improved Error Messages (@shahab1363)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
