@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DigitalOcean.API.Exceptions;
+using DigitalOcean.API.Models.Responses;
 using RestSharp;
 using RestSharp.Deserializers;
 using RestSharp.Extensions;
@@ -30,7 +31,7 @@ namespace DigitalOcean.API.Extensions {
             }
 
             if ((int)response.StatusCode >= 400) {
-                throw new ApiException(response.StatusCode);
+                throw new ApiException(response.StatusCode, response.Deserialize<Error>());
             }
 
             return response;

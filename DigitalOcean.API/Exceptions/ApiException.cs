@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using DigitalOcean.API.Models.Responses;
+using RestSharp;
 
 namespace DigitalOcean.API.Exceptions {
     public class ApiException : Exception {
@@ -13,11 +15,28 @@ namespace DigitalOcean.API.Exceptions {
         public HttpStatusCode StatusCode { get; private set; }
 
         public override string Message {
-            get { return _errors.ContainsKey((int)StatusCode) ? _errors[(int)StatusCode] : "Unknown API error"; }
+            get
+            {
+                return (_errors.ContainsKey((int)StatusCode)
+                          ? _errors[(int)StatusCode]
+                          : (_internalErrorResponse != null
+                             ? $"{_internalErrorResponse.Id} : {_internalErrorResponse.Message}"
+                             : ""));
+            }
         }
 
-        public ApiException(HttpStatusCode statusCode) {
+        private readonly Error _internalErrorResponse;
+        private Func<IRestResponse, Error> p;
+
+        public ApiException(HttpStatusCode statusCode, Error errorResponse) {
             StatusCode = statusCode;
+            _internalErrorResponse = errorResponse;
+        }
+
+        public ApiException(HttpStatusCode statusCode, Func<IRestResponse, Error> p)
+        {
+            StatusCode = statusCode;
+            this.p = p;
         }
     }
 }

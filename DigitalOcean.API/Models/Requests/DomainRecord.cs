@@ -43,5 +43,19 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("weight")]
         public int? Weight { get; set; }
+
+
+        /// <summary>
+        /// An unsigned integer between 0-255 used for CAA records. 
+        /// </summary>
+        [JsonProperty("flags")]
+        public int? Flags { get; set; }
+
+        /// <summary>
+        /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"     
+        /// </summary>
+        [JsonProperty("tag")]
+        public string Tag { get; set; }
+
     }
 }

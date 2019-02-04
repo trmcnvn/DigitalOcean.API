@@ -39,5 +39,15 @@
         /// The weight of records with the same priority (for SRV records only. null otherwise).
         /// </summary>
         public int? Weight { get; set; }
+
+        /// <summary>
+        /// An unsigned integer between 0-255 used for CAA records. 
+        /// </summary>
+        public int? Flags { get; set; }
+
+        /// <summary>
+        /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"     
+        /// </summary>
+        public string Tag { get; set; }
     }
 }
