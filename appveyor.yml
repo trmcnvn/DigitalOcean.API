@@ -1,0 +1,22 @@
+version: '{build}'
+image: Visual Studio 2017
+configuration:
+- Release
+- Debug
+before_build:
+- cmd: nuget restore
+build:
+  parallel: true
+  verbosity: minimal
+test_script:
+- cmd: dotnet test DigitalOcean.API.Tests/ --no-build
+artifacts:
+- path: '**\*.nupkg'
+  name: NuGet
+deploy:
+- provider: NuGet
+  api_key:
+    secure: kiUbAeENYcNETqVrFykd8RhjZ12xTXzQK8Vsug5NQd0dNx98uWAF/SKR3FsPywyL
+  on:
+    branch: master
+    CONFIGURATION: Release
