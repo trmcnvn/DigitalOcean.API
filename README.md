@@ -1,6 +1,6 @@
 ## ![](http://i.imgur.com/llqIpX6.png) DigitalOcean API
 
-[![Build status](https://ci.appveyor.com/api/projects/status/1pg7navn073edwdd)](https://ci.appveyor.com/project/vevix/digitalocean-api)
+[![Build status](https://ci.appveyor.com/api/projects/status/kowp84s9j95138r6/branch/master?svg=true)](https://ci.appveyor.com/project/vevix/digitalocean-api-p6bv8/branch/master)
 ![NuGet version](https://img.shields.io/nuget/v/DigitalOcean.API.png)
 
 Implementation of the DigitalOcean API (v2) for .NET.
