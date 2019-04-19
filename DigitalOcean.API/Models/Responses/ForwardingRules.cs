@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Responses
-{
-	public class ForwardingRules
-	{
+namespace DigitalOcean.API.Models.Responses {
+	public class ForwardingRules {
 		/// <summary>
 		/// The protocol used for traffic to the Load Balancer. The possible values are: "http", "https", "http2", or "tcp".
 		/// </summary>
@@ -17,7 +15,8 @@ namespace DigitalOcean.API.Models.Responses
 		public int EntryPort { get; set; }
 
 		/// <summary>
-		/// The protocol used for traffic from the Load Balancer to the backend Droplets. The possible values are: "http", "https", "http2", or "tcp".
+		/// The protocol used for traffic from the Load Balancer to the backend Droplets.
+		/// The possible values are: "http", "https", "http2", or "tcp".
 		/// </summary>
 		[JsonProperty("target_protocol")]
 		public string TargetProtocol { get; set; }

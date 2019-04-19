@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Responses
-{
-	public class LoadBalancer
-	{
+namespace DigitalOcean.API.Models.Responses {
+	public class LoadBalancer {
 		/// <summary>
 		/// A unique ID that can be used to identify and reference a Load Balancer.
 		/// </summary>
@@ -23,7 +21,8 @@ namespace DigitalOcean.API.Models.Responses
 		public string Address { get; set; }
 
 		/// <summary>
-		/// The load balancing algorithm used to determine which backend Droplet will be selected by a client. It must be either "round_robin" or "least_connections".
+		/// The load balancing algorithm used to determine which backend Droplet will be selected by a client.
+        /// It must be either "round_robin" or "least_connections".
 		/// </summary>
 		[JsonProperty("algorithm")]
 		public string Algorithm { get; set; }
@@ -59,7 +58,8 @@ namespace DigitalOcean.API.Models.Responses
 		public StickySessions StickySessions { get; set; }
 
 		/// <summary>
-		/// The region where the Load Balancer instance is located. When setting a region, the value should be the slug identifier for the region. When you query a Load Balancer, an entire region object will be returned.
+		/// The region where the Load Balancer instance is located. When setting a region,
+        /// the value should be the slug identifier for the region. When you query a Load Balancer, an entire region object will be returned.
 		/// </summary>
 		[JsonProperty("region")]
 		public Region Region { get; set; }

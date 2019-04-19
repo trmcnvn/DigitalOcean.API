@@ -58,7 +58,7 @@ namespace DigitalOcean.API.Tests.Clients {
             List<KeyValuePair<string, string>> resources = new List<KeyValuePair<string, string>>(new KeyValuePair<string, string>[] {
                 new KeyValuePair<string, string>("9001", "droplet"),
                 new KeyValuePair<string, string>("9002", "droplet")
-            });          
+            });
 
             client.Tag("notarealtag", resources);
 

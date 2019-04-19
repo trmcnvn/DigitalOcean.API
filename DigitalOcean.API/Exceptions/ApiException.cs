@@ -15,8 +15,7 @@ namespace DigitalOcean.API.Exceptions {
         public HttpStatusCode StatusCode { get; private set; }
 
         public override string Message {
-            get
-            {
+            get {
                 return (_errors.ContainsKey((int)StatusCode)
                           ? _errors[(int)StatusCode]
                           : (_internalErrorResponse != null
@@ -33,8 +32,7 @@ namespace DigitalOcean.API.Exceptions {
             _internalErrorResponse = errorResponse;
         }
 
-        public ApiException(HttpStatusCode statusCode, Func<IRestResponse, Error> p)
-        {
+        public ApiException(HttpStatusCode statusCode, Func<IRestResponse, Error> p) {
             StatusCode = statusCode;
             this.p = p;
         }

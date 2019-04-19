@@ -4,14 +4,11 @@ using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
-namespace DigitalOcean.API.Clients
-{
-	public sealed class LoadBalancerClient : ILoadBalancerClient
-	{
+namespace DigitalOcean.API.Clients {
+	public sealed class LoadBalancerClient : ILoadBalancerClient {
 		private readonly IConnection _connection;
 
-		public LoadBalancerClient(IConnection connection)
-		{
+		public LoadBalancerClient(IConnection connection) {
 			_connection = connection;
 		}
 

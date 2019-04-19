@@ -49,7 +49,7 @@ namespace DigitalOcean.API.Clients {
             var data = new Models.Requests.TagResource {
                 Resources = new List<Models.Requests.TagResource.Resource>()
             };
-           
+
             foreach (KeyValuePair<string, string> resource in resources) {
                 data.Resources.Add(new Models.Requests.TagResource.Resource {
                     Id = resource.Key,

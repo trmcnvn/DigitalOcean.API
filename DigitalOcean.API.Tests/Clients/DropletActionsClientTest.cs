@@ -211,7 +211,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetDropletAction(9001, 1009);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001 && 
+            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001 &&
                 (int)list[1].Value == 1009);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions/{actionId}",
                 parameters, null, "action");
