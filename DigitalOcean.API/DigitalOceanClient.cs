@@ -22,7 +22,8 @@ namespace DigitalOcean.API {
             Droplets = new DropletsClient(_connection);
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
-            Keys = new KeysClient(_connection);
+			LoadBalancers = new LoadBalancerClient(_connection);
+			Keys = new KeysClient(_connection);
             Regions = new RegionsClient(_connection);
             Sizes = new SizesClient(_connection);
             Tags = new TagsClient(_connection);
@@ -42,10 +43,11 @@ namespace DigitalOcean.API {
         public IImageActionsClient ImageActions { get; private set; }
         public IImagesClient Images { get; private set; }
         public IKeysClient Keys { get; private set; }
-        public IRegionsClient Regions { get; private set; }
+		public ILoadBalancerClient LoadBalancers { get; private set; }
+		public IRegionsClient Regions { get; private set; }
         public ISizesClient Sizes { get; private set; }
         public ITagsClient Tags { get; private set; }
 
-        #endregion
-    }
+		#endregion
+	}
 }
