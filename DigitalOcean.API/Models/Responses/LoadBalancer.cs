@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace DigitalOcean.API.Models.Responses {
 	public class LoadBalancer {
@@ -43,7 +44,7 @@ namespace DigitalOcean.API.Models.Responses {
 		/// An object specifying the forwarding rules for a Load Balancer.
 		/// </summary>
 		[JsonProperty("forwarding_rules")]
-		public ForwardingRules ForwardingRules { get; set; }
+		public List<ForwardingRules> ForwardingRules { get; set; }
 
 		/// <summary>
 		/// An object specifying health check settings for the Load Balancer.
@@ -74,7 +75,7 @@ namespace DigitalOcean.API.Models.Responses {
 		/// An array containing the IDs of the Droplets assigned to the Load Balancer.
 		/// </summary>
 		[JsonProperty("droplet_ids")]
-		public int[] DropletIds { get; set; }
+		public List<int> DropletIds { get; set; }
 
 		/// <summary>
 		/// A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443.
