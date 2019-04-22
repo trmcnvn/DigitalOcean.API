@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalOcean.API.Clients
-{
-	public interface ILoadBalancerClient
-	{   
+namespace DigitalOcean.API.Clients {
+	public interface ILoadBalancerClient {
 		/// <summary>
 	    /// Retrieve all LoadBalancers in your account.
 	    /// </summary>

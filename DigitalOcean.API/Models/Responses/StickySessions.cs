@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Responses
-{
-	public class StickySessions
-	{
+namespace DigitalOcean.API.Models.Responses {
+	public class StickySessions {
 		/// <summary>
-		/// An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are "cookies" or "none".
+		/// An attribute indicating how and if requests from a client will be persistently served
+        /// by the same backend Droplet. The possible values are "cookies" or "none".
 		/// </summary>
 		[JsonProperty("type")]
 		public string type { get; set; }
@@ -17,7 +16,8 @@ namespace DigitalOcean.API.Models.Responses
 		public string CookieName { get; set; }
 
 		/// <summary>
-		/// The number of seconds until the cookie set by the Load Balancer expires. This attribute is only returned when using "cookies" for the sticky sessions type.
+		/// The number of seconds until the cookie set by the Load Balancer expires.
+        /// This attribute is only returned when using "cookies" for the sticky sessions type.
 		/// </summary>
 		[JsonProperty("cookie_ttl_seconds")]
 		public string CookieTtlInSeconds { get; set; }

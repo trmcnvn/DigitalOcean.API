@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
             var body = Arg.Is<Action>(action => action.Type == "transfer" && action.RegionSlug == "sfo1");
-            factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions", 
+            factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
                 parameters, body, "action", Method.POST);
         }
 
@@ -30,7 +30,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001 &&
                                                              (int)list[1].Value == 1009);
-            factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions/{actionId}", 
+            factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions/{actionId}",
                 parameters, null, "action");
         }
     }

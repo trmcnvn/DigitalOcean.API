@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Responses
-{
-    public class Error
-    {
+namespace DigitalOcean.API.Models.Responses {
+    public class Error {
         /// <summary>
-        /// error identifier
+        /// The error identifier
         /// </summary>
-        [JsonProperty(PropertyName ="id")]
+        [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>

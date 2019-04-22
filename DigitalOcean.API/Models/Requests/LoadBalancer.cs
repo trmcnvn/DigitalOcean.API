@@ -4,11 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DigitalOcean.API.Models.Requests
-{
-	public class LoadBalancer
-	{
-
+namespace DigitalOcean.API.Models.Requests {
+	public class LoadBalancer {
 		/// <summary>
 		/// A human-readable name for a Load Balancer instance.
 		/// </summary>
@@ -16,19 +13,22 @@ namespace DigitalOcean.API.Models.Requests
 		public string Name { get; set; }
 
 		/// <summary>
-		/// The load balancing algorithm used to determine which backend Droplet will be selected by a client. It must be either "round_robin" or "least_connections". The default value is "round_robin".
+		/// The load balancing algorithm used to determine which backend Droplet will be selected by a client.
+		/// It must be either "round_robin" or "least_connections".The default value is "round_robin".
 		/// </summary>
 		[JsonProperty("algorithm")]
 		public string Algorithm { get; set; }
 
 		/// <summary>
-		/// The region where the Load Balancer instance will be located. When setting a region, the value should be the slug identifier for the region. When you query a Load Balancer, an entire region object will be returned.	
+		/// The region where the Load Balancer instance will be located. When setting a region, the value should be the slug
+		/// identifier for the region. When you query a Load Balancer, an entire region object will be returned.
 		/// </summary>
 		[JsonProperty("region")]
 		public Region Region { get; set; }
 
 		/// <summary>
-		///An array of objects specifying the forwarding rules for a Load Balancer. At least one forwarding rule is required when creating a new Load Balancer instance.
+		/// An array of objects specifying the forwarding rules for a Load Balancer.
+		/// At least one forwarding rule is required when creating a new Load Balancer instance.
 		/// </summary>
 		[JsonProperty("forwarding_rules")]
 		public ForwardingRules[] ForwardingRules { get; set; }
@@ -46,13 +46,15 @@ namespace DigitalOcean.API.Models.Requests
 		public StickySessions StickySessions { get; set; }
 
 		/// <summary>
-		/// A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443. Default value is false.	
+		/// A boolean value indicating whether HTTP requests to the Load Balancer on port 80
+		/// will be redirected to HTTPS on port 443. Default value is false.
 		/// </summary>
 		[JsonProperty("redirect_http_to_https")]
 		public bool RedirectHttpToHttps { get; set; }
 
 		/// <summary>
-		/// A boolean value indicating whether PROXY Protocol should be used to pass information from connecting client requests to the backend service. (This may require additional configuration on the target Droplets.)
+		/// A boolean value indicating whether PROXY Protocol should be used to pass information from connecting client
+		/// requests to the backend service. (This may require additional configuration on the target Droplets.)
 		/// </summary>
 		[JsonProperty("enable_proxy_protocol")]
 		public bool EnableProxyProtocol { get; set; }
@@ -68,6 +70,5 @@ namespace DigitalOcean.API.Models.Requests
 		/// </summary>
 		[JsonProperty("tag")]
 		public string Tag { get; set; }
-
 	}
 }

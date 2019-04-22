@@ -6,13 +6,10 @@ using RestSharp;
 using System.Collections.Generic;
 using Xunit;
 
-namespace DigitalOcean.API.Tests.Clients
-{
-	public class LoadBalancerClientTest
-	{
+namespace DigitalOcean.API.Tests.Clients {
+	public class LoadBalancerClientTest {
 		[Fact]
-		public void CorrectRequestForGetAll()
-		{
+		public void CorrectRequestForGetAll() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -22,8 +19,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForCreate()
-		{
+		public void CorrectRequestForCreate() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -34,8 +30,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForDelete()
-		{
+		public void CorrectRequestForDelete() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -46,8 +41,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForGet()
-		{
+		public void CorrectRequestForGet() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -58,8 +52,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForUpdate()
-		{
+		public void CorrectRequestForUpdate() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -71,8 +64,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForAddDroplets()
-		{
+		public void CorrectRequestForAddDroplets() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -84,8 +76,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForRemoveDroplets()
-		{
+		public void CorrectRequestForRemoveDroplets() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -97,8 +88,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForAddForwardingRule()
-		{
+		public void CorrectRequestForAddForwardingRule() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -110,8 +100,7 @@ namespace DigitalOcean.API.Tests.Clients
 		}
 
 		[Fact]
-		public void CorrectRequestForRemoveForwardingRule()
-		{
+		public void CorrectRequestForRemoveForwardingRule() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 

@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Responses
-{
-	public class HealthCheck
-	{
+namespace DigitalOcean.API.Models.Responses {
+	public class HealthCheck {
 		/// <summary>
 		/// The protocol used for health checks sent to the backend Droplets. The possible values are "http" or "tcp".
 		/// </summary>
