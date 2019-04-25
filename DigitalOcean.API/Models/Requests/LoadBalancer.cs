@@ -63,7 +63,7 @@ namespace DigitalOcean.API.Models.Requests {
 		/// An array containing the IDs of the Droplets to be assigned to the Load Balancer.
 		/// </summary>
 		[JsonProperty("droplet_ids")]
-		public int[] DropletIds { get; set; }
+		public List<int> DropletIds { get; set; }
 
 		/// <summary>
 		/// The name of a Droplet tag corresponding to Droplets assigned to the Load Balancer.
