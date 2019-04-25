@@ -24,14 +24,14 @@ namespace DigitalOcean.API.Models.Requests {
 		/// identifier for the region. When you query a Load Balancer, an entire region object will be returned.
 		/// </summary>
 		[JsonProperty("region")]
-		public Region Region { get; set; }
+		public string Region { get; set; }
 
 		/// <summary>
 		/// An array of objects specifying the forwarding rules for a Load Balancer.
 		/// At least one forwarding rule is required when creating a new Load Balancer instance.
 		/// </summary>
 		[JsonProperty("forwarding_rules")]
-		public ForwardingRules[] ForwardingRules { get; set; }
+		public List<ForwardingRules> ForwardingRules { get; set; }
 
 		/// <summary>
 		/// An object specifying health check settings for the Load Balancer. If omitted, default values will be provided .
