@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace DigitalOcean.API.Models.Requests {
@@ -57,6 +57,12 @@ namespace DigitalOcean.API.Models.Requests {
         [JsonProperty("private_networking")]
         public bool PrivateNetworking { get; set; }
         
+        /// <summary>
+        /// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        /// </summary>
+        [JsonProperty("monitoring")]
+        public bool Monitoring { get; set; }
+
         /// <summary>
         /// A string containing a YAML formatted Cloud-Init script
         /// </summary>
