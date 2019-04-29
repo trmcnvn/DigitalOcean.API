@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.1</Version>
+    <Version>2.2.0</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageLicenseUrl>https://github.com/trmcnvn/DigitalOcean.API/blob/master/LICENSE.md</PackageLicenseUrl>
@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/trmcnvn/DigitalOcean.API</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>DigitalOcean API</PackageTags>
-    <PackageReleaseNotes>- Fixed issue with serialization of Load Balancer (@AlisterGreg)</PackageReleaseNotes>
+    <PackageReleaseNotes>- Add monitoring property to Droplet (@Nicholi)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
