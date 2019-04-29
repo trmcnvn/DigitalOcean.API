@@ -1,4 +1,4 @@
-﻿using DigitalOcean.API.Clients;
+using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 
 namespace DigitalOcean.API {
@@ -12,6 +12,7 @@ namespace DigitalOcean.API {
         IImagesClient Images { get; }
         IKeysClient Keys { get; }
 		ILoadBalancerClient LoadBalancers { get;}
+        IProjectResourcesClient ProjectResources { get; }
         IRegionsClient Regions { get; }
         ISizesClient Sizes { get; }
 
