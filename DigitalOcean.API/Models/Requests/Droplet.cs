@@ -58,6 +58,12 @@ namespace DigitalOcean.API.Models.Requests {
         public bool PrivateNetworking { get; set; }
         
         /// <summary>
+        /// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        /// </summary>
+        [JsonProperty("monitoring")]
+        public bool Monitoring { get; set; }
+
+        /// <summary>
         /// A string containing a YAML formatted Cloud-Init script
         /// </summary>
         [JsonProperty("user_data")]
