@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace DigitalOcean.API.Models.Responses {
     public class ProjectResource {
