@@ -1,4 +1,4 @@
-using DigitalOcean.API.Clients;
+﻿using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 
 namespace DigitalOcean.API {
