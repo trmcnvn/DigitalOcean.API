@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace DigitalOcean.API.Models.Requests {
     public class UpdateCdnEndpoint {
@@ -10,6 +10,7 @@ namespace DigitalOcean.API.Models.Requests {
 
         /// <summary>
         /// The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
+        /// In order to remove value, set to empty string.
         /// </summary>
         [JsonProperty("certificate_id")]
         public string CertificateId { get; set; }
@@ -17,6 +18,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// <summary>
         /// The fully qualified domain name (FQDN) of the custom subdomain to be used with the CDN Endpoint. When used, a certificate_id
         /// must be provided as well.
+        /// In order to remove value, set to empty string.
         /// </summary>
         [JsonProperty("custom_domain")]
         public string CustomDomain { get; set; }
