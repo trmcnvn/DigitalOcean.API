@@ -35,13 +35,11 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new ProjectResourcesClient(factory);
 
-            var resources = new AssignResourceNames() {
-                Resources = new List<string>() { "do:droplet:9001", "do:droplet:9002" }
-            };
-            client.AssignResources("project:abc123", resources);
+            var body = new AssignResourceNames();
+            client.AssignResources("project:abc123", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "project:abc123");
-            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, resources, "resources", Method.POST);
+            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, body, "resources", Method.POST);
         }
 
         [Fact]
@@ -49,12 +47,10 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new ProjectResourcesClient(factory);
 
-            var resources = new AssignResourceNames() {
-                Resources = new List<string>() { "do:droplet:9001", "do:droplet:9002" }
-            };
-            client.AssignDefaultResources(resources);
+            var body = new AssignResourceNames();
+            client.AssignDefaultResources(body);
 
-            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, resources, "resources", Method.POST);
+            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, body, "resources", Method.POST);
         }
     }
 }
