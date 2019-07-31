@@ -16,6 +16,7 @@ namespace DigitalOcean.API {
             _connection = new Connection(client);
 
             Actions = new ActionsClient(_connection);
+            CdnEndpoints = new CdnEndpointsClient(_connection);
             DomainRecords = new DomainRecordsClient(_connection);
             Domains = new DomainsClient(_connection);
             DropletActions = new DropletActionsClient(_connection);
@@ -36,6 +37,7 @@ namespace DigitalOcean.API {
         }
 
         public IActionsClient Actions { get; private set; }
+        public ICdnEndpointsClient CdnEndpoints { get; private set; }
         public IDomainRecordsClient DomainRecords { get; private set; }
         public IDomainsClient Domains { get; private set; }
         public IDropletActionsClient DropletActions { get; private set; }
