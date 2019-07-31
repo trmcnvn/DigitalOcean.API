@@ -40,22 +40,10 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To update the TTL, certificate ID, or the FQDN of the custom subdomain for an existing CDN endpoint.
         /// </summary>
-        public Task<CdnEndpoint> Update(string endpointId, int? ttl = null, string certificateId = null, string customDomain = null) {
+        public Task<CdnEndpoint> Update(string endpointId, Models.Requests.UpdateCdnEndpoint updateEndpoint) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "endpoint_id", Value = endpointId, Type = ParameterType.UrlSegment }
             };
-            var updateEndpoint = new Dictionary<string, object>(3);
-            if (ttl.HasValue) {
-                updateEndpoint["ttl"] = ttl.Value;
-            }
-            // allow empty string to pass through
-            // test unsetting these
-            if (certificateId != null) {
-                updateEndpoint["certificate_id"] = certificateId;
-            }
-            if (customDomain != null) {
-                updateEndpoint["custom_domain"] = customDomain;
-            }
             return _connection.ExecuteRequest<CdnEndpoint>("cdn/endpoints/{endpoint_id}", parameters, updateEndpoint, "endpoint", Method.PUT);
         }
 
@@ -74,12 +62,9 @@ namespace DigitalOcean.API.Clients {
         /// A path may be for a single file or may contain a wildcard (*) to recursively purge all files under a directory.
         /// When only a wildcard is provided, all cached files will be purged.
         /// </summary>
-        public Task PurgeCache(string endpointId, List<string> files) {
+        public Task PurgeCache(string endpointId, Models.Requests.PurgeCdnFiles purgeFiles) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "endpoint_id", Value = endpointId, Type = ParameterType.UrlSegment }
-            };
-            var purgeFiles = new {
-                files = files
             };
             return _connection.ExecuteRaw("cdn/endpoints/{endpoint_id}/cache", parameters, purgeFiles, Method.DELETE);
         }

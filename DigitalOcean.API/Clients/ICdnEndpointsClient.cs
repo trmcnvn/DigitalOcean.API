@@ -23,7 +23,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To update the TTL, certificate ID, or the FQDN of the custom subdomain for an existing CDN endpoint.
         /// </summary>
-        Task<CdnEndpoint> Update(string endpointId, int? ttl = null, string certificateId = null, string customDomain = null);
+        Task<CdnEndpoint> Update(string endpointId, Models.Requests.UpdateCdnEndpoint updateEndpoint);
 
         /// <summary>
         /// To delete a specific CDN endpoint.
@@ -35,6 +35,6 @@ namespace DigitalOcean.API.Clients {
         /// A path may be for a single file or may contain a wildcard (*) to recursively purge all files under a directory.
         /// When only a wildcard is provided, all cached files will be purged.
         /// </summary>
-        Task PurgeCache(string endpointId, List<string> files);
+        Task PurgeCache(string endpointId, Models.Requests.PurgeCdnFiles purgeFiles);
     }
 }
