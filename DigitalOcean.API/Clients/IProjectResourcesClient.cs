@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using DigitalOcean.API.Models.Requests;
 using DigitalOcean.API.Models.Responses;
 
 namespace DigitalOcean.API.Clients {
@@ -17,11 +18,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To assign resources to a project.
         /// </summary>
-        Task<IReadOnlyList<ProjectResource>> AssignResources(string projectId, IEnumerable<string> uniformResourceNames);
+        Task<IReadOnlyList<ProjectResource>> AssignResources(string projectId, AssignResourceNames resources);
 
         /// <summary>
         /// To assign resources to the default project.
         /// </summary>
-        Task<IReadOnlyList<ProjectResource>> AssignDefaultResources(IEnumerable<string> uniformResourceNames);
+        Task<IReadOnlyList<ProjectResource>> AssignDefaultResources(AssignResourceNames resources);
     }
 }

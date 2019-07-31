@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Http;
+using DigitalOcean.API.Models.Requests;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
@@ -33,25 +34,19 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To assign resources to a project.
         /// </summary>
-        public Task<IReadOnlyList<ProjectResource>> AssignResources(string projectId, IEnumerable<string> uniformResourceNames) {
+        public Task<IReadOnlyList<ProjectResource>> AssignResources(string projectId, AssignResourceNames resources) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "project_id", Value = projectId, Type = ParameterType.UrlSegment }
             };
-            var data = new {
-                resources = uniformResourceNames
-            };
-            return _connection.ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, data, "resources", Method.POST)
+            return _connection.ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, resources, "resources", Method.POST)
                 .ToReadOnlyListAsync();
         }
 
         /// <summary>
         /// To assign resources to the default project.
         /// </summary>
-        public Task<IReadOnlyList<ProjectResource>> AssignDefaultResources(IEnumerable<string> uniformResourceNames) {
-            var data = new {
-                resources = uniformResourceNames
-            };
-            return _connection.ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, data, "resources", Method.POST)
+        public Task<IReadOnlyList<ProjectResource>> AssignDefaultResources(AssignResourceNames resources) {
+            return _connection.ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, resources, "resources", Method.POST)
                 .ToReadOnlyListAsync();
         }
     }
