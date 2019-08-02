@@ -5,6 +5,8 @@ namespace DigitalOcean.API {
     public interface IDigitalOceanClient {
         IAccountClient Account { get; }
         IActionsClient Actions { get; }
+        ICdnEndpointsClient CdnEndpoints { get; }
+        ICertificatesClient Certificates { get; }
         IDomainRecordsClient DomainRecords { get; }
         IDomainsClient Domains { get; }
         IDropletActionsClient DropletActions { get; }

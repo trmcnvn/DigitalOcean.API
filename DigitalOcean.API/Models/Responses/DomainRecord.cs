@@ -33,7 +33,7 @@
         /// <summary>
         /// Time to live for the record, in seconds. If not set, the default value is 1800.
         /// </summary>
-        public int? TTL { get; set; }
+        public int? Ttl { get; set; }
 
         /// <summary>
         /// The weight of records with the same priority (for SRV records only. null otherwise).
