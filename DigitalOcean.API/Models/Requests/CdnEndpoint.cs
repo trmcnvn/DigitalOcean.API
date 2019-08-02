@@ -13,7 +13,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// The amount of time the content is cached by the CDN's edge servers in seconds. Defaults to 3600 (one hour) when excluded.
         /// </summary>
         [JsonProperty("ttl")]
-        public int? TTL { get; set; }
+        public int? Ttl { get; set; }
 
         /// <summary>
         /// The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
