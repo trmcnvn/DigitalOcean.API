@@ -14,6 +14,7 @@ namespace DigitalOcean.API {
         IImagesClient Images { get; }
         IKeysClient Keys { get; }
 		ILoadBalancerClient LoadBalancers { get;}
+        IProjectResourcesClient ProjectResources { get; }
         IRegionsClient Regions { get; }
         ISizesClient Sizes { get; }
 
