@@ -13,7 +13,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Get();
 
-            factory.Received().ExecuteRequest<Account>("/account", null, null, "account");
+            factory.Received().ExecuteRequest<Account>("account", null, null, "account");
         }
     }
 }

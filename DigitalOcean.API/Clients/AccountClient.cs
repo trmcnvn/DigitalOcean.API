@@ -14,7 +14,7 @@ namespace DigitalOcean.API.Clients {
         /// To show information about the current user's account.
         /// </summary>
         public Task<Account> Get() {
-            return _connection.ExecuteRequest<Account>("/account", null, null, "account");
+            return _connection.ExecuteRequest<Account>("account", null, null, "account");
         }
     }
 }
