@@ -15,6 +15,7 @@ namespace DigitalOcean.API {
 
             _connection = new Connection(client);
 
+            Account = new AccountClient(_connection);
             Actions = new ActionsClient(_connection);
             DomainRecords = new DomainRecordsClient(_connection);
             Domains = new DomainsClient(_connection);
@@ -36,6 +37,7 @@ namespace DigitalOcean.API {
             get { return _connection.Rates; }
         }
 
+        public IAccountClient Account { get; private set; }
         public IActionsClient Actions { get; private set; }
         public IDomainRecordsClient DomainRecords { get; private set; }
         public IDomainsClient Domains { get; private set; }

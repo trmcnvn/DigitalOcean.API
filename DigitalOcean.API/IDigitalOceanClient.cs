@@ -3,6 +3,7 @@ using DigitalOcean.API.Http;
 
 namespace DigitalOcean.API {
     public interface IDigitalOceanClient {
+        IAccountClient Account { get; }
         IActionsClient Actions { get; }
         IDomainRecordsClient DomainRecords { get; }
         IDomainsClient Domains { get; }
