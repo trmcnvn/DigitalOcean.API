@@ -18,7 +18,7 @@
         /// <summary>
         /// The unique universal identifier for the current user.
         /// </summary>
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         /// <summary>
         /// If true, the user has verified their account via email. False otherwise.

@@ -10,7 +10,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// The unique universal identifier of the project owner.
         /// </summary>
-        public string OwnerUUID { get; set; }
+        public string OwnerUuid { get; set; }
 
         /// <summary>
         /// The integer id of the project owner.
