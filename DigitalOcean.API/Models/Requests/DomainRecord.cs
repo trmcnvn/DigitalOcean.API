@@ -36,7 +36,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// Time to live for the record, in seconds. If not set, the default value is 1800.
         /// </summary>
         [JsonProperty("ttl")]
-        public int? TTL { get; set; }
+        public int? Ttl { get; set; }
 
         /// <summary>
         /// The weight of records with the same priority (for SRV records only. null otherwise).
@@ -46,13 +46,13 @@ namespace DigitalOcean.API.Models.Requests {
 
 
         /// <summary>
-        /// An unsigned integer between 0-255 used for CAA records. 
+        /// An unsigned integer between 0-255 used for CAA records.
         /// </summary>
         [JsonProperty("flags")]
         public int? Flags { get; set; }
 
         /// <summary>
-        /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"     
+        /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
         /// </summary>
         [JsonProperty("tag")]
         public string Tag { get; set; }
