@@ -29,6 +29,7 @@ namespace DigitalOcean.API {
 			Keys = new KeysClient(_connection);
             Regions = new RegionsClient(_connection);
             Sizes = new SizesClient(_connection);
+            Snapshots = new SnapshotsClient(_connection);
             Tags = new TagsClient(_connection);
         }
 
@@ -52,6 +53,7 @@ namespace DigitalOcean.API {
         public IProjectResourcesClient ProjectResources { get; private set; }
 		public IRegionsClient Regions { get; private set; }
         public ISizesClient Sizes { get; private set; }
+        public ISnapshotsClient Snapshots { get; private set; }
         public ITagsClient Tags { get; private set; }
 
 		#endregion

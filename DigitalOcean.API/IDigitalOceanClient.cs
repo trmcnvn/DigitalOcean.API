@@ -17,6 +17,7 @@ namespace DigitalOcean.API {
         IProjectResourcesClient ProjectResources { get; }
         IRegionsClient Regions { get; }
         ISizesClient Sizes { get; }
+        ISnapshotsClient Snapshots { get; }
 
         IRateLimit Rates { get; }
         ITagsClient Tags { get; }
