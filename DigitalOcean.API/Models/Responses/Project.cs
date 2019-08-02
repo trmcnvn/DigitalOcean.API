@@ -1,6 +1,10 @@
 ﻿using System;
 
 namespace DigitalOcean.API.Models.Responses {
+    /// <summary>
+    /// Projects allow you to organize your resources into groups that fit the way you work. You can group resources (like Droplets,
+    /// Spaces, Load Balancers, domains, and Floating IPs) in ways that align with the applications you host on DigitalOcean.
+    /// </summary>
     public class Project {
         /// <summary>
         /// The unique universal identifier of this project.
