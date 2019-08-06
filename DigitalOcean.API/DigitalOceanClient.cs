@@ -15,6 +15,7 @@ namespace DigitalOcean.API {
 
             _connection = new Connection(client);
 
+            Account = new AccountClient(_connection);
             Actions = new ActionsClient(_connection);
             CdnEndpoints = new CdnEndpointsClient(_connection);
             Certificates = new CertificatesClient(_connection);
@@ -25,10 +26,12 @@ namespace DigitalOcean.API {
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
 			LoadBalancers = new LoadBalancerClient(_connection);
+            Projects = new ProjectsClient(_connection);
 			ProjectResources = new ProjectResourcesClient(_connection);
 			Keys = new KeysClient(_connection);
             Regions = new RegionsClient(_connection);
             Sizes = new SizesClient(_connection);
+            Snapshots = new SnapshotsClient(_connection);
             Tags = new TagsClient(_connection);
         }
 
@@ -38,6 +41,7 @@ namespace DigitalOcean.API {
             get { return _connection.Rates; }
         }
 
+        public IAccountClient Account { get; private set; }
         public IActionsClient Actions { get; private set; }
         public ICdnEndpointsClient CdnEndpoints { get; private set; }
         public ICertificatesClient Certificates { get; private set; }
@@ -49,9 +53,11 @@ namespace DigitalOcean.API {
         public IImagesClient Images { get; private set; }
         public IKeysClient Keys { get; private set; }
 		public ILoadBalancerClient LoadBalancers { get; private set; }
+        public IProjectsClient Projects { get; private set; }
         public IProjectResourcesClient ProjectResources { get; private set; }
 		public IRegionsClient Regions { get; private set; }
         public ISizesClient Sizes { get; private set; }
+        public ISnapshotsClient Snapshots { get; private set; }
         public ITagsClient Tags { get; private set; }
 
 		#endregion
