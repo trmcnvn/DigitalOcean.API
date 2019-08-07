@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageLicenseUrl>https://github.com/trmcnvn/DigitalOcean.API/blob/master/LICENSE.md</PackageLicenseUrl>
@@ -12,8 +12,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>DigitalOcean API</PackageTags>
     <PackageReleaseNotes>
-      Breaking: Changed DomainRecord's `TTL` property to `Ttl`.
-      Breaking: Changed UpdateCdnEndpoint's `TTL` property to `Ttl`.
+      - Support for Account API (@Nicholi)
+      - Support for Projects API (@Nicholi)
+      - Support for Snapshots API (@Nicholi)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
