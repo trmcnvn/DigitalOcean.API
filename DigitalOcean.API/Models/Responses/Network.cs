@@ -3,6 +3,7 @@
 namespace DigitalOcean.API.Models.Responses {
     public class Interface {
         public string IpAddress { get; set; }
+        // NOTE: IPv6 netmasks are returned as integers from API. Automatically converted to string on deserialization.
         public string Netmask { get; set; }
         public string Gateway { get; set; }
         public string Type { get; set; }
