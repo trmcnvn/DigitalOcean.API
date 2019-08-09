@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -89,13 +89,14 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Resize a droplet
         /// </summary>
-        public Task<Action> Resize(int dropletId, string sizeSlug) {
+        public Task<Action> Resize(int dropletId, string sizeSlug, bool resizeDisk) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
             };
             var body = new Models.Requests.Action {
                 Type = "resize",
-                SizeSlug = sizeSlug
+                SizeSlug = sizeSlug,
+                Disk = resizeDisk
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
                 "action", Method.POST);
@@ -176,6 +177,18 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
+        /// Enable backups on a droplet
+        /// </summary>
+        public Task<Action> EnableBackups(int dropletId) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+            };
+            var body = new Models.Requests.Action { Type = "enable_backups" };
+            return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
+                "action", Method.POST);
+        }
+
+        /// <summary>
         /// Disable backups on a droplet
         /// </summary>
         public Task<Action> DisableBackups(int dropletId) {
@@ -224,6 +237,28 @@ namespace DigitalOcean.API.Clients {
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions/{actionId}", parameters,
                 null, "action");
+        }
+
+        /// <summary>
+        /// Some actions can be performed in bulk on tagged Droplets.
+        /// The list of supported action types are:
+        /// * power_cycle
+        /// * power_on
+        /// * power_off
+        /// * shutdown
+        /// * enable_private_networking
+        /// * enable_ipv6
+        /// * enable_backups
+        /// * disable_backups
+        /// * snapshot
+        /// </summary>
+        public Task<Action> ActionOnTag(string tag, string actionType) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "tag", Value = tag, Type = ParameterType.UrlSegment }
+            };
+            var body = new Models.Requests.Action { Type = actionType };
+            return _connection.ExecuteRequest<Action>("droplets/actions?tag_name={tag}", parameters, body,
+                "action", Method.POST);
         }
 
         #endregion
