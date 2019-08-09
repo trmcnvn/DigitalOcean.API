@@ -20,9 +20,9 @@ namespace DigitalOcean.API.Clients {
         Task<Key> Get(object keyIdOrFingerprint);
 
         /// <summary>
-        /// Update an existing key in your account
+        /// To update the name of an SSH key.
         /// </summary>
-        Task<Key> Update(object keyIdOrFingerprint, Models.Requests.Key key);
+        Task<Key> Update(object keyIdOrFingerprint, Models.Requests.UpdateKey updateKey);
 
         /// <summary>
         /// Delete an existing key in your account
