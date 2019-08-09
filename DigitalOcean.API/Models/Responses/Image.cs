@@ -56,5 +56,25 @@ namespace DigitalOcean.API.Models.Responses {
         /// The size of the image in gigabytes
         /// </summary>
         public int SizeGigabytes { get; set; }
+
+        /// <summary>
+        /// An optional free-form text field to describe an image.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// An array containing the names of the tags the image has been tagged with.
+        /// </summary>
+        public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// A status string indicating the state of a custom image. This may be "NEW", "available", "pending", or "deleted".
+        /// </summary>
+        public string Status { get; set; }
+
+        /// <summary>
+        /// A string containing information about errors that may occur when importing a custom image.
+        /// </summary>
+        public string ErrorMessage { get; set; }
     }
 }
