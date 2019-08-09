@@ -106,13 +106,13 @@ namespace DigitalOcean.API.Clients {
         /// A Droplet restoration will rebuild an image using a backup image. The image ID that is passed in must be a backup of
         /// the current Droplet instance. The operation will leave any embedded SSH keys intact.
         /// </summary>
-        public Task<Action> Restore(int dropletId, int imageId) {
+        public Task<Action> Restore(int dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
             };
             var body = new Models.Requests.Action {
                 Type = "restore",
-                ImageIdOrSlug = imageId
+                ImageIdOrSlug = imageIdOrSlug
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
                 "action", Method.POST);

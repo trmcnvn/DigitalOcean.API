@@ -43,7 +43,7 @@ namespace DigitalOcean.API.Clients {
         /// A Droplet restoration will rebuild an image using a backup image. The image ID that is passed in must be a backup of
         /// the current Droplet instance. The operation will leave any embedded SSH keys intact.
         /// </summary>
-        Task<Action> Restore(int dropletId, int imageId);
+        Task<Action> Restore(int dropletId, object imageIdOrSlug);
 
         /// <summary>
         /// Rebuild a droplet
