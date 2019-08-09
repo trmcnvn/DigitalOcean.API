@@ -27,6 +27,16 @@ namespace DigitalOcean.API.Tests.Clients {
             factory.Received().GetPaginated<Image>("images?private=true", null, "images");
         }
 
+        public void CorrectRequestForCreate() {
+            var factory = Substitute.For<IConnection>();
+            var client = new ImagesClient(factory);
+
+            var body = new Models.Requests.Image();
+            client.Create(body);
+
+            factory.Received().ExecuteRequest<Image>("images", null, body, "image", Method.POST);
+        }
+
         [Fact]
         public void CorrectRequestForGetId() {
             var factory = Substitute.For<IConnection>();
@@ -65,7 +75,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new ImagesClient(factory);
 
-            var body = new Models.Requests.Image { Name = "example" };
+            var body = new Models.Requests.UpdateImage { Name = "example" };
             client.Update(9001, body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
