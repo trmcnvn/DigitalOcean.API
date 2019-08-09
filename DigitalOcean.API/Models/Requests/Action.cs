@@ -13,7 +13,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         /// <remarks>
         /// Used by:
-        ///     Reboot Droplet action
+        ///     Resize Droplet action
         /// </remarks>
         [JsonProperty("size")]
         public string SizeSlug { get; set; }
@@ -52,7 +52,21 @@ namespace DigitalOcean.API.Models.Requests {
         /// <summary>
         /// The region slug that represents the region target.
         /// </summary>
+        /// <remarks>
+        /// Used by:
+        ///     Transfer Image action
+        /// </remarks>
         [JsonProperty("region")]
         public string RegionSlug { get; set; }
+
+        /// <summary>
+        /// Whether to increase disk size.
+        /// </summary>
+        /// <remarks>
+        /// Used by:
+        ///     Resize Droplet action
+        /// </remarks>
+        [JsonProperty("disk")]
+        public bool? Disk { get; set; }
     }
 }
