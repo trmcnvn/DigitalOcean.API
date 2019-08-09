@@ -92,10 +92,10 @@ namespace DigitalOcean.API.Tests.Clients {
                 var factory = Substitute.For<IConnection>();
             var client = new DropletActionsClient(factory);
 
-            client.Resize(9001, "1024mb");
+            client.Resize(9001, "1024mb", true);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            var body = Arg.Is<Action>(action => action.Type == "resize" && action.SizeSlug == "1024mb");
+            var body = Arg.Is<Action>(action => action.Type == "resize" && action.SizeSlug == "1024mb" && action.Disk == true);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
                 parameters, body, "action", Method.POST);
         }
