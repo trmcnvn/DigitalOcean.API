@@ -44,7 +44,7 @@ namespace DigitalOcean.API.Models.Responses {
 		/// An object specifying the forwarding rules for a Load Balancer.
 		/// </summary>
 		[JsonProperty("forwarding_rules")]
-		public List<ForwardingRules> ForwardingRules { get; set; }
+		public List<ForwardingRule> ForwardingRules { get; set; }
 
 		/// <summary>
 		/// An object specifying health check settings for the Load Balancer.

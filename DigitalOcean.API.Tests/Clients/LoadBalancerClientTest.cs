@@ -4,6 +4,7 @@ using DigitalOcean.API.Models.Requests;
 using NSubstitute;
 using RestSharp;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace DigitalOcean.API.Tests.Clients {
@@ -92,10 +93,16 @@ namespace DigitalOcean.API.Tests.Clients {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
-			var body = new Models.Responses.ForwardingRules();
-			client.AddForwardingRule(15, body);
+			var requestBody = new ForwardingRulesList() {
+			    ForwardingRules = new List<ForwardingRule>()
+			    {
+			        new ForwardingRule()
+			    }
+			};
+			client.AddForwardingRule(15, requestBody);
 
 			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var body = Arg.Is<ForwardingRulesList>(ls => ls.ForwardingRules.SequenceEqual(requestBody.ForwardingRules));
 			factory.Received().ExecuteRaw("load_balancers/{id}/forwarding_rules", parameters, body, Method.POST);
 		}
 
@@ -104,10 +111,16 @@ namespace DigitalOcean.API.Tests.Clients {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
-			var body = new Models.Responses.ForwardingRules();
-			client.RemoveForwardingRule(15, body);
+			var requestBody = new ForwardingRulesList() {
+		        ForwardingRules = new List<ForwardingRule>()
+			    {
+			        new ForwardingRule()
+			    }
+			};
+			client.RemoveForwardingRule(15, requestBody);
 
 			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var body = Arg.Is<ForwardingRulesList>(ls => ls.ForwardingRules.SequenceEqual(requestBody.ForwardingRules));
 			factory.Received().ExecuteRaw("load_balancers/{id}/forwarding_rules", parameters, body, Method.DELETE);
 		}
 	}

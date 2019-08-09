@@ -42,11 +42,11 @@ namespace DigitalOcean.API.Clients {
 		/// <summary>
 		/// Add new Forwarding Rule to an LoadBalancer
 		/// </summary>
-		Task AddForwardingRule(int loadBalancerId, ForwardingRules forwardingRules);
+		Task AddForwardingRule(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules);
 
 		/// <summary>
 		/// Remove exsisting Forwarding Rule from an LoadBalancer
 		/// </summary>
-		Task RemoveForwardingRule(int loadBalancerId, ForwardingRules forwardingRules);
+		Task RemoveForwardingRule(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules);
 	}
 }
