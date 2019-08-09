@@ -7,7 +7,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// by the same backend Droplet. The possible values are "cookies" or "none".
 		/// </summary>
 		[JsonProperty("type")]
-		public string type { get; set; }
+		public string Type { get; set; }
 
 		/// <summary>
 		/// The name of the cookie sent to the client. This attribute is only returned when using "cookies" for the sticky sessions type.
