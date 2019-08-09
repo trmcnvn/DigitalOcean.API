@@ -22,12 +22,12 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Tag existing resources of given resource id / type combination
         /// </summary>
-        Task Tag(string tagName, List<KeyValuePair<string, string>> resources);
+        Task Tag(string tagName, Models.Requests.TagResources resources);
 
         /// <summary>
         /// Untag existing resources of given resource id / type combination
         /// </summary>
-        Task Untag(string tagName, List<KeyValuePair<string, string>> resources);
+        Task Untag(string tagName, Models.Requests.TagResources resources);
 
         /// <summary>
         /// Delete an existing Tag

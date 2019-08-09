@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -55,15 +56,26 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
-            List<KeyValuePair<string, string>> resources = new List<KeyValuePair<string, string>>(new KeyValuePair<string, string>[] {
-                new KeyValuePair<string, string>("9001", "droplet"),
-                new KeyValuePair<string, string>("9002", "droplet")
-            });
+            var resources = new Models.Requests.TagResources() {
+                Resources = new List<Models.Requests.TagResource>() {
+                    new Models.Requests.TagResource()
+                    {
+                        Id = "9001",
+                        Type = "droplet"
+                    },
+                    new Models.Requests.TagResource()
+                    {
+                        Id = "9002",
+                        Type = "droplet"
+                    }
+                }
+            };
 
             client.Tag("notarealtag", resources);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, Arg.Is<Models.Requests.TagResource>(data => data.Resources[1].Id == "9002"), Method.POST);
+            var body = Arg.Is<Models.Requests.TagResources>(tr => tr.Resources.SequenceEqual(resources.Resources));
+            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, body, Method.POST);
         }
 
         [Fact]
@@ -71,15 +83,26 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new TagsClient(factory);
 
-            List<KeyValuePair<string, string>> resources = new List<KeyValuePair<string, string>>(new KeyValuePair<string, string>[] {
-                new KeyValuePair<string, string>("9001", "droplet"),
-                new KeyValuePair<string, string>("9002", "droplet")
-            });
+            var resources = new Models.Requests.TagResources() {
+                Resources = new List<Models.Requests.TagResource>() {
+                    new Models.Requests.TagResource()
+                    {
+                        Id = "9001",
+                        Type = "droplet"
+                    },
+                    new Models.Requests.TagResource()
+                    {
+                        Id = "9002",
+                        Type = "droplet"
+                    }
+                }
+            };
 
             client.Untag("notarealtag", resources);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, Arg.Is<Models.Requests.TagResource>(data => data.Resources[1].Id == "9002"), Method.DELETE);
+            var body = Arg.Is<Models.Requests.TagResources>(tr => tr.Resources.SequenceEqual(resources.Resources));
+            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, body, Method.DELETE);
         }
     }
 }
