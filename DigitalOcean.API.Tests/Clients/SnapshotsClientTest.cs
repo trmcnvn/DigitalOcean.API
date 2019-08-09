@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
+using DigitalOcean.API.Models.Requests;
 using DigitalOcean.API.Models.Responses;
 using NSubstitute;
 using RestSharp;
@@ -15,23 +16,11 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAll();
             factory.Received().GetPaginated<Snapshot>("snapshots", null, "snapshots");
-        }
 
-        [Fact]
-        public void CorrectRequestForGetAllDroplet() {
-            var factory = Substitute.For<IConnection>();
-            var client = new SnapshotsClient(factory);
-
-            client.GetAllDroplet();
+            client.GetAll(SnapshotType.Droplet);
             factory.Received().GetPaginated<Snapshot>("snapshots?resource_type=droplet", null, "snapshots");
-        }
 
-        [Fact]
-        public void CorrectRequestForGetAllVolume() {
-            var factory = Substitute.For<IConnection>();
-            var client = new SnapshotsClient(factory);
-
-            client.GetAllVolume();
+            client.GetAll(SnapshotType.Volume);
             factory.Received().GetPaginated<Snapshot>("snapshots?resource_type=volume", null, "snapshots");
         }
 
