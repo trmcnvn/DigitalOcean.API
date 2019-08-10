@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
+using DigitalOcean.API.Models.Responses;
 using RestSharp;
-using Action = DigitalOcean.API.Models.Responses.Action;
 
 namespace DigitalOcean.API.Clients {
     public class ImageActionsClient : IImageActionsClient {
@@ -23,7 +22,7 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment }
             };
 
-            var body = new Models.Requests.Action {
+            var body = new Models.Requests.ImageAction {
                 Type = "transfer",
                 RegionSlug = regionSlug
             };

@@ -61,12 +61,12 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing record for a domain
         /// </summary>
-        public Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.DomainRecord newRecord) {
+        public Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.UpdateDomainRecord updateRecord) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = domainName, Type = ParameterType.UrlSegment },
                 new Parameter { Name = "id", Value = recordId, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, newRecord,
+            return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, updateRecord,
                 "domain_record", Method.PUT);
         }
 

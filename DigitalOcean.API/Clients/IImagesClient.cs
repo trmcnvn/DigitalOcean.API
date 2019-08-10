@@ -11,6 +11,13 @@ namespace DigitalOcean.API.Clients {
         Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All);
 
         /// <summary>
+        /// To create a new custom image.
+        /// The image must be in the raw, qcow2, vhdx, vdi, or vmdk format.
+        /// It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
+        /// </summary>
+        Task<Image> Create(Models.Requests.Image image);
+
+        /// <summary>
         /// Retrieve information about a public or private image on your account.
         /// </summary>
         /// <remarks>
@@ -26,6 +33,6 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing image
         /// </summary>
-        Task<Image> Update(int imageId, Models.Requests.Image image);
+        Task<Image> Update(int imageId, Models.Requests.UpdateImage updateImage);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace DigitalOcean.API.Models.Requests {
 	public class LoadBalancerDroplets {
@@ -6,6 +7,6 @@ namespace DigitalOcean.API.Models.Requests {
 		/// An array containing the IDs of the Droplets to be assigned to the Load Balancer instance.
 		/// </summary>
 		[JsonProperty("droplet_ids")]
-		public int[] DropletIds { get; set; }
+		public List<int> DropletIds { get; set; }
 	}
 }

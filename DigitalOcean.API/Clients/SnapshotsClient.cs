@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
+using DigitalOcean.API.Models.Requests;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
@@ -15,22 +17,22 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To list all of the snapshots available on your account.
         /// </summary>
-        public Task<IReadOnlyList<Snapshot>> GetAll() {
-            return _connection.GetPaginated<Snapshot>("snapshots", null, "snapshots");
-        }
-
-        /// <summary>
-        /// To retrieve only snapshots based on Droplets.
-        /// </summary>
-        public Task<IReadOnlyList<Snapshot>> GetAllDroplet() {
-            return _connection.GetPaginated<Snapshot>("snapshots?resource_type=droplet", null, "snapshots");
-        }
-
-        /// <summary>
-        /// To retrieve only snapshots based on volumes.
-        /// </summary>
-        public Task<IReadOnlyList<Snapshot>> GetAllVolume() {
-            return _connection.GetPaginated<Snapshot>("snapshots?resource_type=volume", null, "snapshots");
+        public Task<IReadOnlyList<Snapshot>> GetAll(Models.Requests.SnapshotType type = SnapshotType.All) {
+            var endpoint = "snapshots";
+            switch (type)
+            {
+                case SnapshotType.All:
+                    break;
+                case SnapshotType.Droplet:
+                    endpoint += "?resource_type=droplet";
+                    break;
+                case SnapshotType.Volume:
+                    endpoint += "?resource_type=volume";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type));
+            }
+            return _connection.GetPaginated<Snapshot>(endpoint, null, "snapshots");
         }
 
         /// <summary>

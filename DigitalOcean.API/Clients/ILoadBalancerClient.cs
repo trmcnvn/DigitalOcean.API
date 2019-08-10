@@ -17,36 +17,36 @@ namespace DigitalOcean.API.Clients {
 		/// <summary>
 		/// Retrieve an existing LoadBalancer
 		/// </summary>
-		Task<LoadBalancer> Get(int loadBalancerId);
+		Task<LoadBalancer> Get(string loadBalancerId);
 
 		/// <summary>
 		/// Delete an existing LoadBalancer
 		/// </summary>
-		Task Delete(int loadBalancerId);
+		Task Delete(string loadBalancerId);
 
 		/// <summary>
 		/// Update an existing LoadBalancer
 		/// </summary>
-		Task Update(int loadBalancerId, Models.Requests.LoadBalancer loadBalancer);
+		Task Update(string loadBalancerId, Models.Requests.LoadBalancer loadBalancer);
 
 		/// <summary>
 		/// Add Droplets to an LoadBalancer
 		/// </summary>
-		Task AddDroplets(int loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds);
+		Task AddDroplets(string loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds);
 
 		/// <summary>
 		/// Remove exsisting Droplets from an LoadBalancer
 		/// </summary>
-		Task RemoveDroplets(int loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds);
+		Task RemoveDroplets(string loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds);
 
 		/// <summary>
 		/// Add new Forwarding Rule to an LoadBalancer
 		/// </summary>
-		Task AddForwardingRule(int loadBalancerId, ForwardingRules forwardingRules);
+		Task AddForwardingRules(string loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules);
 
 		/// <summary>
 		/// Remove exsisting Forwarding Rule from an LoadBalancer
 		/// </summary>
-		Task RemoveForwardingRule(int loadBalancerId, ForwardingRules forwardingRules);
+		Task RemoveForwardingRules(string loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules);
 	}
 }
