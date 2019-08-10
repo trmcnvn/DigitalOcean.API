@@ -14,14 +14,15 @@ namespace DigitalOcean.API {
         IImageActionsClient ImageActions { get; }
         IImagesClient Images { get; }
         IKeysClient Keys { get; }
-		ILoadBalancerClient LoadBalancers { get;}
+        ILoadBalancerClient LoadBalancers { get; }
         IProjectsClient Projects { get; }
         IProjectResourcesClient ProjectResources { get; }
         IRegionsClient Regions { get; }
         ISizesClient Sizes { get; }
         ISnapshotsClient Snapshots { get; }
+        ITagsClient Tags { get; }
+        IVolumesClient Volumes { get; }
 
         IRateLimit Rates { get; }
-        ITagsClient Tags { get; }
     }
 }
