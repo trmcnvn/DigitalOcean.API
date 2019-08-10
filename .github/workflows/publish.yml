@@ -1,0 +1,20 @@
+name: Publish
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - DigitalOcean.API/*.csproj
+      - DigitalOcean.API/*.nuspec
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-dotnet@v1
+      - run: dotnet build --configuration Release
+      - run: dotnet test DigitalOcean.API.Tests/ --no-build --configuration Release
+      - run: dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        continue-on-error: true
+      - run: dotnet nuget push **/*.nupkg -k ${{ secrets.GITHUB_API_TOKEN }} -s https://nuget.pkg.github.com/trmcnvn/index.json
+        continue-on-error: true
