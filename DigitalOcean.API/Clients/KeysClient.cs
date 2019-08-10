@@ -39,13 +39,13 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
-        /// Update an existing key in your account
+        /// To update the name of an SSH key.
         /// </summary>
-        public Task<Key> Update(object keyIdOrFingerprint, Models.Requests.Key key) {
+        public Task<Key> Update(object keyIdOrFingerprint, Models.Requests.UpdateKey updateKey) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, key, "ssh_key", Method.PUT);
+            return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, updateKey, "ssh_key", Method.PUT);
         }
 
         /// <summary>

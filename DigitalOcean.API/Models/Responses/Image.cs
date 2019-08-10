@@ -53,8 +53,8 @@ namespace DigitalOcean.API.Models.Responses {
         public int MinDiskSize { get; set; }
 
         /// <summary>
-        /// The size of the image in gigabytes
+        /// The size of the image in gigabytes.
         /// </summary>
-        public int SizeGigabytes { get; set; }
+        public double SizeGigabytes { get; set; }
     }
 }
