@@ -57,7 +57,7 @@ namespace DigitalOcean.API.Clients {
 			return _connection.ExecuteRaw("load_balancers/{id}/droplets", parameters, dropletIds, Method.DELETE);
 		}
 
-		public Task AddForwardingRule(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
+		public Task AddForwardingRules(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
@@ -65,7 +65,7 @@ namespace DigitalOcean.API.Clients {
 			return _connection.ExecuteRaw("load_balancers/{id}/forwarding_rules", parameters, forwardingRules, Method.POST);
 		}
 
-		public Task RemoveForwardingRule(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
+		public Task RemoveForwardingRules(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};

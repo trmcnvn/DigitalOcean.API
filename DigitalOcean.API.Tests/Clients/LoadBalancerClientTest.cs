@@ -89,7 +89,7 @@ namespace DigitalOcean.API.Tests.Clients {
 		}
 
 		[Fact]
-		public void CorrectRequestForAddForwardingRule() {
+		public void CorrectRequestForAddForwardingRules() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -99,7 +99,7 @@ namespace DigitalOcean.API.Tests.Clients {
 			        new ForwardingRule()
 			    }
 			};
-			client.AddForwardingRule(15, requestBody);
+			client.AddForwardingRules(15, requestBody);
 
 			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
 			var body = Arg.Is<ForwardingRulesList>(ls => ls.ForwardingRules.SequenceEqual(requestBody.ForwardingRules));
@@ -107,7 +107,7 @@ namespace DigitalOcean.API.Tests.Clients {
 		}
 
 		[Fact]
-		public void CorrectRequestForRemoveForwardingRule() {
+		public void CorrectRequestForRemoveForwardingRules() {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
@@ -117,7 +117,7 @@ namespace DigitalOcean.API.Tests.Clients {
 			        new ForwardingRule()
 			    }
 			};
-			client.RemoveForwardingRule(15, requestBody);
+			client.RemoveForwardingRules(15, requestBody);
 
 			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
 			var body = Arg.Is<ForwardingRulesList>(ls => ls.ForwardingRules.SequenceEqual(requestBody.ForwardingRules));
