@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
@@ -252,13 +253,14 @@ namespace DigitalOcean.API.Clients {
         /// * disable_backups
         /// * snapshot
         /// </summary>
-        public Task<Action> ActionOnTag(string tag, string actionType) {
+        public Task<IReadOnlyList<Action>> ActionOnTag(string tag, string actionType) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "tag", Value = tag, Type = ParameterType.UrlSegment }
             };
             var body = new Models.Requests.DropletAction { Type = actionType };
-            return _connection.ExecuteRequest<Action>("droplets/actions?tag_name={tag}", parameters, body,
-                "action", Method.POST);
+            return _connection.ExecuteRequest<List<Action>>("droplets/actions?tag_name={tag}", parameters, body,
+                "actions", Method.POST)
+                .ToReadOnlyListAsync();
         }
 
         #endregion

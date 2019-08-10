@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
@@ -103,6 +104,6 @@ namespace DigitalOcean.API.Clients {
         /// * disable_backups
         /// * snapshot
         /// </summary>
-        Task<Action> ActionOnTag(string tag, string actionType);
+        Task<IReadOnlyList<Action>> ActionOnTag(string tag, string actionType);
     }
 }
