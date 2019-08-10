@@ -106,6 +106,6 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// A flat array including the unique identifier for each Block Storage volume attached to the Droplet.
         /// </summary>
-        public List<string> Volumes { get; set; }
+        public List<string> VolumeIds { get; set; }
     }
 }
