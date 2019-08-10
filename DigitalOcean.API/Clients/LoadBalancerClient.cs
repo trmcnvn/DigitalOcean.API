@@ -12,7 +12,7 @@ namespace DigitalOcean.API.Clients {
 			_connection = connection;
 		}
 
-		public Task<LoadBalancer> Get(int loadBalancerId){
+		public Task<LoadBalancer> Get(string loadBalancerId){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
@@ -27,21 +27,21 @@ namespace DigitalOcean.API.Clients {
 			return _connection.ExecuteRequest<LoadBalancer>("load_balancers", null, loadBalancer, "load_balancers", Method.POST);
 		}
 
-		public Task Delete(int loadBalancerId){
+		public Task Delete(string loadBalancerId){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
 			return _connection.ExecuteRaw("load_balancers/{id}", parameters, null, Method.DELETE);
 		}
 
-		public Task Update(int loadBalancerId, Models.Requests.LoadBalancer loadBalancer){
+		public Task Update(string loadBalancerId, Models.Requests.LoadBalancer loadBalancer){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
 			return _connection.ExecuteRequest<LoadBalancer>("load_balancers/{id}", parameters, loadBalancer, "load_balancers", Method.PUT);
 		}
 
-		public Task AddDroplets(int loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds) {
+		public Task AddDroplets(string loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds) {
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
@@ -49,7 +49,7 @@ namespace DigitalOcean.API.Clients {
 			return _connection.ExecuteRaw("load_balancers/{id}/droplets", parameters, dropletIds, Method.POST);
 		}
 
-		public Task RemoveDroplets(int loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds) {
+		public Task RemoveDroplets(string loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds) {
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
@@ -57,7 +57,7 @@ namespace DigitalOcean.API.Clients {
 			return _connection.ExecuteRaw("load_balancers/{id}/droplets", parameters, dropletIds, Method.DELETE);
 		}
 
-		public Task AddForwardingRules(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
+		public Task AddForwardingRules(string loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};
@@ -65,7 +65,7 @@ namespace DigitalOcean.API.Clients {
 			return _connection.ExecuteRaw("load_balancers/{id}/forwarding_rules", parameters, forwardingRules, Method.POST);
 		}
 
-		public Task RemoveForwardingRules(int loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
+		public Task RemoveForwardingRules(string loadBalancerId, Models.Requests.ForwardingRulesList forwardingRules){
 			var parameters = new List<Parameter> {
 				new Parameter { Name = "id", Value = loadBalancerId, Type = ParameterType.UrlSegment }
 			};

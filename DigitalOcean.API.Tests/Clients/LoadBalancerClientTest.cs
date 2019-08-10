@@ -35,9 +35,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
-			client.Delete(10);
+			client.Delete("10");
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 10);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "10");
 			factory.Received().ExecuteRaw("load_balancers/{id}", null, parameters, Method.DELETE);
 		}
 
@@ -46,9 +46,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			var factory = Substitute.For<IConnection>();
 			var client = new LoadBalancerClient(factory);
 
-			client.Get(15);
+			client.Get("15");
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "15");
 			factory.Received().ExecuteRequest<Models.Responses.LoadBalancer>("load_balancers/{id}", null, parameters, "load_balancers", Method.GET);
 		}
 
@@ -58,9 +58,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			var client = new LoadBalancerClient(factory);
 
 			var body = new LoadBalancer();
-			client.Update(15,body);
+			client.Update("15",body);
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "15");
 			factory.Received().ExecuteRequest<Models.Responses.LoadBalancer>("load_balancers/{id}", parameters, body, "load_balancers", Method.PUT);
 		}
 
@@ -70,9 +70,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			var client = new LoadBalancerClient(factory);
 
 			var body = new LoadBalancerDroplets();
-			client.AddDroplets(15, body);
+			client.AddDroplets("15", body);
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "15");
 			factory.Received().ExecuteRaw("load_balancers/{id}/droplets", parameters, body, Method.POST);
 		}
 
@@ -82,9 +82,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			var client = new LoadBalancerClient(factory);
 
 			var body = new LoadBalancerDroplets();
-			client.RemoveDroplets(15, body);
+			client.RemoveDroplets("15", body);
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "15");
 			factory.Received().ExecuteRaw("load_balancers/{id}/droplets", parameters, body,  Method.DELETE);
 		}
 
@@ -99,9 +99,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			        new ForwardingRule()
 			    }
 			};
-			client.AddForwardingRules(15, requestBody);
+			client.AddForwardingRules("15", requestBody);
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "15");
 			var body = Arg.Is<ForwardingRulesList>(ls => ls.ForwardingRules.SequenceEqual(requestBody.ForwardingRules));
 			factory.Received().ExecuteRaw("load_balancers/{id}/forwarding_rules", parameters, body, Method.POST);
 		}
@@ -117,9 +117,9 @@ namespace DigitalOcean.API.Tests.Clients {
 			        new ForwardingRule()
 			    }
 			};
-			client.RemoveForwardingRules(15, requestBody);
+			client.RemoveForwardingRules("15", requestBody);
 
-			var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 15);
+			var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "15");
 			var body = Arg.Is<ForwardingRulesList>(ls => ls.ForwardingRules.SequenceEqual(requestBody.ForwardingRules));
 			factory.Received().ExecuteRaw("load_balancers/{id}/forwarding_rules", parameters, body, Method.DELETE);
 		}
