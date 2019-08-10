@@ -6,7 +6,7 @@ using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Helpers;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
-using RestSharp.Deserializers;
+using RestSharp.Serialization.Json;
 
 namespace DigitalOcean.API.Http {
     public class Connection : IConnection {
