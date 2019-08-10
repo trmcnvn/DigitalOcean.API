@@ -22,6 +22,7 @@ namespace DigitalOcean.API {
         ISnapshotsClient Snapshots { get; }
         ITagsClient Tags { get; }
         IVolumesClient Volumes { get; }
+        IVolumeActionsClient VolumeActions { get; }
 
         IRateLimit Rates { get; }
     }

@@ -34,6 +34,7 @@ namespace DigitalOcean.API {
             Snapshots = new SnapshotsClient(_connection);
             Tags = new TagsClient(_connection);
             Volumes = new VolumesClient(_connection);
+            VolumeActions = new VolumeActionsClient(_connection);
         }
 
         #region IDigitalOceanClient Members
@@ -61,6 +62,7 @@ namespace DigitalOcean.API {
         public ISnapshotsClient Snapshots { get; private set; }
         public ITagsClient Tags { get; private set; }
         public IVolumesClient Volumes { get; private set; }
+        public IVolumeActionsClient VolumeActions { get; private set; }
 
         #endregion
     }
