@@ -1454,7 +1454,3 @@ await client.Tags.Delete("awesome");
 ```
 
 </details>
-
-## Documentation
-
-Check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-depth details.
