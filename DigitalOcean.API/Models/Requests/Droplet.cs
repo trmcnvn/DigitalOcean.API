@@ -64,7 +64,8 @@ namespace DigitalOcean.API.Models.Requests {
         public bool? Monitoring { get; set; }
 
         /// <summary>
-        /// A string containing a YAML formatted Cloud-Init script
+        /// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script.
+        /// It must be plain text and may not exceed 64 KiB in size.
         /// </summary>
         [JsonProperty("user_data")]
         public string UserData { get; set; }
