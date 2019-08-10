@@ -25,14 +25,15 @@ namespace DigitalOcean.API {
             Droplets = new DropletsClient(_connection);
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
-			LoadBalancers = new LoadBalancerClient(_connection);
+            LoadBalancers = new LoadBalancerClient(_connection);
             Projects = new ProjectsClient(_connection);
-			ProjectResources = new ProjectResourcesClient(_connection);
-			Keys = new KeysClient(_connection);
+            ProjectResources = new ProjectResourcesClient(_connection);
+            Keys = new KeysClient(_connection);
             Regions = new RegionsClient(_connection);
             Sizes = new SizesClient(_connection);
             Snapshots = new SnapshotsClient(_connection);
             Tags = new TagsClient(_connection);
+            Volumes = new VolumesClient(_connection);
         }
 
         #region IDigitalOceanClient Members
@@ -52,14 +53,15 @@ namespace DigitalOcean.API {
         public IImageActionsClient ImageActions { get; private set; }
         public IImagesClient Images { get; private set; }
         public IKeysClient Keys { get; private set; }
-		public ILoadBalancerClient LoadBalancers { get; private set; }
+        public ILoadBalancerClient LoadBalancers { get; private set; }
         public IProjectsClient Projects { get; private set; }
         public IProjectResourcesClient ProjectResources { get; private set; }
-		public IRegionsClient Regions { get; private set; }
+        public IRegionsClient Regions { get; private set; }
         public ISizesClient Sizes { get; private set; }
         public ISnapshotsClient Snapshots { get; private set; }
         public ITagsClient Tags { get; private set; }
+        public IVolumesClient Volumes { get; private set; }
 
-		#endregion
-	}
+        #endregion
+    }
 }
