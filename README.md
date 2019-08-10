@@ -34,7 +34,7 @@ dotnet add package DigitalOcean.API -s https://nuget.pkg.github.com/trmcnvn/inde
 <details>
   <summary>Account</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#account)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#account)
 
 #### Get User Information
 
@@ -47,7 +47,7 @@ var account = await client.Account.Get();
 <details>
   <summary>Actions</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#actions)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#actions)
 
 #### List all Actions
 
@@ -65,9 +65,139 @@ var action = await client.Actions.Get(36804636);
 
 </details>
 <details>
+<summary>Block Storage</summary>
+
+[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#block-storage)
+
+#### List all volumes
+
+```csharp
+var volumes = await client.Volumes.GetAll();
+// => IReadOnlyList<Models.Responses.Volume>
+```
+
+#### Create a new volume
+
+```csharp
+var newVolume = new Models.Requests.Volume {
+  SizeGigabytes = 10,
+  Name = "example",
+  Description = "Block store for examples",
+  Region = "nyc1"
+};
+var volume = await client.Volumes.Create(newVolume);
+// => Models.Responses.Volume
+```
+
+#### Retreive an existing volume
+
+```csharp
+var volume = await client.Volumes.Get("7724db7c-e098-11e5-b522-000f53304e51");
+// => Models.Responses.Volume
+```
+
+#### Retreive an existing volume by name
+
+```csharp
+var volumes = await client.Volumes.GetByName("example", "nyc1");
+// => IReadOnlyList<Models.Responses.Volume>
+```
+
+#### List snapshots for a volume
+
+```csharp
+var snapshots = await client.Volumes.GetSnapshots("7724db7c-e098-11e5-b522-000f53304e51");
+// => IReadOnlyList<Models.Responses.Snapshot>
+```
+
+#### Create a snapshot from a volume
+
+```csharp
+var newSnapshot = new Models.Requests.VolumeSnapshot {
+  Name = "big-data-snapshot"
+};
+var snapshot = await client.Volumes.CreateSnapshot("7724db7c-e098-11e5-b522-000f53304e51", newSnapshot);
+// => Models.Responses.Snapshot
+```
+
+#### Delete a volume
+
+```csharp
+await client.Volumes.Delete("7724db7c-e098-11e5-b522-000f53304e51");
+```
+
+#### Delete a volume by name
+
+```csharp
+await client.Volumes.Delete("example", "nyc1");
+```
+
+#### Delete a volume by snapshot
+
+```csharp
+await client.Snapshots.Delete("12345");
+```
+
+</details>
+<details>
+<summary>Block Storage Actions</summary>
+
+[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#block-storage-actions)
+
+#### Attach a volume to a Droplet
+
+```csharp
+var action = await client.VolumeActions.Attach("7724db7c-e098-11e5-b522-000f53304e51", 123456, "nyc1");
+// => Models.Responses.Action
+```
+
+#### Attach a volume to a Droplet by name
+
+```csharp
+var action = await client.VolumeActions.AttachByName("example", 123456, "nyc1");
+// => Models.Responses.Action
+```
+
+#### Remove a volume from a Droplet
+
+```csharp
+var action = await client.VolumeActions.Detach("7724db7c-e098-11e5-b522-000f53304e51", 123456, "nyc1");
+// => Models.Responses.Action
+```
+
+#### Remove a volume from a Droplet by name
+
+```csharp
+var action = await client.VolumeActions.DetachByName("example", 123456, "nyc1");
+// => Models.Responses.Action
+```
+
+#### Resize a volume
+
+```csharp
+var action = await client.VolumeActions.Resize("7724db7c-e098-11e5-b522-000f53304e51", 100, "nyc1");
+// => Models.Responses.Action
+```
+
+#### List all actions for a volume
+
+```csharp
+var actions = await client.VolumeActions.GetActions("7724db7c-e098-11e5-b522-000f53304e51");
+// => IReadOnlyList<Models.Responses.Action>
+```
+
+#### Retreive an existing volume action
+
+```csharp
+var action = await client.VolumeActions.GetAction("7724db7c-e098-11e5-b522-000f53304e51", 12345);
+// => Models.Responses.Action
+```
+
+</details>
+<details>
   <summary>CDN Endpoints</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#cdn-endpoints)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#cdn-endpoints)
 
 #### Create a new CDN endpoint
 
@@ -128,7 +258,7 @@ await client.CdnEndpoints.PurgeCache("19f06b6a-3ace-4315-b086-499a0e521b76", fil
 <details>
 <summary>Certificates</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#certificates)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#certificates)
 
 #### Create a new custom Certificate
 
@@ -184,7 +314,7 @@ await client.Certificates.Delete("892071a0-bb95-49bc-8021-3afd67a210bf");
 <details>
 <summary>Domains</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#domains)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#domains)
 
 #### List all Domains
 
@@ -221,7 +351,7 @@ await client.Domains.Delete("example.com");
 <details>
 <summary>Domain Records</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#domain-records)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#domain-records)
 
 #### List all Domain Records
 
@@ -270,7 +400,7 @@ await client.DomainRecords.Delete();
 <details>
   <summary>Droplets</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#droplets)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#droplets)
 
 #### Create a new Droplet
 
@@ -354,7 +484,7 @@ await client.Droplets.DeleteByTag("awesome");
 <details>
 <summary>Droplet Actions</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#droplet-actions)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#droplet-actions)
 
 #### Disable Backups
 
@@ -470,9 +600,277 @@ var action = await client.DropletActions.GetDropletAction(3164444, 36804807);
 
 </details>
 <details>
+<summary>Floating IPs</summary>
+
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#floating-ips)
+
+#### List all Floating IPs
+
+```csharp
+var ips = await client.FloatingIps.GetAll();
+// => IReadOnlyList<Models.Responses.FloatingIp>
+```
+
+#### Create a new Floating IP assigned to a Droplet
+
+```csharp
+var newIp = new Models.Requests.FloatingIp {
+  DropletId = 123456
+};
+var ip = await client.FloatingIps.Create(newIp);
+// => Models.Responses.FloatingIp
+```
+
+#### Create a new Floating IP assigned to a Region
+
+```csharp
+var newIp = new Models.Requests.FloatingIp {
+  Region = "nyc3"
+};
+var ip = await client.FloatingIps.Create(newIp);
+// => Models.Responses.FloatingIp
+```
+
+#### Retreive an existing Floating IP
+
+```csharp
+var ip = await client.FloatingIps.Get("1.2.3.4");
+// => Models.Responses.FloatingIp
+```
+
+#### Delete a Floating IP
+
+```csharp
+await client.FloatingIps.Delete("1.2.3.4");
+```
+
+</details>
+<details>
+<summary>Floating IP Actions</summary>
+
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#floating-ip-actions)
+
+#### Assign a Floating IP to a Droplet
+
+```csharp
+var action = await client.FloatingIpActions.Assign("1.2.3.4", 123456);
+// => Models.Responses.Action
+```
+
+#### Unassign a Floating IP
+
+```csharp
+var action = await client.FloatingIpActions.Unassign("1.2.3.4");
+// => Models.Responses.Action
+```
+
+#### List all actions for a Floating IP
+
+```csharp
+var actions = await client.FloatingIpActions.GetActions("1.2.3.4");
+// => IReadOnlyList<Models.Responses.Action>
+```
+
+#### Retreive an existing Floating IP Action
+
+```csharp
+var action = await client.FloatingIpActions.GetAction("1.2.3.4", 123456);
+// => Models.Responses.Action
+```
+
+</details>
+<details>
+<summary>Firewall</summary>
+
+[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#firewalls)
+
+#### Create a new Firewall
+
+```csharp
+var newFirewall = new Models.Requests.Firewall {
+  Name = "firewall",
+  InboundRules = new List<Models.Requests.InboundRule> {
+    new Models.Requests.InboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Sources = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          LoadBalancerUids = new List<string> { "123456" }
+        }
+      }
+    }
+  },
+  OutboundRules = new List<Models.Requests.OutboundRule> {
+    new Models.Requests.OutboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Destinations = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          Addressess = new List<string> { "0.0.0.0/0", "::/0" }
+        }
+      }
+    }
+  },
+  DropletIds = new List<int> { 123456 }
+};
+var firewall = await client.Firewalls.Create(newFirewall);
+// => Models.Responses.Firewall
+```
+
+#### Retreive an existing Firewall
+
+```csharp
+var firewall = await client.Firewalls.Get("bb4b2611-3d72-467b-8602-280330ecd65c");
+// => Models.Responses.Firewall
+```
+
+#### List all Firewalls
+
+```csharp
+var firewalls = await client.Firewalls.GetAll();
+// => IReadOnlyList<Models.Responses.Firewall>
+```
+
+#### Update a Firewall
+
+```csharp
+var updateFirewall = new Models.Requests.Firewall {
+  Name = "firewall",
+  InboundRules = new List<Models.Requests.InboundRule> {
+    new Models.Requests.InboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Sources = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          LoadBalancerUids = new List<string> { "123456" }
+        }
+      }
+    }
+  },
+  OutboundRules = new List<Models.Requests.OutboundRule> {
+    new Models.Requests.OutboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Destinations = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          Addressess = new List<string> { "0.0.0.0/0", "::/0" }
+        }
+      }
+    }
+  },
+  DropletIds = new List<int> { 123456 }
+};
+var firewall = await client.Firewalls.Update("bb4b2611-3d72-467b-8602-280330ecd65c", updateFirewall);
+// => Models.Responses.Firewall
+```
+
+#### Delete a Firewall
+
+```csharp
+await client.Firewalls.Delete("bb4b2611-3d72-467b-8602-280330ecd65c");
+```
+
+#### Add Droplets to a Firewall
+
+```csharp
+var droplets = new Models.Requests.FirewallDroplets {
+  DropletIds = new List<int> { 123456 }
+};
+await client.Firewalls.AddDroplets("bb4b2611-3d72-467b-8602-280330ecd65c", droplets);
+```
+
+#### Remove Droplets from a Firewall
+
+```csharp
+var droplets = new Models.Requests.FirewallDroplets {
+  DropletIds = new List<int> { 123456 }
+};
+await client.Firewalls.RemoveDroplets("bb4b2611-3d72-467b-8602-280330ecd65c", droplets);
+```
+
+#### Add Tags to a Firewall
+
+```csharp
+var tags = new Models.Requests.FirewallTags {
+  Tags = new List<string> { "awesome" }
+};
+await client.Firewalls.AddTags("bb4b2611-3d72-467b-8602-280330ecd65c", tags);
+```
+
+#### Remove Tags from a Firewall
+
+```csharp
+var tags = new Models.Requests.FirewallTags {
+  Tags = new List<string> { "awesome" }
+};
+await client.Firewalls.RemoveTags("bb4b2611-3d72-467b-8602-280330ecd65c", tags);
+```
+
+#### Add rules to a Firewall
+
+```csharp
+var rules = new Models.Requests.FirewallRules {
+  InboundRules = new List<Models.Requests.InboundRule> {
+    new Models.Requests.InboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Sources = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          LoadBalancerUids = new List<string> { "123456" }
+        }
+      }
+    }
+  },
+  OutboundRules = new List<Models.Requests.OutboundRule> {
+    new Models.Requests.OutboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Destinations = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          Addressess = new List<string> { "0.0.0.0/0", "::/0" }
+        }
+      }
+    }
+  },
+};
+await client.Firewalls.AddRules("bb4b2611-3d72-467b-8602-280330ecd65c", rules);
+```
+
+#### Remove rules from a Firewall
+
+```csharp
+var rules = new Models.Requests.FirewallRules {
+  InboundRules = new List<Models.Requests.InboundRule> {
+    new Models.Requests.InboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Sources = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          LoadBalancerUids = new List<string> { "123456" }
+        }
+      }
+    }
+  },
+  OutboundRules = new List<Models.Requests.OutboundRule> {
+    new Models.Requests.OutboundRule {
+      Protocol = "tcp",
+      Ports = "80",
+      Destinations = new List<Models.Requests.SourceLocation> {
+        new Models.Requests.SourceLocation {
+          Addressess = new List<string> { "0.0.0.0/0", "::/0" }
+        }
+      }
+    }
+  },
+};
+await client.Firewalls.RemoveRules("bb4b2611-3d72-467b-8602-280330ecd65c", rules);
+```
+
+</details>
+<details>
 <summary>Images</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#images)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#images)
 
 #### List all Images
 
@@ -519,7 +917,7 @@ var image = await client.Images.Get("ubuntu-16-04-x64");
 #### Update an Image
 
 ```csharp
-var updateImage = new Models.Requests.Image {
+var updateImage = new Models.Requests.UpdateImage {
   Name = "new-image-name",
 };
 var image = await client.Images.Update(7555620, updateImage);
@@ -536,7 +934,7 @@ await client.Images.Delete(7555620);
 <details>
 <summary>Image Actions</summary>
 
-[DigitalOcean Documenation](https://developers.digitalocean.com/documentation/v2/#image-actions)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#image-actions)
 
 #### Transfer an Image
 
@@ -556,7 +954,7 @@ var action = await client.ImageActions.GetAction(7938269, 36805527);
 <details>
 <summary>Load Balancers</summary>
 
-[DigitalOcean Documenation](https://developers.digitalocean.com/documentation/v2/#load-balancers)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#load-balancers)
 
 #### Create a new Load Balancer
 
@@ -574,7 +972,7 @@ var newBalancer = new Models.Requests.LoadBalancer {
       TlsPassthrough = false,
     },
   },
-  HealthCheck = new Models.Responses.HealthCheck {
+  HealthCheck = new Models.Requests.HealthCheck {
     Protocol = "http",
     Port = 80,
     Path = "/",
@@ -583,7 +981,7 @@ var newBalancer = new Models.Requests.LoadBalancer {
     HealthyThreshold = 5,
     UnhealthyThreshold = 3,
   },
-  StickySessions = new Models.Responses.StickySessions {
+  StickySessions = new Models.Requests.StickySessions {
     Type = "none",
   },
   DropletIds = new List<int> { 3164444, 3164445 },
@@ -608,7 +1006,7 @@ var newBalancer = new Models.Requests.LoadBalancer {
       TlsPassthrough = false,
     }
   },
-  HealthCheck = new Models.Responses.HealthCheck {
+  HealthCheck = new Models.Requests.HealthCheck {
     Protocol = "http",
     Port = 80,
     Path = "/",
@@ -617,7 +1015,7 @@ var newBalancer = new Models.Requests.LoadBalancer {
     HealthyThreshold = 5,
     UnhealthyThreshold = 3,
   },
-  StickySessions = new Models.Responses.StickySessions {
+  StickySessions = new Models.Requests.StickySessions {
     Type = "none",
   },
   Tag = "web:prod",
@@ -731,7 +1129,7 @@ await client.LoadBalancers.RemoveForwardingRules("4de7ac8b-495b-4884-9a69-1050c6
 <details>
 <summary>Projects</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#projects)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#projects)
 
 #### Create a Project
 
@@ -819,7 +1217,7 @@ var project = await client.Projects.PatchDefault(updateProject);
 <details>
 <summary>Project Resources</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#project-resources)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#project-resources)
 
 #### List all Resources
 
@@ -859,7 +1257,7 @@ var resources = await client.ProjectResources.AssignDefaultResources("4e1bfbc3-d
 <details>
 <summary>Regions</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#regions)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#regions)
 
 #### List all Regions
 
@@ -872,7 +1270,7 @@ var regions = await client.Regions.GetAll();
 <details>
 <summary>Sizes</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#sizes)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#sizes)
 
 #### List all Sizes
 
@@ -885,7 +1283,7 @@ var sizes = await client.Sizes.GetAll();
 <details>
 <summary>Snapshots</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#snapshots)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#snapshots)
 
 #### List all snapshots
 
@@ -925,7 +1323,7 @@ await client.Snapshots.Delete("fbe805e8-866b-11e6-96bf-000f53315a41");
 <details>
 <summary>SSH Keys</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#ssh-keys)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#ssh-keys)
 
 #### List all Keys
 
@@ -967,7 +1365,7 @@ var key = await client.Keys.Update(512190, updateKey);
 ```
 
 ```csharp
-var updateKey = new Models.Requests.Key {
+var updateKey = new Models.Requests.UpdateKey {
   Name = "Renamed SSH Key",
 };
 var key = await client.Keys.Update("3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa", updateKey);
@@ -987,7 +1385,7 @@ await client.Keys.Delete("3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa");
 <details>
 <summary>Tags</summary>
 
-[DigitalOcean Documentation](https://developers.digitalocean.com/documentation/v2/#tags)
+[DigitalOcean Documentation](https://developers.digitalocean.com/Documentation/v2/#tags)
 
 #### Create a new Tag
 
