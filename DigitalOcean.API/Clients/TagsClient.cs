@@ -45,45 +45,23 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Tag existing resources of given resource id / type combination
         /// </summary>
-        public Task Tag(string tagName, List<KeyValuePair<string, string>> resources) {
-            var data = new Models.Requests.TagResource {
-                Resources = new List<Models.Requests.TagResource.Resource>()
-            };
-
-            foreach (KeyValuePair<string, string> resource in resources) {
-                data.Resources.Add(new Models.Requests.TagResource.Resource {
-                    Id = resource.Key,
-                    Type = resource.Value
-                });
-            }
-
+        public Task Tag(string tagName, Models.Requests.TagResources resources) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
             };
 
-            return _connection.ExecuteRaw("tags/{name}/resources", parameters, data, Method.POST);
+            return _connection.ExecuteRaw("tags/{name}/resources", parameters, resources, Method.POST);
         }
 
         /// <summary>
         /// Untag existing resources of given resource id / type combination
         /// </summary>
-        public Task Untag(string tagName, List<KeyValuePair<string, string>> resources) {
-            var data = new Models.Requests.TagResource {
-                Resources = new List<Models.Requests.TagResource.Resource>()
-            };
-
-            foreach (KeyValuePair<string, string> resource in resources) {
-                data.Resources.Add(new Models.Requests.TagResource.Resource {
-                    Id = resource.Key,
-                    Type = resource.Value
-                });
-            }
-
+        public Task Untag(string tagName, Models.Requests.TagResources resources) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
             };
 
-            return _connection.ExecuteRaw("tags/{name}/resources", parameters, data, Method.DELETE);
+            return _connection.ExecuteRaw("tags/{name}/resources", parameters, resources, Method.DELETE);
         }
 
         /// <summary>

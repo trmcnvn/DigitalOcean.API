@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 namespace DigitalOcean.API.Models.Requests {
-    public class Action {
+    public class DropletAction {
         /// <summary>
         /// Type of action
         /// </summary>

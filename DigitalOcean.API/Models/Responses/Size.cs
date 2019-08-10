@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DigitalOcean.API.Models.Responses {
     public class Size {
@@ -17,12 +18,12 @@ namespace DigitalOcean.API.Models.Responses {
         /// This attribute describes the monthly cost of this Droplet size if the Droplet is kept for an entire month. The value is
         /// measured in US dollars.
         /// </summary>
-        public float PriceMonthly { get; set; }
+        public Decimal PriceMonthly { get; set; }
 
         /// <summary>
         /// This describes the price of the Droplet size as measured hourly. The value is measured in US dollars.
         /// </summary>
-        public float PriceHourly { get; set; }
+        public Decimal PriceHourly { get; set; }
 
         /// <summary>
         /// The amount of RAM allocated to Droplets created of this size. The value is represented in megabytes

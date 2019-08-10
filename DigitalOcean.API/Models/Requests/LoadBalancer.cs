@@ -1,8 +1,5 @@
-﻿using DigitalOcean.API.Models.Responses;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DigitalOcean.API.Models.Requests {
 	public class LoadBalancer {
@@ -31,7 +28,7 @@ namespace DigitalOcean.API.Models.Requests {
 		/// At least one forwarding rule is required when creating a new Load Balancer instance.
 		/// </summary>
 		[JsonProperty("forwarding_rules")]
-		public List<ForwardingRules> ForwardingRules { get; set; }
+		public List<ForwardingRule> ForwardingRules { get; set; }
 
 		/// <summary>
 		/// An object specifying health check settings for the Load Balancer. If omitted, default values will be provided .
@@ -50,23 +47,25 @@ namespace DigitalOcean.API.Models.Requests {
 		/// will be redirected to HTTPS on port 443. Default value is false.
 		/// </summary>
 		[JsonProperty("redirect_http_to_https")]
-		public bool RedirectHttpToHttps { get; set; }
+		public bool? RedirectHttpToHttps { get; set; }
 
 		/// <summary>
 		/// A boolean value indicating whether PROXY Protocol should be used to pass information from connecting client
 		/// requests to the backend service. (This may require additional configuration on the target Droplets.)
 		/// </summary>
 		[JsonProperty("enable_proxy_protocol")]
-		public bool EnableProxyProtocol { get; set; }
+		public bool? EnableProxyProtocol { get; set; }
 
 		/// <summary>
 		/// An array containing the IDs of the Droplets to be assigned to the Load Balancer.
+		/// This attribute and the "tag" attribute are mutually exclusive.
 		/// </summary>
 		[JsonProperty("droplet_ids")]
 		public List<int> DropletIds { get; set; }
 
 		/// <summary>
-		/// The name of a Droplet tag corresponding to Droplets assigned to the Load Balancer.
+		/// The name of a Droplet tag corresponding to Droplets to be assigned to the Load Balancer.
+		/// This attribute and the "droplet_ids" attribute are mutually exclusive.
 		/// </summary>
 		[JsonProperty("tag")]
 		public string Tag { get; set; }

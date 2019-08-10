@@ -26,18 +26,27 @@ namespace DigitalOcean.API.Clients {
                 case ImageType.All:
                     break;
                 case ImageType.Application:
-                    endpoint += "?type=" + type.ToString().ToLower();
+                    endpoint += "?type=application";
                     break;
                 case ImageType.Distribution:
-                    endpoint += "?type=" + type.ToString().ToLower();
+                    endpoint += "?type=distribution";
                     break;
                 case ImageType.Private:
                     endpoint += "?private=true";
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("type");
+                    throw new ArgumentOutOfRangeException(nameof(type));
             }
             return _connection.GetPaginated<Image>(endpoint, null, "images");
+        }
+
+        /// <summary>
+        /// To create a new custom image.
+        /// The image must be in the raw, qcow2, vhdx, vdi, or vmdk format.
+        /// It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
+        /// </summary>
+        public Task<Image> Create(Models.Requests.Image image) {
+            return _connection.ExecuteRequest<Image>("images", null, image, "image", Method.POST);
         }
 
         /// <summary>
@@ -66,11 +75,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing image
         /// </summary>
-        public Task<Image> Update(int imageId, Models.Requests.Image image) {
+        public Task<Image> Update(int imageId, Models.Requests.UpdateImage updateImage) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
             };
-            return _connection.ExecuteRequest<Image>("images/{id}", parameters, image, "image", Method.PUT);
+            return _connection.ExecuteRequest<Image>("images/{id}", parameters, updateImage, "image", Method.PUT);
         }
 
         #endregion

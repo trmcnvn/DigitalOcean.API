@@ -60,22 +60,10 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new KeysClient(factory);
 
-            var body = new Models.Requests.Key { Name = "example" };
+            var body = new Models.Requests.UpdateKey { Name = "example" };
             client.Update(9001, body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
-        }
-
-        [Fact]
-        public void CorrectRequestForUpdateFingerprint() {
-            var factory = Substitute.For<IConnection>();
-            var client = new KeysClient(factory);
-
-            var body = new Models.Requests.Key { Name = "example" };
-            client.Update("fingerprint", body);
-
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "fingerprint");
             factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
         }
 
