@@ -46,7 +46,7 @@ namespace DigitalOcean.API.Tests.Clients {
             volumesClient.GetByName("name", "region");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "name" && (string)list[1].Value == "region");
-            factory.Received().ExecuteRequest<Volume>("volumes", parameters, null, "volume");
+            factory.Received().GetPaginated<Volume>("volumes", parameters, "volumes");
         }
 
         [Fact]

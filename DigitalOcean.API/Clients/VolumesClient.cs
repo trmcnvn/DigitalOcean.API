@@ -72,12 +72,12 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive an individual Block Storage volume by name and region
         /// </summary>
-        public Task<Volume> GetByName(string name, string region) {
+        public Task<IReadOnlyList<Volume>> GetByName(string name, string region) {
             var parameters = new List<Parameter> {
                 new Parameter { Name = "name", Value = name, Type = ParameterType.QueryString },
                 new Parameter { Name = "region", Value = region, Type = ParameterType.QueryString }
             };
-            return _connection.ExecuteRequest<Volume>("volumes", parameters, null, "volume");
+            return _connection.GetPaginated<Volume>("volumes", parameters, "volumes");
         }
 
         /// <summary>

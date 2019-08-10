@@ -22,7 +22,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive an individual Block Storage volume by name and region
         /// </summary>
-        Task<Volume> GetByName(string name, string region);
+        Task<IReadOnlyList<Volume>> GetByName(string name, string region);
 
         /// <summary>
         /// Retreive all snapshots created from a Block Storage volume
