@@ -40,7 +40,7 @@ namespace DigitalOcean.API.Models.Requests {
 		/// An object specifying sticky sessions settings for the Load Balancer.
 		/// </summary>
 		[JsonProperty("sticky_sessions")]
-		public Models.Responses.StickySessions StickySessions { get; set; }
+		public StickySessions StickySessions { get; set; }
 
 		/// <summary>
 		/// A boolean value indicating whether HTTP requests to the Load Balancer on port 80
