@@ -9,7 +9,7 @@ namespace DigitalOcean.API.Models.Responses {
     }
 
     public class Network {
-        public List<Interface> v4 { get; set; }
-        public List<Interface> v6 { get; set; }
+        public List<Interface> V4 { get; set; }
+        public List<Interface> V6 { get; set; }
     }
 }
