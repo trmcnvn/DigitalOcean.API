@@ -50,16 +50,6 @@ namespace DigitalOcean.API.Models.Requests {
         public int KernelId { get; set; }
 
         /// <summary>
-        /// The region slug that represents the region target.
-        /// </summary>
-        /// <remarks>
-        /// Used by:
-        ///     Transfer Image action
-        /// </remarks>
-        [JsonProperty("region")]
-        public string RegionSlug { get; set; }
-
-        /// <summary>
         /// Whether to increase disk size.
         /// </summary>
         /// <remarks>
