@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Exceptions;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
-using RestSharp.Deserializers;
+using RestSharp.Serialization.Json;
 using RestSharp.Extensions;
 
 namespace DigitalOcean.API.Extensions {
