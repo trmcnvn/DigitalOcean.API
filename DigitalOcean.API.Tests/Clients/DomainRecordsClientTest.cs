@@ -65,7 +65,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var domainClient = new DomainRecordsClient(factory);
 
-            var data = new Models.Requests.DomainRecord { Name = "CNAME" };
+            var data = new Models.Requests.UpdateDomainRecord { Name = "CNAME" };
             domainClient.Update("vevix.net", 9001, data);
 
             var parameters = Arg.Is<List<Parameter>>(list =>

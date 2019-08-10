@@ -27,6 +27,6 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing record for a domain
         /// </summary>
-        Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.DomainRecord newRecord);
+        Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.UpdateDomainRecord updateRecord);
     }
 }
