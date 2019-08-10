@@ -15,6 +15,11 @@ namespace DigitalOcean.API.Clients {
         Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName);
 
         /// <summary>
+        /// To retrieve a list of Droplets that are running on the same physical server.
+        /// </summary>
+        Task<IReadOnlyList<Droplet>> GetAllNeighbors(int dropletId);
+
+        /// <summary>
         /// Retrieve all kernels available to a Droplet.
         /// </summary>
         Task<IReadOnlyList<Kernel>> GetKernels(int dropletId);
@@ -40,6 +45,13 @@ namespace DigitalOcean.API.Clients {
         Task<Droplet> Create(Models.Requests.Droplet droplet);
 
         /// <summary>
+        /// To create multiple Droplets.
+        /// A Droplet will be created for each name you send using the associated information.
+        /// Up to ten Droplets may be created at a time.
+        /// </summary>
+        Task<IReadOnlyList<Droplet>> Create(Models.Requests.Droplets droplets);
+
+        /// <summary>
         /// Retrieve an existing Droplet
         /// </summary>
         Task<Droplet> Get(int dropletId);
@@ -55,8 +67,8 @@ namespace DigitalOcean.API.Clients {
         Task DeleteByTag(string tagName);
 
         /// <summary>
-        /// Retrieve a list of droplets that are scheduled to be upgraded
+        /// To retrieve a list of any Droplets that are running on the same physical hardware.
         /// </summary>
-        Task<IReadOnlyList<DropletUpgrade>> GetUpgrades();
+        Task<IReadOnlyList<Droplet>> ListDropletNeighbors();
     }
 }

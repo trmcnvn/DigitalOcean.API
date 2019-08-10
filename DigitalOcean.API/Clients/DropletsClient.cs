@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
@@ -30,6 +31,17 @@ namespace DigitalOcean.API.Clients {
             };
 
             return _connection.GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+        }
+
+        /// <summary>
+        /// To retrieve a list of Droplets that are running on the same physical server.
+        /// </summary>
+        public Task<IReadOnlyList<Droplet>> GetAllNeighbors(int dropletId) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+            };
+
+            return _connection.GetPaginated<Droplet>("droplets/{id}/neighbors", parameters, "droplets");
         }
 
         /// <summary>
@@ -80,6 +92,16 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
+        /// To create multiple Droplets.
+        /// A Droplet will be created for each name you send using the associated information.
+        /// Up to ten Droplets may be created at a time.
+        /// </summary>
+        public Task<IReadOnlyList<Droplet>> Create(Models.Requests.Droplets droplets) {
+            return _connection.ExecuteRequest<List<Droplet>>("droplets", null, droplets, "droplets", Method.POST)
+                .ToReadOnlyListAsync();
+        }
+
+        /// <summary>
         /// Retrieve an existing Droplet
         /// </summary>
         public Task<Droplet> Get(int dropletId) {
@@ -110,10 +132,10 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
-        /// Retrieve a list of droplets that are scheduled to be upgraded
+        /// To retrieve a list of any Droplets that are running on the same physical hardware.
         /// </summary>
-        public Task<IReadOnlyList<DropletUpgrade>> GetUpgrades() {
-            return _connection.GetPaginated<DropletUpgrade>("droplet_upgrades", null);
+        public Task<IReadOnlyList<Droplet>> ListDropletNeighbors() {
+            return _connection.GetPaginated<Droplet>("reports/droplet_neighbors", null, "neighbors");
         }
 
         #endregion
