@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Requests;
 using RestSharp;
+using Action = DigitalOcean.API.Models.Responses.Action;
 using Image = DigitalOcean.API.Models.Responses.Image;
 
 namespace DigitalOcean.API.Clients {
@@ -38,6 +39,26 @@ namespace DigitalOcean.API.Clients {
                     throw new ArgumentOutOfRangeException(nameof(type));
             }
             return _connection.GetPaginated<Image>(endpoint, null, "images");
+        }
+
+        /// <summary>
+        /// To list all images assigned to a specific tag.
+        /// </summary>
+        public Task<IReadOnlyList<Image>> GetAllByTag(string tag) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "tag", Value = tag, Type = ParameterType.UrlSegment }
+            };
+            return _connection.GetPaginated<Image>("images?tag_name={tag}", parameters, "images");
+        }
+
+        /// <summary>
+        /// To retrieve all actions that have been executed on an image.
+        /// </summary>
+        public Task<IReadOnlyList<Action>> GetAllActions(int imageId) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
+            };
+            return _connection.GetPaginated<Action>("images/{id}/actions", parameters, "actions");
         }
 
         /// <summary>
