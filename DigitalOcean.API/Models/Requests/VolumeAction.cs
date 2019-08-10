@@ -12,7 +12,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// The unique identifier for the Droplet the volume will be attached or detached from.
         /// </summary>
         [JsonProperty("droplet_id")]
-        public int DropletId { get; set; }
+        public int? DropletId { get; set; }
 
         /// <summary>
         /// The slug identifier for the region the volume is located in.
@@ -30,6 +30,6 @@ namespace DigitalOcean.API.Models.Requests {
         /// The new size of the Block Storage volume in GiB (1024^3).
         /// </summary>
         [JsonProperty("size_gigabytes")]
-        public int SizeGigabytes { get; set; }
+        public int? SizeGigabytes { get; set; }
     }
 }

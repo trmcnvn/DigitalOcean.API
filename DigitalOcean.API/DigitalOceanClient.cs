@@ -23,6 +23,7 @@ namespace DigitalOcean.API {
             Domains = new DomainsClient(_connection);
             DropletActions = new DropletActionsClient(_connection);
             Droplets = new DropletsClient(_connection);
+            FloatingIpActions = new FloatingIpActionsClient(_connection);
             FloatingIps = new FloatingIpsClient(_connection);
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
@@ -52,6 +53,7 @@ namespace DigitalOcean.API {
         public IDomainsClient Domains { get; private set; }
         public IDropletActionsClient DropletActions { get; private set; }
         public IDropletsClient Droplets { get; private set; }
+        public IFloatingIpActionsClient FloatingIpActions { get; private set; }
         public IFloatingIpsClient FloatingIps { get; private set; }
         public IImageActionsClient ImageActions { get; private set; }
         public IImagesClient Images { get; private set; }
