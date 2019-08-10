@@ -27,6 +27,7 @@ namespace DigitalOcean.API.Tests.Clients {
             factory.Received().GetPaginated<Image>("images?private=true", null, "images");
         }
 
+        [Fact]
         public void CorrectRequestForCreate() {
             var factory = Substitute.For<IConnection>();
             var client = new ImagesClient(factory);
