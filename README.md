@@ -253,7 +253,7 @@ var record = await client.DomainRecords.Get(3352896);
 #### Update a Domain Record
 
 ```csharp
-var updateRecord = new Models.Requests.DomainRecord {
+var updateRecord = new Models.Requests.UpdateDomainRecord {
   Name = "blog",
 };
 var record = await client.DomainRecords.Update(3352896, updateRecord);
@@ -564,15 +564,15 @@ var action = await client.ImageActions.GetAction(7938269, 36805527);
 var newBalancer = new Models.Requests.LoadBalancer {
   Name = "example-lb-01",
   Region = "nyc3",
-  ForwardingRules = new List<Models.Responses.ForwardingRules> {
-    new Models.Responses.ForwardingRules {
+  ForwardingRules = new List<Models.Requests.ForwardingRule> {
+    new Models.Requests.ForwardingRule {
       EntryProtocol = "http",
       EntryPort = 80,
       TargetProtocol = "http",
       TargetPort = 80,
       CertificateId = "",
       TlsPassthrough = false,
-    }
+    },
   },
   HealthCheck = new Models.Responses.HealthCheck {
     Protocol = "http",
@@ -598,8 +598,8 @@ var balancer = await client.LoadBalancers.Create(newBalancer);
 var newBalancer = new Models.Requests.LoadBalancer {
   Name = "example-lb-01",
   Region = "nyc3",
-  ForwardingRules = new List<Models.Responses.ForwardingRules> {
-    new Models.Responses.ForwardingRules {
+  ForwardingRules = new List<Models.Requests.ForwardingRule> {
+    new Models.Requests.ForwardingRule {
       EntryProtocol = "http",
       EntryPort = 80,
       TargetProtocol = "http",
@@ -647,8 +647,8 @@ var updateBalancer = new Models.Requests.LoadBalancer {
   Name = "example-lb-01",
   Region = "nyc3",
   Algorithm = "least_connections",
-  ForwardingRules = new List<Models.Requests.ForwardingRules> {
-    new Models.Requests.ForwardingRules {
+  ForwardingRules = new List<Models.Requests.ForwardingRule> {
+    new Models.Requests.ForwardingRule {
       EntryProtocol = "http",
       EntryPort = 80,
       TargetProtocol = "http",
@@ -702,25 +702,29 @@ await client.LoadBalancers.RemoveDroplets("4de7ac8b-495b-4884-9a69-1050c6793cd6"
 #### Add forwarding rules to a Load Balancer
 
 ```csharp
-var rules = new Models.Requests.ForwardingRules {
-  EntryProtocol = "tcp",
-  EntryPort = 3306,
-  TargetProtocol = "tcp",
-  TargetPort = 3306,
+var rules = new Models.Requests.ForwardingRulesList {
+  ForwardingRules = new List<Models.Requests.ForwardingRule> {
+    EntryProtocol = "tcp",
+    EntryPort = 3306,
+    TargetProtocol = "tcp",
+    TargetPort = 3306,
+  },
 };
-await client.LoadBalancers.AddForwardingRule("4de7ac8b-495b-4884-9a69-1050c6793cd6", rules);
+await client.LoadBalancers.AddForwardingRules("4de7ac8b-495b-4884-9a69-1050c6793cd6", rules);
 ```
 
 #### Remove forwarding rules from a Load Balancer
 
 ```csharp
-var rules = new Models.Requests.ForwardingRules {
-  EntryProtocol = "tcp",
-  EntryPort = 3306,
-  TargetProtocol = "tcp",
-  TargetPort = 3306,
+var rules = new Models.Requests.ForwardingRulesList {
+  ForwardingRules = new List<Models.Requests.ForwardingRule> {
+    EntryProtocol = "tcp",
+    EntryPort = 3306,
+    TargetProtocol = "tcp",
+    TargetPort = 3306,
+  },
 };
-await client.LoadBalancers.RemoveForwardingRule("4de7ac8b-495b-4884-9a69-1050c6793cd6", rules);
+await client.LoadBalancers.RemoveForwardingRules("4de7ac8b-495b-4884-9a69-1050c6793cd6", rules);
 ```
 
 </details>
@@ -893,14 +897,14 @@ var snapshots = await client.Snapshots.GetAll();
 #### List all Droplet snapshots
 
 ```csharp
-var snapshots = await client.Snapshots.GetAllDroplet();
+var snapshots = await client.Snapshots.GetAll(Models.Requests.Snapshot.SnapshotType.Droplet);
 // => IReadOnlyList<Models.Responses.Snapshot>
 ```
 
 #### List all volume snapshots
 
 ```csharp
-var snapshots = await client.Snapshots.GetAllVolume();
+var snapshots = await client.Snapshots.GetAll(Models.Requests.Snapshot.SnapshotType.Volume);
 // => IReadOnlyList<Models.Responses.Snapshot>
 ```
 
@@ -1012,10 +1016,17 @@ var tags = await client.Tags.GetAll();
 #### Tag a Resource
 
 ```csharp
-var resources = new List<KeyValuePair<string, string>> {
-  {"9569411", "droplet"},
-  {"7555620", "image"},
-  {"3d80cb72-342b-4aaa-b92e-4e4abb24a933", "volume"},
+var resources = new Models.Requests.TagResources {
+  Resources = new List<Models.Requests.Tag> {
+    new Models.Requests.Tag {
+      Id = "9569411",
+      Type = "droplet",
+    },
+    New Models.Requests.Tag {
+      Id = "7555620",
+      Type = "image",
+    },
+  }
 };
 await client.Tags.Tag("awesome", resources);
 ```
@@ -1023,10 +1034,17 @@ await client.Tags.Tag("awesome", resources);
 #### Untag a Resource
 
 ```csharp
-var resources = new List<KeyValuePair<string, string>> {
-  {"9569411", "droplet"},
-  {"7555620", "image"},
-  {"3d80cb72-342b-4aaa-b92e-4e4abb24a933", "volume"},
+var resources = new Models.Requests.TagResources {
+  Resources = new List<Models.Requests.Tag> {
+    new Models.Requests.Tag {
+      Id = "9569411",
+      Type = "droplet",
+    },
+    New Models.Requests.Tag {
+      Id = "7555620",
+      Type = "image",
+    },
+  }
 };
 await client.Tags.Untag("awesome", resources);
 ```
@@ -1038,29 +1056,6 @@ await client.Tags.Delete("awesome");
 ```
 
 </details>
-
-## Missing Features
-
-- Block Storage
-- Block Storage Actions
-- Databases
-- Droplets
-  - Create multiple Droplets
-  - List Neighbors for a Droplet
-  - List all Droplet Neighbors
-- Droplet Actions
-  - Enable Backups
-  - Acting on Tagged Droplets
-- Floating IPs
-- Floating IP Actions
-- Firewalls
-- Images
-  - List Images by Tag
-  - Create a Custom Image
-  - List all actions for an Image
-- Image Actions
-  - Convert an Image to a Snapshot
-- Kubernetes
 
 ## Documentation
 
