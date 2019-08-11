@@ -12,6 +12,6 @@ namespace DigitalOcean.API.Models.Requests {
         /// The unique identifier for the Droplet the Floating IP will be assigned or unassigned from.
         /// </summary>
         [JsonProperty("droplet_id")]
-        public int DropletId { get; set; }
+        public int? DropletId { get; set; }
     }
 }
