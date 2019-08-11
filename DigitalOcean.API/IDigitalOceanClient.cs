@@ -7,6 +7,7 @@ namespace DigitalOcean.API {
         IActionsClient Actions { get; }
         ICdnEndpointsClient CdnEndpoints { get; }
         ICertificatesClient Certificates { get; }
+        IDatabasesClient Databases { get; }
         IDomainRecordsClient DomainRecords { get; }
         IDomainsClient Domains { get; }
         IDropletActionsClient DropletActions { get; }
