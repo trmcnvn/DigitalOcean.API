@@ -7,10 +7,14 @@ namespace DigitalOcean.API {
         IActionsClient Actions { get; }
         ICdnEndpointsClient CdnEndpoints { get; }
         ICertificatesClient Certificates { get; }
+        IDatabasesClient Databases { get; }
         IDomainRecordsClient DomainRecords { get; }
         IDomainsClient Domains { get; }
         IDropletActionsClient DropletActions { get; }
         IDropletsClient Droplets { get; }
+        IFirewallsClient Firewalls { get; }
+        IFloatingIpActionsClient FloatingIpActions { get; }
+        IFloatingIpsClient FloatingIps { get; }
         IImageActionsClient ImageActions { get; }
         IImagesClient Images { get; }
         IKeysClient Keys { get; }
