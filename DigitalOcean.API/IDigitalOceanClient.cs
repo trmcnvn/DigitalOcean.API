@@ -12,6 +12,7 @@ namespace DigitalOcean.API {
         IDomainsClient Domains { get; }
         IDropletActionsClient DropletActions { get; }
         IDropletsClient Droplets { get; }
+        IFirewallsClient Firewalls { get; }
         IFloatingIpActionsClient FloatingIpActions { get; }
         IFloatingIpsClient FloatingIps { get; }
         IImageActionsClient ImageActions { get; }
