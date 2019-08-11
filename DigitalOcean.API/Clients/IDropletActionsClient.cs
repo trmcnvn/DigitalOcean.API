@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
 namespace DigitalOcean.API.Clients {
@@ -36,7 +37,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Resize a droplet
         /// </summary>
-        Task<Action> Resize(int dropletId, string sizeSlug);
+        Task<Action> Resize(int dropletId, string sizeSlug, bool resizeDisk = false);
 
         /// <summary>
         /// Restore a droplet using an image
@@ -66,6 +67,11 @@ namespace DigitalOcean.API.Clients {
         Task<Action> EnableIpv6(int dropletId);
 
         /// <summary>
+        /// Enable backups on a droplet
+        /// </summary>
+        Task<Action> EnableBackups(int dropletId);
+
+        /// <summary>
         /// Disable backups on a droplet
         /// </summary>
         Task<Action> DisableBackups(int dropletId);
@@ -84,5 +90,20 @@ namespace DigitalOcean.API.Clients {
         /// Retrieve an action for a droplet
         /// </summary>
         Task<Action> GetDropletAction(int dropletId, int actionId);
+
+        /// <summary>
+        /// Some actions can be performed in bulk on tagged Droplets.
+        /// The list of supported action types are:
+        /// * power_cycle
+        /// * power_on
+        /// * power_off
+        /// * shutdown
+        /// * enable_private_networking
+        /// * enable_ipv6
+        /// * enable_backups
+        /// * disable_backups
+        /// * snapshot
+        /// </summary>
+        Task<IReadOnlyList<Action>> ActionOnTag(string tag, string actionType);
     }
 }

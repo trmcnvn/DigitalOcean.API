@@ -22,6 +22,19 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
+        public void CorrectRequestForConvert() {
+            var factory = Substitute.For<IConnection>();
+            var client = new ImageActionsClient(factory);
+
+            client.Convert(9001);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            var body = Arg.Is<ImageAction>(action => action.Type == "convert");
+            factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
+                parameters, body, "action", Method.POST);
+        }
+
+        [Fact]
         public void CorrectRequestForGetAction() {
             var factory = Substitute.For<IConnection>();
             var client = new ImageActionsClient(factory);

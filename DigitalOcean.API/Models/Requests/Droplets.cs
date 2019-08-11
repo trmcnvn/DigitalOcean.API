@@ -1,15 +1,15 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace DigitalOcean.API.Models.Requests {
-    public class Droplet {
+    public class Droplets {
         /// <summary>
-        /// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed
-        /// in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation
-        /// will also determine the hostname for the Droplet in its internal configuration.
+        /// An array of human human-readable strings you wish to use when displaying the Droplet name.
+        /// Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet.
+        /// Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
         /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("names")]
+        public List<string> Names { get; set; }
 
         /// <summary>
         /// The unique slug identifier for the region that you wish to deploy in.
@@ -76,12 +76,5 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("tags")]
         public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// A flat array including the unique string identifier for each Block Storage volume to be attached to the Droplet.
-        /// At the moment a volume can only be attached to a single Droplet.
-        /// </summary>
-        [JsonProperty("volumes")]
-        public List<string> Volumes { get; set; }
     }
 }
