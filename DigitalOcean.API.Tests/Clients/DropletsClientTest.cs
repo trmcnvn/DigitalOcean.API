@@ -25,8 +25,19 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAllByTag("notarealtag");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "notarealtag");
+            factory.Received().GetPaginated<Droplet>("droplets", parameters, "droplets");
+        }
+
+        [Fact]
+        public void CorrectRequestForGetAllNeighbors() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletsClient(factory);
+
+            client.GetAllNeighbors(9001);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            factory.Received().GetPaginated<Droplet>("droplets/{id}/neighbors", parameters, "droplets");
         }
 
         [Fact]
@@ -85,6 +96,17 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
+        public void CorrectRequestForCreateMany() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletsClient(factory);
+
+            var body = new Models.Requests.Droplets();
+            client.Create(body);
+
+            factory.Received().ExecuteRequest<List<Droplet>>("droplets", null, body, "droplets", Method.POST);
+        }
+
+        [Fact]
         public void CorrectRequestForGet() {
             var factory = Substitute.For<IConnection>();
             var client = new DropletsClient(factory);
@@ -113,18 +135,18 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.DeleteByTag("notarealtag");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("droplets?tag_name={name}", parameters, null, Method.DELETE);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "notarealtag");
+            factory.Received().ExecuteRaw("droplets", parameters, null, Method.DELETE);
         }
 
         [Fact]
-        public void CorrectRequestForGetUpgrades() {
+        public void CorrectRequestForListDropletNeighbors() {
             var factory = Substitute.For<IConnection>();
             var client = new DropletsClient(factory);
 
-            client.GetUpgrades();
+            client.ListDropletNeighbors();
 
-            factory.Received().GetPaginated<DropletUpgrade>("droplet_upgrades", null);
+            factory.Received().GetPaginated<Droplet>("reports/droplet_neighbors", null, "neighbors");
         }
     }
 }

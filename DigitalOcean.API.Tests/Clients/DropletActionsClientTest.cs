@@ -92,10 +92,10 @@ namespace DigitalOcean.API.Tests.Clients {
                 var factory = Substitute.For<IConnection>();
             var client = new DropletActionsClient(factory);
 
-            client.Resize(9001, "1024mb");
+            client.Resize(9001, "1024mb", true);
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            var body = Arg.Is<DropletAction>(action => action.Type == "resize" && action.SizeSlug == "1024mb");
+            var body = Arg.Is<DropletAction>(action => action.Type == "resize" && action.SizeSlug == "1024mb" && action.Disk == true);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
                 parameters, body, "action", Method.POST);
         }
@@ -166,7 +166,20 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
-        public void CorrectRequestForBackups() {
+        public void CorrectRequestForEnableBackups() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletActionsClient(factory);
+
+            client.EnableBackups(9001);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            var body = Arg.Is<DropletAction>(action => action.Type == "enable_backups");
+            factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
+                parameters, body, "action", Method.POST);
+        }
+
+        [Fact]
+        public void CorrectRequestForDisableBackups() {
                 var factory = Substitute.For<IConnection>();
             var client = new DropletActionsClient(factory);
 
@@ -215,6 +228,19 @@ namespace DigitalOcean.API.Tests.Clients {
                 (int)list[1].Value == 1009);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions/{actionId}",
                 parameters, null, "action");
+        }
+
+        [Fact]
+        public void CorrectRequestForActionOnTag() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletActionsClient(factory);
+
+            client.ActionOnTag("mytag", "reboot");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "mytag");
+            var body = Arg.Is<DropletAction>(action => action.Type == "reboot");
+            factory.Received().ExecuteRequest<List<Models.Responses.Action>>("droplets/actions",
+                parameters, null, "actions", Method.POST);
         }
     }
 }

@@ -44,6 +44,11 @@ namespace DigitalOcean.API.Models.Responses {
         public Kernel Kernel { get; set; }
 
         /// <summary>
+        /// The current size object describing the Droplet.
+        /// </summary>
+        public Size Size { get; set; }
+
+        /// <summary>
         /// Contains the slug of the size of the Droplet instance.
         /// </summary>
         public string SizeSlug { get; set; }
@@ -91,5 +96,16 @@ namespace DigitalOcean.API.Models.Responses {
         /// An array of Tags the Droplet has been tagged with.
         /// </summary>
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// The details of the Droplet's backups feature, if backups are configured for the Droplet. This object contains keys for the start
+        /// and end times of the window during which the backup will start.
+        /// </summary>
+        public BackupWindow NextBackupWindow { get; set; }
+
+        /// <summary>
+        /// A flat array including the unique identifier for each Block Storage volume attached to the Droplet.
+        /// </summary>
+        public List<string> VolumeIds { get; set; }
     }
 }

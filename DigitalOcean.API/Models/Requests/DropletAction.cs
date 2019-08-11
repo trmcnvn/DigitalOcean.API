@@ -13,7 +13,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         /// <remarks>
         /// Used by:
-        ///     Reboot Droplet action
+        ///     Resize Droplet action
         /// </remarks>
         [JsonProperty("size")]
         public string SizeSlug { get; set; }
@@ -47,6 +47,16 @@ namespace DigitalOcean.API.Models.Requests {
         ///     Change Kernel Droplet action
         /// </remarks>
         [JsonProperty("kernel")]
-        public int KernelId { get; set; }
+        public int? KernelId { get; set; }
+
+        /// <summary>
+        /// Whether to increase disk size.
+        /// </summary>
+        /// <remarks>
+        /// Used by:
+        ///     Resize Droplet action
+        /// </remarks>
+        [JsonProperty("disk")]
+        public bool? Disk { get; set; }
     }
 }

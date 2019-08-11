@@ -2,6 +2,7 @@
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Requests;
+using DigitalOcean.API.Models.Responses;
 using NSubstitute;
 using RestSharp;
 using Xunit;
@@ -25,6 +26,28 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAll(ImageType.Private);
             factory.Received().GetPaginated<Image>("images?private=true", null, "images");
+        }
+
+        [Fact]
+        public void CorrectRequestForGetAllByTag() {
+            var factory = Substitute.For<IConnection>();
+            var client = new ImagesClient(factory);
+
+            client.GetAllByTag("mytag");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "mytag");
+            factory.Received().GetPaginated<Image>("images", parameters, "images");
+        }
+
+        [Fact]
+        public void CorrectRequestForGetAllActions() {
+            var factory = Substitute.For<IConnection>();
+            var client = new ImagesClient(factory);
+
+            client.GetAllActions(9001);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            factory.Received().GetPaginated<Action>("images/{id}/actions", parameters, "actions");
         }
 
         [Fact]

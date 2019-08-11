@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Models.Requests;
+using DigitalOcean.API.Models.Responses;
 using Image = DigitalOcean.API.Models.Responses.Image;
 
 namespace DigitalOcean.API.Clients {
@@ -9,6 +10,16 @@ namespace DigitalOcean.API.Clients {
         /// Retrieve all images available ony your account.
         /// </summary>
         Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All);
+
+        /// <summary>
+        /// To list all images assigned to a specific tag.
+        /// </summary>
+        Task<IReadOnlyList<Image>> GetAllByTag(string tag);
+
+        /// <summary>
+        /// To retrieve all actions that have been executed on an image.
+        /// </summary>
+        Task<IReadOnlyList<Action>> GetAllActions(int imageId);
 
         /// <summary>
         /// To create a new custom image.
