@@ -47,7 +47,7 @@ namespace DigitalOcean.API.Models.Requests {
         ///     Change Kernel Droplet action
         /// </remarks>
         [JsonProperty("kernel")]
-        public int KernelId { get; set; }
+        public int? KernelId { get; set; }
 
         /// <summary>
         /// Whether to increase disk size.
