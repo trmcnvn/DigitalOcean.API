@@ -255,10 +255,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> ActionOnTag(string tag, string actionType) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag", Value = tag, Type = ParameterType.UrlSegment }
+                new Parameter { Name = "tag_name", Value = tag, Type = ParameterType.QueryString }
             };
             var body = new Models.Requests.DropletAction { Type = actionType };
-            return _connection.ExecuteRequest<List<Action>>("droplets/actions?tag_name={tag}", parameters, body,
+            return _connection.ExecuteRequest<List<Action>>("droplets/actions", parameters, body,
                 "actions", Method.POST)
                 .ToReadOnlyListAsync();
         }

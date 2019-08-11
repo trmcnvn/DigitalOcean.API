@@ -46,9 +46,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetAllByTag(string tag) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag", Value = tag, Type = ParameterType.UrlSegment }
+                new Parameter { Name = "tag_name", Value = tag, Type = ParameterType.QueryString }
             };
-            return _connection.GetPaginated<Image>("images?tag_name={tag}", parameters, "images");
+            return _connection.GetPaginated<Image>("images", parameters, "images");
         }
 
         /// <summary>

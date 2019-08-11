@@ -35,8 +35,8 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAllByTag("mytag");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "mytag");
-            factory.Received().GetPaginated<Image>("images?tag_name={tag}", parameters, "images");
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "mytag");
+            factory.Received().GetPaginated<Image>("images", parameters, "images");
         }
 
         [Fact]

@@ -25,8 +25,8 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAllByTag("notarealtag");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "notarealtag");
+            factory.Received().GetPaginated<Droplet>("droplets", parameters, "droplets");
         }
 
         [Fact]
@@ -135,8 +135,8 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.DeleteByTag("notarealtag");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("droplets?tag_name={name}", parameters, null, Method.DELETE);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "notarealtag");
+            factory.Received().ExecuteRaw("droplets", parameters, null, Method.DELETE);
         }
 
         [Fact]

@@ -27,10 +27,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+                new Parameter { Name = "tag_name", Value = tagName, Type = ParameterType.QueryString }
             };
 
-            return _connection.GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets");
+            return _connection.GetPaginated<Droplet>("droplets", parameters, "droplets");
         }
 
         /// <summary>
@@ -126,9 +126,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteByTag(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+                new Parameter { Name = "tag_name", Value = tagName, Type = ParameterType.QueryString }
             };
-            return _connection.ExecuteRaw("droplets?tag_name={name}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("droplets", parameters, null, Method.DELETE);
         }
 
         /// <summary>

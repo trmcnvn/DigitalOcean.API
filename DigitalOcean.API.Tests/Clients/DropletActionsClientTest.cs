@@ -237,9 +237,9 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.ActionOnTag("mytag", "reboot");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "mytag");
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "mytag");
             var body = Arg.Is<DropletAction>(action => action.Type == "reboot");
-            factory.Received().ExecuteRequest<List<Models.Responses.Action>>("droplets/actions?tag_name={tag}",
+            factory.Received().ExecuteRequest<List<Models.Responses.Action>>("droplets/actions",
                 parameters, null, "actions", Method.POST);
         }
     }
