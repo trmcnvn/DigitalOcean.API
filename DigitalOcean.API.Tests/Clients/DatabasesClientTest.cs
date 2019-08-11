@@ -35,10 +35,18 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAll();
             factory.Received().GetPaginated<DatabaseCluster>("databases", null, "databases");
-
-            client.GetAll("awesome");
-            factory.Received().GetPaginated<DatabaseCluster>("databases?tag_name=awesome", null, "databases");
         }
+
+        [Fact]
+        public void CorrectRequestForGetAllByTag() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            client.GetAllByTag("awesome");
+            var parameters = Arg.Is<List<Parameter>>(list => list[0].Name == "tag_name" && (string)list[0].Value == "awesome");
+            factory.Received().GetPaginated<DatabaseCluster>("databases", parameters, "databases");
+        }
+
 
         [Fact]
         public void CorrectRequestForResize() {

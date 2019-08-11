@@ -18,6 +18,7 @@ namespace DigitalOcean.API {
         IImageActionsClient ImageActions { get; }
         IImagesClient Images { get; }
         IKeysClient Keys { get; }
+        IKubernetesClient Kubernetes { get; }
         ILoadBalancerClient LoadBalancers { get; }
         IProjectsClient Projects { get; }
         IProjectResourcesClient ProjectResources { get; }

@@ -33,6 +33,7 @@ namespace DigitalOcean.API {
             Projects = new ProjectsClient(_connection);
             ProjectResources = new ProjectResourcesClient(_connection);
             Keys = new KeysClient(_connection);
+            Kubernetes = new KubernetesClient(_connection);
             Regions = new RegionsClient(_connection);
             Sizes = new SizesClient(_connection);
             Snapshots = new SnapshotsClient(_connection);
@@ -62,6 +63,7 @@ namespace DigitalOcean.API {
         public IImageActionsClient ImageActions { get; private set; }
         public IImagesClient Images { get; private set; }
         public IKeysClient Keys { get; private set; }
+        public IKubernetesClient Kubernetes { get; private set; }
         public ILoadBalancerClient LoadBalancers { get; private set; }
         public IProjectsClient Projects { get; private set; }
         public IProjectResourcesClient ProjectResources { get; private set; }
