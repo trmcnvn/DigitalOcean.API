@@ -13,7 +13,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
         /// </summary>
         [JsonProperty("auto_upgrade")]
-        public bool AutoUpgrade { get; set; }
+        public bool? AutoUpgrade { get; set; }
 
         /// <summary>
         /// A flat array of tag names as strings to be applied to the Kubernetes cluster. If excluded, existing user provided tags will be removed from the cluster.

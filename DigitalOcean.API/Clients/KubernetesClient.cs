@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Http;
@@ -101,6 +102,19 @@ namespace DigitalOcean.API.Clients {
                 new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
             };
             return _connection.GetPaginated<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools", parameters, "node_pools");
+        }
+
+        /// <summary>
+        /// Retreieve the kubeconfig file for a Kubernetes cluster
+        /// </summary>
+        /// <returns>
+        /// Returns the YAML kubeconfig response as a byte array
+        /// </returns>
+        public Task<IReadOnlyList<byte>> GetKubeConfig(string clusterId) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+            };
+            return _connection.ExecuteRaw("kubernetes/clusters/{id}/kubeconfig", parameters, null).ToByteArrayAsync();
         }
 
         /// <summary>

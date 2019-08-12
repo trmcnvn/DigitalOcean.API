@@ -40,6 +40,14 @@ namespace DigitalOcean.API.Clients {
         Task Delete(string clusterId);
 
         /// <summary>
+        /// Retreieve the kubeconfig file for a Kubernetes cluster
+        /// </summary>
+        /// <returns>
+        /// Returns the YAML config response as a byte array
+        /// </returns>
+        Task<IReadOnlyList<byte>> GetKubeConfig(string clusterId);
+
+        /// <summary>
         /// Retreive an existing node pool for a Kubernetes cluster
         /// </summary>
         Task<KubernetesNodePool> GetNodePool(string clusterId, string poolId);

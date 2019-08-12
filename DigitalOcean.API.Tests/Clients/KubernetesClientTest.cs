@@ -73,6 +73,15 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
+        public void CorrectRequestForGetKubeConfig() {
+            var factory = Substitute.For<IConnection>();
+            var client = new KubernetesClient(factory);
+            client.GetKubeConfig("1");
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/kubeconfig", parameters, null, Method.GET);
+        }
+
+        [Fact]
         public void CorrectRequestForGetNodePool() {
             var factory = Substitute.For<IConnection>();
             var client = new KubernetesClient(factory);
