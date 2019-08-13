@@ -15,13 +15,13 @@ jobs:
       - run: dotnet build --configuration ${{ matrix.configuration }}
       - run: dotnet test --no-build --configuration ${{ matrix.configuration }}
       - uses: actions/upload-artifact@v1
-        if: matrix.configuration == 'Release' && matrix.os == 'ubuntu-latest'
+        if: matrix.configuration == 'Release' && matrix.os == 'windows-latest'
         with:
           name: release-files
           path: DigitalOcean.API/bin/Release
   publish:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/download-artifact@v1
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
@@ -29,5 +29,8 @@ jobs:
           name: release-files
       - run: dotnet nuget push release-files/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
-      - run: dotnet nuget push release-files/*.nupkg -s https://trmcnvn:${{ secrets.GITHUB_API_TOKEN }}@nuget.pkg.github.com/trmcnvn/index.json
+      - run: |
+          choco install nuget.commandline
+          nuget sources add -name gpr -source https://nuget.pkg.github.com/trmcnvn/index.json -username trmcnvn -password ${{ secrets.GITHUB_API_TOKEN }}
+          nuget push release-files/*.nupkg -source gpr
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
