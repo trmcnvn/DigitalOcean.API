@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - RestSharp 106.2.1 -> 106.6.10
   - Newtonsoft.Json 10.0.3 -> 12.0.2
 - A number of fields and models were changed to make the codebase more consistent with itself and the API.
+  - `RegionSlug`, `SizeSlug`, `ImageIdOrSlug`, `SshIdsOrFingerprints` were renamed to `Region`, `Size`, `Image`, `SshKeys` to match the API.
 
 ### Fixed
 
