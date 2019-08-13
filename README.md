@@ -1,63 +1,48 @@
-## ![](http://i.imgur.com/llqIpX6.png) DigitalOcean API
+<p align="center">
+  <img src="https://i.imgur.com/llqIpX6.png">
+</p>
+<h1 align="center">
+  DigitalOcean API
+</h1>
+<p align="center">
+  <a href="https://actions-badge.atrox.dev/trmcnvn/DigitalOcean.API/goto"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftrmcnvn%2FDigitalOcean.API%2Fbadge&label=build&logo=none"></a>
+  <a href="https://www.nuget.org/packages/DigitalOcean.API"><img src="https://img.shields.io/nuget/v/DigitalOcean.API.svg"></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API.svg?type=shield"></a>
+</p>
 
-[![Build status](https://ci.appveyor.com/api/projects/status/kowp84s9j95138r6/branch/master?svg=true)](https://ci.appveyor.com/project/vevix/digitalocean-api-p6bv8/branch/master)
-[![NuGet version](https://img.shields.io/nuget/v/DigitalOcean.API.svg)](https://www.nuget.org/packages/DigitalOcean.API)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API?ref=badge_shield)
+Implementation of the [DigitalOcean API (v2)](https://developers.digitalocean.com/documentation/v2/#introduction) for .NET Standard 2+
 
-Implementation of the DigitalOcean API (v2) for .NET.
+## Install
 
-[![NuGet](http://i.imgur.com/M4DTYI4.png)](https://www.nuget.org/packages/DigitalOcean.API)
+DigitalOcean.API is available for install from [NuGet](https://www.nuget.org/packages/DigitalOcean.API) and the [GitHub Package Registry](https://github.com/trmcnvn/DigitalOcean.API/packages).
 
-## Usage Examples
+```
+dotnet add package DigitalOcean.API
+```
+
+## Example
 
 ```csharp
 var client = new DigitalOceanClient("api_token");
-```
 
-You can generate your API token from your [DigitalOcean Control Panel](https://cloud.digitalocean.com/settings/tokens/new)
-
-```csharp
-// Retrieving all Droplets
-var droplets = await client.Droplets.GetAll();
-// => IReadOnlyList<Droplet>
-```
-
-```csharp
-// Retrieving all Domain Records
-var records = await client.DomainRecords.GetAll();
-// => IReadOnlyList<DomainRecord>
-```
-
-```csharp
-// Rebooting a Droplet
-var action = await client.DropletActions.Reboot(9001);
-// => Action
-```
-
-```csharp
-// Creating a new Droplet
-var newDroplet = new Droplet {
-  // ...
+var request = new Droplet {
+  Name = "example.com",
+  Region = "nyc3",
+  Size = "s-1vcpu-1gb",
+  Image = "ubuntu-16-04-x64",
+  SshKeys = new List<object> { 107149 },
+  Backups = false,
+  Ipv6 = true,
+  Tags = new List<string> { "web" }
 };
-var droplet = await client.Droplets.Create(newDroplet);
-// => Droplet
+
+var droplet = await client.Droplets.Create(request);
 ```
 
 ## Documentation
 
-Check out the [DigitalOcean API](https://developers.digitalocean.com/) for in-depth details.
+Check out [DigitalOcean's documentation](https://developers.digitalocean.com/documentation/v2/#introduction) of their API to see all possible interactions.
 
 ## License
 
-Copyright (c) 2016 Thomas McNiven (vevix)
-
-MIT License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API?ref=badge_large)
+This project is licensed under the MIT License - see the LICENSE.md file for details.
