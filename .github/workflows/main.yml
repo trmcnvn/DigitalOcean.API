@@ -1,0 +1,33 @@
+# jobs.<job_id>.if is not currently working (13/08/19)
+name: DigitalOcean.API CI
+on: [push, pull_request]
+jobs:
+  build:
+    # if: gitub.event_name == 'push' || github.event.action == 'synchronize'
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+        os: [windows-latest, ubuntu-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-dotnet@v1
+      - run: dotnet build --configuration ${{ matrix.configuration }}
+      - run: dotnet test --no-build --configuration ${{ matrix.configuration }}
+      - uses: actions/upload-artifact@v1
+        if: matrix.configuration == 'Release' && matrix.os == 'ubuntu-latest'
+        with:
+          name: release-files
+          path: DigitalOcean.API/bin/Release
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
+        with:
+          name: release-files
+      - run: dotnet nuget push release-files/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
+      - run: dotnet nuget push **/*.nupkg -s https://trmcnvn:${{ secrets.GITHUB_API_TOKEN }}@nuget.pkg.github.com/trmcnvn/index.json
+        if: github.event_name == 'push' && github.ref == 'refs/heads/release'

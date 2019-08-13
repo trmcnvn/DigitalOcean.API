@@ -2,14 +2,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>vevix</Authors>
     <Version>3.1.0</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
-    <PackageLicenseUrl>https://github.com/trmcnvn/DigitalOcean.API/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageId>DigitalOcean.API</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/trmcnvn/DigitalOcean.API</PackageProjectUrl>
     <PackageIconUrl>http://i.imgur.com/llqIpX6.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/trmcnvn/DigitalOcean.API</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
     <PackageTags>DigitalOcean API</PackageTags>
     <PackageReleaseNotes>
       - Support for Account API (@Nicholi)
