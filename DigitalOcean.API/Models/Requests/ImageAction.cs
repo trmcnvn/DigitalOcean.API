@@ -16,6 +16,6 @@ namespace DigitalOcean.API.Models.Requests {
         ///     Transfer Image action
         /// </remarks>
         [JsonProperty("region")]
-        public string RegionSlug { get; set; }
+        public string Region { get; set; }
     }
 }

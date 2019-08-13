@@ -96,7 +96,7 @@ namespace DigitalOcean.API.Clients {
             };
             var body = new Models.Requests.DropletAction {
                 Type = "resize",
-                SizeSlug = sizeSlug,
+                Size = sizeSlug,
                 Disk = resizeDisk
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -114,7 +114,7 @@ namespace DigitalOcean.API.Clients {
             };
             var body = new Models.Requests.DropletAction {
                 Type = "restore",
-                ImageIdOrSlug = imageIdOrSlug
+                Image = imageIdOrSlug
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
                 "action", Method.POST);
@@ -129,7 +129,7 @@ namespace DigitalOcean.API.Clients {
             };
             var body = new Models.Requests.DropletAction {
                 Type = "rebuild",
-                ImageIdOrSlug = imageIdOrSlug
+                Image = imageIdOrSlug
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
                 "action", Method.POST);
