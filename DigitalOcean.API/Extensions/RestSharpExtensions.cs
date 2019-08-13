@@ -5,6 +5,8 @@ using DigitalOcean.API.Models.Responses;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using RestSharp.Extensions;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace DigitalOcean.API.Extensions {
     public static class RestSharpExtensions {
@@ -18,6 +20,10 @@ namespace DigitalOcean.API.Extensions {
             var ret = await GetResponseContentAsync(client, request);
             request.OnBeforeDeserialization(ret);
             return ret.ThrowIfException();
+        }
+
+        public static Task<IReadOnlyList<byte>> ToByteArrayAsync(this Task<IRestResponse> task) {
+            return task.ContinueWith(t => (IReadOnlyList<byte>)new ReadOnlyCollection<byte>(t.Result?.RawBytes ?? new byte[] { }));
         }
 
         private static IRestResponse ThrowIfException(this IRestResponse response) {
@@ -37,16 +43,15 @@ namespace DigitalOcean.API.Extensions {
             return response;
         }
 
-            private static Task<IRestResponse> GetResponseContentAsync(IRestClient theClient, IRestRequest theRequest)
-            {
-                var tcs = new TaskCompletionSource<IRestResponse>();
-                theClient.ExecuteAsync(theRequest, response => {
-                    tcs.SetResult(response);
-                });
-                return tcs.Task;
-            }
+        private static Task<IRestResponse> GetResponseContentAsync(IRestClient theClient, IRestRequest theRequest) {
+            var tcs = new TaskCompletionSource<IRestResponse>();
+            theClient.ExecuteAsync(theRequest, response => {
+                tcs.SetResult(response);
+            });
+            return tcs.Task;
+        }
 
-            public static T Deserialize<T>(this IRestResponse response) {
+        public static T Deserialize<T>(this IRestResponse response) {
             response.Request.OnBeforeDeserialization(response);
             var deserialize = new JsonDeserializer {
                 RootElement = response.Request.RootElement,

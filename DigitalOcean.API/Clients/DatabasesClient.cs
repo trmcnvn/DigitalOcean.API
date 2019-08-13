@@ -117,12 +117,18 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive all database clusters on your account
         /// </summary>
-        public Task<IReadOnlyList<DatabaseCluster>> GetAll(string tag = null) {
-            var endpoint = "databases";
-            if (tag != null) {
-                endpoint = string.Format("{0}?tag_name={1}", endpoint, tag);
-            }
-            return _connection.GetPaginated<DatabaseCluster>(endpoint, null, "databases");
+        public Task<IReadOnlyList<DatabaseCluster>> GetAll() {
+            return _connection.GetPaginated<DatabaseCluster>("databases", null, "databases");
+        }
+
+        /// <summary>
+        /// Retreive all database clusters on your account by tag
+        /// </summary>
+        public Task<IReadOnlyList<DatabaseCluster>> GetAllByTag(string tag) {
+            var parameters = new List<Parameter> {
+                new Parameter { Name = "tag_name", Value = tag, Type = ParameterType.QueryString }
+            };
+            return _connection.GetPaginated<DatabaseCluster>("databases", parameters, "databases");
         }
 
         /// <summary>
