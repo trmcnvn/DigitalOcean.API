@@ -21,7 +21,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// The slug identifier for the region where the image will initially be available.
         /// </summary>
         [JsonProperty("region")]
-        public string RegionSlug { get; set; }
+        public string Region { get; set; }
 
         /// <summary>
         /// The name of a custom image's distribution.

@@ -15,27 +15,27 @@ namespace DigitalOcean.API.Models.Requests {
         /// The unique slug identifier for the region that you wish to deploy in.
         /// </summary>
         [JsonProperty("region")]
-        public string RegionSlug { get; set; }
+        public string Region { get; set; }
 
         /// <summary>
         /// The unique slug identifier for the size that you wish to select for this Droplet.
         /// </summary>
         [JsonProperty("size")]
-        public string SizeSlug { get; set; }
+        public string Size { get; set; }
 
         /// <summary>
         /// The image ID of a public or private image, or the unique slug identifier for a public image. This image will be the
         /// base image for your Droplet. Integer (if using an image ID), or String (if using a public image slug).
         /// </summary>
         [JsonProperty("image")]
-        public object ImageIdOrSlug { get; set; }
+        public object Image { get; set; }
 
         /// <summary>
         /// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon
         /// creation.
         /// </summary>
         [JsonProperty("ssh_keys")]
-        public List<object> SshIdsOrFingerprints { get; set; }
+        public List<object> SshKeys { get; set; }
 
         /// <summary>
         /// A boolean indicating whether automated backups should be enabled for the Droplet. Automated backups can only be enabled

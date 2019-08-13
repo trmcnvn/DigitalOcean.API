@@ -24,7 +24,7 @@ namespace DigitalOcean.API.Clients {
 
             var body = new Models.Requests.ImageAction {
                 Type = "transfer",
-                RegionSlug = regionSlug
+                Region = regionSlug
             };
 
             return _connection.ExecuteRequest<Action>("images/{imageId}/actions", parameters, body, "action",

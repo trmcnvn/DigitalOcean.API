@@ -16,7 +16,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Transfer(9001, "sfo1");
 
             var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
-            var body = Arg.Is<ImageAction>(action => action.Type == "transfer" && action.RegionSlug == "sfo1");
+            var body = Arg.Is<ImageAction>(action => action.Type == "transfer" && action.Region == "sfo1");
             factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
                 parameters, body, "action", Method.POST);
         }

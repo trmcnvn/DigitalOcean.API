@@ -16,7 +16,7 @@ namespace DigitalOcean.API.Models.Requests {
         ///     Resize Droplet action
         /// </remarks>
         [JsonProperty("size")]
-        public string SizeSlug { get; set; }
+        public string Size { get; set; }
 
         /// <summary>
         /// Image ID or Slug
@@ -27,7 +27,7 @@ namespace DigitalOcean.API.Models.Requests {
         ///     Rebuild Droplet action
         /// </remarks>
         [JsonProperty("image")]
-        public object ImageIdOrSlug { get; set; }
+        public object Image { get; set; }
 
         /// <summary>
         /// New name
