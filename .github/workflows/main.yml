@@ -29,5 +29,5 @@ jobs:
           name: release-files
       - run: dotnet nuget push release-files/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
-      - run: dotnet nuget push **/*.nupkg -s https://trmcnvn:${{ secrets.GITHUB_API_TOKEN }}@nuget.pkg.github.com/trmcnvn/index.json
+      - run: dotnet nuget push release-files/*.nupkg -s https://trmcnvn:${{ secrets.GITHUB_API_TOKEN }}@nuget.pkg.github.com/trmcnvn/index.json
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
