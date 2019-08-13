@@ -17,7 +17,12 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive all database clusters on your account
         /// </summary>
-        Task<IReadOnlyList<DatabaseCluster>> GetAll(string tag = null);
+        Task<IReadOnlyList<DatabaseCluster>> GetAll();
+
+        /// <summary>
+        /// Retreive all database clusters on your account by tag
+        /// </summary>
+        Task<IReadOnlyList<DatabaseCluster>> GetAllByTag(string tag);
 
         /// <summary>
         /// Resize a database cluster
