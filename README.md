@@ -5,7 +5,7 @@
   DigitalOcean API
 </h1>
 <p align="center">
-  <a href="https://actions-badge.atrox.dev/trmcnvn/DigitalOcean.API/goto"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftrmcnvn%2FDigitalOcean.API%2Fbadge&label=build&logo=none"></a>
+  <a href="https://github.com/trmcnvn/DigitalOcean.API"><img alt="GitHub Actions status" src="https://github.com/trmcnvn/DigitalOcean.API/workflows/DigitalOcean.API%20CI/badge.svg"></a>
   <a href="https://www.nuget.org/packages/DigitalOcean.API"><img src="https://img.shields.io/nuget/v/DigitalOcean.API.svg"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftrmcnvn%2FDigitalOcean.API.svg?type=shield"></a>
 </p>
