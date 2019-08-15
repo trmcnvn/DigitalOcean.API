@@ -27,10 +27,11 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
         with:
           name: release-files
-      - run: dotnet nuget push release-files/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      - run: choco install nuget.commandline
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
-      - run: |
-          choco install nuget.commandline
-          nuget sources add -name gpr -source https://nuget.pkg.github.com/trmcnvn/index.json -username trmcnvn -password ${{ secrets.GITHUB_TOKEN }}
-          nuget push release-files/*.nupkg -source gpr
+      - run: nuget sources add -Name gpr -Source https://nuget.pkg.github.com/trmcnvn/index.json -UserName trmcnvn -Password ${{ secrets.GITHUB_API_KEY }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
+      - run: nuget push **/*.nupkg -Source nuget.org -ApiKey ${{ secrets.NUGET_API_KEY }} -NonInteractive -SkipDuplicate -NoSymbols
+        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
+      - run: nuget push **/*.nupkg -Source gpr -NonInteractive -SkipDuplicate -NoSymbols
         if: github.event_name == 'push' && github.ref == 'refs/heads/release'
