@@ -19,6 +19,6 @@ namespace DigitalOcean.API.Models.Requests {
         /// An object specifying locations from which inbound traffic will be accepted. (See below for the available keys and the types.)
         /// </summary>
         [JsonProperty("sources")]
-        public List<SourceLocation> Sources { get; set; }
+        public SourceLocation Sources { get; set; }
     }
 }

@@ -15,6 +15,6 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// An object specifying locations from which inbound traffic will be accepted. (See below for the available keys and the types.)
         /// </summary>
-        public List<SourceLocation> Sources { get; set; }
+        public SourceLocation Sources { get; set; }
     }
 }

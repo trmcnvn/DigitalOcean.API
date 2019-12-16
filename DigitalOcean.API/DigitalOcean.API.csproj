@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vevix</Authors>
-    <Version>4.0.0</Version>
+    <Version>4.0.1</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageId>DigitalOcean.API</PackageId>
@@ -13,32 +13,10 @@
     <RepositoryUrl>https://github.com/trmcnvn/DigitalOcean.API</RepositoryUrl>
     <PackageTags>DigitalOcean API</PackageTags>
     <PackageReleaseNotes>
-      ### Added
-
-      - Support for Databases, Kubernetes, Block Storage, Firewalls, Floating IPs.
-      - Missing features for already supported API:
-        - Create multiple droplets
-        - List neighbors for a droplet
-        - List all droplet neighbors
-        - Enable backups on a droplet
-        - Acting on droplets via a tag
-        - Creating a custom image
-        - Listing images via a tag
-        - Listing all actions for an image
-        - Converting an image to a snapshot
-      - This package is now also available via GitHub's new package registry.
-
-      ### Changed
-
-      - Dependency Updates
-        - RestSharp 106.2.1 -> 106.6.10
-        - Newtonsoft.Json 10.0.3 -> 12.0.2
-      - A number of fields and models were changed to make the codebase more consistent with itself and the API.
-        - `RegionSlug`, `SizeSlug`, `ImageIdOrSlug`, `SshIdsOrFingerprints` were renamed to `Region`, `Size`, `Image`, `SshKeys` to match the API.
-
       ### Fixed
 
-      - Load Balancer functions now correctly take a string rather than an int for their ID fields.
+      - Fixed the `Source` and `Destination` fields of the Firewall Inbound/Outbound rules to be in the expected format.
+      (@azakhi)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
