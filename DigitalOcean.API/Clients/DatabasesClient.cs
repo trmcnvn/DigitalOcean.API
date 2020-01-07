@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<ConnectionPool> AddConnectionPool(string databaseId, Models.Requests.ConnectionPool pool) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<ConnectionPool>("databases/{id}/pools", parameters, pool, "pool", Method.POST);
         }
@@ -29,7 +29,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Database> AddDatabase(string databaseId, Models.Requests.Database database) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Database>("databases/{id}/dbs", parameters, database, "db", Method.POST);
         }
@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DatabaseUser> AddUser(string databaseId, Models.Requests.DatabaseUser user) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DatabaseUser>("databases/{id}/users", parameters, user, "user", Method.POST);
         }
@@ -56,7 +56,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DatabaseReplica> CreateReplica(string databaseId, Models.Requests.DatabaseReplica replica) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DatabaseReplica>("databases/{id}/replicas", parameters, replica, "replica", Method.POST);
         }
@@ -66,7 +66,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}", parameters, null, Method.DELETE);
         }
@@ -76,8 +76,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteConnectionPool(string databaseId, string poolName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = poolName, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", poolName, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/pools/{name}", parameters, null, Method.DELETE);
         }
@@ -87,8 +87,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteDatabase(string databaseId, string databaseName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = databaseName, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", databaseName, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/dbs/{name}", parameters, null, Method.DELETE);
         }
@@ -98,8 +98,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteReplica(string databaseId, string replicaName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = replicaName, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", replicaName, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/replicas/{name}", parameters, null, Method.DELETE);
         }
@@ -109,7 +109,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DatabaseCluster> Get(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DatabaseCluster>("databases/{id}", parameters, null, "database");
         }
@@ -126,7 +126,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<DatabaseCluster>> GetAllByTag(string tag) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag_name", Value = tag, Type = ParameterType.QueryString }
+                new Parameter("tag_name", tag, ParameterType.QueryString)
             };
             return _connection.GetPaginated<DatabaseCluster>("databases", parameters, "databases");
         }
@@ -136,7 +136,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<DatabaseReplica>> GetAllReplicas(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<DatabaseReplica>("databases/{id}/replicas", parameters, "replicas");
         }
@@ -146,7 +146,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ConnectionPool>> GetAllConnectionPools(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<ConnectionPool>("databases/{id}/pools", parameters, "pools");
         }
@@ -156,7 +156,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Database>> GetAllDatabases(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Database>("databases/{id}/dbs", parameters, "dbs");
         }
@@ -166,7 +166,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<DatabaseUser>> GetAllUsers(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<DatabaseUser>("databases/{id}/users", parameters, "users");
         }
@@ -176,7 +176,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<DatabaseBackup>> GetBackups(string databaseId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<DatabaseBackup>("databases/{id}/backups", parameters, "backups");
         }
@@ -186,8 +186,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<ConnectionPool> GetConnectionPool(string databaseId, string poolName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = poolName, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", poolName, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<ConnectionPool>("databases/{id}/pools/{name}", parameters, null, "pool");
         }
@@ -197,8 +197,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Database> GetDatabase(string databaseId, string databaseName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = databaseName, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", databaseName, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Database>("databases/{id}/dbs/{name}", parameters, null, "db");
         }
@@ -208,8 +208,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DatabaseReplica> GetReplica(string databaseId, string replicaName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = replicaName, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", replicaName, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DatabaseReplica>("databases/{id}/replicas/{name}", parameters, null, "replica");
         }
@@ -219,8 +219,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DatabaseUser> GetUser(string databaseId, string username) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = username, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", username, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DatabaseUser>("databases/{id}/users/{name}", parameters, null, "user");
         }
@@ -230,7 +230,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Maintenance(string databaseId, Models.Requests.MaintenanceWindow window) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/maintenance", parameters, window, Method.POST);
         }
@@ -240,7 +240,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Migrate(string databaseId, Models.Requests.MigrateDatabase migrate) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/migrate", parameters, migrate, Method.POST);
         }
@@ -250,8 +250,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task RemoveUser(string databaseId, string username) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "name", Value = username, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("name", username, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/users/{name}", parameters, null, Method.DELETE);
         }
@@ -261,7 +261,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Resize(string databaseId, Models.Requests.ResizeDatabase resize) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = databaseId, Type = ParameterType.UrlSegment }
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("databases/{id}/resize", parameters, resize, Method.POST);
         }
