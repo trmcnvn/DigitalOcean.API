@@ -31,7 +31,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Project> Get(string projectId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "project_id", Value = projectId, Type = ParameterType.UrlSegment }
+                new Parameter("project_id", projectId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, null, "project");
         }
@@ -48,7 +48,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Project> Update(string projectId, Models.Requests.UpdateProject updateProject) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "project_id", Value = projectId, Type = ParameterType.UrlSegment }
+                new Parameter("project_id", projectId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, updateProject, "project", Method.PUT);
         }
@@ -67,7 +67,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Project> Patch(string projectId, Models.Requests.PatchProject patchProject) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "project_id", Value = projectId, Type = ParameterType.UrlSegment }
+                new Parameter("project_id", projectId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, patchProject, "project", Method.PATCH);
         }

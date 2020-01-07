@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ProjectResource>> GetResources(string projectId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "project_id", Value = projectId, Type = ParameterType.UrlSegment }
+                new Parameter("project_id", projectId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<ProjectResource>("projects/{project_id}/resources", parameters, "resources");
         }
@@ -36,7 +36,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ProjectResource>> AssignResources(string projectId, AssignResourceNames resources) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "project_id", Value = projectId, Type = ParameterType.UrlSegment }
+                new Parameter("project_id", projectId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, resources, "resources", Method.POST)
                 .ToReadOnlyListAsync();

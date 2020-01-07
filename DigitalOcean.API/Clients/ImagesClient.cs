@@ -22,8 +22,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All) {
             var endpoint = "images";
-            switch (type)
-            {
+            switch (type) {
                 case ImageType.All:
                     break;
                 case ImageType.Application:
@@ -46,7 +45,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetAllByTag(string tag) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag_name", Value = tag, Type = ParameterType.QueryString }
+                new Parameter("tag_name", tag, ParameterType.QueryString)
             };
             return _connection.GetPaginated<Image>("images", parameters, "images");
         }
@@ -56,7 +55,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> GetAllActions(int imageId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
+                new Parameter("id", imageId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Action>("images/{id}/actions", parameters, "actions");
         }
@@ -78,7 +77,7 @@ namespace DigitalOcean.API.Clients {
         /// </remarks>
         public Task<Image> Get(object imageIdOrSlug) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageIdOrSlug, Type = ParameterType.UrlSegment }
+                new Parameter("id", imageIdOrSlug, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Image>("images/{id}", parameters, null, "image");
         }
@@ -88,7 +87,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(int imageId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
+                new Parameter("id", imageId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
         }
@@ -98,7 +97,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Image> Update(int imageId, Models.Requests.UpdateImage updateImage) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
+                new Parameter("id", imageId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Image>("images/{id}", parameters, updateImage, "image", Method.PUT);
         }

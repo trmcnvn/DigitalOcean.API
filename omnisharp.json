@@ -11,6 +11,8 @@
     "NewLinesForBracesInAccessors": false,
     "NewLineForElse": false,
     "NewLineForCatch": false,
-    "NewLineForFinally": false
+    "NewLineForFinally": false,
+    "TabSize": 4,
+    "UseTabs": false
   }
 }

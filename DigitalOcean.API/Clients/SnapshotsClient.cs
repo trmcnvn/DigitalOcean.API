@@ -19,8 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Snapshot>> GetAll(Models.Requests.SnapshotType type = SnapshotType.All) {
             var endpoint = "snapshots";
-            switch (type)
-            {
+            switch (type) {
                 case SnapshotType.All:
                     break;
                 case SnapshotType.Droplet:
@@ -40,7 +39,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Snapshot> Get(string snapshotId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "snapshot_id", Value = snapshotId, Type = ParameterType.UrlSegment }
+                new Parameter("snapshot_id", snapshotId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Snapshot>("snapshots/{snapshot_id}", parameters, null, "snapshot");
         }
@@ -50,7 +49,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string snapshotId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "snapshot_id", Value = snapshotId, Type = ParameterType.UrlSegment }
+                new Parameter("snapshot_id", snapshotId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("snapshots/{snapshot_id}", parameters, null, Method.DELETE);
         }

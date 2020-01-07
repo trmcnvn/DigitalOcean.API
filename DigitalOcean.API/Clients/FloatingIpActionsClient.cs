@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Assign(string ipAddress, int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "ip", Value = ipAddress, Type = ParameterType.UrlSegment }
+                new Parameter("ip", ipAddress, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.FloatingIpAction {
                 Type = "assign",
@@ -31,8 +31,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> GetAction(string ipAddress, int actionId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "ip", Value = ipAddress, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "actionId", Value = actionId, Type = ParameterType.UrlSegment }
+                new Parameter("ip", ipAddress, ParameterType.UrlSegment),
+                new Parameter("actionId", actionId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Action>("floating_ips/{ip}/actions/{actionId}", parameters, null, "action");
         }
@@ -42,7 +42,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> GetActions(string ipAddress) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "ip", Value = ipAddress, Type = ParameterType.UrlSegment }
+                new Parameter("ip", ipAddress, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Action>("floating_ips/{ip}/actions", parameters, "actions");
         }
@@ -52,7 +52,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Unassign(string ipAddress) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "ip", Value = ipAddress, Type = ParameterType.UrlSegment }
+                new Parameter("ip", ipAddress, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.FloatingIpAction {
                 Type = "unassign"

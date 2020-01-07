@@ -27,7 +27,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag_name", Value = tagName, Type = ParameterType.QueryString }
+                new Parameter("tag_name", tagName, ParameterType.QueryString)
             };
 
             return _connection.GetPaginated<Droplet>("droplets", parameters, "droplets");
@@ -38,7 +38,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Droplet>> GetAllNeighbors(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
 
             return _connection.GetPaginated<Droplet>("droplets/{id}/neighbors", parameters, "droplets");
@@ -49,7 +49,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Kernel>> GetKernels(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Kernel>("droplets/{id}/kernels", parameters, "kernels");
         }
@@ -59,7 +59,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetSnapshots(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Image>("droplets/{id}/snapshots", parameters, "snapshots");
         }
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetBackups(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Image>("droplets/{id}/backups", parameters, "backups");
         }
@@ -79,7 +79,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> GetActions(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Action>("droplets/{id}/actions", parameters, "actions");
         }
@@ -106,7 +106,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Droplet> Get(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Droplet>("droplets/{id}", parameters, null, "droplet");
         }
@@ -116,7 +116,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
         }
@@ -126,7 +126,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteByTag(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag_name", Value = tagName, Type = ParameterType.QueryString }
+                new Parameter("tag_name", tagName, ParameterType.QueryString)
             };
             return _connection.ExecuteRaw("droplets", parameters, null, Method.DELETE);
         }

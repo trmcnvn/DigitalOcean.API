@@ -20,7 +20,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Reboot(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "reboot" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -32,7 +32,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> PowerCycle(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "power_cycle" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -44,7 +44,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Shutdown(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "shutdown" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -56,7 +56,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> PowerOff(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "power_off" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -68,7 +68,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> PowerOn(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "power_on" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -80,7 +80,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> ResetPassword(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "password_reset" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -92,7 +92,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Resize(int dropletId, string sizeSlug, bool resizeDisk) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction {
                 Type = "resize",
@@ -110,7 +110,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Restore(int dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction {
                 Type = "restore",
@@ -125,7 +125,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Rebuild(int dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction {
                 Type = "rebuild",
@@ -140,7 +140,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Rename(int dropletId, string name) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction {
                 Type = "rename",
@@ -155,7 +155,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> ChangeKernel(int dropletId, int kernelId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction {
                 Type = "change_kernel",
@@ -170,7 +170,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> EnableIpv6(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "enable_ipv6" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -182,7 +182,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> EnableBackups(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "enable_backups" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -194,7 +194,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> DisableBackups(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "disable_backups" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -206,7 +206,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> EnablePrivateNetworking(int dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction { Type = "enable_private_networking" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
@@ -218,7 +218,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Snapshot(int dropletId, string name) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
             var body = new Models.Requests.DropletAction {
                 Type = "snapshot",
@@ -233,8 +233,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> GetDropletAction(int dropletId, int actionId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "dropletId", Value = dropletId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "actionId", Value = actionId, Type = ParameterType.UrlSegment }
+                new Parameter("dropletId", dropletId, ParameterType.UrlSegment),
+                new Parameter("actionId", actionId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions/{actionId}", parameters,
                 null, "action");
@@ -255,7 +255,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> ActionOnTag(string tag, string actionType) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "tag_name", Value = tag, Type = ParameterType.QueryString }
+                new Parameter("tag_name", tag, ParameterType.QueryString)
             };
             var body = new Models.Requests.DropletAction { Type = actionType };
             return _connection.ExecuteRequest<List<Action>>("droplets/actions", parameters, body,

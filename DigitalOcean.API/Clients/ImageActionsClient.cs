@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Transfer(int imageId, string regionSlug) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment }
+                new Parameter("imageId", imageId, ParameterType.UrlSegment)
             };
 
             var body = new Models.Requests.ImageAction {
@@ -36,7 +36,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Convert(int imageId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment }
+                new Parameter("imageId", imageId, ParameterType.UrlSegment)
             };
 
             var body = new Models.Requests.ImageAction {
@@ -52,8 +52,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> GetAction(int imageId, int actionId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "actionId", Value = actionId, Type = ParameterType.UrlSegment }
+                new Parameter("imageId", imageId, ParameterType.UrlSegment),
+                new Parameter("actionId", actionId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Action>("images/{imageId}/actions/{actionId}", parameters, null, "action");
         }
