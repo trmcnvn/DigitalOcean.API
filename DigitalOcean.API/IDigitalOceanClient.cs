@@ -1,4 +1,4 @@
-﻿using DigitalOcean.API.Clients;
+using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 
 namespace DigitalOcean.API {
@@ -28,6 +28,7 @@ namespace DigitalOcean.API {
         ITagsClient Tags { get; }
         IVolumesClient Volumes { get; }
         IVolumeActionsClient VolumeActions { get; }
+        IBalanceClient BalanceClient { get; }
 
         IRateLimit Rates { get; }
     }
