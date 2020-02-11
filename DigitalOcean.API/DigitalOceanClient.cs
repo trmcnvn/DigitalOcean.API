@@ -1,4 +1,4 @@
-﻿using DigitalOcean.API.Clients;
+using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using RestSharp;
 
@@ -40,6 +40,7 @@ namespace DigitalOcean.API {
             Tags = new TagsClient(_connection);
             Volumes = new VolumesClient(_connection);
             VolumeActions = new VolumeActionsClient(_connection);
+            BalanceClient = new BalanceClient(_connection);
         }
 
         #region IDigitalOceanClient Members
@@ -73,6 +74,7 @@ namespace DigitalOcean.API {
         public ITagsClient Tags { get; private set; }
         public IVolumesClient Volumes { get; private set; }
         public IVolumeActionsClient VolumeActions { get; private set; }
+        public IBalanceClient BalanceClient { get; private set; }
 
         #endregion
     }

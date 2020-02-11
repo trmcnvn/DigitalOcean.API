@@ -21,7 +21,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<KubernetesNodePool> AddNodePool(string clusterId, Models.Requests.KubernetesNodePool pool) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools", parameters, pool, "node_pool", Method.POST);
         }
@@ -38,7 +38,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string clusterId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("kubernetes/clusters/{id}", parameters, null, Method.DELETE);
         }
@@ -59,9 +59,9 @@ namespace DigitalOcean.API.Clients {
                     break;
             }
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "poolId", Value = poolId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "nodeId", Value = nodeId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment),
+                new Parameter("poolId", poolId, ParameterType.UrlSegment),
+                new Parameter("nodeId", nodeId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw(endpoint, parameters, null, Method.DELETE);
         }
@@ -71,8 +71,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteNodePool(string clusterId, string poolId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "poolId", Value = poolId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment),
+                new Parameter("poolId", poolId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, null, Method.DELETE);
         }
@@ -82,7 +82,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<KubernetesCluster> Get(string clusterId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<KubernetesCluster>("kubernetes/clusters/{id}", parameters, null, "kubernetes_cluster");
         }
@@ -99,7 +99,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<KubernetesNodePool>> GetAllNodePools(string clusterId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools", parameters, "node_pools");
         }
@@ -112,7 +112,7 @@ namespace DigitalOcean.API.Clients {
         /// </returns>
         public Task<IReadOnlyList<byte>> GetKubeConfig(string clusterId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("kubernetes/clusters/{id}/kubeconfig", parameters, null).ToByteArrayAsync();
         }
@@ -122,8 +122,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<KubernetesNodePool> GetNodePool(string clusterId, string poolId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "poolId", Value = poolId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment),
+                new Parameter("poolId", poolId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, null, "node_pool");
         }
@@ -140,7 +140,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<KubernetesUpgrade>> GetUpgrades(string clusterId) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<List<KubernetesUpgrade>>("kubernetes/clusters/{id}/upgrades", parameters, null, "available_upgrade_versions").ToReadOnlyListAsync();
         }
@@ -150,7 +150,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<KubernetesCluster> Update(string clusterId, Models.Requests.UpdateKubernetesCluster cluster) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<KubernetesCluster>("kubernetes/clusters/{id}", parameters, cluster, "kubernetes_cluster", Method.PUT);
         }
@@ -160,8 +160,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<KubernetesNodePool> UpdateNodePool(string clusterId, string poolId, Models.Requests.UpdateKubernetesNodePool pool) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "poolId", Value = poolId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment),
+                new Parameter("poolId", poolId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, pool, "node_pool", Method.PUT);
         }
@@ -171,7 +171,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Upgrade(string clusterId, Models.Requests.KubernetesUpgrade upgrade) {
             var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = clusterId, Type = ParameterType.UrlSegment }
+                new Parameter("id", clusterId, ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("kubernetes/clusters/{id}/upgrade", parameters, upgrade, Method.POST);
         }
