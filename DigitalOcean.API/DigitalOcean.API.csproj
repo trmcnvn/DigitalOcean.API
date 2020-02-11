@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vevix</Authors>
-    <Version>4.0.2</Version>
+    <Version>4.1.0</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageId>DigitalOcean.API</PackageId>
@@ -13,10 +13,13 @@
     <RepositoryUrl>https://github.com/trmcnvn/DigitalOcean.API</RepositoryUrl>
     <PackageTags>DigitalOcean API</PackageTags>
     <PackageReleaseNotes>
+      ### Added
+
+      - Support for Balance API. (@podobaas)
+
       ### Fixed
 
-      - Fixed the `Source` and `Destination` fields of the Firewall Inbound/Outbound rules to be in the expected format.
-      (@azakhi)
+      - Typo on Address property of SourceLocation. (@podobaas)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

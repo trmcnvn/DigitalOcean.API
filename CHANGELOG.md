@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.0]
+
+### Added
+
+- Support for Balance API. (@podobaas)
+
+### Fixed
+
+- Typo on Address property of SourceLocation. (@podobaas)
+
 ### Changed
 
 - Updated RestSharp to 106.9
