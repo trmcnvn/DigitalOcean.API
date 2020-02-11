@@ -7,7 +7,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// An array of strings containing the IPv4 addresses, IPv6 addresses, IPv4 CIDRs, and/or IPv6 CIDRs to which the Firewall will allow traffic.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<string> Addressess { get; set; }
+        public List<string> Addresses { get; set; }
 
         /// <summary>
         /// An array containing the IDs of the Droplets to which the Firewall will allow traffic.
