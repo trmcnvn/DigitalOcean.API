@@ -5,9 +5,9 @@ using RestSharp;
 namespace DigitalOcean.API.Http {
     public class RateLimit : IRateLimit {
         public RateLimit(IList<Parameter> headers) {
-            Limit = GetHeaderValue(headers, "RateLimit-Limit");
-            Remaining = GetHeaderValue(headers, "RateLimit-Remaining");
-            Reset = GetHeaderValue(headers, "RateLimit-Reset");
+            Limit = GetHeaderValue(headers, "Ratelimit-Limit");
+            Remaining = GetHeaderValue(headers, "Ratelimit-Remaining");
+            Reset = GetHeaderValue(headers, "Ratelimit-Reset");
         }
 
         #region IRateLimit Members
