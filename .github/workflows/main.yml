@@ -1,9 +1,16 @@
-# jobs.<job_id>.if is not currently working (13/08/19)
 name: DigitalOcean.API CI
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+  release:
+    types:
+      - created
 jobs:
   build:
-    # if: gitub.event_name == 'push' || github.event.action == 'synchronize'
     strategy:
       matrix:
         configuration: [Debug, Release]
@@ -21,17 +28,13 @@ jobs:
           path: DigitalOcean.API/bin/Release
   publish:
     needs: build
+    if: github.event_name == 'release'
     runs-on: windows-latest
     steps:
       - uses: actions/download-artifact@v1
-        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
         with:
           name: release-files
       - run: choco install nuget.commandline
-        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
       - run: nuget sources add -Name gpr -Source https://nuget.pkg.github.com/trmcnvn/index.json -UserName trmcnvn -Password ${{ secrets.GITHUB_API_KEY }}
-        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
       - run: nuget push **/*.nupkg -Source nuget.org -ApiKey ${{ secrets.NUGET_API_KEY }} -NonInteractive -SkipDuplicate -NoSymbols
-        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
       - run: nuget push **/*.nupkg -Source gpr -NonInteractive -SkipDuplicate -NoSymbols
-        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
