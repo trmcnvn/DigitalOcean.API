@@ -3,26 +3,24 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vevix</Authors>
-    <Version>4.1.0</Version>
+    <Version>4.1.1</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageId>DigitalOcean.API</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/trmcnvn/DigitalOcean.API</PackageProjectUrl>
     <PackageIconUrl>http://i.imgur.com/llqIpX6.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/trmcnvn/DigitalOcean.API</RepositoryUrl>
     <PackageTags>DigitalOcean API</PackageTags>
     <PackageReleaseNotes>
-      ### Added
-
-      - Support for Balance API. (@podobaas)
-
       ### Fixed
 
-      - Typo on Address property of SourceLocation. (@podobaas)
+      - Updated RateLimit header tags to match actual response. (@azakhi)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
   </ItemGroup>
