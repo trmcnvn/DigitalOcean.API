@@ -3,7 +3,7 @@
         /// <summary>
         /// A unique number used to identify and reference a specific kernel.
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The display name of the kernel. This is shown in the web UI and is generally a descriptive title for the kernel in

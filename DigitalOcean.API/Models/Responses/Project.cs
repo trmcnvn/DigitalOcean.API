@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// The integer id of the project owner.
         /// </summary>
-        public int OwnerId { get; set; }
+        public long OwnerId { get; set; }
 
         /// <summary>
         /// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.

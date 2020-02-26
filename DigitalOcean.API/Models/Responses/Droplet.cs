@@ -6,7 +6,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// A unique identifier for each Droplet instance.
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The human-readable name set for the Droplet instance.

@@ -3,7 +3,7 @@
         /// <summary>
         /// The unique id for the individual record.
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The DNS record type (A, MX, CNAME, etc).

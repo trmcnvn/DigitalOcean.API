@@ -6,7 +6,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// A unique number that can be used to identify and reference a specific image.
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The display name that has been given to an image. This is what is shown in the control panel and is generally a
