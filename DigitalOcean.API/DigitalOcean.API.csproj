@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vevix</Authors>
-    <Version>4.1.1</Version>
+    <Version>5.0.0</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageId>DigitalOcean.API</PackageId>
@@ -16,7 +16,7 @@
     <PackageReleaseNotes>
       ### Fixed
 
-      - Updated RateLimit header tags to match actual response. (@azakhi)
+      - Breaking: Updated `Id` types across Response models to be a `long` type rather than `int` (Thanks @azakhi)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0]
+
+### Fixed
+
+- Breaking: Updated `Id` types across Response models to be a `long` type rather than `int` (Thanks @azakhi)
+
 ## [4.1.1]
 
 ### Fixed
