@@ -4,7 +4,7 @@
         /// This is a unique identification number for the key. This can be used to reference a specific SSH key when you wish to
         /// embed a key into a Droplet.
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// This is the human-readable display name for the given SSH key. This is used to easily identify the SSH keys when they
