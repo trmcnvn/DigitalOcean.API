@@ -61,7 +61,7 @@ namespace DigitalOcean.API.Models.Requests {
 		/// This attribute and the "tag" attribute are mutually exclusive.
 		/// </summary>
 		[JsonProperty("droplet_ids")]
-		public List<int> DropletIds { get; set; }
+		public List<long> DropletIds { get; set; }
 
 		/// <summary>
 		/// The name of a Droplet tag corresponding to Droplets to be assigned to the Load Balancer.

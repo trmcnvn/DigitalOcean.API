@@ -12,7 +12,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// The unique identifier for the Droplet the volume will be attached or detached from.
         /// </summary>
         [JsonProperty("droplet_id")]
-        public int? DropletId { get; set; }
+        public long? DropletId { get; set; }
 
         /// <summary>
         /// The slug identifier for the region the volume is located in.

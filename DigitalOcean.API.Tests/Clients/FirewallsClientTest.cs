@@ -59,7 +59,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new FirewallsClient(factory);
             var droplets = new Models.Requests.FirewallDroplets {
-                DropletIds = new List<int> { 1, 2, 3, 4 }
+                DropletIds = new List<long> { 1, 2, 3, 4 }
             };
             client.AddDroplets("1", droplets);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
@@ -71,7 +71,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new FirewallsClient(factory);
             var droplets = new Models.Requests.FirewallDroplets {
-                DropletIds = new List<int> { 1, 2, 3, 4 }
+                DropletIds = new List<long> { 1, 2, 3, 4 }
             };
             client.RemoveDroplets("1", droplets);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");

@@ -7,6 +7,6 @@ namespace DigitalOcean.API.Models.Requests {
         /// An array containing the IDs of the Droplets to be assigned to the Firewall.
         /// </summary>
         [JsonProperty("droplet_ids")]
-        public List<int> DropletIds { get; set; }
+        public List<long> DropletIds { get; set; }
     }
 }

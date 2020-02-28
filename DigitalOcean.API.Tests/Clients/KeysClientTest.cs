@@ -38,9 +38,9 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new KeysClient(factory);
 
-            client.Get(9001);
+            client.Get(9001L);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
             factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
 
@@ -61,9 +61,9 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new KeysClient(factory);
 
             var body = new Models.Requests.UpdateKey { Name = "example" };
-            client.Update(9001, body);
+            client.Update(9001L, body);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
             factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
         }
 
@@ -72,9 +72,9 @@ namespace DigitalOcean.API.Tests.Clients {
             var factory = Substitute.For<IConnection>();
             var client = new KeysClient(factory);
 
-            client.Delete(9001);
+            client.Delete(9001L);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (int)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
             factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
         }
 

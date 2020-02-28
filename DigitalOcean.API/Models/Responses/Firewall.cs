@@ -41,7 +41,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// An array containing the IDs of the Droplets assigned to the Firewall.
         /// </summary>
-        public List<int> DropletIds { get; set; }
+        public List<long> DropletIds { get; set; }
 
         /// <summary>
         /// An array containing the names of the Tags assigned to the Firewall.

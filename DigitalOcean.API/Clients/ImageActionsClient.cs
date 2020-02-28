@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Transfer an Image to another region
         /// </summary>
-        public Task<Action> Transfer(int imageId, string regionSlug) {
+        public Task<Action> Transfer(long imageId, string regionSlug) {
             var parameters = new List<Parameter> {
                 new Parameter("imageId", imageId, ParameterType.UrlSegment)
             };
@@ -34,7 +34,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To convert an image, for example, a backup to a snapshot.
         /// </summary>
-        public Task<Action> Convert(int imageId) {
+        public Task<Action> Convert(long imageId) {
             var parameters = new List<Parameter> {
                 new Parameter("imageId", imageId, ParameterType.UrlSegment)
             };
@@ -50,7 +50,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve an existing Image Action
         /// </summary>
-        public Task<Action> GetAction(int imageId, int actionId) {
+        public Task<Action> GetAction(long imageId, long actionId) {
             var parameters = new List<Parameter> {
                 new Parameter("imageId", imageId, ParameterType.UrlSegment),
                 new Parameter("actionId", actionId, ParameterType.UrlSegment)

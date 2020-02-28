@@ -11,7 +11,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// An array containing the IDs of the Droplets to which the Firewall will allow traffic.
         /// </summary>
-        public List<int> DropletIds { get; set; }
+        public List<long> DropletIds { get; set; }
 
         /// <summary>
         /// An array containing the IDs of the Load Balancers to which the Firewall will allow traffic.

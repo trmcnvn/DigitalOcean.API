@@ -17,27 +17,27 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To retrieve a list of Droplets that are running on the same physical server.
         /// </summary>
-        Task<IReadOnlyList<Droplet>> GetAllNeighbors(int dropletId);
+        Task<IReadOnlyList<Droplet>> GetAllNeighbors(long dropletId);
 
         /// <summary>
         /// Retrieve all kernels available to a Droplet.
         /// </summary>
-        Task<IReadOnlyList<Kernel>> GetKernels(int dropletId);
+        Task<IReadOnlyList<Kernel>> GetKernels(long dropletId);
 
         /// <summary>
         /// Retrieve all snapshots that have been created for a Droplet.
         /// </summary>
-        Task<IReadOnlyList<Image>> GetSnapshots(int dropletId);
+        Task<IReadOnlyList<Image>> GetSnapshots(long dropletId);
 
         /// <summary>
         /// Retrieve all backups that have been created for a Droplet.
         /// </summary>
-        Task<IReadOnlyList<Image>> GetBackups(int dropletId);
+        Task<IReadOnlyList<Image>> GetBackups(long dropletId);
 
         /// <summary>
         /// Retrieve all actions that have been executed on a Droplet.
         /// </summary>
-        Task<IReadOnlyList<Action>> GetActions(int dropletId);
+        Task<IReadOnlyList<Action>> GetActions(long dropletId);
 
         /// <summary>
         /// Create a new Droplet
@@ -54,12 +54,12 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve an existing Droplet
         /// </summary>
-        Task<Droplet> Get(int dropletId);
+        Task<Droplet> Get(long dropletId);
 
         /// <summary>
         /// Delete an existing Droplet
         /// </summary>
-        Task Delete(int dropletId);
+        Task Delete(long dropletId);
 
         /// <summary>
         /// Delete existing droplets by tag

@@ -16,7 +16,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet.
         /// </summary>
-        public List<int> DropletIds { get; set; }
+        public List<long> DropletIds { get; set; }
 
         /// <summary>
         /// A human-readable name for the Block Storage volume. Must be lowercase and be composed only of numbers, letters and "-", up to a limit of 64 characters.

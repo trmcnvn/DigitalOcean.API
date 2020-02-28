@@ -48,7 +48,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAction("1.2.3.4", 100);
             var parameters = Arg.Is<List<Parameter>>(list =>
-                (string)list[0].Value == "1.2.3.4" && (int)list[1].Value == 100);
+                (string)list[0].Value == "1.2.3.4" && (long)list[1].Value == 100);
             factory.Received().ExecuteRequest<Action>("floating_ips/{ip}/actions/{actionId}", parameters, null, "action");
         }
     }

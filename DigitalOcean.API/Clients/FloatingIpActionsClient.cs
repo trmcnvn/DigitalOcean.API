@@ -15,7 +15,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Assign a Floating IP to a Droplet
         /// </summary>
-        public Task<Action> Assign(string ipAddress, int dropletId) {
+        public Task<Action> Assign(string ipAddress, long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("ip", ipAddress, ParameterType.UrlSegment)
             };
@@ -29,7 +29,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive the status of a Floating IP action
         /// </summary>
-        public Task<Action> GetAction(string ipAddress, int actionId) {
+        public Task<Action> GetAction(string ipAddress, long actionId) {
             var parameters = new List<Parameter> {
                 new Parameter("ip", ipAddress, ParameterType.UrlSegment),
                 new Parameter("actionId", actionId, ParameterType.UrlSegment)

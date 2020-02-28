@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve a specific domain record
         /// </summary>
-        public Task<DomainRecord> Get(string domainName, int recordId) {
+        public Task<DomainRecord> Get(string domainName, long recordId) {
             var parameters = new List<Parameter> {
                 new Parameter("name", domainName, ParameterType.UrlSegment),
                 new Parameter("id", recordId, ParameterType.UrlSegment)
@@ -50,7 +50,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete a record for a domain
         /// </summary>
-        public Task Delete(string domainName, int recordId) {
+        public Task Delete(string domainName, long recordId) {
             var parameters = new List<Parameter> {
                 new Parameter("name", domainName, ParameterType.UrlSegment),
                 new Parameter("id", recordId, ParameterType.UrlSegment)
@@ -61,7 +61,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing record for a domain
         /// </summary>
-        public Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.UpdateDomainRecord updateRecord) {
+        public Task<DomainRecord> Update(string domainName, long recordId, Models.Requests.UpdateDomainRecord updateRecord) {
             var parameters = new List<Parameter> {
                 new Parameter("name", domainName, ParameterType.UrlSegment),
                 new Parameter("id", recordId, ParameterType.UrlSegment)

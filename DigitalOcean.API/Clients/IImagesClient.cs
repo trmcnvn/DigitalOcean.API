@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To retrieve all actions that have been executed on an image.
         /// </summary>
-        Task<IReadOnlyList<Action>> GetAllActions(int imageId);
+        Task<IReadOnlyList<Action>> GetAllActions(long imageId);
 
         /// <summary>
         /// To create a new custom image.
@@ -39,11 +39,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete an existing image
         /// </summary>
-        Task Delete(int imageId);
+        Task Delete(long imageId);
 
         /// <summary>
         /// Update an existing image
         /// </summary>
-        Task<Image> Update(int imageId, Models.Requests.UpdateImage updateImage);
+        Task<Image> Update(long imageId, Models.Requests.UpdateImage updateImage);
     }
 }

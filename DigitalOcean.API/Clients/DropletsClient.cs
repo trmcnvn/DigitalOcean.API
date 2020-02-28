@@ -36,7 +36,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To retrieve a list of Droplets that are running on the same physical server.
         /// </summary>
-        public Task<IReadOnlyList<Droplet>> GetAllNeighbors(int dropletId) {
+        public Task<IReadOnlyList<Droplet>> GetAllNeighbors(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
@@ -47,7 +47,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all kernels available to a Droplet.
         /// </summary>
-        public Task<IReadOnlyList<Kernel>> GetKernels(int dropletId) {
+        public Task<IReadOnlyList<Kernel>> GetKernels(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
@@ -57,7 +57,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all snapshots that have been created for a Droplet.
         /// </summary>
-        public Task<IReadOnlyList<Image>> GetSnapshots(int dropletId) {
+        public Task<IReadOnlyList<Image>> GetSnapshots(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
@@ -67,7 +67,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all backups that have been created for a Droplet.
         /// </summary>
-        public Task<IReadOnlyList<Image>> GetBackups(int dropletId) {
+        public Task<IReadOnlyList<Image>> GetBackups(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
@@ -77,7 +77,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all actions that have been executed on a Droplet.
         /// </summary>
-        public Task<IReadOnlyList<Action>> GetActions(int dropletId) {
+        public Task<IReadOnlyList<Action>> GetActions(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
@@ -104,7 +104,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve an existing Droplet
         /// </summary>
-        public Task<Droplet> Get(int dropletId) {
+        public Task<Droplet> Get(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };
@@ -114,7 +114,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete an existing Droplet
         /// </summary>
-        public Task Delete(int dropletId) {
+        public Task Delete(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", dropletId, ParameterType.UrlSegment)
             };

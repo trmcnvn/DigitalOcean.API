@@ -7,7 +7,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// This attribute and the "region" attribute are mutually exclusive.
         /// </summary>
         [JsonProperty("droplet_id")]
-        public int? DropletId { get; set; }
+        public long? DropletId { get; set; }
 
         /// <summary>
         /// The slug identifier for the region the Floating IP will be reserved to.

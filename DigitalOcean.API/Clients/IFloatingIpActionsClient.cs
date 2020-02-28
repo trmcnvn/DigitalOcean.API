@@ -7,7 +7,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Assign a Floating IP to a Droplet
         /// </summary>
-        Task<Action> Assign(string ipAddress, int dropletId);
+        Task<Action> Assign(string ipAddress, long dropletId);
 
         /// <summary>
         /// Unassign a Floating IP
@@ -22,6 +22,6 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive the status of a Floating IP action
         /// </summary>
-        Task<Action> GetAction(string ipAddress, int actionId);
+        Task<Action> GetAction(string ipAddress, long actionId);
     }
 }

@@ -12,6 +12,6 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve an existing action
         /// </summary>
-        Task<Action> Get(int actionId);
+        Task<Action> Get(long actionId);
     }
 }
