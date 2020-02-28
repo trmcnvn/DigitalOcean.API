@@ -5,7 +5,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// The affected droplet's ID
         /// </summary>
-        public int DropletId { get; set; }
+        public long DropletId { get; set; }
 
         /// <summary>
         /// A time value given in ISO8601 combined date and time format that represents when the migration will occur for the droplet.

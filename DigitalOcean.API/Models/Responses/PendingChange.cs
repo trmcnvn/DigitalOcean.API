@@ -3,7 +3,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// The id of the Droplet that will be updated.
         /// </summary>
-        public int DropletId { get; set; }
+        public long DropletId { get; set; }
 
         /// <summary>
         /// Whether this Firewall is being removed or not.

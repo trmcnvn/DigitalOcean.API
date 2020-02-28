@@ -9,7 +9,7 @@ namespace DigitalOcean.API.Models.Responses {
         /// <summary>
         /// A unique numeric ID that can be used to identify and reference an action.
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The current status of the action. This can be "in-progress", "completed", or "errored".
