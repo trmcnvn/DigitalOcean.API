@@ -53,7 +53,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To retrieve all actions that have been executed on an image.
         /// </summary>
-        public Task<IReadOnlyList<Action>> GetAllActions(int imageId) {
+        public Task<IReadOnlyList<Action>> GetAllActions(long imageId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", imageId, ParameterType.UrlSegment)
             };
@@ -85,7 +85,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete an existing image
         /// </summary>
-        public Task Delete(int imageId) {
+        public Task Delete(long imageId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", imageId, ParameterType.UrlSegment)
             };
@@ -95,7 +95,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing image
         /// </summary>
-        public Task<Image> Update(int imageId, Models.Requests.UpdateImage updateImage) {
+        public Task<Image> Update(long imageId, Models.Requests.UpdateImage updateImage) {
             var parameters = new List<Parameter> {
                 new Parameter("id", imageId, ParameterType.UrlSegment)
             };

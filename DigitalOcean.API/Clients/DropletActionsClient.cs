@@ -18,7 +18,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Reboot a droplet
         /// </summary>
-        public Task<Action> Reboot(int dropletId) {
+        public Task<Action> Reboot(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -30,7 +30,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Power cycle a droplet
         /// </summary>
-        public Task<Action> PowerCycle(int dropletId) {
+        public Task<Action> PowerCycle(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -42,7 +42,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Shutdown a droplet
         /// </summary>
-        public Task<Action> Shutdown(int dropletId) {
+        public Task<Action> Shutdown(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -54,7 +54,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Turn off a droplet
         /// </summary>
-        public Task<Action> PowerOff(int dropletId) {
+        public Task<Action> PowerOff(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -66,7 +66,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Turn on a droplet
         /// </summary>
-        public Task<Action> PowerOn(int dropletId) {
+        public Task<Action> PowerOn(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -78,7 +78,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Reset the root password of the droplet
         /// </summary>
-        public Task<Action> ResetPassword(int dropletId) {
+        public Task<Action> ResetPassword(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -90,7 +90,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Resize a droplet
         /// </summary>
-        public Task<Action> Resize(int dropletId, string sizeSlug, bool resizeDisk) {
+        public Task<Action> Resize(long dropletId, string sizeSlug, bool resizeDisk) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -108,7 +108,7 @@ namespace DigitalOcean.API.Clients {
         /// A Droplet restoration will rebuild an image using a backup image. The image ID that is passed in must be a backup of
         /// the current Droplet instance. The operation will leave any embedded SSH keys intact.
         /// </summary>
-        public Task<Action> Restore(int dropletId, object imageIdOrSlug) {
+        public Task<Action> Restore(long dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -123,7 +123,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Rebuild a droplet
         /// </summary>
-        public Task<Action> Rebuild(int dropletId, object imageIdOrSlug) {
+        public Task<Action> Rebuild(long dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -138,7 +138,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Rename a droplets hostname
         /// </summary>
-        public Task<Action> Rename(int dropletId, string name) {
+        public Task<Action> Rename(long dropletId, string name) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -153,7 +153,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Chane the kernel of a droplet
         /// </summary>
-        public Task<Action> ChangeKernel(int dropletId, int kernelId) {
+        public Task<Action> ChangeKernel(long dropletId, long kernelId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -168,7 +168,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Enable IPv6 networking on a droplet
         /// </summary>
-        public Task<Action> EnableIpv6(int dropletId) {
+        public Task<Action> EnableIpv6(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -180,7 +180,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Enable backups on a droplet
         /// </summary>
-        public Task<Action> EnableBackups(int dropletId) {
+        public Task<Action> EnableBackups(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -192,7 +192,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Disable backups on a droplet
         /// </summary>
-        public Task<Action> DisableBackups(int dropletId) {
+        public Task<Action> DisableBackups(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -204,7 +204,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Enable private networking on a droplet
         /// </summary>
-        public Task<Action> EnablePrivateNetworking(int dropletId) {
+        public Task<Action> EnablePrivateNetworking(long dropletId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -216,7 +216,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Create a snapshot of a droplet
         /// </summary>
-        public Task<Action> Snapshot(int dropletId, string name) {
+        public Task<Action> Snapshot(long dropletId, string name) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment)
             };
@@ -231,7 +231,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve an action for a droplet
         /// </summary>
-        public Task<Action> GetDropletAction(int dropletId, int actionId) {
+        public Task<Action> GetDropletAction(long dropletId, long actionId) {
             var parameters = new List<Parameter> {
                 new Parameter("dropletId", dropletId, ParameterType.UrlSegment),
                 new Parameter("actionId", actionId, ParameterType.UrlSegment)

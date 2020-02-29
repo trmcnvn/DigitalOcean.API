@@ -42,7 +42,7 @@ namespace DigitalOcean.API.Tests.Clients {
             domainClient.Get("vevix.net", 9001);
 
             var parameters = Arg.Is<List<Parameter>>(list =>
-                (string)list[0].Value == "vevix.net" && (int)list[1].Value == 9001);
+                (string)list[0].Value == "vevix.net" && (long)list[1].Value == 9001);
             factory.Received()
                 .ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters,
                     null, "domain_record");
@@ -56,7 +56,7 @@ namespace DigitalOcean.API.Tests.Clients {
             domainClient.Delete("vevix.net", 9001);
 
             var parameters = Arg.Is<List<Parameter>>(list =>
-                (string)list[0].Value == "vevix.net" && (int)list[1].Value == 9001);
+                (string)list[0].Value == "vevix.net" && (long)list[1].Value == 9001);
             factory.Received().ExecuteRaw("domains/{name}/records/{id}", parameters, null, Method.DELETE);
         }
 
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Tests.Clients {
             domainClient.Update("vevix.net", 9001, data);
 
             var parameters = Arg.Is<List<Parameter>>(list =>
-                (string)list[0].Value == "vevix.net" && (int)list[1].Value == 9001);
+                (string)list[0].Value == "vevix.net" && (long)list[1].Value == 9001);
             factory.Received().ExecuteRequest<DomainRecord>(
                 "domains/{name}/records/{id}", parameters, data, "domain_record", Method.PUT);
         }

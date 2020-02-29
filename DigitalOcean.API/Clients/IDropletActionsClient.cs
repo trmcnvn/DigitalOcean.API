@@ -7,89 +7,89 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Reboot a droplet
         /// </summary>
-        Task<Action> Reboot(int dropletId);
+        Task<Action> Reboot(long dropletId);
 
         /// <summary>
         /// Power cycle a droplet
         /// </summary>
-        Task<Action> PowerCycle(int dropletId);
+        Task<Action> PowerCycle(long dropletId);
 
         /// <summary>
         /// Shutdown a droplet
         /// </summary>
-        Task<Action> Shutdown(int dropletId);
+        Task<Action> Shutdown(long dropletId);
 
         /// <summary>
         /// Turn off a droplet
         /// </summary>
-        Task<Action> PowerOff(int dropletId);
+        Task<Action> PowerOff(long dropletId);
 
         /// <summary>
         /// Turn on a droplet
         /// </summary>
-        Task<Action> PowerOn(int dropletId);
+        Task<Action> PowerOn(long dropletId);
 
         /// <summary>
         /// Reset the root password of the droplet
         /// </summary>
-        Task<Action> ResetPassword(int dropletId);
+        Task<Action> ResetPassword(long dropletId);
 
         /// <summary>
         /// Resize a droplet
         /// </summary>
-        Task<Action> Resize(int dropletId, string sizeSlug, bool resizeDisk = false);
+        Task<Action> Resize(long dropletId, string sizeSlug, bool resizeDisk = false);
 
         /// <summary>
         /// Restore a droplet using an image
         /// A Droplet restoration will rebuild an image using a backup image. The image ID that is passed in must be a backup of
         /// the current Droplet instance. The operation will leave any embedded SSH keys intact.
         /// </summary>
-        Task<Action> Restore(int dropletId, object imageIdOrSlug);
+        Task<Action> Restore(long dropletId, object imageIdOrSlug);
 
         /// <summary>
         /// Rebuild a droplet
         /// </summary>
-        Task<Action> Rebuild(int dropletId, object imageIdOrSlug);
+        Task<Action> Rebuild(long dropletId, object imageIdOrSlug);
 
         /// <summary>
         /// Rename a droplets hostname
         /// </summary>
-        Task<Action> Rename(int dropletId, string name);
+        Task<Action> Rename(long dropletId, string name);
 
         /// <summary>
         /// Chane the kernel of a droplet
         /// </summary>
-        Task<Action> ChangeKernel(int dropletId, int kernelId);
+        Task<Action> ChangeKernel(long dropletId, long kernelId);
 
         /// <summary>
         /// Enable IPv6 networking on a droplet
         /// </summary>
-        Task<Action> EnableIpv6(int dropletId);
+        Task<Action> EnableIpv6(long dropletId);
 
         /// <summary>
         /// Enable backups on a droplet
         /// </summary>
-        Task<Action> EnableBackups(int dropletId);
+        Task<Action> EnableBackups(long dropletId);
 
         /// <summary>
         /// Disable backups on a droplet
         /// </summary>
-        Task<Action> DisableBackups(int dropletId);
+        Task<Action> DisableBackups(long dropletId);
 
         /// <summary>
         /// Enable private networking on a droplet
         /// </summary>
-        Task<Action> EnablePrivateNetworking(int dropletId);
+        Task<Action> EnablePrivateNetworking(long dropletId);
 
         /// <summary>
         /// Create a snapshot of a droplet
         /// </summary>
-        Task<Action> Snapshot(int dropletId, string name);
+        Task<Action> Snapshot(long dropletId, string name);
 
         /// <summary>
         /// Retrieve an action for a droplet
         /// </summary>
-        Task<Action> GetDropletAction(int dropletId, int actionId);
+        Task<Action> GetDropletAction(long dropletId, long actionId);
 
         /// <summary>
         /// Some actions can be performed in bulk on tagged Droplets.

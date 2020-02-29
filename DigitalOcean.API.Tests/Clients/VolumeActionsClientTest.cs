@@ -99,7 +99,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var volumeActionsClient = new VolumeActionsClient(factory);
 
             volumeActionsClient.GetAction("id", 0);
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "id" && (int)list[1].Value == 0);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "id" && (long)list[1].Value == 0);
             factory.Received().ExecuteRequest<Action>("volumes/{id}/actions/{actionId}", parameters, null, "action");
         }
     }

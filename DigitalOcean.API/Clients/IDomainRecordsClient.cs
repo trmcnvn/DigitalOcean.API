@@ -17,16 +17,16 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve a specific domain record
         /// </summary>
-        Task<DomainRecord> Get(string domainName, int recordId);
+        Task<DomainRecord> Get(string domainName, long recordId);
 
         /// <summary>
         /// Delete a record for a domain
         /// </summary>
-        Task Delete(string domainName, int recordId);
+        Task Delete(string domainName, long recordId);
 
         /// <summary>
         /// Update an existing record for a domain
         /// </summary>
-        Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.UpdateDomainRecord updateRecord);
+        Task<DomainRecord> Update(string domainName, long recordId, Models.Requests.UpdateDomainRecord updateRecord);
     }
 }

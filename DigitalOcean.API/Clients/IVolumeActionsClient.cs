@@ -7,22 +7,22 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Attach a Block Storage volume to a Droplet
         /// </summary>
-        Task<Action> Attach(string volumeId, int dropletId, string volumeRegion = null);
+        Task<Action> Attach(string volumeId, long dropletId, string volumeRegion = null);
 
         /// <summary>
         /// Attach a Block Storage volume to a Droplet by name
         /// </summary>
-        Task<Action> AttachByName(string volumeName, int dropletId, string volumeRegion = null);
+        Task<Action> AttachByName(string volumeName, long dropletId, string volumeRegion = null);
 
         /// <summary>
         /// Detach a Block Storage volume to a Droplet
         /// </summary>
-        Task<Action> Detach(string volumeId, int dropletId, string volumeRegion = null);
+        Task<Action> Detach(string volumeId, long dropletId, string volumeRegion = null);
 
         /// <summary>
         /// Detach a Block Storage volume to a Droplet by name
         /// </summary>
-        Task<Action> DetachByName(string volumeName, int dropletId, string volumeRegion = null);
+        Task<Action> DetachByName(string volumeName, long dropletId, string volumeRegion = null);
 
         /// <summary>
         /// Resize a Block Storage volume
@@ -37,6 +37,6 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive the status of a volume action
         /// </summary>
-        Task<Action> GetAction(string volumeId, int actionId);
+        Task<Action> GetAction(string volumeId, long actionId);
     }
 }

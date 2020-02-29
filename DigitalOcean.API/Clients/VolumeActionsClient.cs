@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Attach a Block Storage volume to a Droplet
         /// </summary>
-        public Task<Action> Attach(string volumeId, int dropletId, string volumeRegion) {
+        public Task<Action> Attach(string volumeId, long dropletId, string volumeRegion) {
             var parameters = new List<Parameter> {
                 new Parameter("id", volumeId, ParameterType.UrlSegment)
             };
@@ -32,7 +32,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Attach a Block Storage volume to a Droplet by name
         /// </summary>
-        public Task<Action> AttachByName(string volumeName, int dropletId, string volumeRegion) {
+        public Task<Action> AttachByName(string volumeName, long dropletId, string volumeRegion) {
             var body = new Models.Requests.VolumeAction {
                 Type = "attach",
                 DropletId = dropletId,
@@ -45,7 +45,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Detach a Block Storage volume to a Droplet
         /// </summary>
-        public Task<Action> Detach(string volumeId, int dropletId, string volumeRegion) {
+        public Task<Action> Detach(string volumeId, long dropletId, string volumeRegion) {
             var parameters = new List<Parameter> {
                 new Parameter("id", volumeId, ParameterType.UrlSegment)
             };
@@ -60,7 +60,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Detach a Block Storage volume to a Droplet by name
         /// </summary>
-        public Task<Action> DetachByName(string volumeName, int dropletId, string volumeRegion) {
+        public Task<Action> DetachByName(string volumeName, long dropletId, string volumeRegion) {
             var body = new Models.Requests.VolumeAction {
                 Type = "detach",
                 DropletId = dropletId,
@@ -73,7 +73,7 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retreive the status of a volume action
         /// </summary>
-        public Task<Action> GetAction(string volumeId, int actionId) {
+        public Task<Action> GetAction(string volumeId, long actionId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", volumeId, ParameterType.UrlSegment),
                 new Parameter("actionId", actionId, ParameterType.UrlSegment)

@@ -64,7 +64,7 @@ namespace DigitalOcean.API.Models.Responses {
 		/// <summary>
 		/// An array containing the IDs of the Droplets assigned to the Load Balancer.
 		/// </summary>
-		public List<int> DropletIds { get; set; }
+		public List<long> DropletIds { get; set; }
 
 		/// <summary>
 		/// A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443.
