@@ -28,7 +28,8 @@ namespace DigitalOcean.API.Models.Requests {
         public bool? AutoUpgrade { get; set; }
 
         /// <summary>
-        /// A flat array of tag names as strings to be applied to the Kubernetes cluster. All clusters will be automatically tagged "k8s" and "k8s:$K8S_CLUSTER_ID" in addition to any tags provided by the user.
+        /// A flat array of tag names as strings to be applied to the Kubernetes cluster.
+        /// All clusters will be automatically tagged "k8s" and "k8s:$K8S_CLUSTER_ID" in addition to any tags provided by the user.
         /// </summary>
         [JsonProperty("tags")]
         public List<string> Tags { get; set; }
