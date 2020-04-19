@@ -95,6 +95,12 @@ namespace DigitalOcean.API.Clients {
         Task RemoveUser(string databaseId, string username);
 
         /// <summary>
+        /// To reset the MySQL authentication method for a user.
+        /// Note: Resetting user authentication is not supported for PostgreSQL and Redis clusters.
+        /// </summary>
+        Task<DatabaseUser> ResetUserAuth(string databaseId, string username, Models.Requests.DatabaseResetUserAuth resetAuth);
+
+        /// <summary>
         /// Add a new database to an existing cluster
         /// </summary>
         Task<Database> AddDatabase(string databaseId, Models.Requests.Database database);

@@ -257,6 +257,18 @@ namespace DigitalOcean.API.Clients {
         }
 
         /// <summary>
+        /// To reset the MySQL authentication method for a user.
+        /// Note: Resetting user authentication is not supported for PostgreSQL and Redis clusters.
+        /// </summary>
+        public Task<DatabaseUser> ResetUserAuth(string databaseId, string username, Models.Requests.DatabaseResetUserAuth resetAuth) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment),
+                new Parameter("username", username, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRequest<DatabaseUser>("databases/{id}/users/{username}/reset_auth", parameters, resetAuth, "user", Method.POST);
+        }
+
+        /// <summary>
         /// Resize a database cluster
         /// </summary>
         public Task Resize(string databaseId, Models.Requests.ResizeDatabase resize) {
