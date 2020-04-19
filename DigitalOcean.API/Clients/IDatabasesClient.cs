@@ -146,5 +146,26 @@ namespace DigitalOcean.API.Clients {
         /// To list all of a database cluster's firewall rules (known as "trusted sources" in the control panel).
         /// </summary>
         Task<IReadOnlyList<DatabaseFirewallRule>> ListFirewallRules(string databaseId);
+
+        /// <summary>
+        /// To retrieve the configured eviction policy for an existing Redis cluster.
+        /// </summary>
+        Task<RedisEvictionPolicy> RetrieveEvictionPolicy(string databaseId);
+
+        /// <summary>
+        /// To configure an eviction policy for an existing Redis cluster.
+        /// </summary>
+        Task ConfigureEvictionPolicy(string databaseId, Models.Requests.RedisEvictionPolicy evictionPolicy);
+
+        /// <summary>
+        /// To retrieve the configured SQL modes for an existing MySQL cluster.
+        /// </summary>
+        Task<MySqlModes> RetrieveSqlModes(string databaseId);
+
+        /// <summary>
+        /// To configure the SQL modes for an existing MySQL cluster.
+        /// See the official MySQL 8 documentation for a full list of supported SQL modes.
+        /// </summary>
+        Task ConfigureSqlModes(string databaseId, Models.Requests.MySqlModes sqlModes);
     }
 }
