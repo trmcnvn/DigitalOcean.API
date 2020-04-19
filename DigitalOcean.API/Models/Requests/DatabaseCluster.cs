@@ -44,5 +44,12 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("tags")]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the database cluster will be assigned.
+        /// If excluded, the cluster will be assigned to your account's default VPC for the region.
+        /// </summary>
+        [JsonProperty("private_network_uuid")]
+        public string PrivateNetworkUuid { get; set; }
     }
 }

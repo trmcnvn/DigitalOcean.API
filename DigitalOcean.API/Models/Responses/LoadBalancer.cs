@@ -75,5 +75,10 @@ namespace DigitalOcean.API.Models.Responses {
 		///A boolean value indicating whether PROXY Protocol is in use.
 		/// </summary>
 		public bool EnableProxyProtocol { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the load balancer is assigned.
+        /// </summary>
+        public string VpcUuid { get; set; }
 	}
 }
