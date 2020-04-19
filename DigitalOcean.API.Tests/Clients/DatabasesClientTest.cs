@@ -273,5 +273,28 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
             factory.Received().ExecuteRaw("databases/{id}/pools/{name}", parameters, null, Method.DELETE);
         }
+
+        [Fact]
+        public void CorrectRequestForUpdateFirewallRules() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            var body = new Models.Requests.UpdateDatabaseFirewallRules();
+            client.UpdateFirewallRules("1", body);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRaw("databases/{id}/firewall", parameters, body, Method.PUT);
+        }
+
+        [Fact]
+        public void CorrectRequestForListFirewallRules() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            client.ListFirewallRules("1");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().GetPaginated<DatabaseFirewallRule>("databases/{id}/firewall", parameters, "rules");
+        }
     }
 }
