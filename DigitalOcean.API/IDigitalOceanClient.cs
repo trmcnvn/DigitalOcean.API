@@ -29,6 +29,7 @@ namespace DigitalOcean.API {
         IVolumesClient Volumes { get; }
         IVolumeActionsClient VolumeActions { get; }
         IBalanceClient BalanceClient { get; }
+        IVpcClient Vpc { get; }
 
         IRateLimit Rates { get; }
     }
