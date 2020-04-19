@@ -134,8 +134,18 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// To retrieve a list of any Droplets that are running on the same physical hardware.
         /// </summary>
+        [System.Obsolete("Deprecated on December 17th, 2019")]
         public Task<IReadOnlyList<Droplet>> ListDropletNeighbors() {
             return _connection.GetPaginated<Droplet>("reports/droplet_neighbors", null, "neighbors");
+        }
+
+        /// <summary>
+        /// To retrieve a list of all Droplets that are co-located on the same physical hardware.
+        /// This will be set to an array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server.
+        /// An empty array indicates that all Droplets associated with your account are located on separate physical hardware.
+        /// </summary>
+        public Task<IReadOnlyList<List<long>>> ListDropletNeighborIds() {
+            return _connection.GetPaginated<List<long>>("reports/droplet_neighbors_ids", null, "neighbor_ids");
         }
 
         #endregion

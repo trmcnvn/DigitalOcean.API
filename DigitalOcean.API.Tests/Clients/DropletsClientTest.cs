@@ -148,5 +148,15 @@ namespace DigitalOcean.API.Tests.Clients {
 
             factory.Received().GetPaginated<Droplet>("reports/droplet_neighbors", null, "neighbors");
         }
+
+        [Fact]
+        public void CorrectRequestForListDropletNeighborIds() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DropletsClient(factory);
+
+            client.ListDropletNeighborIds();
+
+            factory.Received().GetPaginated<List<long>>("reports/droplet_neighbors_ids", null, "neighbor_ids");
+        }
     }
 }
