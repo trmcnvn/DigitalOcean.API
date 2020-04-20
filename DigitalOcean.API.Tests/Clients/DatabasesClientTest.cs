@@ -201,6 +201,18 @@ namespace DigitalOcean.API.Tests.Clients {
         }
 
         [Fact]
+        public void CorrectRequestForResetUserAuth() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            var body = new Models.Requests.DatabaseResetUserAuth();
+            client.ResetUserAuth("1", "name", body);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
+            factory.Received().ExecuteRequest<DatabaseUser>("databases/{id}/users/{username}/reset_auth", parameters, body, "user", Method.POST);
+        }
+
+        [Fact]
         public void CorrectRequestForAddDatabase() {
             var factory = Substitute.For<IConnection>();
             var client = new DatabasesClient(factory);

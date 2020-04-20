@@ -7,5 +7,11 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// An object containing additional configuration details for MySQL clusters.
+        /// </summary>
+        [JsonProperty("mysql_settings")]
+        public MySqlSettings MySqlSettings { get; set; }
     }
 }

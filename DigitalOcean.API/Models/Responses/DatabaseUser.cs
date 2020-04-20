@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace DigitalOcean.API.Models.Responses {
     public class DatabaseUser {
         /// <summary>
@@ -14,5 +16,11 @@ namespace DigitalOcean.API.Models.Responses {
         /// A randomly generated password for the database user.
         /// </summary>
         public string Password { get; set; }
+
+        /// <summary>
+        /// An object containing additional configuration details for MySQL clusters.
+        /// </summary>
+        [JsonProperty("mysql_settings")]
+        public MySqlSettings MySqlSettings { get; set; }
     }
 }
