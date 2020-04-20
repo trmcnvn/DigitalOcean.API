@@ -285,6 +285,70 @@ namespace DigitalOcean.API.Clients {
             return _connection.ExecuteRequest<DatabaseCluster>("databases", null, backup, "database", Method.POST);
         }
 
+        /// <summary>
+        /// To update a database cluster's firewall rules (known as "trusted sources" in the control panel).
+        /// Specify which resources should be able to open connections to the database.
+        /// You may limit connections to specific Droplets, Kubernetes clusters, or IP addresses.
+        /// When a tag is provided, any Droplet or Kubernetes node with that tag applied to it will have access.
+        /// </summary>
+        public Task UpdateFirewallRules(string databaseId, Models.Requests.UpdateDatabaseFirewallRules updateRules) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRaw("databases/{id}/firewall", parameters, updateRules, Method.PUT);
+        }
+
+        /// <summary>
+        /// To list all of a database cluster's firewall rules (known as "trusted sources" in the control panel).
+        /// </summary>
+        public Task<IReadOnlyList<DatabaseFirewallRule>> ListFirewallRules(string databaseId) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
+            };
+            return _connection.GetPaginated<DatabaseFirewallRule>("databases/{id}/firewall", parameters, "rules");
+        }
+
+        /// <summary>
+        /// To retrieve the configured eviction policy for an existing Redis cluster.
+        /// </summary>
+        public Task<RedisEvictionPolicy> RetrieveEvictionPolicy(string databaseId) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRequest<RedisEvictionPolicy>("databases/{id}/eviction_policy", parameters, null, null);
+        }
+
+        /// <summary>
+        /// To configure an eviction policy for an existing Redis cluster.
+        /// </summary>
+        public Task ConfigureEvictionPolicy(string databaseId, Models.Requests.RedisEvictionPolicy evictionPolicy) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRaw("databases/{id}/eviction_policy", parameters, evictionPolicy, Method.PUT);
+        }
+
+        /// <summary>
+        /// To retrieve the configured SQL modes for an existing MySQL cluster.
+        /// </summary>
+        public Task<MySqlModes> RetrieveSqlModes(string databaseId) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRequest<MySqlModes>("databases/{id}/sql_mode", parameters, null, null);
+        }
+
+        /// <summary>
+        /// To configure the SQL modes for an existing MySQL cluster.
+        /// See the official MySQL 8 documentation for a full list of supported SQL modes.
+        /// </summary>
+        public Task ConfigureSqlModes(string databaseId, Models.Requests.MySqlModes sqlModes) {
+            var parameters = new List<Parameter> {
+                new Parameter("id", databaseId, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRaw("databases/{id}/sql_mode", parameters, sqlModes, Method.PUT);
+        }
+
         #endregion
     }
 }

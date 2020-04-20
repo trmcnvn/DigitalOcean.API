@@ -285,5 +285,74 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
             factory.Received().ExecuteRaw("databases/{id}/pools/{name}", parameters, null, Method.DELETE);
         }
+
+        [Fact]
+        public void CorrectRequestForUpdateFirewallRules() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            var body = new Models.Requests.UpdateDatabaseFirewallRules();
+            client.UpdateFirewallRules("1", body);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRaw("databases/{id}/firewall", parameters, body, Method.PUT);
+        }
+
+        [Fact]
+        public void CorrectRequestForListFirewallRules() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            client.ListFirewallRules("1");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().GetPaginated<DatabaseFirewallRule>("databases/{id}/firewall", parameters, "rules");
+        }
+
+        [Fact]
+        public void CorrectRequestForRetrieveRedisEviction() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            client.RetrieveEvictionPolicy("1");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRequest<RedisEvictionPolicy>("databases/{id}/eviction_policy", parameters, null, null);
+        }
+
+        [Fact]
+        public void CorrectRequestForConfigureRedisEviction() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            var body = new Models.Requests.RedisEvictionPolicy();
+            client.ConfigureEvictionPolicy("1", body);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRaw("databases/{id}/eviction_policy", parameters, body, Method.PUT);
+        }
+
+        [Fact]
+        public void CorrectRequestForRetrieveMySqlModes() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            client.RetrieveSqlModes("1");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRequest<MySqlModes>("databases/{id}/sql_mode", parameters, null, null);
+        }
+
+        [Fact]
+        public void CorrectRequestForConfigureMySqlModes() {
+            var factory = Substitute.For<IConnection>();
+            var client = new DatabasesClient(factory);
+
+            var body = new Models.Requests.MySqlModes();
+            client.ConfigureSqlModes("1", body);
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
+            factory.Received().ExecuteRaw("databases/{id}/sql_mode", parameters, body, Method.PUT);
+        }
     }
 }

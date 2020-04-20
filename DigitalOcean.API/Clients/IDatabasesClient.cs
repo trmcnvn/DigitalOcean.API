@@ -139,5 +139,39 @@ namespace DigitalOcean.API.Clients {
         /// Delete a specific connection pool
         /// </summary>
         Task DeleteConnectionPool(string databaseId, string poolName);
+
+        /// <summary>
+        /// To update a database cluster's firewall rules (known as "trusted sources" in the control panel).
+        /// Specify which resources should be able to open connections to the database.
+        /// You may limit connections to specific Droplets, Kubernetes clusters, or IP addresses.
+        /// When a tag is provided, any Droplet or Kubernetes node with that tag applied to it will have access.
+        /// </summary>
+        Task UpdateFirewallRules(string databaseId, Models.Requests.UpdateDatabaseFirewallRules updateRules);
+
+        /// <summary>
+        /// To list all of a database cluster's firewall rules (known as "trusted sources" in the control panel).
+        /// </summary>
+        Task<IReadOnlyList<DatabaseFirewallRule>> ListFirewallRules(string databaseId);
+
+        /// <summary>
+        /// To retrieve the configured eviction policy for an existing Redis cluster.
+        /// </summary>
+        Task<RedisEvictionPolicy> RetrieveEvictionPolicy(string databaseId);
+
+        /// <summary>
+        /// To configure an eviction policy for an existing Redis cluster.
+        /// </summary>
+        Task ConfigureEvictionPolicy(string databaseId, Models.Requests.RedisEvictionPolicy evictionPolicy);
+
+        /// <summary>
+        /// To retrieve the configured SQL modes for an existing MySQL cluster.
+        /// </summary>
+        Task<MySqlModes> RetrieveSqlModes(string databaseId);
+
+        /// <summary>
+        /// To configure the SQL modes for an existing MySQL cluster.
+        /// See the official MySQL 8 documentation for a full list of supported SQL modes.
+        /// </summary>
+        Task ConfigureSqlModes(string databaseId, Models.Requests.MySqlModes sqlModes);
     }
 }
