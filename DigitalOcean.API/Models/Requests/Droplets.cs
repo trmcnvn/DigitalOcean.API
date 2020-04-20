@@ -51,8 +51,9 @@ namespace DigitalOcean.API.Models.Requests {
         public bool? Ipv6 { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether private networking is enabled for the Droplet. Private networking is currently only
-        /// available in certain regions.
+        /// A boolean indicating whether private networking is enabled.
+        /// When VPC is enabled on an account, this will provision the Droplet inside of your account's default VPC for the region.
+        /// Use the "vpc_uuid" attribute to specify a different VPC.
         /// </summary>
         [JsonProperty("private_networking")]
         public bool? PrivateNetworking { get; set; }
@@ -76,5 +77,12 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("tags")]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the Droplet will be assigned.
+        /// If excluded, beginning on April 7th, 2020, the Droplet will be assigned to your account's default VPC for the region.
+        /// </summary>
+        [JsonProperty("vpc_uuid")]
+        public string VpcUuid { get; set; }
     }
 }

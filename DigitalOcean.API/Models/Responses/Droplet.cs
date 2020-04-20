@@ -107,5 +107,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// A flat array including the unique identifier for each Block Storage volume attached to the Droplet.
         /// </summary>
         public List<string> VolumeIds { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the Droplet is assigned.
+        /// </summary>
+        public string VpcUuid { get; set; }
     }
 }

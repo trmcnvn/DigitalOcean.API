@@ -77,5 +77,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// An object containing a "state" attribute whose value is set to a string indicating the current status of the node. Potential values include running, provisioning, and errored.
         /// </summary>
         public KubernetesNodeStatus Status { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the Kubernetes cluster is assigned.
+        /// </summary>
+        public string VpcUuid { get; set; }
     }
 }

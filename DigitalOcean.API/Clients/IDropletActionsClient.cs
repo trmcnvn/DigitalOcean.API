@@ -78,6 +78,7 @@ namespace DigitalOcean.API.Clients {
 
         /// <summary>
         /// Enable private networking on a droplet
+        /// When VPC is enabled on your account, this will add the Droplet to your account's default VPC for the region.
         /// </summary>
         Task<Action> EnablePrivateNetworking(long dropletId);
 

@@ -44,5 +44,12 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("node_pools")]
         public List<KubernetesNodePool> NodePools { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the Kubernetes cluster will be assigned.
+        /// If excluded, the cluster will be assigned to your account's default VPC for the region.
+        /// </summary>
+        [JsonProperty("vpc_uuid")]
+        public string VpcUuid { get; set; }
     }
 }

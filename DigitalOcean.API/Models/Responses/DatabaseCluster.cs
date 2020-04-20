@@ -77,5 +77,10 @@ namespace DigitalOcean.API.Models.Responses {
         /// An array of tags that have been applied to the database cluster.
         /// </summary>
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the database cluster is assigned.
+        /// </summary>
+        public string PrivateNetworkUuid { get; set; }
     }
 }

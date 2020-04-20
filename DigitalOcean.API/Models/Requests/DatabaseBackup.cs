@@ -46,6 +46,13 @@ namespace DigitalOcean.API.Models.Requests {
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// A string specifying the UUID of the VPC to which the database cluster will be assigned.
+        /// If excluded, the cluster will be assigned to your account's default VPC for the region.
+        /// </summary>
+        [JsonProperty("private_network_uuid")]
+        public string PrivateNetworkUuid { get; set; }
+
+        /// <summary>
         /// An embedded object containing two attributes specifying the name of the original database cluster and the timestamp of the backup to restore (see below).
         /// </summary>
         [JsonProperty("backup_restore")]
