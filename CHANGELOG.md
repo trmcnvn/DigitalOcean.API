@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [5.1.0]
+
+### Added
+
+- Managed Databases: Firewall and SQL Mode Management (@Nicholi)
+- Kubernetes node_pools now contain a user-defined labels object (@Nicholi)
+- New prop for DatabaseUsers, mysql_settings, used to specify auth_plugin (@Nicholi)
+- New VPC Endpoint (@Nicholi)
+
+### Changed
+
+- Droplet neighbors endpoint deprecated (@Nicholi)
 
 ## [5.0.1]
 
