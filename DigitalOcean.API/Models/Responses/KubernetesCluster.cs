@@ -49,7 +49,8 @@ namespace DigitalOcean.API.Models.Responses {
         public string ServiceSubset { get; set; }
 
         /// <summary>
-        /// An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged "k8s" and "k8s:$K8S_CLUSTER_ID."
+        /// A flat array of tag names as strings to be applied to the Kubernetes cluster.
+        /// All clusters will be automatically tagged "k8s" and "k8s:$K8S_CLUSTER_ID" in addition to any tags provided by the user.
         /// </summary>
         public List<string> Tags { get; set; }
 
