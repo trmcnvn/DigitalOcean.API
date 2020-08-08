@@ -94,5 +94,16 @@ namespace DigitalOcean.API.Tests.Clients {
 
             factory.Received().ExecuteRequest<Project>("projects/default", null, data, "project", Method.PATCH);
         }
+
+        [Fact]
+        public void CorrectRequestForDelete() {
+            var factory = Substitute.For<IConnection>();
+            var client = new ProjectsClient(factory);
+
+            client.Delete("notarealid");
+
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealid");
+            factory.Received().ExecuteRaw("projects/{project_id}", parameters, null, Method.DELETE);
+        }
     }
 }
