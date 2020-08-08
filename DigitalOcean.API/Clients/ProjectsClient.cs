@@ -80,6 +80,17 @@ namespace DigitalOcean.API.Clients {
             patchProject.IsDefault = true;
             return _connection.ExecuteRequest<Project>("projects/default", null, patchProject, "project", Method.PATCH);
         }
+
+        /// <summary>
+        /// Delete an existing project
+        /// </summary>
+        public Task Delete(string projectId)
+        {
+            var parameters = new List<Parameter> {
+                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+            };
+            return _connection.ExecuteRaw("projects/{project_id}", parameters, null, Method.DELETE);
+        }
     }
 }
 
