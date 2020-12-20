@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vevix</Authors>
-    <Version>5.1.0</Version>
+    <Version>5.2.0</Version>
     <Description>.NET wrapper of the DigitalOcean API</Description>
     <Copyright>2019</Copyright>
     <PackageId>DigitalOcean.API</PackageId>
@@ -16,14 +16,7 @@
     <PackageReleaseNotes>
       ### Added
 
-      - Managed Databases: Firewall and SQL Mode Management (@Nicholi)
-      - Kubernetes node_pools now contain a user-defined labels object (@Nicholi)
-      - New prop for DatabaseUsers, mysql_settings, used to specify auth_plugin (@Nicholi)
-      - New VPC Endpoint (@Nicholi)
-
-      ### Changed
-
-      - Droplet neighbors endpoint deprecated (@Nicholi)
+      - Added ContainerRegistry client. (@JoshClose)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
