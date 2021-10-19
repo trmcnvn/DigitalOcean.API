@@ -46,7 +46,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAllActions(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().GetPaginated<Action>("images/{id}/actions", parameters, "actions");
         }
 
@@ -68,7 +68,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Get(9001L);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRequest<Image>("images/{id}", parameters, null, "image");
         }
 
@@ -90,7 +90,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Delete(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
         }
 
@@ -102,7 +102,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.UpdateImage { Name = "example" };
             client.Update(9001, body);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRequest<Image>("images/{id}", parameters, body, "image", Method.PUT);
         }
     }

@@ -15,7 +15,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Transfer(9001, "sfo1");
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<ImageAction>(action => action.Type == "transfer" && action.Region == "sfo1");
             factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
                 parameters, body, "action", Method.POST);
@@ -28,7 +28,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Convert(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<ImageAction>(action => action.Type == "convert");
             factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
                 parameters, body, "action", Method.POST);
@@ -41,8 +41,8 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAction(9001, 1009);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001 &&
-                                                             (long)list[1].Value == 1009);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString() &&
+                                                             (string)list[1].Value == 1009.ToString());
             factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions/{actionId}",
                 parameters, null, "action");
         }

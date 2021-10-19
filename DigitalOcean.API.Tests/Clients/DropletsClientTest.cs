@@ -36,7 +36,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetAllNeighbors(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().GetPaginated<Droplet>("droplets/{id}/neighbors", parameters, "droplets");
         }
 
@@ -47,7 +47,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetKernels(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().GetPaginated<Kernel>("droplets/{id}/kernels", parameters, "kernels");
         }
 
@@ -58,7 +58,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetSnapshots(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().GetPaginated<Image>("droplets/{id}/snapshots", parameters, "snapshots");
         }
 
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetBackups(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().GetPaginated<Image>("droplets/{id}/backups", parameters, "backups");
         }
 
@@ -80,7 +80,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.GetActions(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().GetPaginated<Action>("droplets/{id}/actions", parameters, "actions");
         }
 
@@ -113,7 +113,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Get(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRequest<Droplet>("droplets/{id}", parameters, null, "droplet");
         }
 
@@ -124,7 +124,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Delete(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
         }
 
