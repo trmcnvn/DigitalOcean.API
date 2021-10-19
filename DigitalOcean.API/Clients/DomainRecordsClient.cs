@@ -42,7 +42,7 @@ namespace DigitalOcean.API.Clients {
         public Task<DomainRecord> Get(string domainName, long recordId) {
             var parameters = new List<Parameter> {
                 new Parameter("name", domainName, ParameterType.UrlSegment),
-                new Parameter("id", recordId, ParameterType.UrlSegment)
+                new Parameter("id", recordId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, null, "domain_record");
         }
@@ -53,7 +53,7 @@ namespace DigitalOcean.API.Clients {
         public Task Delete(string domainName, long recordId) {
             var parameters = new List<Parameter> {
                 new Parameter("name", domainName, ParameterType.UrlSegment),
-                new Parameter("id", recordId, ParameterType.UrlSegment)
+                new Parameter("id", recordId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("domains/{name}/records/{id}", parameters, null, Method.DELETE);
         }
@@ -64,7 +64,7 @@ namespace DigitalOcean.API.Clients {
         public Task<DomainRecord> Update(string domainName, long recordId, Models.Requests.UpdateDomainRecord updateRecord) {
             var parameters = new List<Parameter> {
                 new Parameter("name", domainName, ParameterType.UrlSegment),
-                new Parameter("id", recordId, ParameterType.UrlSegment)
+                new Parameter("id", recordId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, updateRecord,
                 "domain_record", Method.PUT);

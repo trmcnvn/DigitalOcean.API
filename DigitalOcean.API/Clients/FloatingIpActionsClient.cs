@@ -32,7 +32,7 @@ namespace DigitalOcean.API.Clients {
         public Task<Action> GetAction(string ipAddress, long actionId) {
             var parameters = new List<Parameter> {
                 new Parameter("ip", ipAddress, ParameterType.UrlSegment),
-                new Parameter("actionId", actionId, ParameterType.UrlSegment)
+                new Parameter("actionId", actionId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Action>("floating_ips/{ip}/actions/{actionId}", parameters, null, "action");
         }

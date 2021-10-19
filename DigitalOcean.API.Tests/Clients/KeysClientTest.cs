@@ -40,7 +40,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Get(9001L);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
 
@@ -63,7 +63,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.UpdateKey { Name = "example" };
             client.Update(9001L, body);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
         }
 
@@ -74,7 +74,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Delete(9001L);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
         }
 

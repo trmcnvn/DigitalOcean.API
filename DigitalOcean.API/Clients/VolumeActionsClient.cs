@@ -76,7 +76,7 @@ namespace DigitalOcean.API.Clients {
         public Task<Action> GetAction(string volumeId, long actionId) {
             var parameters = new List<Parameter> {
                 new Parameter("id", volumeId, ParameterType.UrlSegment),
-                new Parameter("actionId", actionId, ParameterType.UrlSegment)
+                new Parameter("actionId", actionId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Action>("volumes/{id}/actions/{actionId}", parameters, null, "action");
         }

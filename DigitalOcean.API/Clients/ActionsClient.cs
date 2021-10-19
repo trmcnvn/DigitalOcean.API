@@ -26,7 +26,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Get(long actionId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", actionId, ParameterType.UrlSegment)
+                new Parameter("id", actionId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Action>("actions/{id}", parameters, null, "action");
         }
