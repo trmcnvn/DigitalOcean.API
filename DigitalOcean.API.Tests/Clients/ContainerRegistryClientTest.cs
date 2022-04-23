@@ -116,8 +116,8 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new ContainerRegistryClient(factory);
 
             client.DeleteRepositoryManifest("registryName", "repositoryName", "manifestDigest");
-            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "registryName" && (string)list[1].Value == "repositoryName" && (string)list[2].Value == "manifestDigest");
-            factory.Received().ExecuteRaw("registry/{registryName}/repositories/{repositoryName}/digests/{manifestDigest}", parameters, null, Method.DELETE);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "registryName" && (string)list[1].Value == "repositoryName");
+            factory.Received().ExecuteRaw("registry/{registryName}/repositories/{repositoryName}/digests/manifestDigest", parameters, null, Method.DELETE);
         }
 
         [Fact]
