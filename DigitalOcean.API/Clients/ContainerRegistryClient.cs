@@ -109,10 +109,9 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
                 new Parameter(nameof(repositoryName), repositoryName, ParameterType.UrlSegment),
-                new Parameter(nameof(manifestDigest), manifestDigest, ParameterType.UrlSegment),
             };
 
-            return _connection.ExecuteRaw($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/digests/{{{nameof(manifestDigest)}}}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/digests/{manifestDigest}", parameters, null, Method.DELETE);
         }
 
         /// <summary>
