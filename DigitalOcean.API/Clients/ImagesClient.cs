@@ -55,7 +55,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> GetAllActions(long imageId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", imageId, ParameterType.UrlSegment)
+                new Parameter("id", imageId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.GetPaginated<Action>("images/{id}/actions", parameters, "actions");
         }
@@ -87,7 +87,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(long imageId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", imageId, ParameterType.UrlSegment)
+                new Parameter("id", imageId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
         }
@@ -97,7 +97,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Image> Update(long imageId, Models.Requests.UpdateImage updateImage) {
             var parameters = new List<Parameter> {
-                new Parameter("id", imageId, ParameterType.UrlSegment)
+                new Parameter("id", imageId.ToString(), ParameterType.UrlSegment)
             };
             return _connection.ExecuteRequest<Image>("images/{id}", parameters, updateImage, "image", Method.PUT);
         }

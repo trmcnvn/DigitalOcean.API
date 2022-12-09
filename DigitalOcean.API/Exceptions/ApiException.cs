@@ -25,7 +25,7 @@ namespace DigitalOcean.API.Exceptions {
         }
 
         private readonly Error _internalErrorResponse;
-        private Func<IRestResponse, Error> p;
+        private Func<IRestResponse, Error> _p;
 
         public ApiException(HttpStatusCode statusCode, Error errorResponse) {
             StatusCode = statusCode;
@@ -34,7 +34,7 @@ namespace DigitalOcean.API.Exceptions {
 
         public ApiException(HttpStatusCode statusCode, Func<IRestResponse, Error> p) {
             StatusCode = statusCode;
-            this.p = p;
+            _p = p;
         }
     }
 }

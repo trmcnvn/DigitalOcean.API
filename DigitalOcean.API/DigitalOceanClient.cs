@@ -43,6 +43,7 @@ namespace DigitalOcean.API {
             VolumeActions = new VolumeActionsClient(_connection);
             BalanceClient = new BalanceClient(_connection);
             Vpc = new VpcClient(_connection);
+            Apps = new AppsClient(_connection);
         }
 
         #region IDigitalOceanClient Members
@@ -79,6 +80,7 @@ namespace DigitalOcean.API {
         public IVolumeActionsClient VolumeActions { get; private set; }
         public IBalanceClient BalanceClient { get; private set; }
         public IVpcClient Vpc { get; private set; }
+        public IAppsClient Apps { get; private set; }
 
         #endregion
     }

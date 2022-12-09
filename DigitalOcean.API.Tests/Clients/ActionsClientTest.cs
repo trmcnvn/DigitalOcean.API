@@ -15,7 +15,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             actionClient.Get(9001);
 
-            var parameters = Arg.Is<List<Parameter>>(list => (long)list[0].Value == 9001);
+            var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             factory.Received().ExecuteRequest<Action>("actions/{id}", parameters, null, "action");
         }
 
