@@ -67,7 +67,7 @@ namespace DigitalOcean.API.Http {
             // loop until we are finished
             var allItems = new List<T>(data);
             while (page != null && page.Pages != null && !String.IsNullOrWhiteSpace(page.Pages.Next)) {
-                endpoint = page.Pages.Next.Replace(DigitalOceanClient.DigitalOceanApiUrl, "");
+                endpoint = page.Pages.Next.Replace(DigitalOceanClient.DIGITAL_OCEAN_API_URL, "");
                 var iter = await ExecuteRaw(endpoint, null).ConfigureAwait(false);
 
                 deserialize.RootElement = expectedRoot;

@@ -4,11 +4,11 @@ using RestSharp;
 
 namespace DigitalOcean.API {
     public class DigitalOceanClient : IDigitalOceanClient {
-        public static readonly string DigitalOceanApiUrl = "https://api.digitalocean.com/v2/";
+        public const string DIGITAL_OCEAN_API_URL = "https://api.digitalocean.com/v2/";
         private readonly IConnection _connection;
 
         public DigitalOceanClient(string token) {
-            var client = new RestClient(DigitalOceanApiUrl) {
+            var client = new RestClient(DIGITAL_OCEAN_API_URL) {
                 UserAgent = "digitalocean-api-dotnet"
             };
             client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
