@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DigitalOcean.API.Models.Responses;
+﻿using DigitalOcean.Clients.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface ISizesClient {
-        /// <summary>
-        /// Retrieve all DigitalOcean Droplet Sizes
-        /// </summary>
-        Task<IReadOnlyList<Size>> GetAll();
-    }
+namespace DigitalOcean.Clients.Interfaces;
+
+public interface ISizesClient {
+    /// <summary>
+    /// Retrieve all DigitalOcean Droplet Sizes
+    /// </summary>
+    Task<IEnumerable<Size>> GetAll();
 }

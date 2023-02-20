@@ -1,4 +1,4 @@
-namespace DigitalOcean.API.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses;
 
 public class AppDatabaseSpec {
     public string ClusterName { get; set; }

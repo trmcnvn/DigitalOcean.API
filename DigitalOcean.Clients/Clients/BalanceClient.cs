@@ -1,20 +1,16 @@
-using System.Threading.Tasks;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DigitalOcean.Clients.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public class BalanceClient : IBalanceClient {
-        private readonly IConnection _connection;
+namespace DigitalOcean.Clients.Clients;
 
-        public BalanceClient(IConnection connection) {
-            _connection = connection;
-        }
+public class BalanceClient : IBalanceClient {
+    private readonly IConnection _connection;
 
-        /// <summary>
-        /// To retrieve the balances on a customer's account.
-        /// </summary>
-        public Task<Balance> Get() {
-            return _connection.ExecuteRequest<Balance>("customers/my/balance", null, null, null);
-        }
+    public BalanceClient(IConnection connection) {
+        _connection = connection;
     }
+
+
+    public Task<Balance> GetAsync(CancellationToken cancellationToken = default)
+        => _connection.ExecuteRequest<Balance>("customers/my/balance", null, null, null, token: cancellationToken);
+
 }

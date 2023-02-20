@@ -1,7 +1,7 @@
-﻿namespace DigitalOcean.API.Models.Requests {
-    public enum SnapshotType {
-        All,
-        Droplet,
-        Volume
-    }
+﻿namespace DigitalOcean.Clients.Models.Requests; 
+
+public enum SnapshotType {
+    All,
+    Droplet,
+    Volume
 }

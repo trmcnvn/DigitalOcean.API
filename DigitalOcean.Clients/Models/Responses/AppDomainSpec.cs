@@ -1,4 +1,4 @@
-namespace DigitalOcean.API.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses;
 
 public class AppDomainSpec {
     public string Domain { get; set; }

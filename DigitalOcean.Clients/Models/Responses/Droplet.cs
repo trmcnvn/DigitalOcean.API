@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace DigitalOcean.Clients.Models.Responses;
 
-namespace DigitalOcean.API.Models.Responses; 
-
-public class Droplet {
+public record Droplet {
     /// <summary>
     /// A unique identifier for each Droplet instance.
     /// </summary>

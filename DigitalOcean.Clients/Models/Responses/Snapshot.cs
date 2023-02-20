@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DigitalOcean.API.Models.Responses; 
+﻿namespace DigitalOcean.Clients.Models.Responses; 
 
 /// <summary>
 /// Snapshots are saved instances of a Droplet or a block storage volume, which is reflected in the resource_type attribute.

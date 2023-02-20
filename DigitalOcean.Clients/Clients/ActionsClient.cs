@@ -1,34 +1,28 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+﻿namespace DigitalOcean.Clients.Clients;
 
-namespace DigitalOcean.API.Clients {
-    public class ActionsClient : IActionsClient {
-        private readonly IConnection _connection;
+public class ActionsClient : IActionsClient {
+    private readonly IConnection _connection;
 
-        public ActionsClient(IConnection connection) {
-            _connection = connection;
-        }
-
-        #region IActionsClient Members
-
-        /// <summary>
-        /// Retrieve all actions that have been executed on the current account.
-        /// </summary>
-        public async Task<IReadOnlyList<Action>> GetAll() {
-            var enumerable = await _connection.GetPaginated<Action>("actions", null, "actions");
-            return enumerable.ToList();
-        }
-
-        /// <summary>
-        /// Retrieve an existing Action
-        /// </summary>
-        public Task<Action> Get(long actionId) {
-            return _connection.ExecuteRequest<Action>($"actions/{actionId}", null, null, "action");
-        }
-
-        #endregion
+    public ActionsClient(IConnection connection) {
+        _connection = connection;
     }
+
+    #region IActionsClient Members
+
+    /// <summary>
+    /// Retrieve all actions that have been executed on the current account.
+    /// </summary>
+    public async Task<IEnumerable<DigitalOcean.Clients.Models.Responses.Action>> GetAll() {
+        var enumerable = await _connection.GetPaginated<DigitalOcean.Clients.Models.Responses.Action>("actions", null, "actions");
+        return enumerable.ToList();
+    }
+
+    /// <summary>
+    /// Retrieve an existing Action
+    /// </summary>
+    public Task<DigitalOcean.Clients.Models.Responses.Action> Get(long actionId) {
+        return _connection.ExecuteRequest<DigitalOcean.Clients.Models.Responses.Action>($"actions/{actionId}", null, null, "action");
+    }
+
+    #endregion
 }

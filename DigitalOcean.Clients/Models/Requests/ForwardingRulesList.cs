@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace DigitalOcean.Clients.Models.Requests; 
 
-namespace DigitalOcean.API.Models.Requests {
-    public class ForwardingRulesList {
-        [JsonPropertyName("forwarding_rules")]
-        public List<ForwardingRule> ForwardingRules { get; set; }
-    }
+public class ForwardingRulesList {
+    [JsonPropertyName("forwarding_rules")]
+    public List<ForwardingRule> ForwardingRules { get; set; }
 }

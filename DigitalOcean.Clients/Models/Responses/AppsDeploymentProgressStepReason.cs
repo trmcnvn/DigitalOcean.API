@@ -1,4 +1,4 @@
-namespace DigitalOcean.API.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses; 
 
 public class AppsDeploymentProgressStepReason {
     public string Code { get; set; }

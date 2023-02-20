@@ -1,4 +1,4 @@
-﻿namespace DigitalOcean.API.Models.Responses; 
+﻿namespace DigitalOcean.Clients.Models.Responses;
 
 public class Account {
     /// <summary>
@@ -9,7 +9,7 @@ public class Account {
     /// <summary>
     ///	The total number of Floating IPs the current user or team may have.
     /// </summary>
-    public int FloatingIpLimit { get; set; }
+    public int ReservedIpLimit { get; set; }
 
     /// <summary>
     /// The email address used by the current user to registered for DigitalOcean.

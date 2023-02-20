@@ -1,6 +1,6 @@
-namespace DigitalOcean.Clients.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses;
 
-public class ReservedIp {
+public record ReservedIp {
     /// <summary>
     /// The public IP address of the Floating IP. It also serves as its identifier.
     /// </summary>

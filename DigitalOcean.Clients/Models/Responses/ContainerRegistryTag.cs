@@ -1,7 +1,6 @@
-using System;
 using System.Diagnostics;
 
-namespace DigitalOcean.API.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses; 
 
 [DebuggerDisplay("Tag = {Tag}, Repository = {Repository}, RegistryName = {RegistryName}")]
 public class ContainerRegistryTag {

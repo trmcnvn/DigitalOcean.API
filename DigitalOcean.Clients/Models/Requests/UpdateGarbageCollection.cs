@@ -1,11 +1,10 @@
-namespace DigitalOcean.API.Models.Requests
+namespace DigitalOcean.Clients.Models.Requests; 
+
+public class UpdateGarbageCollection
 {
-    public class UpdateGarbageCollection
-    {
-        /// <summary>
-        /// A boolean value indicating that the garbage collection should be cancelled.
-        /// </summary>
-        [JsonPropertyName("cancel")]
-        public bool Cancel { get; set; }
-    }
+    /// <summary>
+    /// A boolean value indicating that the garbage collection should be cancelled.
+    /// </summary>
+    [JsonPropertyName("cancel")]
+    public bool Cancel { get; set; }
 }

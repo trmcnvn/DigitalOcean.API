@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DigitalOcean.API.Models.Responses; 
+﻿namespace DigitalOcean.Clients.Models.Responses; 
 
 /// <summary>
 /// Projects allow you to organize your resources into groups that fit the way you work. You can group resources (like Droplets,

@@ -1,23 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DigitalOcean.API.Models.Requests;
-using DigitalOcean.API.Models.Responses;
+﻿using DigitalOcean.Clients.Models.Requests;
+using DigitalOcean.Clients.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface ISnapshotsClient {
-        /// <summary>
-        /// To list all of the snapshots available on your account.
-        /// </summary>
-        Task<IReadOnlyList<Snapshot>> GetAll(SnapshotType type = SnapshotType.All);
+namespace DigitalOcean.Clients.Interfaces;
 
-        /// <summary>
-        /// To retrieve information about a snapshot,
-        /// </summary>
-        Task<Snapshot> Get(string snapshotId);
+public interface ISnapshotsClient {
+    /// <summary>
+    /// To list all of the snapshots available on your account.
+    /// </summary>
+    Task<IEnumerable<Snapshot>> GetAll(SnapshotType type = SnapshotType.All);
 
-        /// <summary>
-        /// To delete a snapshot.
-        /// </summary>
-        Task Delete(string snapshotId);
-    }
+    /// <summary>
+    /// To retrieve information about a snapshot,
+    /// </summary>
+    Task<Snapshot> Get(string snapshotId);
+
+    /// <summary>
+    /// To delete a snapshot.
+    /// </summary>
+    Task Delete(string snapshotId);
 }

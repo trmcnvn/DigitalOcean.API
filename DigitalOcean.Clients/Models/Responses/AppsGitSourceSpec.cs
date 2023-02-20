@@ -1,4 +1,4 @@
-namespace DigitalOcean.API.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses; 
 
 public class AppsGitSourceSpec {
     public string Branch { get; set; }

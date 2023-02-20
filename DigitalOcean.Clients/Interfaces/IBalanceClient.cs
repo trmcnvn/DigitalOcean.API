@@ -1,12 +1,11 @@
-using System.Threading.Tasks;
-using DigitalOcean.API.Models.Responses;
+using DigitalOcean.Clients.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IBalanceClient
-    {
-        /// <summary>
-        /// Retrieve the balances on a customer's account.
-        /// </summary>
-        Task<Balance> Get();
-    }
+namespace DigitalOcean.Clients.Interfaces;
+
+public interface IBalanceClient
+{
+    /// <summary>
+    /// Retrieve the balances on a customer's account.
+    /// </summary>
+    Task<Balance> GetAsync(CancellationToken cancellationToken = default);
 }

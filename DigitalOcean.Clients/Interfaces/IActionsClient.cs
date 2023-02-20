@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DigitalOcean.API.Models.Responses;
+﻿namespace DigitalOcean.Clients.Interfaces;
 
-namespace DigitalOcean.API.Clients {
-    public interface IActionsClient {
-        /// <summary>
-        /// Retrieve all actions that have been executed on the current account.
-        /// </summary>
-        Task<IReadOnlyList<Action>> GetAll();
+public interface IActionsClient {
+    /// <summary>
+    /// Retrieve all actions that have been executed on the current account.
+    /// </summary>
+    Task<IEnumerable<DigitalOcean.Clients.Models.Responses.Action>> GetAll();
 
-        /// <summary>
-        /// Retrieve an existing action
-        /// </summary>
-        Task<Action> Get(long actionId);
-    }
+    /// <summary>
+    /// Retrieve an existing action
+    /// </summary>
+    Task<DigitalOcean.Clients.Models.Responses.Action> Get(long actionId);
 }

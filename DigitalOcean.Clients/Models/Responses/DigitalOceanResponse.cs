@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System.Text.Json;
 
-namespace DigitalOcean.API.Models.Responses;
+namespace DigitalOcean.Clients.Models.Responses;
 
 public class Pages {
     public string Next { get; set; }
     public string Last { get; set; }
 }
 
-public class PaginatedResponse<T> {
-    public Pages Links { get; set; }
+public class PageLinks {
+    public Pages Pages { get; set; }
+}
+public class PaginatedResponse {
+    public PageLinks Links { get; set; }
     public Meta Meta { get; set; }
-    public required string DataPropertyName { get; set; }
-    protected IReadOnlyCollection<T> Data { get; set; }
+
+    [JsonExtensionData]
+    public Dictionary<string, JsonElement> Data { get; set; } = new();
 }
 
 public class Meta

@@ -1,7 +1,7 @@
-namespace DigitalOcean.API.Models.Requests {
-    public enum KubernetesNodeDeleteType {
-        Drain,
-        SkipDrain,
-        Replace
-    }
+namespace DigitalOcean.Clients.Models.Requests; 
+
+public enum KubernetesNodeDeleteType {
+    Drain,
+    SkipDrain,
+    Replace
 }

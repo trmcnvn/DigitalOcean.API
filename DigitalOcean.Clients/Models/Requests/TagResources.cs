@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
+﻿namespace DigitalOcean.Clients.Models.Requests; 
 
-namespace DigitalOcean.API.Models.Requests {
-    public class TagResources {
-        /// <summary>
-        /// The list of resources to be tagged
-        /// </summary>
-        [JsonPropertyName("resources")]
-        public List<TagResource> Resources { get; set; }
-    }
+public class TagResources {
+    /// <summary>
+    /// The list of resources to be tagged
+    /// </summary>
+    [JsonPropertyName("resources")]
+    public List<TagResource> Resources { get; set; }
 }

@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DigitalOcean.API.Models.Responses;
+﻿using DigitalOcean.Clients.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IRegionsClient {
-        /// <summary>
-        /// Retrieve all DigitalOcean regions
-        /// </summary>
-        Task<IReadOnlyList<Region>> GetAll();
-    }
+namespace DigitalOcean.Clients.Interfaces;
+
+public interface IRegionsClient {
+    /// <summary>
+    /// Retrieve all DigitalOcean regions
+    /// </summary>
+    Task<IEnumerable<Region>> GetAll();
 }

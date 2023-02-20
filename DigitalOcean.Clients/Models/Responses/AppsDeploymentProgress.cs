@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-
-namespace DigitalOcean.API.Models.Responses; 
+namespace DigitalOcean.Clients.Models.Responses; 
 
 public class AppsDeploymentProgress {
     public int ErrorSteps { get; set; }
