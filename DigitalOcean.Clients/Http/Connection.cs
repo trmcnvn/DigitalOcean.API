@@ -46,7 +46,7 @@ public class Connection : IConnection {
     }
 
     public async Task<T> ExecuteRequest<T>(string endpoint, Dictionary<string, string>? parameters, object? data = null, string? expectedRoot = null, HttpMethod? method = null, CancellationToken token = default) where T : new() {
-        using var response = await ExecuteRaw(endpoint, parameters, data: data, token: token, method: method);
+        using var response = await ExecuteRaw(endpoint, parameters, data, method, token);
         var deserializedData = default(T);
         if (string.IsNullOrWhiteSpace(expectedRoot)) {
             deserializedData = response.RootElement.Deserialize<T>(_serializerOptions);

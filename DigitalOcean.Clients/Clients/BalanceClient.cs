@@ -1,3 +1,4 @@
+using System.Net.Http.Json;
 using DigitalOcean.Clients.Models.Responses;
 
 namespace DigitalOcean.Clients.Clients;
@@ -10,7 +11,7 @@ public class BalanceClient : IBalanceClient {
     }
 
 
-    public Task<Balance> GetAsync(CancellationToken cancellationToken = default)
-        => _connection.ExecuteRequest<Balance>("customers/my/balance", null, null, null, token: cancellationToken);
-
+    public Task<Balance> GetAsync(CancellationToken cancellationToken = default) {
+        return _connection.ExecuteRequest<Balance>("customers/my/balance", null, null, null, token: cancellationToken);
+    }
 }

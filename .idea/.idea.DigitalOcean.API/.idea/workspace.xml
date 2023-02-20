@@ -4,508 +4,12 @@
     <projectFile>DigitalOcean.API.Tests/DigitalOcean.API.Tests.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a55f09c5-f017-45d9-979c-1ad2717abe69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/GlobalUsings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.API/GlobalUsings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DigitalOceanResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/ActionsClientTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/BalanceClientTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/ClientBaseTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/DomainClientTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/DomainRecordsTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/AccountClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/ActionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/DomainsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Exceptions/ApiException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/GlobalUsings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/IConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/IRateLimit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/RateLimit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/IDigitalOceanClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IAccountClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IActionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IAppsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IBalanceClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/ICdnEndpointsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/ICertificatesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IDatabasesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IDomainRecordsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IDomainsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IDropletActionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IDropletsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IFirewallsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IFloatingIpActionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IImageActionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IImagesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IKeysClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IKubernetesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/ILoadBalancerClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IProjectResourcesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IProjectsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IRegionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IReservedIpsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/ISizesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/ISnapshotsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/ITagsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IVolumeActionsClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IVolumesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Interfaces/IVpcClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppDatabaseSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppDomainSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppJobSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppServiceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppServiceSpecHealthCheck.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppStaticSiteSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppVariableDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppWorkerSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppsCorsPolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppsGitSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppsGithubSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppsGitlabSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppsImageSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AppsStringMatch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/AssignResourceNames.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/CdnEndpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Certificate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ConnectionPool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ContainerRegistryConfigure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ContainerRegistryValidateName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Database.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseBackup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseBackupRestore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseCluster.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseFirewallRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseReplica.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseResetUserAuth.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DatabaseUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Domain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DomainRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Droplet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/DropletAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Droplets.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Firewall.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/FirewallDroplets.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/FirewallRules.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/FirewallTags.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/FloatingIpAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ForceBuildApp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ForwardingRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ForwardingRulesList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/HealthCheck.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Image.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ImageAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ImageType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/InboundRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Key.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/KubernetesCluster.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/KubernetesNodeDeleteType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/KubernetesNodePool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/KubernetesUpgrade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/LoadBalancer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/LoadBalancerDroplets.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/MaintenancePolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/MaintenanceWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/MigrateDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/MySqlModes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/MySqlSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/OutboundRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/PatchProject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Project.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/PurgeCdnFiles.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/RedisEvictionPolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ReservedIp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/ResizeDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Routers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/SnapshotType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/SourceLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Specs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/StickySessions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Tag.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/TagResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/TagResources.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateCdnEndpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateDatabaseFirewallRules.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateDomainRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateGarbageCollection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateImage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateKey.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateKubernetesCluster.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateKubernetesNodePool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateProject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateSubscriptionTier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/UpdateVpc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Volume.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/VolumeAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/VolumeSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Requests/Vpc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Account.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Action.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/App.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppDatabaseSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppDomainProgress.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppDomainSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppDomains.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppJobSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppRegion.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppServiceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppServiceSpecHealthCheck.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppStaticSiteSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppVariableDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppWorkerSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsCorsPolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsDeploymentPhase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsDeploymentProgress.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsDeploymentProgressStepReason.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsDeploymentProgressStepStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsDomainPhase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsGitSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsGithubSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsGitlabSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsImageSourceSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/AppsStringMatch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/BackupWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Balance.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/CdnEndpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Certificate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ConnectionPool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ContainerRegistry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ContainerRegistryConfigure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ContainerRegistryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ContainerRegistryTag.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Database.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DatabaseBackup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DatabaseCluster.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DatabaseConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DatabaseFirewallRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DatabaseReplica.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DatabaseUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Deployment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DeploymentJobs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DeploymentServices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DeploymentStaticSites.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DeploymentSteps.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DeploymentWorkers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DigitalOceanResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Domain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DomainRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Droplet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/DropletUpgrade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Error.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Firewall.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ForwardingRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/GarbageCollection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/HealthCheck.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Image.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/InboundRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Kernel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Key.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/KubernetesCluster.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/KubernetesNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/KubernetesNodePool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/KubernetesNodeStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/KubernetesOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/KubernetesUpgrade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/LoadBalancer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/MaintenancePolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/MaintenanceWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/MySqlModes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/MySqlSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Network.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/OutboundRule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/PendingChange.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Project.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ProjectResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/RedisEvictionPolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Region.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/ReservedIp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Routes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Size.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Snapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/SourceLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/StickySessions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Subscription.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/SubscriptionTier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/SubscriptionTierUpdate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Tag.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/TagResourcesStatistics.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Volume.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/Vpc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Models/Responses/VpcMember.cs" afterDir="false" />
+    <list default="true" id="a55f09c5-f017-45d9-979c-1ad2717abe69" name="Changes" comment="added firewallclient">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DigitalOcean.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DigitalOcean.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AccountClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AccountClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ActionsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ActionsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AppsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AppsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/BalanceClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/BalanceClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/CdnEndpointsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/CdnEndpointsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/CertificatesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/CertificatesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ContainerRegistryClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ContainerRegistryClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DatabasesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DatabasesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DomainRecordsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DomainRecordsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DomainsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DomainsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DropletActionsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DropletActionsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DropletsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/DropletsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/FirewallsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/FirewallsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/FloatingIpActionsTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/FloatingIpActionsTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/FloatingIpsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/FloatingIpsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ImageActionsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ImageActionsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ImagesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ImagesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/KeysClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/KeysClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/KubernetesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/KubernetesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/LoadBalancerClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/LoadBalancerClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ProjectResourcesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ProjectResourcesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ProjectsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ProjectsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/RegionsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/RegionsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/SizesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/SizesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/SnapshotsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/SnapshotsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/TagsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/TagsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/VolumeActionsClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/VolumeActionsClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/VolumesClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/VolumesClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/VpcClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/VpcClientTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/DigitalOcean.API.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.Tests/DigitalOcean.API.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.Tests/Factory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/AccountClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/AppsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/BalanceClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/CdnEndpointsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/CertificatesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ContainerRegistryClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/DatabasesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/DomainRecordsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/DomainsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/DropletActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/DropletsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/FirewallsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/FloatingIpActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/FloatingIpsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IAccountClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IAppsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IBalanceClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ICdnEndpointsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ICertificatesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IContainerRegistryClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IDatabasesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IDomainRecordsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IDomainsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IDropletActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IDropletsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IFirewallsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IFloatingIpActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IFloatingIpsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IImageActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IImagesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IKeysClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IKubernetesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ILoadBalancerClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IProjectResourcesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IProjectsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IRegionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ISizesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ISnapshotsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/ITagsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IVolumeActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IVolumesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/IVpcClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/KeysClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/VolumeActionsClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/VolumesClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Clients/VpcClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/DigitalOcean.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/DigitalOcean.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/DigitalOceanClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/DigitalOceanClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Exceptions/ApiException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Exceptions/ApiException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Extensions/RestSharpExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Helpers/JsonNetSerializer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Http/Connection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Http/Connection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Http/IConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Http/IConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Http/RateLimit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Http/RateLimit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppDatabaseSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppDatabaseSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppDomainSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppDomainSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppJobSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppJobSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppServiceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppServiceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppServiceSpecHealthCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppServiceSpecHealthCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppStaticSiteSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppStaticSiteSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppVariableDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppVariableDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppWorkerSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppWorkerSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsCorsPolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsCorsPolicy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsGitSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsGitSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsGithubSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsGithubSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsGitlabSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsGitlabSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsImageSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsImageSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsStringMatch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AppsStringMatch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AssignResourceNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/AssignResourceNames.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/CdnEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/CdnEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Certificate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Certificate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ConnectionPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ConnectionPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ContainerRegistryConfigure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ContainerRegistryConfigure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ContainerRegistryValidateName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ContainerRegistryValidateName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseBackup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseBackup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseBackupRestore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseBackupRestore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseCluster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseCluster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseFirewallRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseFirewallRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseReplica.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseReplica.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseResetUserAuth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseResetUserAuth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DatabaseUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Domain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Domain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DomainRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DomainRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Droplet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Droplet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DropletAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/DropletAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Droplets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Droplets.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Firewall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Firewall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FirewallDroplets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FirewallDroplets.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FirewallRules.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FirewallRules.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FirewallTags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FirewallTags.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FloatingIp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FloatingIp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FloatingIpAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/FloatingIpAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ForceBuildApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ForceBuildApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ForwardingRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ForwardingRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ForwardingRulesList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ForwardingRulesList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/HealthCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/HealthCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Image.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ImageAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ImageAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/InboundRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/InboundRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Key.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Key.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/KubernetesCluster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/KubernetesCluster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/KubernetesNodePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/KubernetesNodePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/KubernetesUpgrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/KubernetesUpgrade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/LoadBalancer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/LoadBalancerDroplets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/LoadBalancerDroplets.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MaintenancePolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MaintenancePolicy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MaintenanceWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MaintenanceWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MigrateDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MigrateDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MySqlModes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MySqlModes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MySqlSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/MySqlSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/OutboundRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/OutboundRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/PatchProject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/PatchProject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Project.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/PurgeCdnFiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/PurgeCdnFiles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/RedisEvictionPolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/RedisEvictionPolicy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ResizeDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/ResizeDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Routers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Routers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/SourceLocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/SourceLocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Specs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Specs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/StickySessions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/StickySessions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Tag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Tag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/TagResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/TagResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/TagResources.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/TagResources.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateCdnEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateCdnEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateDatabaseFirewallRules.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateDatabaseFirewallRules.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateDomainRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateDomainRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateGarbageCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateGarbageCollection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateImage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateKey.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateKubernetesCluster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateKubernetesCluster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateKubernetesNodePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateKubernetesNodePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateProject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateProject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateSubscriptionTier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateSubscriptionTier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateVpc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/UpdateVpc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Volume.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Volume.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/VolumeAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/VolumeAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/VolumeSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/VolumeSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Vpc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Requests/Vpc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Action.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Action.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/App.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/App.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDatabaseSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDatabaseSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDomainProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDomainProgress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDomainSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDomainSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDomains.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppDomains.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppJobSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppJobSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppRegion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppRegion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppServiceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppServiceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppServiceSpecHealthCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppServiceSpecHealthCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppStaticSiteSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppStaticSiteSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppVariableDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppVariableDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppWorkerSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppWorkerSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsCorsPolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsCorsPolicy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentPhase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentPhase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentProgress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentProgressStepReason.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentProgressStepReason.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentProgressStepStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDeploymentProgressStepStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDomainPhase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsDomainPhase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsGitSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsGitSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsGithubSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsGithubSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsGitlabSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsGitlabSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsImageSourceSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsImageSourceSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsStringMatch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/AppsStringMatch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/BackupWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/BackupWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Balance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Balance.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/CdnEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/CdnEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Certificate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Certificate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ConnectionPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ConnectionPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistryConfigure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistryConfigure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistryTag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ContainerRegistryTag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseBackup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseBackup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseCluster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseCluster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseFirewallRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseFirewallRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseReplica.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseReplica.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DatabaseUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Deployment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Deployment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentJobs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentJobs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentServices.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentStaticSites.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentStaticSites.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentSteps.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentSteps.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentWorkers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DeploymentWorkers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Domain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Domain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DomainRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DomainRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Droplet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Droplet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DropletUpgrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/DropletUpgrade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Error.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Error.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Firewall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Firewall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/FloatingIp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/FloatingIp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ForwardingRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ForwardingRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/GarbageCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/GarbageCollection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/HealthCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/HealthCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Image.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/InboundRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/InboundRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Kernel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Kernel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Key.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Key.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesCluster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesCluster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesNodePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesNodePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesNodeStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesNodeStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesUpgrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/KubernetesUpgrade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/LoadBalancer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MaintenancePolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MaintenancePolicy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MaintenanceWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MaintenanceWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MySqlModes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MySqlModes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MySqlSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/MySqlSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Network.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Network.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/OutboundRule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/OutboundRule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Pagination.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/PendingChange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/PendingChange.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Project.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ProjectResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/ProjectResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/RedisEvictionPolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/RedisEvictionPolicy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Region.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Region.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Routes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Routes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Size.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Size.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Snapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Snapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/SourceLocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/SourceLocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/StickySessions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/StickySessions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Subscription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Subscription.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/SubscriptionTier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/SubscriptionTier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/SubscriptionTierUpdate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/SubscriptionTierUpdate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Tag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Tag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/TagResourcesStatistics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/TagResourcesStatistics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Volume.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Volume.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Vpc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Vpc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/VpcMember.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.API/Models/Responses/VpcMember.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/ClientBaseTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.Clients.Tests/ClientBaseTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -524,6 +28,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01b4d48c2c7d4105a206335e1267461c164800/ba/edd7a331/JsonSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01b4d48c2c7d4105a206335e1267461c164800/f5/95477075/JsonElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/483801266a064cf6a016c4137514860b2ea00/ce/f40293cd/IRestResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/532a039a363f431cbf8dba1b5d0bdf76a28600/35/18b1a291/ConfiguredTaskAwaitable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/532a039a363f431cbf8dba1b5d0bdf76a28600/9b/ba22f3c5/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/532a039a363f431cbf8dba1b5d0bdf76a28600/c7/c4ee9c7c/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae31e32cd26e4f43b3a9443e72f2d01124400/25/21fa621c/SubstituteExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -535,10 +40,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e36333a9fa3a4838acc47bbfdae8aa691a5000/9e/795e524c/HttpMethod.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e36333a9fa3a4838acc47bbfdae8aa691a5000/ad/8b5866ce/HttpHeaders.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e36333a9fa3a4838acc47bbfdae8aa691a5000/d2/301a952e/AuthenticationHeaderValue.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DigitalOcean.API/DigitalOceanClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f89fe7762b7576425dc9fc98165c392a8899763288b25eb1dd4ae4b81ec7c7/Host.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.API/Models/Responses/Account.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DigitalOcean.API/Models/Responses/Account.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.API/Models/Responses/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.API/Models/Responses/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.Clients/Clients/FirewallsClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.Clients/Clients/Imports/AppsClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.Clients/Interfaces/IFirewallsClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.Clients/Interfaces/IFirewallsClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/ralcaraz/RiderProjects/DigitalOcean.API/DigitalOcean.Clients/Interfaces/IFirewallsClient.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -611,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676866028245</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added firewallclient">
+      <created>1676882237844</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676882237844</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,7 +159,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="fixed naming for constants" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed naming for constants" />
+    <MESSAGE value="added firewallclient" />
+    <option name="LAST_COMMIT_MESSAGE" value="added firewallclient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -650,27 +168,13 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AccountClientTest.cs</url>
           <line>7</line>
-          <properties documentPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AccountClientTest.cs" initialLine="10" containingFunctionPresentation="method 'CorrectRequestForGet'">
-            <startOffsets>
-              <option value="156" />
-            </startOffsets>
-            <endOffsets>
-              <option value="200" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/AccountClientTest.cs" initialLine="10" containingFunctionPresentation="method 'CorrectRequestForGet'" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ActionsClientTest.cs</url>
           <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ActionsClientTest.cs" initialLine="28" containingFunctionPresentation="method 'CorrectRequestForGetAll'">
-            <startOffsets>
-              <option value="666" />
-            </startOffsets>
-            <endOffsets>
-              <option value="688" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.API.Tests/Clients/ActionsClientTest.cs" initialLine="28" containingFunctionPresentation="method 'CorrectRequestForGetAll'" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
@@ -795,6 +299,99 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs</url>
+          <line>10</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs" initialLine="10" containingFunctionPresentation="method 'AddAllClients'">
+            <startOffsets>
+              <option value="475" />
+            </startOffsets>
+            <endOffsets>
+              <option value="846" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/DigitalOceanExtensions.cs" initialLine="38" containingFunctionPresentation="method 'SendAsync'">
+            <startOffsets>
+              <option value="1988" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2071" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs</url>
+          <line>48</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs" initialLine="48" containingFunctionPresentation="method 'ExecuteRequest'">
+            <startOffsets>
+              <option value="2302" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2383" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs</url>
+          <line>9</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs" initialLine="8" containingFunctionPresentation="constructor 'BalanceClient'">
+            <startOffsets>
+              <option value="267" />
+            </startOffsets>
+            <endOffsets>
+              <option value="292" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/Http/Connection.cs" initialLine="30" containingFunctionPresentation="method 'ExecuteRaw'">
+            <startOffsets>
+              <option value="1174" />
+              <option value="1208" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1207" />
+              <option value="1209" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs</url>
+          <line>16</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs" initialLine="16" containingFunctionPresentation="method 'GetAsync'">
+            <startOffsets>
+              <option value="610" />
+            </startOffsets>
+            <endOffsets>
+              <option value="625" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs</url>
+          <line>15</line>
+          <properties documentPath="$PROJECT_DIR$/DigitalOcean.Clients/Clients/BalanceClient.cs" initialLine="15" containingFunctionPresentation="method 'GetAsync'">
+            <startOffsets>
+              <option value="499" />
+            </startOffsets>
+            <endOffsets>
+              <option value="601" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
