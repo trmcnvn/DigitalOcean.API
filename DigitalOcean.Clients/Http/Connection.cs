@@ -1,10 +1,8 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
-using DigitalOcean.Clients.Clients;
 using DigitalOcean.Clients.Exceptions;
 using DigitalOcean.Clients.Models.Responses;
-using Microsoft.Extensions.Logging;
 
 namespace DigitalOcean.Clients.Http;
 
@@ -51,7 +49,7 @@ public class Connection : IConnection {
         if (string.IsNullOrWhiteSpace(expectedRoot)) {
             deserializedData = response.RootElement.Deserialize<T>(_serializerOptions);
         }
-        else if( response.RootElement.TryGetProperty(expectedRoot, out var rootData)) {
+        else if(response.RootElement.TryGetProperty(expectedRoot, out var rootData)) {
             deserializedData = rootData.Deserialize<T>(_serializerOptions);
         }
         return deserializedData ?? throw new ApiException(statusCode: HttpStatusCode.OK, new Error() {

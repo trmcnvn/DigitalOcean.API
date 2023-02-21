@@ -23,7 +23,9 @@ dotnet add package DigitalOcean.API
 ## Example
 
 ```csharp
-var client = new DigitalOceanClient("api_token");
+var builder = WebApplication.CreateDefaultBuilder(args)
+
+builder.AddDigitalOcean();
 
 var request = new Droplet {
   Name = "example.com",
@@ -36,6 +38,7 @@ var request = new Droplet {
   Tags = new List<string> { "web" }
 };
 
+Droplets.CreateAsync(request, token);
 var droplet = await client.Droplets.Create(request);
 ```
 

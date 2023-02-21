@@ -1,4 +1,4 @@
-using DigitalOcean.Clients.Interfaces;
+using DigitalOcean.Shared.WebApplicationExtensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -11,7 +11,7 @@ public class ClientBaseTest<T> where T : class {
     [SetUp]
     public void Initialize() {
         var app = Host.CreateDefaultBuilder();
-        app = app.ConfigureServices(services => services.AddAllClients()
+        app = app.ConfigureServices(services => services.AddDigitalOcean()
             .AddLogging(builder => builder.AddConsole().AddFilter(f => f == LogLevel.Debug)));
         Client = app.Build().Services.GetRequiredService<T>();
     }

@@ -1,10 +1,12 @@
 ﻿namespace DigitalOcean.Clients.Models.Responses;
 
-public class Account {
+public record Account {
     /// <summary>
     /// The total number of Droplets current user or team may have active at one time.
     /// </summary>
     public int DropletLimit { get; set; }
+
+    public int VolumeLimit { get; set; }
 
     /// <summary>
     ///	The total number of Floating IPs the current user or team may have.
@@ -34,5 +36,5 @@ public class Account {
     /// <summary>
     /// A human-readable message giving more details about the status of the account.
     /// </summary>
-    public string StatusMessage { get; set; }
+    public string? StatusMessage { get; set; }
 }

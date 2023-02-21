@@ -8,9 +8,9 @@ public interface IConnection {
 
     Task<JsonDocument> ExecuteRaw(string endpoint, Dictionary<string, string>? parameters = null, object? data = null, HttpMethod? method = null, CancellationToken token = default);
 
-    Task<T> ExecuteRequest<T>(string endpoint, Dictionary<string, string>? parameters,
+    Task<T> ExecuteRequest<T>(string endpoint, Dictionary<string, string>? parameters = null,
         object? data = null, string? expectedRoot = null, HttpMethod? method = null, CancellationToken token = default) where T : new();
 
-    Task<IEnumerable<T>> GetPaginated<T>(string endpoint, Dictionary<string, string>? parameters,
+    Task<IEnumerable<T>> GetPaginated<T>(string endpoint, Dictionary<string, string>? parameters = null,
         string? expectedRoot = null, CancellationToken token = default) where T : new();
 }

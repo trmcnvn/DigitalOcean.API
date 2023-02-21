@@ -1,5 +1,5 @@
-﻿using DigitalOcean.Clients.Models.Requests;
-using DomainRecord = DigitalOcean.Clients.Models.Responses.DomainRecord;
+﻿
+using DigitalOcean.Clients.Models.Responses;
 
 namespace DigitalOcean.Clients.Interfaces;
 
