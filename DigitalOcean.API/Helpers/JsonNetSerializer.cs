@@ -1,5 +1,6 @@
-﻿using System.IO;
+using System.IO;
 using Newtonsoft.Json;
+using RestSharp;
 using RestSharp.Serializers;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
@@ -8,7 +9,7 @@ namespace DigitalOcean.API.Helpers {
         private readonly JsonSerializer _serializer;
 
         public JsonNetSerializer() {
-            ContentType = "application/json";
+            ContentType = ContentType.Json;
             _serializer = new JsonSerializer {
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 NullValueHandling = NullValueHandling.Include,
@@ -33,7 +34,7 @@ namespace DigitalOcean.API.Helpers {
         public string RootElement { get; set; }
         public string Namespace { get; set; }
         public string DateFormat { get; set; }
-        public string ContentType { get; set; }
+        public ContentType ContentType { get; set; }
 
         #endregion
     }

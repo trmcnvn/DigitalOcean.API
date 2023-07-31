@@ -23,7 +23,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var body = new Models.Requests.FloatingIp();
             client.Create(body);
-            factory.Received().ExecuteRequest<FloatingIp>("floating_ips", null, body, "floating_ip", Method.POST);
+            factory.Received().ExecuteRequest<FloatingIp>("floating_ips", null, body, "floating_ip", Method.Post);
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Delete("1.2.3.4");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1.2.3.4");
-            factory.Received().ExecuteRaw("floating_ips/{ip}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("floating_ips/{ip}", parameters, null, Method.Delete);
         }
     }
 }

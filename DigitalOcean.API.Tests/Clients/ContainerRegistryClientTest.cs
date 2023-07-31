@@ -21,7 +21,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var data = new Models.Requests.ContainerRegistryConfigure();
             client.Configure(data);
-            factory.Received().ExecuteRequest<Models.Responses.ContainerRegistryConfigure>("registry", null, data, null, Method.POST);
+            factory.Received().ExecuteRequest<Models.Responses.ContainerRegistryConfigure>("registry", null, data, null, Method.Post);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var data = new UpdateSubscriptionTier();
             client.UpdateSubscriptionTier(data);
-            factory.Received().ExecuteRequest<SubscriptionTierUpdate>("registry/subscription", null, data, "subscription", Method.POST);
+            factory.Received().ExecuteRequest<SubscriptionTierUpdate>("registry/subscription", null, data, "subscription", Method.Post);
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new ContainerRegistryClient(factory);
 
             client.Delete();
-            factory.Received().ExecuteRaw("registry", null, null, Method.DELETE);
+            factory.Received().ExecuteRaw("registry", null, null, Method.Delete);
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var data = new ContainerRegistryValidateName();
             client.ValidateName(data);
-            factory.Received().ExecuteRaw("registry/validate-name", null, data, Method.POST);
+            factory.Received().ExecuteRaw("registry/validate-name", null, data, Method.Post);
         }
 
         [Fact]
@@ -107,7 +107,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.DeleteRepositoryTag("registryName", "repositoryName", "tag");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "registryName" && (string)list[1].Value == "repositoryName" && (string)list[2].Value == "tag");
-            factory.Received().ExecuteRaw("registry/{registryName}/repositories/{repositoryName}/tags/{tag}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("registry/{registryName}/repositories/{repositoryName}/tags/{tag}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -117,7 +117,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.DeleteRepositoryManifest("registryName", "repositoryName", "manifestDigest");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "registryName" && (string)list[1].Value == "repositoryName");
-            factory.Received().ExecuteRaw("registry/{registryName}/repositories/{repositoryName}/digests/manifestDigest", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("registry/{registryName}/repositories/{repositoryName}/digests/manifestDigest", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -127,7 +127,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.StartGarbageCollection("registryName");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "registryName");
-            factory.Received().ExecuteRequest<GarbageCollection>("registry/{registryName}/garbage-collection", parameters, null, "garbage_collections", Method.POST);
+            factory.Received().ExecuteRequest<GarbageCollection>("registry/{registryName}/garbage-collection", parameters, null, "garbage_collections", Method.Post);
         }
 
         [Fact]
@@ -158,7 +158,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var data = new UpdateGarbageCollection();
             client.UpdateGarbageCollection("registryName", "uuid", data);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "registryName" && (string)list[1].Value == "uuid");
-            factory.Received().ExecuteRequest<GarbageCollection>("registry/{registryName}/garbage-collection/{uuid}", parameters, data, "garbage_collections", Method.PUT);
+            factory.Received().ExecuteRequest<GarbageCollection>("registry/{registryName}/garbage-collection/{uuid}", parameters, data, "garbage_collections", Method.Put);
         }
 
         [Fact]

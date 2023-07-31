@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -20,7 +20,7 @@ namespace DigitalOcean.API.Clients {
         public Task<IReadOnlyList<DomainRecord>> GetAll(string domainName) {
             // docs don't say this is paginated? but it could be so run it thru that anyway
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", domainName)
             };
             return _connection.GetPaginated<DomainRecord>("domains/{name}/records", parameters, "domain_records");
         }
@@ -30,10 +30,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DomainRecord> Create(string domainName, Models.Requests.DomainRecord record) {
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", domainName)
             };
             return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records", parameters, record,
-                "domain_record", Method.POST);
+                "domain_record", Method.Post);
         }
 
         /// <summary>
@@ -41,8 +41,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DomainRecord> Get(string domainName, long recordId) {
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment),
-                new Parameter("id", recordId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", domainName),
+                new UrlSegmentParameter ("id", recordId.ToString())
             };
             return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, null, "domain_record");
         }
@@ -52,10 +52,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string domainName, long recordId) {
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment),
-                new Parameter("id", recordId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", domainName),
+                new UrlSegmentParameter ("id", recordId.ToString())
             };
-            return _connection.ExecuteRaw("domains/{name}/records/{id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("domains/{name}/records/{id}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -63,11 +63,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<DomainRecord> Update(string domainName, long recordId, Models.Requests.UpdateDomainRecord updateRecord) {
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment),
-                new Parameter("id", recordId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", domainName),
+                new UrlSegmentParameter ("id", recordId.ToString())
             };
             return _connection.ExecuteRequest<DomainRecord>("domains/{name}/records/{id}", parameters, updateRecord,
-                "domain_record", Method.PUT);
+                "domain_record", Method.Put);
         }
 
         #endregion

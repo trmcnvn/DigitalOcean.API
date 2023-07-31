@@ -20,11 +20,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Reboot(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "reboot" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -32,11 +32,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> PowerCycle(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "power_cycle" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -44,11 +44,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Shutdown(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "shutdown" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -56,11 +56,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> PowerOff(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "power_off" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> PowerOn(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "power_on" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> ResetPassword(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "password_reset" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Resize(long dropletId, string sizeSlug, bool resizeDisk) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction {
                 Type = "resize",
@@ -100,7 +100,7 @@ namespace DigitalOcean.API.Clients {
                 Disk = resizeDisk
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -110,14 +110,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Restore(long dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction {
                 Type = "restore",
                 Image = imageIdOrSlug
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -125,14 +125,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Rebuild(long dropletId, object imageIdOrSlug) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction {
                 Type = "rebuild",
                 Image = imageIdOrSlug
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -140,14 +140,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Rename(long dropletId, string name) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction {
                 Type = "rename",
                 Name = name
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -155,14 +155,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> ChangeKernel(long dropletId, long kernelId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction {
                 Type = "change_kernel",
                 KernelId = kernelId
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -170,11 +170,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> EnableIpv6(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "enable_ipv6" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -182,11 +182,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> EnableBackups(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "enable_backups" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -194,11 +194,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> DisableBackups(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "disable_backups" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -206,11 +206,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> EnablePrivateNetworking(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction { Type = "enable_private_networking" };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -218,14 +218,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Snapshot(long dropletId, string name) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString())
             };
             var body = new Models.Requests.DropletAction {
                 Type = "snapshot",
                 Name = name
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions", parameters, body,
-                "action", Method.POST);
+                "action", Method.Post);
         }
 
         /// <summary>
@@ -233,8 +233,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> GetDropletAction(long dropletId, long actionId) {
             var parameters = new List<Parameter> {
-                new Parameter("dropletId", dropletId.ToString(), ParameterType.UrlSegment),
-                new Parameter("actionId", actionId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("dropletId", dropletId.ToString()),
+                new UrlSegmentParameter ("actionId", actionId.ToString())
             };
             return _connection.ExecuteRequest<Action>("droplets/{dropletId}/actions/{actionId}", parameters,
                 null, "action");
@@ -255,11 +255,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> ActionOnTag(string tag, string actionType) {
             var parameters = new List<Parameter> {
-                new Parameter("tag_name", tag, ParameterType.QueryString)
+                new QueryParameter("tag_name", tag)
             };
             var body = new Models.Requests.DropletAction { Type = actionType };
             return _connection.ExecuteRequest<List<Action>>("droplets/actions", parameters, body,
-                "actions", Method.POST)
+                "actions", Method.Post)
                 .ToReadOnlyListAsync();
         }
 

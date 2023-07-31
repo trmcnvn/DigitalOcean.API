@@ -63,7 +63,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.DeleteApp("test");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string) list[0].Value == "test");
-            factory.Received().ExecuteRaw("apps/{appId}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("apps/{appId}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var specs = new Specs() {Spec = app};
             client.CreateNewApp(specs);
 
-            factory.Received().ExecuteRequest<App>("apps", null, specs, "app", Method.POST);
+            factory.Received().ExecuteRequest<App>("apps", null, specs, "app", Method.Post);
         }
 
         [Fact]
@@ -88,7 +88,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list =>
                 (string) list[0].Value == "test");
             factory.Received().ExecuteRequest<Deployment>("apps/{appId}/deployments", parameters, forceBuild,
-                "deployment", Method.POST);
+                "deployment", Method.Post);
         }
 
         [Fact]
@@ -101,7 +101,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list =>
                 (string) list[0].Value == "test" && (string) list[1].Value == "test2");
             factory.Received().ExecuteRequest<Deployment>("apps/{appId}/deployments/{deploymentId}", parameters, null,
-                "deployment", Method.POST);
+                "deployment", Method.Post);
         }
 
     }

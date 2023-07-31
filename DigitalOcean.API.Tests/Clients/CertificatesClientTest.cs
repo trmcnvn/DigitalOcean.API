@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -37,7 +37,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.Certificate();
             client.Create(body);
 
-            factory.Received().ExecuteRequest<Certificate>("certificates", null, body, "certificate", Method.POST);
+            factory.Received().ExecuteRequest<Certificate>("certificates", null, body, "certificate", Method.Post);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("certificate:abc123");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "certificate:abc123");
-            factory.Received().ExecuteRaw("certificates/{certificate_id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("certificates/{certificate_id}", parameters, null, Method.Delete);
         }
     }
 }

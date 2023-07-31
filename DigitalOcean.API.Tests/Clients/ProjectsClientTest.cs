@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -25,7 +25,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var data = new Models.Requests.Project();
             client.Create(data);
 
-            factory.Received().ExecuteRequest<Project>("projects", null, data, "project", Method.POST);
+            factory.Received().ExecuteRequest<Project>("projects", null, data, "project", Method.Post);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Update("project:abc123", data);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "project:abc123");
-            factory.Received().ExecuteRequest<Project>("projects/{project_id}", parameters, data, "project", Method.PUT);
+            factory.Received().ExecuteRequest<Project>("projects/{project_id}", parameters, data, "project", Method.Put);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var data = new Models.Requests.UpdateProject();
             client.UpdateDefault(data);
 
-            factory.Received().ExecuteRequest<Project>("projects/default", null, data, "project", Method.PUT);
+            factory.Received().ExecuteRequest<Project>("projects/default", null, data, "project", Method.Put);
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Patch("project:abc123", data);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "project:abc123");
-            factory.Received().ExecuteRequest<Project>("projects/{project_id}", parameters, data, "project", Method.PATCH);
+            factory.Received().ExecuteRequest<Project>("projects/{project_id}", parameters, data, "project", Method.Patch);
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var data = new Models.Requests.PatchProject();
             client.PatchDefault(data);
 
-            factory.Received().ExecuteRequest<Project>("projects/default", null, data, "project", Method.PATCH);
+            factory.Received().ExecuteRequest<Project>("projects/default", null, data, "project", Method.Patch);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("notarealid");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealid");
-            factory.Received().ExecuteRaw("projects/{project_id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("projects/{project_id}", parameters, null, Method.Delete);
         }
     }
 }

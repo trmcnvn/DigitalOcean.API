@@ -15,7 +15,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var firewall = new Models.Requests.Firewall();
             client.Create(firewall);
-            factory.Received().ExecuteRequest<Firewall>("firewalls", null, firewall, "firewall", Method.POST);
+            factory.Received().ExecuteRequest<Firewall>("firewalls", null, firewall, "firewall", Method.Post);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var firewall = new Models.Requests.Firewall();
             client.Update("1", firewall);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<Firewall>("firewalls/{id}", parameters, firewall, "firewall", Method.PUT);
+            factory.Received().ExecuteRequest<Firewall>("firewalls/{id}", parameters, firewall, "firewall", Method.Put);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new FirewallsClient(factory);
             client.Delete("1");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("firewalls/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace DigitalOcean.API.Tests.Clients {
             };
             client.AddDroplets("1", droplets);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}/droplets", parameters, droplets, Method.POST);
+            factory.Received().ExecuteRaw("firewalls/{id}/droplets", parameters, droplets, Method.Post);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace DigitalOcean.API.Tests.Clients {
             };
             client.RemoveDroplets("1", droplets);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}/droplets", parameters, droplets, Method.DELETE);
+            factory.Received().ExecuteRaw("firewalls/{id}/droplets", parameters, droplets, Method.Delete);
         }
 
         [Fact]
@@ -87,7 +87,7 @@ namespace DigitalOcean.API.Tests.Clients {
             };
             client.AddTags("1", tags);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}/tags", parameters, tags, Method.POST);
+            factory.Received().ExecuteRaw("firewalls/{id}/tags", parameters, tags, Method.Post);
         }
 
         [Fact]
@@ -99,7 +99,7 @@ namespace DigitalOcean.API.Tests.Clients {
             };
             client.RemoveTags("1", tags);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}/tags", parameters, tags, Method.DELETE);
+            factory.Received().ExecuteRaw("firewalls/{id}/tags", parameters, tags, Method.Delete);
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace DigitalOcean.API.Tests.Clients {
             };
             client.AddRules("1", rules);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}/rules", parameters, rules, Method.POST);
+            factory.Received().ExecuteRaw("firewalls/{id}/rules", parameters, rules, Method.Post);
         }
 
         [Fact]
@@ -133,7 +133,7 @@ namespace DigitalOcean.API.Tests.Clients {
             };
             client.RemoveRules("1", rules);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("firewalls/{id}/rules", parameters, rules, Method.DELETE);
+            factory.Received().ExecuteRaw("firewalls/{id}/rules", parameters, rules, Method.Delete);
         }
     }
 }

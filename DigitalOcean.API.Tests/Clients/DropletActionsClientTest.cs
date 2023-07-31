@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "reboot");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "power_cycle");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "shutdown");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "power_off");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -71,7 +71,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "power_on");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "password_reset");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -97,7 +97,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "resize" && action.Size == "1024mb" && action.Disk == true);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -110,7 +110,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "restore" && (long)action.Image == 1009);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -123,7 +123,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "rebuild" && (long)action.Image == 1009);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -136,7 +136,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "rename" && action.Name == "testing");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -149,7 +149,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "change_kernel" && action.KernelId == 1009);
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -162,7 +162,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "enable_ipv6");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -175,7 +175,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "enable_backups");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -188,7 +188,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "disable_backups");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -201,7 +201,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "enable_private_networking");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -214,7 +214,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<DropletAction>(action => action.Type == "snapshot" && action.Name == "testing");
             factory.Received().ExecuteRequest<Models.Responses.Action>("droplets/{dropletId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -240,7 +240,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "mytag");
             var body = Arg.Is<DropletAction>(action => action.Type == "reboot");
             factory.Received().ExecuteRequest<List<Models.Responses.Action>>("droplets/actions",
-                parameters, null, "actions", Method.POST);
+                parameters, null, "actions", Method.Post);
         }
     }
 }

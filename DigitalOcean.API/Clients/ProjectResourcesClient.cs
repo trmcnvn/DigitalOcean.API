@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Http;
@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ProjectResource>> GetResources(string projectId) {
             var parameters = new List<Parameter> {
-                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("project_id", projectId)
             };
             return _connection.GetPaginated<ProjectResource>("projects/{project_id}/resources", parameters, "resources");
         }
@@ -36,9 +36,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ProjectResource>> AssignResources(string projectId, AssignResourceNames resources) {
             var parameters = new List<Parameter> {
-                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("project_id", projectId)
             };
-            return _connection.ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, resources, "resources", Method.POST)
+            return _connection.ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, resources, "resources", Method.Post)
                 .ToReadOnlyListAsync();
         }
 
@@ -46,7 +46,7 @@ namespace DigitalOcean.API.Clients {
         /// To assign resources to the default project.
         /// </summary>
         public Task<IReadOnlyList<ProjectResource>> AssignDefaultResources(AssignResourceNames resources) {
-            return _connection.ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, resources, "resources", Method.POST)
+            return _connection.ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, resources, "resources", Method.Post)
                 .ToReadOnlyListAsync();
         }
     }

@@ -15,7 +15,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var database = new Models.Requests.DatabaseCluster();
             client.Create(database);
-            factory.Received().ExecuteRequest<DatabaseCluster>("databases", null, database, "database", Method.POST);
+            factory.Received().ExecuteRequest<DatabaseCluster>("databases", null, database, "database", Method.Post);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Resize("1", resize);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}/resize", parameters, resize, Method.POST);
+            factory.Received().ExecuteRaw("databases/{id}/resize", parameters, resize, Method.Post);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Migrate("1", migrate);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}/migrate", parameters, migrate, Method.POST);
+            factory.Received().ExecuteRaw("databases/{id}/migrate", parameters, migrate, Method.Post);
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Maintenance("1", maintenance);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}/maintenance", parameters, maintenance, Method.POST);
+            factory.Received().ExecuteRaw("databases/{id}/maintenance", parameters, maintenance, Method.Post);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var backup = new Models.Requests.DatabaseBackup();
             client.Restore(backup);
 
-            factory.Received().ExecuteRequest<DatabaseCluster>("databases", null, backup, "database", Method.POST);
+            factory.Received().ExecuteRequest<DatabaseCluster>("databases", null, backup, "database", Method.Post);
         }
 
         [Fact]
@@ -113,7 +113,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Delete("1");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("databases/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.CreateReplica("1", replica);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<DatabaseReplica>("databases/{id}/replicas", parameters, replica, "replica", Method.POST);
+            factory.Received().ExecuteRequest<DatabaseReplica>("databases/{id}/replicas", parameters, replica, "replica", Method.Post);
         }
 
         [Fact]
@@ -156,7 +156,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.DeleteReplica("1", "example");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "example");
-            factory.Received().ExecuteRaw("databases/{id}/replicas/{name}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("databases/{id}/replicas/{name}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -168,7 +168,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.AddUser("1", user);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<DatabaseUser>("databases/{id}/users", parameters, user, "user", Method.POST);
+            factory.Received().ExecuteRequest<DatabaseUser>("databases/{id}/users", parameters, user, "user", Method.Post);
         }
 
         [Fact]
@@ -197,7 +197,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new DatabasesClient(factory);
             client.RemoveUser("1", "name");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
-            factory.Received().ExecuteRaw("databases/{id}/users/{name}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("databases/{id}/users/{name}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -209,7 +209,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.ResetUserAuth("1", "name", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
-            factory.Received().ExecuteRequest<DatabaseUser>("databases/{id}/users/{username}/reset_auth", parameters, body, "user", Method.POST);
+            factory.Received().ExecuteRequest<DatabaseUser>("databases/{id}/users/{username}/reset_auth", parameters, body, "user", Method.Post);
         }
 
         [Fact]
@@ -219,7 +219,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var database = new Models.Requests.Database();
             client.AddDatabase("1", database);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<Database>("databases/{id}/dbs", parameters, database, "db", Method.POST);
+            factory.Received().ExecuteRequest<Database>("databases/{id}/dbs", parameters, database, "db", Method.Post);
         }
 
         [Fact]
@@ -246,7 +246,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new DatabasesClient(factory);
             client.DeleteDatabase("1", "name");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
-            factory.Received().ExecuteRaw("databases/{id}/dbs/{name}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("databases/{id}/dbs/{name}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -256,7 +256,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var pool = new Models.Requests.ConnectionPool();
             client.AddConnectionPool("1", pool);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<ConnectionPool>("databases/{id}/pools", parameters, pool, "pool", Method.POST);
+            factory.Received().ExecuteRequest<ConnectionPool>("databases/{id}/pools", parameters, pool, "pool", Method.Post);
         }
 
         [Fact]
@@ -283,7 +283,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new DatabasesClient(factory);
             client.DeleteConnectionPool("1", "name");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "name");
-            factory.Received().ExecuteRaw("databases/{id}/pools/{name}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("databases/{id}/pools/{name}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -295,7 +295,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.UpdateFirewallRules("1", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}/firewall", parameters, body, Method.PUT);
+            factory.Received().ExecuteRaw("databases/{id}/firewall", parameters, body, Method.Put);
         }
 
         [Fact]
@@ -329,7 +329,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.ConfigureEvictionPolicy("1", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}/eviction_policy", parameters, body, Method.PUT);
+            factory.Received().ExecuteRaw("databases/{id}/eviction_policy", parameters, body, Method.Put);
         }
 
         [Fact]
@@ -352,7 +352,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.ConfigureSqlModes("1", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("databases/{id}/sql_mode", parameters, body, Method.PUT);
+            factory.Received().ExecuteRaw("databases/{id}/sql_mode", parameters, body, Method.Put);
         }
     }
 }

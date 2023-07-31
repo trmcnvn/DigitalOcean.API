@@ -26,7 +26,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.Vpc();
             client.Create(body);
 
-            factory.Received().ExecuteRequest<Vpc>("vpcs", null, body, "vpc", Method.POST);
+            factory.Received().ExecuteRequest<Vpc>("vpcs", null, body, "vpc", Method.Post);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("abcdefg");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "abcdefg");
-            factory.Received().ExecuteRaw("vpcs/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("vpcs/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Update("abcdefg", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "abcdefg");
-            factory.Received().ExecuteRequest<Vpc>("vpcs/{id}", parameters, body, "vpc", Method.PUT);
+            factory.Received().ExecuteRequest<Vpc>("vpcs/{id}", parameters, body, "vpc", Method.Put);
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.PartialUpdate("abcdefg", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "abcdefg");
-            factory.Received().ExecuteRequest<Vpc>("vpcs/{id}", parameters, body, "vpc", Method.PATCH);
+            factory.Received().ExecuteRequest<Vpc>("vpcs/{id}", parameters, body, "vpc", Method.Patch);
         }
 
         [Fact]

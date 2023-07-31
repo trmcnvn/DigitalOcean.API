@@ -8,9 +8,10 @@ namespace DigitalOcean.API {
         private readonly IConnection _connection;
 
         public DigitalOceanClient(string token) {
-            var client = new RestClient(DigitalOceanApiUrl) {
+            var restClientOptions = new RestClientOptions(DigitalOceanApiUrl) {
                 UserAgent = "digitalocean-api-dotnet"
             };
+            var client = new RestClient(restClientOptions);
             client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
 
             _connection = new Connection(client);

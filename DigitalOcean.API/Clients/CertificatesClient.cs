@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -24,7 +24,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Certificate> Get(string certificateId) {
             var parameters = new List<Parameter> {
-                new Parameter("certificate_id", certificateId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("certificate_id", certificateId)
             };
             return _connection.ExecuteRequest<Certificate>("certificates/{certificate_id}", parameters, null, "certificate");
         }
@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Clients {
         /// attributes should be provided. The type must be set to "custom".
         /// </summary>
         public Task<Certificate> Create(Models.Requests.Certificate certificate) {
-            return _connection.ExecuteRequest<Certificate>("certificates", null, certificate, "certificate", Method.POST);
+            return _connection.ExecuteRequest<Certificate>("certificates", null, certificate, "certificate", Method.Post);
         }
 
         /// <summary>
@@ -47,9 +47,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string certificateId) {
             var parameters = new List<Parameter> {
-                new Parameter("certificate_id", certificateId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("certificate_id", certificateId)
             };
-            return _connection.ExecuteRaw("certificates/{certificate_id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("certificates/{certificate_id}", parameters, null, Method.Delete);
         }
     }
 }

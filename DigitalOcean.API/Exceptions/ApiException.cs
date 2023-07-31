@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using DigitalOcean.API.Models.Responses;
@@ -25,14 +25,14 @@ namespace DigitalOcean.API.Exceptions {
         }
 
         private readonly Error _internalErrorResponse;
-        private Func<IRestResponse, Error> _p;
+        private Func<RestResponse, Error> _p;
 
         public ApiException(HttpStatusCode statusCode, Error errorResponse) {
             StatusCode = statusCode;
             _internalErrorResponse = errorResponse;
         }
 
-        public ApiException(HttpStatusCode statusCode, Func<IRestResponse, Error> p) {
+        public ApiException(HttpStatusCode statusCode, Func<RestResponse, Error> p) {
             StatusCode = statusCode;
             _p = p;
         }

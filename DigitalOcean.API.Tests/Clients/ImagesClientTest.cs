@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Requests;
@@ -58,7 +58,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.Image();
             client.Create(body);
 
-            factory.Received().ExecuteRequest<Image>("images", null, body, "image", Method.POST);
+            factory.Received().ExecuteRequest<Image>("images", null, body, "image", Method.Post);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
-            factory.Received().ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("images/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Update(9001, body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
-            factory.Received().ExecuteRequest<Image>("images/{id}", parameters, body, "image", Method.PUT);
+            factory.Received().ExecuteRequest<Image>("images/{id}", parameters, body, "image", Method.Put);
         }
     }
 }

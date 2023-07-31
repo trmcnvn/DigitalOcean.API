@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Snapshot> Get(string snapshotId) {
             var parameters = new List<Parameter> {
-                new Parameter("snapshot_id", snapshotId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("snapshot_id", snapshotId)
             };
             return _connection.ExecuteRequest<Snapshot>("snapshots/{snapshot_id}", parameters, null, "snapshot");
         }
@@ -49,9 +49,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string snapshotId) {
             var parameters = new List<Parameter> {
-                new Parameter("snapshot_id", snapshotId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("snapshot_id", snapshotId)
             };
-            return _connection.ExecuteRaw("snapshots/{snapshot_id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("snapshots/{snapshot_id}", parameters, null, Method.Delete);
         }
     }
 }

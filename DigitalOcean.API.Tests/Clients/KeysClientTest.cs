@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.Key { Name = "example" };
             client.Create(body);
 
-            factory.Received().ExecuteRequest<Key>("account/keys", null, body, "ssh_key", Method.POST);
+            factory.Received().ExecuteRequest<Key>("account/keys", null, body, "ssh_key", Method.Post);
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Update(9001L, body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
-            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.PUT);
+            factory.Received().ExecuteRequest<Key>("account/keys/{id}", parameters, body, "ssh_key", Method.Put);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete(9001L);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
-            factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -86,7 +86,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("fingerprint");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "fingerprint");
-            factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("account/keys/{id}", parameters, null, Method.Delete);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Requests;
@@ -43,7 +43,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("snapshot:abc123");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "snapshot:abc123");
-            factory.Received().ExecuteRaw("snapshots/{snapshot_id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("snapshots/{snapshot_id}", parameters, null, Method.Delete);
         }
 
     }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Requests;
@@ -18,7 +18,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<ImageAction>(action => action.Type == "transfer" && action.Region == "sfo1");
             factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
             var body = Arg.Is<ImageAction>(action => action.Type == "convert");
             factory.Received().ExecuteRequest<Models.Responses.Action>("images/{imageId}/actions",
-                parameters, body, "action", Method.POST);
+                parameters, body, "action", Method.Post);
         }
 
         [Fact]
