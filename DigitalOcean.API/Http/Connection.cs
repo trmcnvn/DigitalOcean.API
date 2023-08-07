@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Helpers;
 using DigitalOcean.API.Models.Responses;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using RestSharp;
 
 namespace DigitalOcean.API.Http {
@@ -50,11 +52,12 @@ namespace DigitalOcean.API.Http {
             string expectedRoot = null) where T : new() {
             var first = await ExecuteRaw(endpoint, parameters).ConfigureAwait(false);
 
+            var parsedJson = (JObject)JsonConvert.DeserializeObject(first.Content);
             // get page information
-            var page = JsonDeserializationHelper.DeserializeWithRootElementName<Pagination>(first.Content, "links");
+            var page = JsonDeserializationHelper.DeserializeWithRootElementName<Pagination>(parsedJson, "links");
 
             // get initial data;
-            var data = JsonDeserializationHelper.DeserializeWithRootElementName<List<T>>(first.Content, expectedRoot);
+            var data = JsonDeserializationHelper.DeserializeWithRootElementName<List<T>>(parsedJson, expectedRoot);
 
             // loop until we are finished
             var allItems = new List<T>(data);
@@ -62,9 +65,10 @@ namespace DigitalOcean.API.Http {
                 endpoint = page.Pages.Next.Replace(DigitalOceanClient.DigitalOceanApiUrl, "");
                 var iter = await ExecuteRaw(endpoint, null).ConfigureAwait(false);
 
-                allItems.AddRange(JsonDeserializationHelper.DeserializeWithRootElementName<List<T>>(iter.Content, expectedRoot));
+                parsedJson = (JObject)JsonConvert.DeserializeObject(iter.Content);
+                allItems.AddRange(JsonDeserializationHelper.DeserializeWithRootElementName<List<T>>(parsedJson, expectedRoot));
 
-                page = JsonDeserializationHelper.DeserializeWithRootElementName<Pagination>(iter.Content, "links");
+                page = JsonDeserializationHelper.DeserializeWithRootElementName<Pagination>(parsedJson, "links");
             }
             return new ReadOnlyCollection<T>(allItems);
         }

@@ -3,13 +3,11 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Exceptions;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
-// using RestSharp.Serialization.Json;
-using RestSharp.Extensions;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.Json;
 using DigitalOcean.API.Helpers;
-using System.Net;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace DigitalOcean.API.Extensions {
     public static class RestSharpExtensions {
@@ -36,7 +34,7 @@ namespace DigitalOcean.API.Extensions {
             }
 
             if (response.ResponseStatus != ResponseStatus.Completed) {
-                throw new WebException(response.ErrorException.Message);
+                response.ThrowIfError();
             }
 
             if ((int)response.StatusCode >= 400) {
@@ -52,7 +50,8 @@ namespace DigitalOcean.API.Extensions {
 
         public static T Deserialize<T>(this RestResponse response) {
             response.Request.OnBeforeDeserialization(response);
-            return JsonDeserializationHelper.DeserializeWithRootElementName<T>(response.Content, response.Request.RootElement);
+            var parsedJson = (JObject)JsonConvert.DeserializeObject(response.Content);
+            return JsonDeserializationHelper.DeserializeWithRootElementName<T>(parsedJson, response.Request.RootElement);
         }
     }
 }
