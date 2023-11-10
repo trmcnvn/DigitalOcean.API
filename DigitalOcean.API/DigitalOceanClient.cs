@@ -9,7 +9,8 @@ namespace DigitalOcean.API {
 
         public DigitalOceanClient(string token) {
             var restClientOptions = new RestClientOptions(DigitalOceanApiUrl) {
-                UserAgent = "digitalocean-api-dotnet"
+                UserAgent = "digitalocean-api-dotnet",
+                DisableCharset = true
             };
             var client = new RestClient(restClientOptions);
             client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
