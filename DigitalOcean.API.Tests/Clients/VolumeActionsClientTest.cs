@@ -20,7 +20,7 @@ namespace DigitalOcean.API.Tests.Clients {
                 action.Type == "attach" &&
                 action.DropletId == 0 &&
                 action.Region == "nyc3");
-            factory.Received().ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace DigitalOcean.API.Tests.Clients {
                 action.DropletId == 0 &&
                 action.VolumeName == "name" &&
                 action.Region == "nyc3");
-            factory.Received().ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.Post);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace DigitalOcean.API.Tests.Clients {
                 action.Type == "detach" &&
                 action.DropletId == 0 &&
                 action.Region == "nyc3");
-            factory.Received().ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace DigitalOcean.API.Tests.Clients {
                 action.DropletId == 0 &&
                 action.VolumeName == "name" &&
                 action.Region == "nyc3");
-            factory.Received().ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.Post);
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace DigitalOcean.API.Tests.Clients {
                 action.Type == "resize" &&
                 action.SizeGigabytes == 0 &&
                 action.Region == "nyc3");
-            factory.Received().ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.Post);
         }
 
         [Fact]

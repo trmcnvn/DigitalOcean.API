@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -25,7 +25,7 @@ namespace DigitalOcean.API.Clients {
         /// Create a new key entry
         /// </summary>
         public Task<Key> Create(Models.Requests.Key key) {
-            return _connection.ExecuteRequest<Key>("account/keys", null, key, "ssh_key", Method.POST);
+            return _connection.ExecuteRequest<Key>("account/keys", null, key, "ssh_key", Method.Post);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Key> Get(object keyIdOrFingerprint) {
             var parameters = new List<Parameter> {
-                new Parameter("id", keyIdOrFingerprint, ParameterType.UrlSegment)
+                new UrlSegmentParameter("id", keyIdOrFingerprint.ToString())
             };
             return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
@@ -43,9 +43,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Key> Update(object keyIdOrFingerprint, Models.Requests.UpdateKey updateKey) {
             var parameters = new List<Parameter> {
-                new Parameter("id", keyIdOrFingerprint, ParameterType.UrlSegment)
+                new UrlSegmentParameter("id", keyIdOrFingerprint.ToString())
             };
-            return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, updateKey, "ssh_key", Method.PUT);
+            return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, updateKey, "ssh_key", Method.Put);
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(object keyIdOrFingerprint) {
             var parameters = new List<Parameter> {
-                new Parameter("id", keyIdOrFingerprint, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id",keyIdOrFingerprint.ToString())
             };
-            return _connection.ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("account/keys/{id}", parameters, null, Method.Delete);
         }
 
         #endregion

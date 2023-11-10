@@ -19,14 +19,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Attach(string volumeId, long dropletId, string volumeRegion) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("id", volumeId)
             };
             var body = new Models.Requests.VolumeAction {
                 Type = "attach",
                 DropletId = dropletId,
                 Region = volumeRegion
             };
-            return _connection.ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.POST);
+            return _connection.ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.Post);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Clients {
                 VolumeName = volumeName,
                 Region = volumeRegion
             };
-            return _connection.ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.POST);
+            return _connection.ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.Post);
         }
 
         /// <summary>
@@ -47,14 +47,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Detach(string volumeId, long dropletId, string volumeRegion) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("id", volumeId)
             };
             var body = new Models.Requests.VolumeAction {
                 Type = "detach",
                 DropletId = dropletId,
                 Region = volumeRegion
             };
-            return _connection.ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.POST);
+            return _connection.ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.Post);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace DigitalOcean.API.Clients {
                 VolumeName = volumeName,
                 Region = volumeRegion
             };
-            return _connection.ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.POST);
+            return _connection.ExecuteRequest<Action>("volumes/actions", null, body, "action", Method.Post);
         }
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> GetAction(string volumeId, long actionId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment),
-                new Parameter("actionId", actionId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId),
+                new UrlSegmentParameter("actionId", actionId.ToString())
             };
             return _connection.ExecuteRequest<Action>("volumes/{id}/actions/{actionId}", parameters, null, "action");
         }
@@ -86,7 +86,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> GetActions(string volumeId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId)
             };
             return _connection.GetPaginated<Action>("volumes/{id}/actions", parameters, "action");
         }
@@ -96,14 +96,14 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Resize(string volumeId, int sizeGigabytes, string volumeRegion) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId)
             };
             var body = new Models.Requests.VolumeAction {
                 Type = "resize",
                 SizeGigabytes = sizeGigabytes,
                 Region = volumeRegion
             };
-            return _connection.ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.POST);
+            return _connection.ExecuteRequest<Action>("volumes/{id}/actions", parameters, body, "action", Method.Post);
         }
 
         #endregion

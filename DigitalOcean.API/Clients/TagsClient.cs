@@ -26,7 +26,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Tag> Get(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter("name", tagName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", tagName)
             };
             return _connection.ExecuteRequest<Tag>("tags/{name}", parameters, null, "tag");
         }
@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Clients {
                 Name = tagName
             };
 
-            return _connection.ExecuteRequest<Tag>("tags", null, data, "tag", Method.POST);
+            return _connection.ExecuteRequest<Tag>("tags", null, data, "tag", Method.Post);
         }
 
         /// <summary>
@@ -47,10 +47,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Tag(string tagName, Models.Requests.TagResources resources) {
             var parameters = new List<Parameter> {
-                new Parameter("name", tagName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", tagName)
             };
 
-            return _connection.ExecuteRaw("tags/{name}/resources", parameters, resources, Method.POST);
+            return _connection.ExecuteRaw("tags/{name}/resources", parameters, resources, Method.Post);
         }
 
         /// <summary>
@@ -58,10 +58,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Untag(string tagName, Models.Requests.TagResources resources) {
             var parameters = new List<Parameter> {
-                new Parameter("name", tagName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", tagName)
             };
 
-            return _connection.ExecuteRaw("tags/{name}/resources", parameters, resources, Method.DELETE);
+            return _connection.ExecuteRaw("tags/{name}/resources", parameters, resources, Method.Delete);
         }
 
         /// <summary>
@@ -69,9 +69,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter("name", tagName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", tagName)
             };
-            return _connection.ExecuteRaw("tags/{name}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("tags/{name}", parameters, null, Method.Delete);
         }
 
         #endregion

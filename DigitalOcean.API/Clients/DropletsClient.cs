@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Http;
@@ -27,7 +27,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Droplet>> GetAllByTag(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter("tag_name", tagName, ParameterType.QueryString)
+                new QueryParameter("tag_name", tagName)
             };
 
             return _connection.GetPaginated<Droplet>("droplets", parameters, "droplets");
@@ -38,7 +38,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Droplet>> GetAllNeighbors(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
 
             return _connection.GetPaginated<Droplet>("droplets/{id}/neighbors", parameters, "droplets");
@@ -49,7 +49,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Kernel>> GetKernels(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
             return _connection.GetPaginated<Kernel>("droplets/{id}/kernels", parameters, "kernels");
         }
@@ -59,7 +59,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetSnapshots(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
             return _connection.GetPaginated<Image>("droplets/{id}/snapshots", parameters, "snapshots");
         }
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Image>> GetBackups(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
             return _connection.GetPaginated<Image>("droplets/{id}/backups", parameters, "backups");
         }
@@ -79,7 +79,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Action>> GetActions(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
             return _connection.GetPaginated<Action>("droplets/{id}/actions", parameters, "actions");
         }
@@ -88,7 +88,7 @@ namespace DigitalOcean.API.Clients {
         /// Create a new Droplet
         /// </summary>
         public Task<Droplet> Create(Models.Requests.Droplet droplet) {
-            return _connection.ExecuteRequest<Droplet>("droplets", null, droplet, "droplet", Method.POST);
+            return _connection.ExecuteRequest<Droplet>("droplets", null, droplet, "droplet", Method.Post);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace DigitalOcean.API.Clients {
         /// Up to ten Droplets may be created at a time.
         /// </summary>
         public Task<IReadOnlyList<Droplet>> Create(Models.Requests.Droplets droplets) {
-            return _connection.ExecuteRequest<List<Droplet>>("droplets", null, droplets, "droplets", Method.POST)
+            return _connection.ExecuteRequest<List<Droplet>>("droplets", null, droplets, "droplets", Method.Post)
                 .ToReadOnlyListAsync();
         }
 
@@ -106,7 +106,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Droplet> Get(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
             return _connection.ExecuteRequest<Droplet>("droplets/{id}", parameters, null, "droplet");
         }
@@ -116,9 +116,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(long dropletId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", dropletId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", dropletId.ToString())
             };
-            return _connection.ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("droplets/{id}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -126,9 +126,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteByTag(string tagName) {
             var parameters = new List<Parameter> {
-                new Parameter("tag_name", tagName, ParameterType.QueryString)
+                new QueryParameter("tag_name", tagName)
             };
-            return _connection.ExecuteRaw("droplets", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("droplets", parameters, null, Method.Delete);
         }
 
         /// <summary>

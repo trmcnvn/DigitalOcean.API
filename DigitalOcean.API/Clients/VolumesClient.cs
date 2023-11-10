@@ -18,7 +18,7 @@ namespace DigitalOcean.API.Clients {
         /// Create a new Block Storage volume
         /// </summary>
         public Task<Volume> Create(Models.Requests.Volume volume) {
-            return _connection.ExecuteRequest<Volume>("volumes", null, volume, "volume", Method.POST);
+            return _connection.ExecuteRequest<Volume>("volumes", null, volume, "volume", Method.Post);
         }
 
         /// <summary>
@@ -26,9 +26,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Snapshot> CreateSnapshot(string volumeId, Models.Requests.VolumeSnapshot snapshot) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId)
             };
-            return _connection.ExecuteRequest<Snapshot>("volumes/{id}/snapshots", parameters, snapshot, "snapshot", Method.POST);
+            return _connection.ExecuteRequest<Snapshot>("volumes/{id}/snapshots", parameters, snapshot, "snapshot", Method.Post);
         }
 
         /// <summary>
@@ -36,9 +36,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string volumeId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId)
             };
-            return _connection.ExecuteRaw("volumes/{id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("volumes/{id}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -46,10 +46,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteByName(string name, string region) {
             var parameters = new List<Parameter> {
-                new Parameter("name", name, ParameterType.QueryString),
-                new Parameter("region", region, ParameterType.QueryString)
+                new QueryParameter("name", name),
+                new QueryParameter("region", region)
             };
-            return _connection.ExecuteRaw("volumes", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("volumes", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Volume> Get(string volumeId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId)
             };
             return _connection.ExecuteRequest<Volume>("volumes/{id}", parameters, null, "volume");
         }
@@ -74,8 +74,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Volume>> GetByName(string name, string region) {
             var parameters = new List<Parameter> {
-                new Parameter("name", name, ParameterType.QueryString),
-                new Parameter("region", region, ParameterType.QueryString)
+                new QueryParameter("name", name),
+                new QueryParameter("region", region)
             };
             return _connection.GetPaginated<Volume>("volumes", parameters, "volumes");
         }
@@ -85,7 +85,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<Snapshot>> GetSnapshots(string volumeId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", volumeId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", volumeId)
             };
             return _connection.GetPaginated<Snapshot>("volumes/{id}/snapshots", parameters, "snapshots");
         }

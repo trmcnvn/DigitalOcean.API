@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -24,7 +24,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<CdnEndpoint> Get(string endpointId) {
             var parameters = new List<Parameter> {
-                new Parameter("endpoint_id", endpointId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("endpoint_id", endpointId)
             };
             return _connection.ExecuteRequest<CdnEndpoint>("cdn/endpoints/{endpoint_id}", parameters, null, "endpoint");
         }
@@ -34,7 +34,7 @@ namespace DigitalOcean.API.Clients {
         /// The Origin attribute must be set to the fully qualified domain name (FQDN) of a DigitalOcean Space.
         /// </summary>
         public Task<CdnEndpoint> Create(Models.Requests.CdnEndpoint endpoint) {
-            return _connection.ExecuteRequest<CdnEndpoint>("cdn/endpoints", null, endpoint, "endpoint", Method.POST);
+            return _connection.ExecuteRequest<CdnEndpoint>("cdn/endpoints", null, endpoint, "endpoint", Method.Post);
         }
 
         /// <summary>
@@ -42,9 +42,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<CdnEndpoint> Update(string endpointId, Models.Requests.UpdateCdnEndpoint updateEndpoint) {
             var parameters = new List<Parameter> {
-                new Parameter("endpoint_id", endpointId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("endpoint_id", endpointId)
             };
-            return _connection.ExecuteRequest<CdnEndpoint>("cdn/endpoints/{endpoint_id}", parameters, updateEndpoint, "endpoint", Method.PUT);
+            return _connection.ExecuteRequest<CdnEndpoint>("cdn/endpoints/{endpoint_id}", parameters, updateEndpoint, "endpoint", Method.Put);
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string endpointId) {
             var parameters = new List<Parameter> {
-                new Parameter("endpoint_id", endpointId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("endpoint_id", endpointId)
             };
-            return _connection.ExecuteRaw("cdn/endpoints/{endpoint_id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("cdn/endpoints/{endpoint_id}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -64,9 +64,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task PurgeCache(string endpointId, Models.Requests.PurgeCdnFiles purgeFiles) {
             var parameters = new List<Parameter> {
-                new Parameter("endpoint_id", endpointId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("endpoint_id", endpointId)
             };
-            return _connection.ExecuteRaw("cdn/endpoints/{endpoint_id}/cache", parameters, purgeFiles, Method.DELETE);
+            return _connection.ExecuteRaw("cdn/endpoints/{endpoint_id}/cache", parameters, purgeFiles, Method.Delete);
         }
     }
 }

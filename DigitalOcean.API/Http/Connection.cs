@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using DigitalOcean.API.Extensions;
 using DigitalOcean.API.Helpers;
 using DigitalOcean.API.Models.Responses;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using RestSharp;
-using RestSharp.Serialization.Json;
 
 namespace DigitalOcean.API.Http {
     public class Connection : IConnection {
@@ -19,14 +20,13 @@ namespace DigitalOcean.API.Http {
         public IRestClient Client { get; private set; }
         public IRateLimit Rates { get; private set; }
 
-        public async Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters,
-            object data = null, Method method = Method.GET) {
+        public async Task<RestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters,
+            object data = null, Method method = Method.Get) {
             var request = BuildRequest(endpoint, parameters);
             request.Method = method;
 
-            if (data != null && method != Method.GET) {
+            if (data != null && method != Method.Get) {
                 request.RequestFormat = DataFormat.Json;
-                request.JsonSerializer = new JsonNetSerializer();
                 request.AddBody(data);
             }
 
@@ -34,15 +34,14 @@ namespace DigitalOcean.API.Http {
         }
 
         public async Task<T> ExecuteRequest<T>(string endpoint, IList<Parameter> parameters,
-            object data = null, string expectedRoot = null, Method method = Method.GET)
+            object data = null, string expectedRoot = null, Method method = Method.Get)
             where T : new() {
             var request = BuildRequest(endpoint, parameters);
             request.RootElement = expectedRoot;
             request.Method = method;
 
-            if (data != null && method != Method.GET) {
+            if (data != null && method != Method.Get) {
                 request.RequestFormat = DataFormat.Json;
-                request.JsonSerializer = new JsonNetSerializer();
                 request.AddBody(data);
             }
 
@@ -53,16 +52,12 @@ namespace DigitalOcean.API.Http {
             string expectedRoot = null) where T : new() {
             var first = await ExecuteRaw(endpoint, parameters).ConfigureAwait(false);
 
+            var parsedJson = (JObject)JsonConvert.DeserializeObject(first.Content);
             // get page information
-            var deserialize = new JsonDeserializer {
-                RootElement = "links",
-                DateFormat = first.Request.DateFormat
-            };
-            var page = deserialize.Deserialize<Pagination>(first);
+            var page = JsonDeserializationHelper.DeserializeWithRootElementName<Pagination>(parsedJson, "links");
 
-            // get initial data
-            deserialize.RootElement = expectedRoot;
-            var data = deserialize.Deserialize<List<T>>(first);
+            // get initial data;
+            var data = JsonDeserializationHelper.DeserializeWithRootElementName<List<T>>(parsedJson, expectedRoot);
 
             // loop until we are finished
             var allItems = new List<T>(data);
@@ -70,18 +65,17 @@ namespace DigitalOcean.API.Http {
                 endpoint = page.Pages.Next.Replace(DigitalOceanClient.DigitalOceanApiUrl, "");
                 var iter = await ExecuteRaw(endpoint, null).ConfigureAwait(false);
 
-                deserialize.RootElement = expectedRoot;
-                allItems.AddRange(deserialize.Deserialize<List<T>>(iter));
+                parsedJson = (JObject)JsonConvert.DeserializeObject(iter.Content);
+                allItems.AddRange(JsonDeserializationHelper.DeserializeWithRootElementName<List<T>>(parsedJson, expectedRoot));
 
-                deserialize.RootElement = "links";
-                page = deserialize.Deserialize<Pagination>(iter);
+                page = JsonDeserializationHelper.DeserializeWithRootElementName<Pagination>(parsedJson, "links");
             }
             return new ReadOnlyCollection<T>(allItems);
         }
 
         #endregion
 
-        private IRestRequest BuildRequest(string endpoint, IEnumerable<Parameter> parameters) {
+        private RestRequest BuildRequest(string endpoint, IEnumerable<Parameter> parameters) {
             var request = new RestRequest(endpoint) {
                 OnBeforeDeserialization = r => { Rates = new RateLimit(r.Headers); }
             };

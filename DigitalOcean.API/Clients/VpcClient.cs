@@ -24,7 +24,7 @@ namespace DigitalOcean.API.Clients {
         /// To create a VPC.
         /// </summary>
         public Task<Vpc> Create(Models.Requests.Vpc vpc) {
-            return _connection.ExecuteRequest<Vpc>("vpcs", null, vpc, "vpc", Method.POST);
+            return _connection.ExecuteRequest<Vpc>("vpcs", null, vpc, "vpc", Method.Post);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Vpc> Get(string vpcId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", vpcId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("id", vpcId)
             };
             return _connection.ExecuteRequest<Vpc>("vpcs/{id}", parameters, null, "vpc");
         }
@@ -45,9 +45,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string vpcId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", vpcId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", vpcId)
             };
-            return _connection.ExecuteRaw("vpcs/{id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("vpcs/{id}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -57,9 +57,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Vpc> Update(string vpcId, Models.Requests.UpdateVpc updateVpc) {
             var parameters = new List<Parameter> {
-                new Parameter("id", vpcId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", vpcId)
             };
-            return _connection.ExecuteRequest<Vpc>("vpcs/{id}", parameters, updateVpc, "vpc", Method.PUT);
+            return _connection.ExecuteRequest<Vpc>("vpcs/{id}", parameters, updateVpc, "vpc", Method.Put);
         }
 
         /// <summary>
@@ -68,9 +68,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Vpc> PartialUpdate(string vpcId, Models.Requests.UpdateVpc updateVpc) {
             var parameters = new List<Parameter> {
-                new Parameter("id", vpcId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", vpcId)
             };
-            return _connection.ExecuteRequest<Vpc>("vpcs/{id}", parameters, updateVpc, "vpc", Method.PATCH);
+            return _connection.ExecuteRequest<Vpc>("vpcs/{id}", parameters, updateVpc, "vpc", Method.Patch);
         }
 
         /// <summary>
@@ -79,10 +79,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<VpcMember>> ListMembers(string vpcId, string resourceType = null) {
             var parameters = new List<Parameter> {
-                new Parameter("id", vpcId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("id", vpcId)
             };
             if (!String.IsNullOrEmpty(resourceType)) {
-                parameters.Add(new Parameter("resource_type", resourceType, ParameterType.QueryString));
+                parameters.Add(new QueryParameter("resource_type", resourceType));
             }
             return _connection.GetPaginated<VpcMember>("vpcs/{id}/members", parameters, "members");
         }

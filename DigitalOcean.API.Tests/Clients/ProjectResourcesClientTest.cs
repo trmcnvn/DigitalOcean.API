@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Requests;
@@ -39,7 +39,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.AssignResources("project:abc123", body);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "project:abc123");
-            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, body, "resources", Method.POST);
+            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/{project_id}/resources", parameters, body, "resources", Method.Post);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new AssignResourceNames();
             client.AssignDefaultResources(body);
 
-            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, body, "resources", Method.POST);
+            factory.Received().ExecuteRequest<List<ProjectResource>>("projects/default/resources", null, body, "resources", Method.Post);
         }
     }
 }

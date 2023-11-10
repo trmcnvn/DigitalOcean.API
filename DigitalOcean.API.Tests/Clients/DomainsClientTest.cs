@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -25,7 +25,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var data = new Models.Requests.Domain { Name = "CNAME" };
             domainClient.Create(data);
 
-            factory.Received().ExecuteRequest<Domain>("domains", null, data, "domain", Method.POST);
+            factory.Received().ExecuteRequest<Domain>("domains", null, data, "domain", Method.Post);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace DigitalOcean.API.Tests.Clients {
             domainClient.Delete("vevix.net");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "vevix.net");
-            factory.Received().ExecuteRaw("domains/{name}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("domains/{name}", parameters, null, Method.Delete);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DigitalOcean.API.Clients {
         /// Configure your container registry.
         /// </summary>
         public Task<Models.Responses.ContainerRegistryConfigure> Configure(Models.Requests.ContainerRegistryConfigure containerRegistryConfigure) {
-            return _connection.ExecuteRequest<Models.Responses.ContainerRegistryConfigure>("registry", null, containerRegistryConfigure, null, Method.POST);
+            return _connection.ExecuteRequest<Models.Responses.ContainerRegistryConfigure>("registry", null, containerRegistryConfigure, null, Method.Post);
         }
 
         /// <summary>
@@ -49,21 +49,21 @@ namespace DigitalOcean.API.Clients {
         /// Updates your subscription tier.
         /// </summary>
         public Task<SubscriptionTierUpdate> UpdateSubscriptionTier(UpdateSubscriptionTier updateSubscriptionTier) {
-            return _connection.ExecuteRequest<SubscriptionTierUpdate>("registry/subscription", null, updateSubscriptionTier, "subscription", Method.POST);
+            return _connection.ExecuteRequest<SubscriptionTierUpdate>("registry/subscription", null, updateSubscriptionTier, "subscription", Method.Post);
         }
 
         /// <summary>
         /// Deletes your container registry.
         /// </summary>
         public Task Delete() {
-            return _connection.ExecuteRaw("registry", null, null, Method.DELETE);
+            return _connection.ExecuteRaw("registry", null, null, Method.Delete);
         }
 
         /// <summary>
         /// Validates a container registry name.
         /// </summary>
         public Task ValidateName(ContainerRegistryValidateName containerRegistryValidateName) {
-            return _connection.ExecuteRaw("registry/validate-name", null, containerRegistryValidateName, Method.POST);
+            return _connection.ExecuteRaw("registry/validate-name", null, containerRegistryValidateName, Method.Post);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ContainerRegistryRepository>> GetAllRepositories(string registryName) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment)
+                new UrlSegmentParameter (nameof(registryName), registryName)
             };
 
             return _connection.GetPaginated<ContainerRegistryRepository>($"registry/{{{nameof(registryName)}}}/repositories", parameters, "repositories");
@@ -82,8 +82,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<ContainerRegistryTag>> GetAllRepositoryTags(string registryName, string repositoryName) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
-                new Parameter(nameof(repositoryName), repositoryName, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
+                new UrlSegmentParameter (nameof(repositoryName), repositoryName),
             };
 
             return _connection.GetPaginated<ContainerRegistryTag>($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/tags", parameters, "tags");
@@ -94,12 +94,12 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteRepositoryTag(string registryName, string repositoryName, string tag) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
-                new Parameter(nameof(repositoryName), repositoryName, ParameterType.UrlSegment),
-                new Parameter(nameof(tag), tag, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
+                new UrlSegmentParameter (nameof(repositoryName), repositoryName),
+                new UrlSegmentParameter (nameof(tag), tag),
             };
 
-            return _connection.ExecuteRaw($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/tags/{{{nameof(tag)}}}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/tags/{{{nameof(tag)}}}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -107,11 +107,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task DeleteRepositoryManifest(string registryName, string repositoryName, string manifestDigest) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
-                new Parameter(nameof(repositoryName), repositoryName, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
+                new UrlSegmentParameter (nameof(repositoryName), repositoryName),
             };
 
-            return _connection.ExecuteRaw($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/digests/{manifestDigest}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw($"registry/{{{nameof(registryName)}}}/repositories/{{{nameof(repositoryName)}}}/digests/{manifestDigest}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -119,10 +119,10 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<GarbageCollection> StartGarbageCollection(string registryName) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
             };
 
-            return _connection.ExecuteRequest<GarbageCollection>($"registry/{{{nameof(registryName)}}}/garbage-collection", parameters, null, "garbage_collections", Method.POST);
+            return _connection.ExecuteRequest<GarbageCollection>($"registry/{{{nameof(registryName)}}}/garbage-collection", parameters, null, "garbage_collections", Method.Post);
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<GarbageCollection> GetActiveGarbageCollection(string registryName) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
             };
 
             return _connection.ExecuteRequest<GarbageCollection>($"registry/{{{nameof(registryName)}}}/garbage-collection", parameters, null, "garbage_collections");
@@ -141,7 +141,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<IReadOnlyList<GarbageCollection>> GetAllGarbageCollections(string registryName) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
             };
 
             return _connection.GetPaginated<GarbageCollection>($"registry/{{{nameof(registryName)}}}/garbage-collections", parameters, "garbage_collections");
@@ -152,11 +152,11 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<GarbageCollection> UpdateGarbageCollection(string registryName, string uuid, UpdateGarbageCollection updateGarbageCollection) {
             var parameters = new List<Parameter> {
-                new Parameter(nameof(registryName), registryName, ParameterType.UrlSegment),
-                new Parameter(nameof(uuid), uuid, ParameterType.UrlSegment),
+                new UrlSegmentParameter (nameof(registryName), registryName),
+                new UrlSegmentParameter (nameof(uuid), uuid),
             };
 
-            return _connection.ExecuteRequest<GarbageCollection>($"registry/{{{nameof(registryName)}}}/garbage-collection/{{{nameof(uuid)}}}", parameters, updateGarbageCollection, "garbage_collections", Method.PUT);
+            return _connection.ExecuteRequest<GarbageCollection>($"registry/{{{nameof(registryName)}}}/garbage-collection/{{{nameof(uuid)}}}", parameters, updateGarbageCollection, "garbage_collections", Method.Put);
         }
 
         /// <summary>

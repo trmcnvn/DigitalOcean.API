@@ -16,7 +16,7 @@ namespace DigitalOcean.API.Clients {
         /// A Floating IP must be either assigned to a Droplet or reserved to a region
         /// </summary>
         public Task<FloatingIp> Create(Models.Requests.FloatingIp floatingIp) {
-            return _connection.ExecuteRequest<FloatingIp>("floating_ips", null, floatingIp, "floating_ip", Method.POST);
+            return _connection.ExecuteRequest<FloatingIp>("floating_ips", null, floatingIp, "floating_ip", Method.Post);
         }
 
         /// <summary>
@@ -24,9 +24,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string ipAddress) {
             var parameters = new List<Parameter> {
-                new Parameter("ip", ipAddress, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("ip", ipAddress)
             };
-            return _connection.ExecuteRaw("floating_ips/{ip}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("floating_ips/{ip}", parameters, null, Method.Delete);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<FloatingIp> Get(string ipAddress) {
             var parameters = new List<Parameter> {
-                new Parameter("ip", ipAddress, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("ip", ipAddress)
             };
             return _connection.ExecuteRequest<FloatingIp>("floating_ips/{ip}", parameters, null, "floating_ip");
         }

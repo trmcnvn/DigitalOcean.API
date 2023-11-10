@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1.2.3.4");
             var body = Arg.Is<Models.Requests.FloatingIpAction>(action =>
                 action.Type == "assign" && action.DropletId == 0);
-            factory.Received().ExecuteRequest<Action>("floating_ips/{ip}/actions", parameters, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("floating_ips/{ip}/actions", parameters, body, "action", Method.Post);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Unassign("1.2.3.4");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1.2.3.4");
             var body = Arg.Is<Models.Requests.FloatingIpAction>(action => action.Type == "unassign");
-            factory.Received().ExecuteRequest<Action>("floating_ips/{ip}/actions", parameters, body, "action", Method.POST);
+            factory.Received().ExecuteRequest<Action>("floating_ips/{ip}/actions", parameters, body, "action", Method.Post);
         }
 
         [Fact]

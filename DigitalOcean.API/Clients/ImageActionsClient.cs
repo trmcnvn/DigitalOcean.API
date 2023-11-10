@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -19,7 +19,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Transfer(long imageId, string regionSlug) {
             var parameters = new List<Parameter> {
-                new Parameter("imageId", imageId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter("imageId", imageId.ToString())
             };
 
             var body = new Models.Requests.ImageAction {
@@ -28,7 +28,7 @@ namespace DigitalOcean.API.Clients {
             };
 
             return _connection.ExecuteRequest<Action>("images/{imageId}/actions", parameters, body, "action",
-                Method.POST);
+                Method.Post);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Convert(long imageId) {
             var parameters = new List<Parameter> {
-                new Parameter("imageId", imageId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("imageId", imageId.ToString())
             };
 
             var body = new Models.Requests.ImageAction {
@@ -44,7 +44,7 @@ namespace DigitalOcean.API.Clients {
             };
 
             return _connection.ExecuteRequest<Action>("images/{imageId}/actions", parameters, body, "action",
-                Method.POST);
+                Method.Post);
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> GetAction(long imageId, long actionId) {
             var parameters = new List<Parameter> {
-                new Parameter("imageId", imageId.ToString(), ParameterType.UrlSegment),
-                new Parameter("actionId", actionId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter ("imageId", imageId.ToString()),
+                new UrlSegmentParameter ("actionId", actionId.ToString())
             };
             return _connection.ExecuteRequest<Action>("images/{imageId}/actions/{actionId}", parameters, null, "action");
         }

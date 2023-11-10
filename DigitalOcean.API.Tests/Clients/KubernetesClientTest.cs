@@ -14,7 +14,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new KubernetesClient(factory);
             var cluster = new Models.Requests.KubernetesCluster();
             client.Create(cluster);
-            factory.Received().ExecuteRequest<KubernetesCluster>("kubernetes/clusters", null, cluster, "kubernetes_cluster", Method.POST);
+            factory.Received().ExecuteRequest<KubernetesCluster>("kubernetes/clusters", null, cluster, "kubernetes_cluster", Method.Post);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var update = new Models.Requests.UpdateKubernetesCluster();
             client.Update("1", update);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<KubernetesCluster>("kubernetes/clusters/{id}", parameters, update, "kubernetes_cluster", Method.PUT);
+            factory.Received().ExecuteRequest<KubernetesCluster>("kubernetes/clusters/{id}", parameters, update, "kubernetes_cluster", Method.Put);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var upgrade = new Models.Requests.KubernetesUpgrade();
             client.Upgrade("1", upgrade);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/upgrade", parameters, upgrade, Method.POST);
+            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/upgrade", parameters, upgrade, Method.Post);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new KubernetesClient(factory);
             client.Delete("1");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("kubernetes/clusters/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("kubernetes/clusters/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new KubernetesClient(factory);
             client.GetKubeConfig("1");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/kubeconfig", parameters, null, Method.GET);
+            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/kubeconfig", parameters, null, Method.Get);
         }
 
         [Fact]
@@ -106,7 +106,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var pool = new Models.Requests.KubernetesNodePool();
             client.AddNodePool("1", pool);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1");
-            factory.Received().ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools", parameters, pool, "node_pool", Method.POST);
+            factory.Received().ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools", parameters, pool, "node_pool", Method.Post);
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var pool = new Models.Requests.UpdateKubernetesNodePool();
             client.UpdateNodePool("1", "2", pool);
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "2");
-            factory.Received().ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, pool, "node_pool", Method.PUT);
+            factory.Received().ExecuteRequest<KubernetesNodePool>("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, pool, "node_pool", Method.Put);
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var client = new KubernetesClient(factory);
             client.DeleteNodePool("1", "2");
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "1" && (string)list[1].Value == "2");
-            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("kubernetes/clusters/{id}/node_pools/{poolId}", parameters, null, Method.Delete);
         }
 
         [Fact]

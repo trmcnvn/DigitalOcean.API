@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
 
 namespace DigitalOcean.API.Http {
     public class RateLimit : IRateLimit {
-        public RateLimit(IList<Parameter> headers) {
+        public RateLimit(IReadOnlyCollection<HeaderParameter> headers) {
             Limit = GetHeaderValue(headers, "Ratelimit-Limit");
             Remaining = GetHeaderValue(headers, "Ratelimit-Remaining");
             Reset = GetHeaderValue(headers, "Ratelimit-Reset");
@@ -29,7 +29,7 @@ namespace DigitalOcean.API.Http {
 
         #endregion
 
-        private static int GetHeaderValue(IEnumerable<Parameter> headers, string name) {
+        private static int GetHeaderValue(IEnumerable<HeaderParameter> headers, string name) {
             var header = headers.FirstOrDefault(x => x.Name == name);
             int value;
             return header != null && int.TryParse(header.Value.ToString(), out value) ? value : 0;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
@@ -26,7 +26,7 @@ namespace DigitalOcean.API.Clients {
         /// Create a new domain
         /// </summary>
         public Task<Domain> Create(Models.Requests.Domain domain) {
-            return _connection.ExecuteRequest<Domain>("domains", null, domain, "domain", Method.POST);
+            return _connection.ExecuteRequest<Domain>("domains", null, domain, "domain", Method.Post);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Domain> Get(string domainName) {
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment)
+                new UrlSegmentParameter("name", domainName)
             };
             return _connection.ExecuteRequest<Domain>("domains/{name}", parameters, null, "domain");
         }
@@ -44,9 +44,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task Delete(string domainName) {
             var parameters = new List<Parameter> {
-                new Parameter("name", domainName, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("name", domainName)
             };
-            return _connection.ExecuteRaw("domains/{name}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("domains/{name}", parameters, null, Method.Delete);
         }
 
         #endregion

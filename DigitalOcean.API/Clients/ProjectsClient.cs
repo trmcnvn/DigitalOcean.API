@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -23,7 +23,7 @@ namespace DigitalOcean.API.Clients {
         /// To create a project.
         /// </summary>
         public Task<Project> Create(Models.Requests.Project project) {
-            return _connection.ExecuteRequest<Project>("projects", null, project, "project", Method.POST);
+            return _connection.ExecuteRequest<Project>("projects", null, project, "project", Method.Post);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Project> Get(string projectId) {
             var parameters = new List<Parameter> {
-                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("project_id", projectId)
             };
             return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, null, "project");
         }
@@ -48,9 +48,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Project> Update(string projectId, Models.Requests.UpdateProject updateProject) {
             var parameters = new List<Parameter> {
-                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("project_id", projectId)
             };
-            return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, updateProject, "project", Method.PUT);
+            return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, updateProject, "project", Method.Put);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace DigitalOcean.API.Clients {
         public Task<Project> UpdateDefault(Models.Requests.UpdateProject updateProject) {
             // implied to always be true
             updateProject.IsDefault = true;
-            return _connection.ExecuteRequest<Project>("projects/default", null, updateProject, "project", Method.PUT);
+            return _connection.ExecuteRequest<Project>("projects/default", null, updateProject, "project", Method.Put);
         }
 
         /// <summary>
@@ -67,9 +67,9 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Project> Patch(string projectId, Models.Requests.PatchProject patchProject) {
             var parameters = new List<Parameter> {
-                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("project_id", projectId)
             };
-            return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, patchProject, "project", Method.PATCH);
+            return _connection.ExecuteRequest<Project>("projects/{project_id}", parameters, patchProject, "project", Method.Patch);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace DigitalOcean.API.Clients {
         public Task<Project> PatchDefault(Models.Requests.PatchProject patchProject) {
             // implied to always be true
             patchProject.IsDefault = true;
-            return _connection.ExecuteRequest<Project>("projects/default", null, patchProject, "project", Method.PATCH);
+            return _connection.ExecuteRequest<Project>("projects/default", null, patchProject, "project", Method.Patch);
         }
 
         /// <summary>
@@ -87,9 +87,9 @@ namespace DigitalOcean.API.Clients {
         public Task Delete(string projectId)
         {
             var parameters = new List<Parameter> {
-                new Parameter("project_id", projectId, ParameterType.UrlSegment)
+                new UrlSegmentParameter ("project_id", projectId)
             };
-            return _connection.ExecuteRaw("projects/{project_id}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("projects/{project_id}", parameters, null, Method.Delete);
         }
     }
 }

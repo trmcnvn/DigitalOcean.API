@@ -24,7 +24,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var data = new Models.Requests.Volume();
             volumesClient.Create(data);
-            factory.Received().ExecuteRequest<Volume>("volumes", null, data, "volume", Method.POST);
+            factory.Received().ExecuteRequest<Volume>("volumes", null, data, "volume", Method.Post);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace DigitalOcean.API.Tests.Clients {
             volumesClient.CreateSnapshot("id", snapshot);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "id");
-            factory.Received().ExecuteRequest<Snapshot>("volumes/{id}/snapshots", parameters, snapshot, "snapshot", Method.POST);
+            factory.Received().ExecuteRequest<Snapshot>("volumes/{id}/snapshots", parameters, snapshot, "snapshot", Method.Post);
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace DigitalOcean.API.Tests.Clients {
             volumesClient.Delete("id");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "id");
-            factory.Received().ExecuteRaw("volumes/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("volumes/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace DigitalOcean.API.Tests.Clients {
             volumesClient.DeleteByName("name", "region");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "name" && (string)list[1].Value == "region");
-            factory.Received().ExecuteRaw("volumes", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("volumes", parameters, null, Method.Delete);
         }
     }
 }

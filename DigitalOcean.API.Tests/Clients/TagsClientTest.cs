@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
@@ -37,7 +37,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             client.Create("notarealtag");
 
-            factory.Received().ExecuteRequest<Tag>("tags", null, Arg.Is<Models.Requests.Tag>(data => data.Name == "notarealtag"), "tag", Method.POST);
+            factory.Received().ExecuteRequest<Tag>("tags", null, Arg.Is<Models.Requests.Tag>(data => data.Name == "notarealtag"), "tag", Method.Post);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete("notarealtag");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("tags/{name}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("tags/{name}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
             var body = Arg.Is<Models.Requests.TagResources>(tr => tr.Resources.SequenceEqual(resources.Resources));
-            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, body, Method.POST);
+            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, body, Method.Post);
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace DigitalOcean.API.Tests.Clients {
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == "notarealtag");
             var body = Arg.Is<Models.Requests.TagResources>(tr => tr.Resources.SequenceEqual(resources.Resources));
-            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, body, Method.DELETE);
+            factory.Received().ExecuteRaw("tags/{name}/resources", parameters, body, Method.Delete);
         }
     }
 }

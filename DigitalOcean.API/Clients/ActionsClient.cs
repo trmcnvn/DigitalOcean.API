@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -26,7 +26,7 @@ namespace DigitalOcean.API.Clients {
         /// </summary>
         public Task<Action> Get(long actionId) {
             var parameters = new List<Parameter> {
-                new Parameter("id", actionId.ToString(), ParameterType.UrlSegment)
+                new UrlSegmentParameter("id", actionId.ToString())
             };
             return _connection.ExecuteRequest<Action>("actions/{id}", parameters, null, "action");
         }

@@ -22,22 +22,22 @@ namespace DigitalOcean.API.Clients {
 
         public Task<App> RetrieveExistingApp(string appId) {
             var parameters = new List<Parameter> {
-                new Parameter("appId", appId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("appId", appId)
             };
             return _connection.ExecuteRequest<App>("apps/{appId}", parameters, null, "app");
         }
 
         public Task<IReadOnlyList<Deployment>> ListAppDeployments(string appId) {
             var parameters = new List<Parameter> {
-                new Parameter("appId", appId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("appId", appId)
             };
             return _connection.GetPaginated<Deployment>("apps/{appId}/deployments", parameters, "deployments");
         }
 
         public Task<Deployment> RetrieveAppDeployment(string appId, string deploymentId) {
             var parameters = new List<Parameter> {
-                new Parameter("appId", appId, ParameterType.UrlSegment),
-                new Parameter("deploymentId", deploymentId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("appId", appId),
+                new UrlSegmentParameter("deploymentId", deploymentId)
             };
             return _connection.ExecuteRequest<Deployment>("apps/{appId}/deployments/{deploymentId}", parameters, null,
                 "deployment");
@@ -45,31 +45,31 @@ namespace DigitalOcean.API.Clients {
 
         public Task DeleteApp(string appId) {
             var parameters = new List<Parameter> {
-                new Parameter("appId", appId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("appId", appId)
             };
-            return _connection.ExecuteRaw("apps/{appId}", parameters, null, Method.DELETE);
+            return _connection.ExecuteRaw("apps/{appId}", parameters, null, Method.Delete);
         }
 
         public Task<App> CreateNewApp(Specs specs) {
-            return _connection.ExecuteRequest<App>("apps", null, specs, "app", Method.POST);
+            return _connection.ExecuteRequest<App>("apps", null, specs, "app", Method.Post);
         }
 
         public Task<Deployment> CreateNewDeployment(string appId, ForceBuildApp forceBuild) {
             var parameters = new List<Parameter> {
-                new Parameter("appId", appId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("appId", appId)
             };
 
             return _connection.ExecuteRequest<Deployment>("apps/{appId}/deployments", parameters,
-                forceBuild, "deployment", Method.POST);
+                forceBuild, "deployment", Method.Post);
         }
 
         public Task<Deployment> CancelDeployment(string appId, string deploymentId) {
             var parameters = new List<Parameter> {
-                new Parameter("appId", appId, ParameterType.UrlSegment),
-                new Parameter("deploymentId", deploymentId, ParameterType.UrlSegment)
+                new UrlSegmentParameter("appId", appId),
+                new UrlSegmentParameter("deploymentId", deploymentId)
             };
             return _connection.ExecuteRequest<Deployment>("apps/{appId}/deployments/{deploymentId}", parameters, null,
-                "deployment", Method.POST);
+                "deployment", Method.Post);
         }
 
         #endregion

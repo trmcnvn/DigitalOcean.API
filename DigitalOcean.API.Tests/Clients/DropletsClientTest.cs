@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DigitalOcean.API.Clients;
 using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
@@ -92,7 +92,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.Droplet();
             client.Create(body);
 
-            factory.Received().ExecuteRequest<Droplet>("droplets", null, body, "droplet", Method.POST);
+            factory.Received().ExecuteRequest<Droplet>("droplets", null, body, "droplet", Method.Post);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace DigitalOcean.API.Tests.Clients {
             var body = new Models.Requests.Droplets();
             client.Create(body);
 
-            factory.Received().ExecuteRequest<List<Droplet>>("droplets", null, body, "droplets", Method.POST);
+            factory.Received().ExecuteRequest<List<Droplet>>("droplets", null, body, "droplets", Method.Post);
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.Delete(9001);
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Value == 9001.ToString());
-            factory.Received().ExecuteRaw("droplets/{id}", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("droplets/{id}", parameters, null, Method.Delete);
         }
 
         [Fact]
@@ -136,7 +136,7 @@ namespace DigitalOcean.API.Tests.Clients {
             client.DeleteByTag("notarealtag");
 
             var parameters = Arg.Is<List<Parameter>>(list => (string)list[0].Name == "tag_name" && (string)list[0].Value == "notarealtag");
-            factory.Received().ExecuteRaw("droplets", parameters, null, Method.DELETE);
+            factory.Received().ExecuteRaw("droplets", parameters, null, Method.Delete);
         }
 
         [Fact]
